@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function newCustomer() {
+export default function NewCustomer() {
   return (
-    <div className='newCustomer'>
+    <div >
       <h1>lisää uusi asiakas</h1>
     </div>
   );

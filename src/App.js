@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
 import Header from './components/header';
+import NewCustomer from './pages/newCustomer';
 
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
       <Router>
         <Navbar/>
         <Routes>
-          <Route path="/pages/Home" />
+          <Route path="/pages/Home" element={<Home />}/>
+          <Route path="/pages/newCustomer" element={<NewCustomer/>}/>
         </Routes>
       </Router>
       <Footer/>
