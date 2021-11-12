@@ -1,0 +1,16 @@
+
+.kirjaudu{
+    align-items: center;
+    border-style: solid;
+    border-width: 1;
+    border-radius: 3em;
+    justify-content: center;
+    padding: 50px;
+    margin-bottom:50px;
+    width:50%;
+    
+}
+.footer{
+    border-top: solid;
+    width:100%;
+}
