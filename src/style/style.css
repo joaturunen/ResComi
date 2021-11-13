@@ -1,16 +1,31 @@
 
+.container-fluid{
+    background-color:#F4F7FC ;
+}
+img{
+   width:150px; 
+}
+
 .kirjaudu{
     align-items: center;
     border-style: solid;
-    border-width: 1;
+    border-width: 2px;
     border-radius: 3em;
     justify-content: center;
     padding: 50px;
     margin-bottom:50px;
     width:50%;
+    box-shadow: 5px 5px lightgrey;
     
 }
 .footer{
-    border-top: solid;
+    border-top: solid 1px;
     width:100%;
+    text-align: right;
+    background-color: #0088c2;
+}
+.header{
+    background-color: #0088c2;
+    padding: 30px;
+    border-bottom: solid 1px;
 }

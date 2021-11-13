@@ -11,7 +11,7 @@ export default function Kirjaudu() {
   }
 
   return (
-    <div class='container kirjaudu'>
+    <div class='container-fluid kirjaudu'>
         <div>
           <div>
             <h2>Kirjaudu sisään</h2>
