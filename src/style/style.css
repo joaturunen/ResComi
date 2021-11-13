@@ -1,12 +1,13 @@
-
+.container-fluid{
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
 
 .kirjaudu{
-    align-items: center;
     border-style: solid;
     border-width: 2px;
-    border-radius: 3em;
-    justify-content: center;
-    padding: 50px;
+    border-radius: 1em;
     margin-bottom:50px;
     width:50%;
     box-shadow: 5px 5px lightgrey;
@@ -18,9 +19,21 @@
     width:100%;
     text-align: right;
     background-color: #0088c2;
+    position:fixed;
+    height:40px;
+    bottom:0;
 }
 .header{
     background-color: #0088c2;
     padding: 30px;
     border-bottom: solid 1px;
+    width: 100%;
+    background-size:cover;
+}
+.nappi{
+    padding-top: 10px;
+    text-align: center;
+    margin:10px;
+    border: solid 2px;
+    border-radius: 1em;
 }
