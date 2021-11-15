@@ -11,22 +11,22 @@ import Varasto from './sivut/varasto';
 
 
 function App() {
-
+  const [user, setUser] = useState(null);
 
   return (
     <div className="container">
-      <Header/>
-      
       <Router>
+        <Header/>
         <Navbar/>
         <Routes>
-          <Route path="/" element={<Kirjaudu />}/>
+          <Route path="/" element={<Kirjaudu setUser={setUser} />}/>
           <Route path="/sivut/koti" element={<Koti />}/>
           <Route path="/sivut/uusiAsiakas" element={<UusiAsiakas/>}/>
           <Route path="/sivut/varasto" element={<Varasto/>}/>
         </Routes>
+        <Footer/>
       </Router>
-      <Footer/>
+      
     </div>
   );
 }
