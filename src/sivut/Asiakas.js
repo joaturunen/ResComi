@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, alert } from 'react';
 import axios from 'axios';
 
 const URL = "http://localhost/rengashotelli-back/API/customer/read_single.php";
