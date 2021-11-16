@@ -9,6 +9,7 @@ import Koti from './sivut/koti';
 import UusiAsiakas from './sivut/uusiAsiakas';
 import Varasto from './sivut/varasto';
 import Haku from './sivut/haku';
+import Asiakas from './sivut/Asiakas';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/sivut/uusiAsiakas" element={<UusiAsiakas/>}/>
           <Route path="/sivut/varasto" element={<Varasto/>}/>
           <Route path="/sivut/haku" element={<Haku/>}/>
+          <Route path="/sivut/Asiakas" element={<Asiakas/>}/>
         </Routes>
         <Footer/>
       </Router>
