@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import '../style/style.css';
 
-const URL = 'php-kansio'; // tämä pitää lisätä
+//const URL = 'php-kansio'; // tämä haetaan app.js
 
 export default function Kirjaudu({setUser}) {
   const [ktunnus, setKtunnus] = useState('');
@@ -31,7 +31,7 @@ export default function Kirjaudu({setUser}) {
       setUser(json);
       // avaa koti-sivun
     } else { // tänne voi laittaa if-rakenteen erilaisille erroreille
-      alert("Kirjautuminen epäonnistui")
+      alert("Kirjautuminen epäonnistui");
     }
 
   }

@@ -8,8 +8,10 @@ import Kirjaudu from './sivut/kirjaudu';
 import Koti from './sivut/koti';
 import UusiAsiakas from './sivut/uusiAsiakas';
 import Varasto from './sivut/varasto';
+import Haku from './sivut/haku';
 import Asiakas from './sivut/Asiakas';
 
+const URL = "localhost/rengasvarasto/"; // tämä lähetetään routen avulla muihin komponentteihin
 
 function App() {
   const [user, setUser] = useState(null);
@@ -24,6 +26,7 @@ function App() {
           <Route path="/sivut/koti" element={<Koti />}/>
           <Route path="/sivut/uusiAsiakas" element={<UusiAsiakas/>}/>
           <Route path="/sivut/varasto" element={<Varasto/>}/>
+          <Route path="/sivut/haku" element={<Haku/>}/>
           <Route path="/sivut/Asiakas" element={<Asiakas/>}/>
         </Routes>
         <Footer/>

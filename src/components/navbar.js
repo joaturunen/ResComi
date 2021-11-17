@@ -25,6 +25,11 @@ export default function Navbar() {
             </ul>
             <ul className="navbar-nav ml-auto">
                 <li className="nav-link">
+                    <Link id="varasto" to="/sivut/haku">Haku</Link>
+                </li>
+            </ul>
+            <ul className="navbar-nav ml-auto">
+                <li className="nav-link">
                     <Link id="asiakas" to="/sivut/asiakas">Asiakas</Link>
                 </li>
             </ul>
