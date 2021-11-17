@@ -3,17 +3,19 @@
     align-items: center;
     justify-content: center;
     padding: 40px;
+    background-color: #E5E5E5;
 }
 
 
 .kirjaudu{
     border-style: solid;
+    border-color:  #0088c2;
     border-width: 2px;
     border-radius: 1em;
     margin-bottom:50px;
     width:50%;
     box-shadow: 5px 5px lightgrey;
-    background-color:#F4F7FC ;
+    background-color:#E9EAEB ;
     
 }
 .footer{
@@ -24,6 +26,7 @@
     position: fixed;
     height: 40px;
     bottom: 0;
+    color: #F4F7FC;
 
 }
 .header{
