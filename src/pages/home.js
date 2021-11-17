@@ -4,8 +4,8 @@ import {MdPersonAdd } from 'react-icons/md';
 import {GiTireIron} from 'react-icons/gi';
 
 
-export default function Koti() {
-  const [haku, setHaku]= useState('');
+export default function Home() {
+  const [search, setSearch]= useState('');
 
   return (
     <div class='container-fluid'>

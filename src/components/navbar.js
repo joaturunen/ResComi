@@ -10,27 +10,27 @@ export default function Navbar() {
             
             <ul className="navbar-nav ml-auto">
                 <li className="nav-link">
-                    <Link id="koti" to="/sivut/koti">Koti</Link>
+                    <Link id="home" to="/pages/home">Koti</Link>
                 </li>
             </ul>
             <ul className="navbar-nav ml-auto">
                 <li className="nav-link">
-                    <Link id="uusiAsiakas" to="/sivut/uusiAsiakas">Uusi asiakas</Link>
+                    <Link id="newCustomer" to="/pages/newCustomer">Uusi asiakas</Link>
                 </li>
             </ul>
             <ul className="navbar-nav ml-auto">
                 <li className="nav-link">
-                    <Link id="varasto" to="/sivut/varasto">Varastotilanne</Link>
+                    <Link id="warehouse" to="/pages/warehouse">Varastotilanne</Link>
                 </li>
             </ul>
             <ul className="navbar-nav ml-auto">
                 <li className="nav-link">
-                    <Link id="varasto" to="/sivut/haku">Haku</Link>
+                    <Link id="search" to="/pages/search">Haku</Link>
                 </li>
             </ul>
             <ul className="navbar-nav ml-auto">
                 <li className="nav-link">
-                    <Link id="asiakas" to="/sivut/asiakas">Asiakas</Link>
+                    <Link id="customer" to="/pages/customer">Asiakas</Link>
                 </li>
             </ul>
         </nav>

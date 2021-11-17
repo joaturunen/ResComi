@@ -3,7 +3,7 @@ import '../style/style.css';
 
 //const URL = 'php-kansio'; // tämä haetaan app.js
 
-export default function Kirjaudu({setUser}) {
+export default function Login({setUser}) {
   const [ktunnus, setKtunnus] = useState('');
   const [salasana, setSalasana] = useState('');
 

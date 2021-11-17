@@ -4,14 +4,13 @@ import { useEffect, useState } from 'react';
 
 const URL = "http://localhost/rengasvarasto-back/API/customer/read_single.php";
 
-export default function Asiakas() {
+export default function Customer() {
   const[etunimi, setEtunimi] = useState("");
   const[sukunimi, setSukunimi] = useState("");
 
   useEffect(() => {
 
-    async function getAsiakas() {
-
+    async function getCustomer() {
       let address = '';
 
       address = URL + "asnro";
@@ -30,7 +29,7 @@ export default function Asiakas() {
       }
     }
     
-    getAsiakas();
+    getCustomer();
 
   }, []);
 

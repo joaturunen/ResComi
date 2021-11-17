@@ -4,13 +4,13 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
 import Header from './components/header';
-import Kirjaudu from './sivut/kirjaudu';
-import Koti from './sivut/koti';
-import UusiAsiakas from './sivut/uusiAsiakas';
-import Varasto from './sivut/varasto';
-import Haku from './sivut/haku';
-import Asiakas from './sivut/Asiakas';
-import Tyhja from './sivut/tyhja';
+import Login from './pages/login';
+import Home from './pages/home';
+import NewCustomer from './pages/newCustomer';
+import Warehouse from './pages/warehouse';
+import Search from './pages/search';
+import Customer from './pages/Customer';
+import Empty from './pages/empty';
 
 const URL = "localhost/rengasvarasto/"; // tämä lähetetään routen avulla muihin komponentteihin
 
@@ -23,13 +23,13 @@ function App() {
         <Header/>
         <Navbar/>
         <Routes>
-          <Route path="/" element={<Kirjaudu setUser={setUser} />}/>
-          <Route path="/sivut/koti" element={<Koti />}/>
-          <Route path="/sivut/uusiAsiakas" element={<UusiAsiakas/>}/>
-          <Route path="/sivut/varasto" element={<Varasto/>}/>
-          <Route path="/sivut/haku" element={<Haku/>}/>
-          <Route path="/sivut/Asiakas" element={<Asiakas/>}/>
-          <Route path="*" element={<Tyhja />} />
+          <Route path="/" element={<Login />}/>
+          <Route path="/pages/home" element={<Home />}/>
+          <Route path="/pages/newCustomer" element={<NewCustomer/>}/>
+          <Route path="/pages/warehouse" element={<Warehouse/>}/>
+          <Route path="/pages/search" element={<Search/>}/>
+          <Route path="/pages/customer" element={<Customer/>}/>
+          <Route path="*" element={<Empty />} />
         </Routes>
         <Footer/>
       </Router>
