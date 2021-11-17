@@ -1,14 +1,14 @@
 import React from 'react';
 import { useEffect, useState, alert } from 'react';
 import axios from 'axios';
-import {URL,CUSTOMER} from '../back/Config';
+import {URL,CUSTOMER,READ_SINGLE} from '../back/Config';
 
 export default function Asiakas() {
   const[etunimi, setEtunimi] = useState("");
   const[sukunimi, setSukunimi] = useState("");
 
   useEffect(()=>{
-    axios.get(URL + CUSTOMER + "read_single.php?id=1")
+    axios.get(URL + CUSTOMER + READ_SINGLE + "?id=1")
     .then((response) => {
       setEtunimi(response.data.etunimi);
       setSukunimi(response.data.sukunimi);
