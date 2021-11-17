@@ -45,7 +45,16 @@ export default function Koti() {
         <div class='col'>
         </div>
       </div>
-      
+      <div class='row'>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-primary" type="button">Button</button>
+        <button class="btn btn-primary" type="button">Button</button>
+      </div>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-primary" type="button">Button</button>
+        <button class="btn btn-primary" type="button"><GiTireIron size={40} />Button</button>
+      </div>
+      </div>
     </div>
   );
 }

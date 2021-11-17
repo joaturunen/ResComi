@@ -2,12 +2,11 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 
 
-const URL = "http://localhost/rengashotelli-back/API/customer/read_single.php";
+const URL = "http://localhost/rengasvarasto-back/API/customer/read_single.php";
 
 export default function Asiakas() {
   const[etunimi, setEtunimi] = useState("");
   const[sukunimi, setSukunimi] = useState("");
-
 
   useEffect(() => {
 
@@ -34,8 +33,6 @@ export default function Asiakas() {
     getAsiakas();
 
   }, []);
-
-  
 
   return (
     <div >

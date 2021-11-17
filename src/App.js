@@ -18,7 +18,7 @@ function App() {
   const [user, setUser] = useState(null);
 
   return (
-    <div className="container">
+    <div>
       <Router>
         <Header/>
         <Navbar/>
