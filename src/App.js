@@ -11,6 +11,7 @@ import Varasto from './sivut/varasto';
 import Haku from './sivut/haku';
 import Asiakas from './sivut/Asiakas';
 
+const URL = "localhost/rengasvarasto/"; // tämä lähetetään routen avulla muihin komponentteihin
 
 function App() {
   const [user, setUser] = useState(null);
