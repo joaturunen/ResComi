@@ -41,11 +41,9 @@ export default function Koti() {
           <GiTireIron size={40} />
           <p>Valmiit työt</p>
         </div>
-
         <div class='col'>
         </div>
       </div>
-      
     </div>
   );
 }

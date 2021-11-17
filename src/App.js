@@ -10,13 +10,15 @@ import UusiAsiakas from './sivut/uusiAsiakas';
 import Varasto from './sivut/varasto';
 import Haku from './sivut/haku';
 import Asiakas from './sivut/Asiakas';
+import Tyhja from './sivut/tyhja';
 
+const URL = "localhost/rengasvarasto/"; // tämä lähetetään routen avulla muihin komponentteihin
 
 function App() {
   const [user, setUser] = useState(null);
 
   return (
-    <div className="container">
+    <div>
       <Router>
         <Header/>
         <Navbar/>
@@ -27,6 +29,7 @@ function App() {
           <Route path="/sivut/varasto" element={<Varasto/>}/>
           <Route path="/sivut/haku" element={<Haku/>}/>
           <Route path="/sivut/Asiakas" element={<Asiakas/>}/>
+          <Route path="*" element={<Tyhja />} />
         </Routes>
         <Footer/>
       </Router>
