@@ -1,5 +1,5 @@
 import React from 'react';
-import rescomi from '../images/rescomi.png';
+import logo1 from '../images/logo1.svg';
 
 export default function Header() {
 
@@ -8,7 +8,7 @@ export default function Header() {
         <div class='container-fluid header'>
             <div class='row'>
                 <div class='col'>
-                    <img src={rescomi} alt='rescomi'/>
+                    <img class='logo' src={logo1} alt='rescomi'/>
                 </div>
             </div>
         </div>

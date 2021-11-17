@@ -8,17 +8,6 @@ export default function Asiakas() {
   const[etunimi, setEtunimi] = useState("");
   const[sukunimi, setSukunimi] = useState("");
 
-<<<<<<< HEAD
-  useEffect(()=>{
-    axios.get(URL + "?id=2")
-    .then((response) => {
-      setEtunimi(response.data.etunimi);
-      setSukunimi(response.data.sukunimi);
-    }).catch(error => {
-      alert(error);
-    })
-  },[])
-=======
   // useEffect(()=>{
   //   axios.get(URL + "?id=1")
   //   .then((response) => {
@@ -28,7 +17,6 @@ export default function Asiakas() {
   //     alert(error);
   //   })
   // },[])
->>>>>>> eae3af996344038eedf1ff4592e7b6b5a264826d
 
   return (
     <div >
