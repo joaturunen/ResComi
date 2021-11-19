@@ -5,11 +5,12 @@ import {URL, CUSTOMER_READ_SINGLE} from '../back/Config';
 export default function Customer() {
   const[firstname, setFirstname] = useState("");
   const[lastname, setLastname] = useState("");
+  const[phone, setPhone] = useState("");
 
   useEffect(() => {
 
     async function getCustomer() {
-      let address = URL + CUSTOMER_READ_SINGLE + "?id=3";
+      let address = URL + CUSTOMER_READ_SINGLE + "?id=4";
     
       try {
         const response = await fetch(address); 
@@ -17,6 +18,7 @@ export default function Customer() {
         if (response.ok) {
           setFirstname(json.firstname);
           setLastname(json.lastname);
+          setPhone(json.phone);
         } else {
           alert(json.error);
         }
@@ -34,6 +36,7 @@ export default function Customer() {
       <h1>Asiakkaan tiedot</h1>
       <p>{firstname}</p>
       <p>{lastname}</p>
+      <p>{phone}</p>
     </div>
   );
 }
