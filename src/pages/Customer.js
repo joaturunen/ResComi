@@ -1,26 +1,22 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
-
-
-const URL = "http://localhost/rengasvarasto-back/API/customer/read_single.php";
+import { useEffect, useState} from 'react';
+import {URL, CUSTOMER_READ_SINGLE} from '../back/Config';
 
 export default function Customer() {
-  const[etunimi, setEtunimi] = useState("");
-  const[sukunimi, setSukunimi] = useState("");
+  const[firstname, setFirstname] = useState("");
+  const[lastname, setLastname] = useState("");
 
   useEffect(() => {
 
     async function getCustomer() {
-      let address = '';
-
-      address = URL + "asnro";
+      let address = URL + CUSTOMER_READ_SINGLE + "?id=3";
     
       try {
-        const response = await fetch(address);
+        const response = await fetch(address); 
         const json = await response.json();
         if (response.ok) {
-          setEtunimi(json.etunimi);
-          setSukunimi(json.sukunimi);
+          setFirstname(json.firstname);
+          setLastname(json.lastname);
         } else {
           alert(json.error);
         }
@@ -36,8 +32,8 @@ export default function Customer() {
   return (
     <div >
       <h1>Asiakkaan tiedot</h1>
-      <p>{etunimi}</p>
-      <p>{sukunimi}</p>
+      <p>{firstname}</p>
+      <p>{lastname}</p>
     </div>
   );
 }
