@@ -1,14 +1,41 @@
 import {Link} from 'react-router-dom';
-import React from 'react';
+import React, {useState} from 'react';
+import { SidebarData } from './SidebarData';
+
 
 export default function Navbar() {
 
+    const [sidebar, setSidebar] = useState(false);
+
+    const showSidebar = () => setSidebar(!sidebar);
+
     return (
-        <nav className="navbar navbar-expand-lg navbar-light">
-            
+        <>
+        <div className='navbar'>
             <a className="navbar-brand mr-auto p-2" href="/">Rengasvarasto</a>
-            
-            <ul className="navbar-nav ml-auto">
+          </div>  
+            <nav  className = {sidebar ? 'nav-menu active' : 'nav-menu'}>
+                <ul className='nav-menu-items'>
+                    <li className='navbar-toggle'>
+                    </li>
+                {SidebarData.map((item, index) => {
+                    return (
+                        <li key={index} className={item.cName}>
+                            <Link to={item.path}>
+                                {item.icon}
+                                <span>{item.title}</span>
+                            </Link>
+
+                        
+                        </li>
+                    )
+                })} 
+                
+                
+                </ul>
+               
+            </nav>
+           {/*  <ul className="navbar-nav ml-auto">
                 <li className="nav-link">
                     <Link id="home" to="/pages/home">Koti</Link>
                 </li>
@@ -32,7 +59,7 @@ export default function Navbar() {
                 <li className="nav-link">
                     <Link id="customer" to="/pages/customer">Asiakas</Link>
                 </li>
-            </ul>
-        </nav>
+            </ul> */}
+        </>
     );
 }

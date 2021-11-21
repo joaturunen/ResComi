@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import react, {useState, useEffect} from "react";
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route,} from 'react-router-dom';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
 import Header from './components/header';
@@ -21,8 +21,11 @@ function App() {
     <div>
       <Router>
         <Header/>
-        <Navbar/>
+        
+        <Navbar />
+        
         <Routes>
+          
           <Route path="/" element={<Login />}/>
           <Route path="/pages/home" element={<Home />}/>
           <Route path="/pages/newCustomer" element={<NewCustomer/>}/>
@@ -31,6 +34,7 @@ function App() {
           <Route path="/pages/customer" element={<Customer/>}/>
           <Route path="*" element={<Empty />} />
         </Routes>
+        
         <Footer/>
       </Router>
       
