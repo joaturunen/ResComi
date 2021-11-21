@@ -56,9 +56,11 @@
     display: flex;
     justify-content: start;
     align-items: center;
-   
-
     
+}
+.navbar-brand{
+    color: black;
+    text-decoration: none;
 }
 .nav-menu {
     background-color: #F4F7FC;
@@ -83,7 +85,7 @@
     padding: 8px 0px 8px 16px;
     list-style: none;
     height: 60px;
-    border: 1px solid black;
+    
 
     
 }

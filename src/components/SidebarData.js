@@ -1,5 +1,6 @@
 import React from 'react'
-import {FaHome } from 'react-icons/fa';
+import {FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react-icons/fa';
+import {MdPersonAdd, MdPerson } from 'react-icons/md';
 
 export const SidebarData = [
   
@@ -13,35 +14,35 @@ export const SidebarData = [
     {
         title: 'Asiakkaat',
         path: '/pages/Customer',
-        icon: <FaHome />,
+        icon: <MdPerson />,
         cName: 'nav-text'
        },
 
        {
         title: 'Uusi asiakas',
         path: '/pages/newCustomer',
-        icon: <FaHome />,
+        icon: <MdPersonAdd />,
         cName: 'nav-text'
        },
 
        {
         title: 'Etsi',
         path: '/pages/search',
-        icon: <FaHome />,
+        icon: <FaSearch />,
         cName: 'nav-text'
        },
 
        {
         title: 'Varasto',
         path: '/pages/Warehouse',
-        icon: <FaHome />,
+        icon: <FaWarehouse />,
         cName: 'nav-text'
        },
 
        {
         title: 'Tyhjä',
         path: '/pages/empty',
-        icon: <FaHome />,
+        icon: <FaQuestion />,
         cName: 'nav-text'
        },
 ]
