@@ -45,4 +45,10 @@ export const SidebarData = [
         icon: <FaQuestion />,
         cName: 'nav-text'
        },
+       {
+        title: 'Asiakas',
+        path: '/Customer',
+        icon: <MdPerson />,
+        cName: 'nav-text'
+       },
 ]
