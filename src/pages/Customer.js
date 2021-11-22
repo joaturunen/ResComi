@@ -1,26 +1,41 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React , {useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 
-const URL = "http://localhost/rengasvarasto-back/API/customer/read_single.php";
+export default function Customer({url, customer_id}) {
 
-export default function Customer() {
-  const[etunimi, setEtunimi] = useState("");
-  const[sukunimi, setSukunimi] = useState("");
+  const {id} = useParams();
+  
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [address, setAddress] = useState('');
+  const [zipcode, setZipcode] = useState('');
+  const [city, setCity] = useState('');
+  const [saved, setSaved] = useState('');
+  const [employeeId, setEmployeeId] = useState('');
 
   useEffect(() => {
 
-    async function getCustomer() {
+    async function getSingleCustomer() {
       let address = '';
 
-      address = URL + "asnro";
+      address = url + 'customer/customer_read_single.php' + customer_id;
     
       try {
         const response = await fetch(address);
         const json = await response.json();
         if (response.ok) {
-          setEtunimi(json.etunimi);
-          setSukunimi(json.sukunimi);
+          setFirstname(json.firstname);
+          setLastname(json.lastname);
+          setPhone(json.phone);
+          setEmail(json.email);
+          setAddress(json.address);
+          setZipcode(json.zipcode);
+          setCity(json.city);
+          setSaved(json.customersaved);
+          setEmployeeId(json.employee_id);
         } else {
           alert(json.error);
         }
@@ -29,15 +44,13 @@ export default function Customer() {
       }
     }
     
-    getCustomer();
+    getSingleCustomer();
 
   }, []);
 
   return (
     <div >
-      <h1>Asiakkaan tiedot</h1>
-      <p>{etunimi}</p>
-      <p>{sukunimi}</p>
+      <h4>Asiakkaan tiedot</h4>
     </div>
   );
 }
