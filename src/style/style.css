@@ -3,7 +3,6 @@
     align-items: center;
     justify-content: center;
     padding: 40px;
-    background-color: #E5E5E5;
 }
 
 
@@ -13,9 +12,10 @@
     border-width: 2px;
     border-radius: 1em;
     margin-bottom:50px;
+    margin-top:50px;
     width:50%;
     box-shadow: 5px 5px lightgrey;
-    background-color:#E9EAEB ;
+    background-color:#E9EAEB;
     
 }
 .footer{
@@ -26,14 +26,24 @@
     position: fixed;
     height: 40px;
     bottom: 0;
+    margin-top:0;
     color: #F4F7FC;
 
 }
 .header{
     background-color: #0088c2;
-    border-bottom: solid 1px;
     width: 100%;
     height: 150px;
+
+}
+.viiva{
+    border-bottom: solid 1px;
+}
+.kayttaja{
+    background-color: #0088c2;
+    width:100%;
+    text-align: right;
+    color: #F4F7FC;
 
 }
 .nappi{
@@ -41,10 +51,14 @@
     text-align: center;
     margin:10px;
     border: solid 2px;
-    border-radius: 4px;
+    border-radius: 1em;
     box-shadow: 5px 5px lightgrey;
-    background-color:#F4F7FC;
+    background-color:#E9EAEB;
+    border-color:  #0088c2;
 }
 .logo{
     height:80px;
+}
+.search{
+    width:60%;
 }

@@ -6,9 +6,14 @@ export default function Header() {
 
     return (
         <div class='container-fluid header'>
-            <div class='row'>
+            <div class='row viiva'>
                 <div class='col'>
                     <img class='logo' src={logo3} alt='rescomi'/>
+                </div>
+            </div>
+            <div class='row viiva kayttaja'>
+                <div class='col'>
+                    <p>Kirjautunut käyttäjä, Toimipiste</p>
                 </div>
             </div>
         </div>

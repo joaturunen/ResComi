@@ -10,6 +10,7 @@ export default function Footer() {
                     <p>&copy; ResComi</p>
             </div>
             
+            
         </footer>
     )
 }

@@ -14,15 +14,19 @@ export default function Koti() {
         </div>
 
         <div class='col-4 nappi'>
-          <p>Hae
-          <input class="form-control" name='haku'
-            value= {haku} placeholder='Rekisteri tai puh'/>
-            <FaSearch size={20}/></p>
+          
+          <div>
+            <input class="form-control search" name='haku'
+              value= {haku} placeholder='Rekisteri tai puh' />
+            <button class='btn'><FaSearch size={20} /></button>
+          </div>
+          <label>Haku</label>
         </div>
-        <div class='col-4 nappi'>
+
+        <button class='col-4 nappi'>
           <FaWarehouse size={40}/>
           <p>Varasto</p>
-        </div>
+        </button>
 
         <div class='col'>
         </div>
@@ -32,15 +36,16 @@ export default function Koti() {
         <div class='col'>
         </div>
 
-        <div class='col-4 nappi'>
+        <button class='col-4 nappi'>
           <MdPersonAdd size={40} />
           <p>Uusi Asiakas</p>
-        </div>
+        </button>
 
-        <div class='col-4 nappi'>
+        <button class='col-4 nappi'>
           <GiTireIron size={40} />
           <p>Valmiit työt</p>
-        </div>
+        </button>
+
         <div class='col'>
         </div>
       </div>
