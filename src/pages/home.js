@@ -3,6 +3,7 @@ import {FaWarehouse, FaSearch } from 'react-icons/fa';
 import {MdPersonAdd } from 'react-icons/md';
 import {GiTireIron} from 'react-icons/gi';
 
+// tänne pitäs lisätä linkit noihin sivuihin samoin kuin navbarissa on
 
 export default function Home() {
   const [search, setSearch]= useState('');
