@@ -24,8 +24,11 @@ function App() {
     <div>
       <Router>
         <Header/>
-        <Navbar/>
+        
+        <Navbar />
+        
         <Routes>
+          
           <Route path="/" element={<Login />}/>
           <Route path="/home" element={<Home />}/>
           <Route path="/newCustomer" element={<NewCustomer/>}/>
@@ -37,6 +40,7 @@ function App() {
           </Route>
           <Route path="*" element={<Empty />} />
         </Routes>
+        
         <Footer/>
       </Router>
       

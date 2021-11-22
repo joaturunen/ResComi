@@ -7,6 +7,7 @@ import {GiTireIron} from 'react-icons/gi';
 
 export default function Home() {
   const [search, setSearch]= useState('');
+  const [lookFor, setLookFor]= useState('');
 
   return (
     <div class='container-fluid'>
@@ -17,7 +18,7 @@ export default function Home() {
         <div class='col-4 nappi'>
           <p>Hae
           <input class="form-control" name='haku'
-            value= {search} placeholder='Rekisteri tai puh'/>
+            value= {lookFor} placeholder='Rekisteri tai puh'/>
             <FaSearch size={20}/></p>
         </div>
         <div class='col-4 nappi'>

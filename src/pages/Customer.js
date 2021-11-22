@@ -24,7 +24,7 @@ export default function Customer({url, customer_id}) {
       address = url + 'customer/customer_read_single.php' + customer_id;
     
       try {
-        const response = await fetch(address);
+        const response = await fetch(address); 
         const json = await response.json();
         if (response.ok) {
           setFirstname(json.firstname);
