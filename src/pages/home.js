@@ -15,20 +15,10 @@ export default function Home() {
         </div>
 
         <div class='col-4 nappi'>
-<<<<<<< HEAD:src/sivut/koti.js
-          
-          <div>
-            <input class="form-control search" name='haku'
-              value= {haku} placeholder='Rekisteri tai puh' />
-            <button class='btn'><FaSearch size={20} /></button>
-          </div>
-          <label>Haku</label>
-=======
           <p>Hae
           <input class="form-control" name='haku'
             value= {lookFor} placeholder='Rekisteri tai puh'/>
             <FaSearch size={20}/></p>
->>>>>>> 57fae423975b17eb6814c5abdbd83676f3a3e535:src/pages/home.js
         </div>
 
         <button class='col-4 nappi'>
