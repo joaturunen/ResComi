@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function Haku() {
+export default function Warehouse() {
   return (
     <div >
-      <h1>haku</h1>
+      <h1>Varastotilanne</h1>
     </div>
   );
 }

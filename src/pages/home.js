@@ -4,8 +4,9 @@ import {MdPersonAdd } from 'react-icons/md';
 import {GiTireIron} from 'react-icons/gi';
 
 
-export default function Koti() {
-  const [haku, setHaku]= useState('');
+export default function Home() {
+  const [search, setSearch]= useState('');
+  const [lookFor, setLookFor]= useState('');
 
   return (
     <div class='container-fluid'>
@@ -14,6 +15,7 @@ export default function Koti() {
         </div>
 
         <div class='col-4 nappi'>
+<<<<<<< HEAD:src/sivut/koti.js
           
           <div>
             <input class="form-control search" name='haku'
@@ -21,6 +23,12 @@ export default function Koti() {
             <button class='btn'><FaSearch size={20} /></button>
           </div>
           <label>Haku</label>
+=======
+          <p>Hae
+          <input class="form-control" name='haku'
+            value= {lookFor} placeholder='Rekisteri tai puh'/>
+            <FaSearch size={20}/></p>
+>>>>>>> 57fae423975b17eb6814c5abdbd83676f3a3e535:src/pages/home.js
         </div>
 
         <button class='col-4 nappi'>
