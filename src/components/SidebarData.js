@@ -6,42 +6,42 @@ export const SidebarData = [
   
     {
      title: 'Etusivu',
-     path: '/pages/home',
+     path: '/home',
      icon: <FaHome />,
      cName: 'nav-text'
     },
 
     {
         title: 'Asiakkaat',
-        path: '/pages/Customer',
+        path: '/customers',
         icon: <MdPerson />,
         cName: 'nav-text'
        },
 
        {
         title: 'Uusi asiakas',
-        path: '/pages/newCustomer',
+        path: '/newCustomer',
         icon: <MdPersonAdd />,
         cName: 'nav-text'
        },
 
        {
         title: 'Etsi',
-        path: '/pages/search',
+        path: '/search',
         icon: <FaSearch />,
         cName: 'nav-text'
        },
 
        {
         title: 'Varasto',
-        path: '/pages/Warehouse',
+        path: '/Warehouse',
         icon: <FaWarehouse />,
         cName: 'nav-text'
        },
 
        {
         title: 'Tyhjä',
-        path: '/pages/empty',
+        path: '/empty',
         icon: <FaQuestion />,
         cName: 'nav-text'
        },
