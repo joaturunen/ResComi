@@ -1,9 +1,16 @@
 
+/* Värit voisi määrittää tänne ylös, jotta helppo päivittää */
+
+:root {
+    --color-background: #E5E5E5;
+}
+
 .container-fluid{
+    margin-left: 250px;
     align-items: center;
     justify-content: center;
     padding: 40px;
-    background-color: #E5E5E5;
+    background-color: var(--color-background);
 }
 
 
@@ -32,6 +39,7 @@
 .header{
     background-color: #0088c2;
     border-bottom: solid 1px;
+    padding: 40px;
     width: 100%;
     height: 150px;
 
@@ -71,13 +79,8 @@
     position: fixed;
     top: 150;
     
-
-    
-    
-    
-
-    
 }
+
 .nav-text {
     display: flex;
     justify-content: start;
@@ -86,9 +89,8 @@
     list-style: none;
     height: 60px;
     
-
-    
 }
+
 .nav-text a {
     text-decoration: none;
     color: black;
@@ -100,9 +102,11 @@
     padding: 0 16px;
     border-radius: 4px;
 }
+
 .nav-text a:hover{
     background-color: #0088C2 ;
 }
+
 .nav-menu-items{
     width: 100%;
     box-sizing: border-box;
@@ -111,6 +115,7 @@
     font-family: sans-serif;
     
 }
+
 .navbar-toggle {
     background-color:#F4F7FC;
     width: 100%;
@@ -119,9 +124,10 @@
     justify-content: start;
     align-items: center;
     
-    
 }
+
 span {
     margin-left: 20px;
    
 }
+

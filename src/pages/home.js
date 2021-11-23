@@ -10,41 +10,42 @@ export default function Home() {
   const [lookFor, setLookFor]= useState('');
 
   return (
-    <div class='container-fluid'>
-      <div class='row'>
-        <div class='col'>
-        </div>
+    <div className='container-fluid' >
+      
+      <div className='row'>
+        {/* <div className='col'>
+        </div> */}
 
-        <div class='col-4 nappi'>
+        <div className='col-4 nappi'>
           <p>Hae
-          <input class="form-control" name='haku'
+          <input className="form-control" name='haku'
             value= {lookFor} placeholder='Rekisteri tai puh'/>
             <FaSearch size={20}/></p>
         </div>
-        <div class='col-4 nappi'>
+        <div className='col-4 nappi'>
           <FaWarehouse size={40}/>
           <p>Varasto</p>
         </div>
-
-        <div class='col'>
-        </div>
+{/* 
+        <div className='col'>
+        </div> */}
       </div>
 
-      <div class='row'>
-        <div class='col'>
-        </div>
+      <div className='row'>
+        {/* <div className='col'>
+        </div> */}
 
-        <div class='col-4 nappi'>
+        <div className='col-4 nappi'>
           <MdPersonAdd size={40} />
           <p>Uusi Asiakas</p>
         </div>
 
-        <div class='col-4 nappi'>
+        <div className='col-4 nappi'>
           <GiTireIron size={40} />
           <p>Valmiit työt</p>
         </div>
-        <div class='col'>
-        </div>
+        {/* <div className='col'>
+        </div> */}
       </div>
     </div>
   );
