@@ -5,17 +5,14 @@ export default function Header() {
 
 
     return (
-        <div class='header'>
-            <div class='row viiva'>
-                <div class='col'>
-                    <img class='logo' src={logo3} alt='rescomi'/>
-                </div>
+        <div className='header'>
+            
+            <div className='col'>
+                <img className='logo' src={logo3} alt='rescomi'/>
+            
+                <p className='user'>Kirjautunut käyttäjä, Toimipiste</p>
             </div>
-            <div class='row viiva kayttaja'>
-                <div class='col'>
-                    <p>Kirjautunut käyttäjä, Toimipiste</p>
-                </div>
-            </div>
+        
         </div>
     )
 }

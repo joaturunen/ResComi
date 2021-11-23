@@ -52,7 +52,7 @@ export default function Customer({url, customers}) {
   // }, []);
 
   return (
-    <div >
+    <div class='container-fluid'>
       <h4>Asiakkaan tiedot</h4>
       <p>{firstname}</p>
       <p>{lastname}</p>
