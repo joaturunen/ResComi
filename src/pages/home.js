@@ -13,8 +13,8 @@ export default function Home() {
     <div className='container-fluid' >
       
       <div className='row'>
-        {/* <div className='col'>
-        </div> */}
+        <div className='col'>
+        </div>
 
         <div className='col-4 nappi'>
           <p>Hae
@@ -22,30 +22,32 @@ export default function Home() {
             value= {lookFor} placeholder='Rekisteri tai puh'/>
             <FaSearch size={20}/></p>
         </div>
-        <div className='col-4 nappi'>
+
+        <button class='col-4 nappi'>
           <FaWarehouse size={40}/>
           <p>Varasto</p>
+        </button>
+
+        <div class='col'>
         </div>
-{/* 
-        <div className='col'>
-        </div> */}
       </div>
 
       <div className='row'>
-        {/* <div className='col'>
-        </div> */}
+        <div className='col'>
+        </div>
 
-        <div className='col-4 nappi'>
+        <button class='col-4 nappi'>
           <MdPersonAdd size={40} />
           <p>Uusi Asiakas</p>
-        </div>
+        </button>
 
-        <div className='col-4 nappi'>
+        <button class='col-4 nappi'>
           <GiTireIron size={40} />
           <p>Valmiit työt</p>
+        </button>
+
+        <div class='col'>
         </div>
-        {/* <div className='col'>
-        </div> */}
       </div>
     </div>
   );
