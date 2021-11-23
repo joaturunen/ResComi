@@ -11,7 +11,7 @@ import Warehouse from './pages/warehouse';
 import Search from './pages/search';
 import Customers from './pages/customers';
 import CustomerList from './pages/customerlist';
-import Customer from './pages/customer';
+import Customer from './pages/Customer';
 import Empty from './pages/empty';
 import {URL} from './back/Config';
 
@@ -29,7 +29,7 @@ function App() {
         
         <div className="container-fluid">
           <Routes>
-          
+            <Route path="/login" element={<Login/>}/> 
             <Route path="/newCustomer" element={<NewCustomer/>}/>
             <Route path="/warehouse" element={<Warehouse/>}/>
             <Route path="/search" element={<Search/>}/>

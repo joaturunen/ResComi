@@ -9,6 +9,12 @@ export const SidebarData = [
         icon: <FaSearch />,
         cName: 'nav-text'
     },
+    {
+        title: 'Etusivu',
+        path: '/',
+        icon: <FaHome />,
+        cName: 'nav-text'
+    },
 
     {
         title: 'Uusi asiakas',

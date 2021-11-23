@@ -8,7 +8,7 @@ export default function Header() {
         <div className='header'>
             
             <div className='col'>
-                <img className='logo' src={logo3} alt='rescomi'/>
+            <a href='/home'> <img className='logo' src={logo3} alt='rescomi'/> </a>
             
                 <p className='user'>Kirjautunut käyttäjä, Toimipiste</p>
             </div>
