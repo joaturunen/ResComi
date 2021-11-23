@@ -1,5 +1,5 @@
 import React from 'react'
-import {FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react-icons/fa';
+import {FaHome, FaWarehouse, FaSearch, FaQuestion} from 'react-icons/fa';
 import {MdPersonAdd, MdPerson } from 'react-icons/md';
 
 export const SidebarData = [

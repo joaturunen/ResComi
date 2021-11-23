@@ -3,9 +3,11 @@ import {Link} from 'react-router-dom';
 
 
 
-export default function CustomerList({url, customer_id}) {
+export default function CustomerList({url}) {
 
     const [customers, setCustomers] = useState([]);
+
+    // haetaan tietokannasta lista kaikista asiakkaista
     useEffect(() => {
 
         async function getCustomerList() {
@@ -35,7 +37,7 @@ export default function CustomerList({url, customer_id}) {
             {customers.map(customer => (
                 <li key={customer.id}>
                     {/** tänne joku handleclick jotta saadaan id vietyä eteenpäin */}
-                    <Link to={`/customers/?id=${customer_id}`}> 
+                    <Link to={customer.id}> 
                         <p>{customer.id}</p>
                     </Link>
                 </li>

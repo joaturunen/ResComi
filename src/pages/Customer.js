@@ -2,9 +2,10 @@ import React , {useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 
-export default function Customer({url, customer_id}) {
+export default function Customer({url, customers}) {
 
-  const {id} = useParams();
+  const {id} = useParams().customer_id;
+  //const customer = customers.find(n => n.customer_id === Number(customer_id));
   
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
@@ -16,37 +17,39 @@ export default function Customer({url, customer_id}) {
   const [saved, setSaved] = useState('');
   const [employeeId, setEmployeeId] = useState('');
 
-  useEffect(() => {
 
-    async function getSingleCustomer() {
-      let address = '';
+  // haetaan tietokannasta yhden asiakkaan tiedot
+  // useEffect(() => {
 
-      address = url + 'customer/customer_read_single.php?id=' + customer_id;
+  //   async function getSingleCustomer() {
+  //     let address = '';
+
+  //     address = url + 'customer/customer_read_single.php?id=' + customer_id;
     
-      try {
-        const response = await fetch(address); 
-        const json = await response.json();
-        if (response.ok) {
-          setFirstname(json.firstname);
-          setLastname(json.lastname);
-          setPhone(json.phone);
-          setEmail(json.email);
-          setAddress(json.address);
-          setZipcode(json.zipcode);
-          setCity(json.city);
-          setSaved(json.customersaved);
-          setEmployeeId(json.employee_id);
-        } else {
-          alert(json.error);
-        }
-      } catch (error) {
-        alert(error);
-      }
-    }
+  //     try {
+  //       const response = await fetch(address); 
+  //       const json = await response.json();
+  //       if (response.ok) {
+  //         setFirstname(json.firstname);
+  //         setLastname(json.lastname);
+  //         setPhone(json.phone);
+  //         setEmail(json.email);
+  //         setAddress(json.address);
+  //         setZipcode(json.zipcode);
+  //         setCity(json.city);
+  //         setSaved(json.customersaved);
+  //         setEmployeeId(json.employee_id);
+  //       } else {
+  //         alert(json.error);
+  //       }
+  //     } catch (error) {
+  //       alert(error);
+  //     }
+  //   }
     
-    getSingleCustomer();
+  //   getSingleCustomer();
 
-  }, []);
+  // }, []);
 
   return (
     <div class='container-fluid'>

@@ -5,12 +5,12 @@ export default function Header() {
 
 
     return (
-        <div class='container-fluid header'>
+        <div className='header'>
             
-            <div class='col'>
-                <img class='logo' src={logo3} alt='rescomi'/>
+            <div className='col'>
+                <img className='logo' src={logo3} alt='rescomi'/>
             
-                <p class='user'>Kirjautunut käyttäjä, Toimipiste</p>
+                <p className='user'>Kirjautunut käyttäjä, Toimipiste</p>
             </div>
         
         </div>

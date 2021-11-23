@@ -10,14 +10,15 @@ export default function Home() {
   const [lookFor, setLookFor]= useState('');
 
   return (
-    <div class='container-fluid'>
-      <div class='row'>
-        <div class='col'>
+    <div className='container-fluid' >
+      
+      <div className='row'>
+        <div className='col'>
         </div>
 
-        <div class='col-4 nappi'>
+        <div className='col-4 nappi'>
           <p>Hae
-          <input class="form-control" name='haku'
+          <input className="form-control" name='haku'
             value= {lookFor} placeholder='Rekisteri tai puh'/>
             <FaSearch size={20}/></p>
         </div>
@@ -31,8 +32,8 @@ export default function Home() {
         </div>
       </div>
 
-      <div class='row'>
-        <div class='col'>
+      <div className='row'>
+        <div className='col'>
         </div>
 
         <button class='col-4 nappi'>
