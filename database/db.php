@@ -32,7 +32,7 @@ foreign key (role_id) references role(id)
 on delete restrict
 );
 
-create index on employee (
+create index role_index on employee (
 role_id
 );
 
@@ -51,7 +51,7 @@ foreign key (employee_id) references employee(id)
 on delete restrict
 );
 
-create index on customer (
+create index employee_index on customer (
 employee_id
 );
 
@@ -65,7 +65,7 @@ foreign key (employee_id) references employee(id)
 on delete restrict
 );
 
-create index on orders (
+create index orders_index on orders (
 customer_id, employee_id
 );
 
@@ -83,7 +83,7 @@ foreign key (services_id) references services(id)
 on delete restrict
 );
 
-create index on ordertable (
+create index ordertable_index on ordertable (
 orders_id, services_id 
 );
 
@@ -97,8 +97,8 @@ foreign key (customer_id) references customer(id)
 on delete restrict
 );
 
-create index on car (
-    customer_id
+create index car_index on car (
+customer_id
 );
 
 create table office (
@@ -120,7 +120,7 @@ foreign key (office_id) references office(id)
 on delete restrict
 );
 
-create index on warehouse (
+create index warehouse_index on warehouse (
 office_id
 );
 
@@ -131,7 +131,7 @@ foreign key (warehouse_id) references warehouse(id)
 on delete restrict
 );
 
-create index on shelf (
+create index shelf_index on shelf (
 warehouse_id
 );
 
@@ -142,7 +142,7 @@ foreign key (shelf_id) references shelf(id)
 on delete restrict
 );
 
-create index on slot (
+create index slot_index on slot (
 shelf_id
 );
 
@@ -168,6 +168,6 @@ foreign key (slot_id) references slot(id)
 on delete restrict
 );
 
-create index on tires (
+create index tires_index on tires (
 car_register, slot_id
 );
