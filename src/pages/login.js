@@ -37,7 +37,7 @@ export default function Login({setUser}) {
   }
 
   return (
-    <div class='container-fluid kirjaudu'>
+    <div class='container-fluid login'>
         <div>
           <div>
             <h2>Kirjaudu sisään</h2>
