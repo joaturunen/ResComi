@@ -32,7 +32,7 @@ function App() {
         
         <div className="container-fluid">
           <Routes>
-          
+            <Route path="/login" element={<Login/>}/> 
             <Route path="/newCustomer" element={<NewCustomer/>}/>
             <Route path="/warehouse" element={<Warehouse/>}/>
             <Route path="/search" element={<Search/>}/>

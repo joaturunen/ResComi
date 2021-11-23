@@ -1,8 +1,13 @@
 
-/* Värit voisi määrittää tänne ylös, jotta helppo päivittää */
+/* Värit voisi määrittää tänne ylös, jotta helppo päivittää 
+    primary: #0088c2
+    inbox background: #E9EAEB
+    white text: #F4F7FC
+
+*/
 
 :root {
-    --color-background: #E5E5E5;
+    --color-background: #ffffff;
 }
 
 .container-fluid{
@@ -74,6 +79,14 @@
     align-items: center;
     
 }
+/*.nav{
+    border-bottom: solid 1px;
+    border-color:  #0088c2;
+    padding: 10px;
+}
+.navtext{
+    color:black ; 
+}*/
 .navbar-brand{
     color: black;
     text-decoration: none;
