@@ -3,6 +3,14 @@ import React,{useState} from 'react';
 export default function Search() {
   const [search, setSearch] = useState('');
 
+  /**
+   * haetaan tietokannasta kaikkien asiakkaiden tiedot ja kaikkien autojen tiedot
+   * verrataan hakukriteeriä puhelinnumeroihin ja rekisterinumeroihin
+   * asetetaan kriteeriin sopiva asiakas-id usestateen
+   * varmaan pitää olla täsmälleen oikea tulos, ei sumeaa hakua? 
+   * näytetään hakutulos linkkinä, siitä kun painaa niin avautuu asiakas-sivu
+   */
+
   function findInfo(){
 
   }

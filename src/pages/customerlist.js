@@ -1,47 +1,57 @@
 import React , { useEffect, useState } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
 
+// katotaan tarviiko tätä ollenkaan
 
+// export default function CustomerList({url, setCustomer}) {
 
-export default function CustomerList({url}) {
+//     const [customers, setCustomers] = useState([]);
+//     const [showCustomer, setShowCustomer] = useState(false);
 
-    const [customers, setCustomers] = useState([]);
+//     haetaan tietokannasta lista kaikista asiakkaista
+//     useEffect(() => {
 
-    // haetaan tietokannasta lista kaikista asiakkaista
-    useEffect(() => {
-
-        async function getCustomerList() {
-          let address = '';
+//         async function getCustomerList() {
+//           let address = '';
     
-          address = url + 'customer/customer_read_all.php';
+//           address = url + 'customer/customer_read_all.php';
         
-          try {
-            const response = await fetch(address);
-            const json = await response.json();
-            if (response.ok) {
-                setCustomers(json);
-            } else {
-              alert(json.error);
-            }
-          } catch (error) {
-            alert(error);
-          }
-        }
+//           try {
+//             const response = await fetch(address);
+//             const json = await response.json();
+//             if (response.ok) {
+//                 setCustomers(json);
+//             } else {
+//               alert(json.error);
+//             }
+//           } catch (error) {
+//             alert(error);
+//           }
+//         }
         
-        getCustomerList();
+//         getCustomerList();
     
-      }, []);
+//       }, []);
 
-    return (
-        <ul>
-            {customers.map(customer => (
-                <li key={customer.id}>
-                    {/** tänne joku handleclick jotta saadaan id vietyä eteenpäin */}
-                    <Link to={customer.id}> 
-                        <p>{customer.id}</p>
-                    </Link>
-                </li>
-            ))}
-        </ul>
-    );
-}
+//       function handleClick(customer) {
+//           setCustomer(customer);
+//           setShowCustomer(true);
+//       }
+
+//       if (showCustomer === true) {
+//           return <Navigate to="/customer" />
+//       }
+
+//     return (
+//         <ul>
+//             {customers.map(customer => (
+//                 <li key={customer.id}>
+//                     {/** tänne joku handleclick jotta saadaan id vietyä eteenpäin */}
+//                     <div onClick={() => handleClick(customer)}> 
+//                         <h6>{customer.id}</h6>
+//                     </div>
+//                 </li>
+//             ))}
+//         </ul>
+//     );
+// }

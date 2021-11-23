@@ -11,12 +11,13 @@ export const SidebarData = [
      cName: 'nav-text'
     },
 
-    {
-     title: 'Asiakkaat',
-     path: '/customers',
-     icon: <MdPerson />,
-     cName: 'nav-text'
-    },
+    // asiakas-sivu näytetään vain hakutuloksen perusteella
+    // {
+    //  title: 'Asiakkaat',
+    //  path: '/customers',
+    //  icon: <MdPerson />,
+    //  cName: 'nav-text'
+    // },
 
     {
      title: 'Uusi asiakas',

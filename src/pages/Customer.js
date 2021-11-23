@@ -1,11 +1,10 @@
 import React , {useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 
 
-export default function Customer({url, customers}) {
+// tämä avautuu hakutuloksesta, ei näy navissa
 
-  const {id} = useParams().customer_id;
-  //const customer = customers.find(n => n.customer_id === Number(customer_id));
+export default function Customer({url, customerId}) {
+
   
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
@@ -19,40 +18,40 @@ export default function Customer({url, customers}) {
 
 
   // haetaan tietokannasta yhden asiakkaan tiedot
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   async function getSingleCustomer() {
-  //     let address = '';
+    async function getSingleCustomer() {
+      let address = '';
 
-  //     address = url + 'customer/customer_read_single.php?id=' + customer_id;
+      address = url + 'customer/customer_read_single.php?id=' + customerId;
     
-  //     try {
-  //       const response = await fetch(address); 
-  //       const json = await response.json();
-  //       if (response.ok) {
-  //         setFirstname(json.firstname);
-  //         setLastname(json.lastname);
-  //         setPhone(json.phone);
-  //         setEmail(json.email);
-  //         setAddress(json.address);
-  //         setZipcode(json.zipcode);
-  //         setCity(json.city);
-  //         setSaved(json.customersaved);
-  //         setEmployeeId(json.employee_id);
-  //       } else {
-  //         alert(json.error);
-  //       }
-  //     } catch (error) {
-  //       alert(error);
-  //     }
-  //   }
+      try {
+        const response = await fetch(address); 
+        const json = await response.json();
+        if (response.ok) {
+          setFirstname(json.firstname);
+          setLastname(json.lastname);
+          setPhone(json.phone);
+          setEmail(json.email);
+          setAddress(json.address);
+          setZipcode(json.zipcode);
+          setCity(json.city);
+          setSaved(json.customersaved);
+          setEmployeeId(json.employee_id);
+        } else {
+          alert(json.error);
+        }
+      } catch (error) {
+        alert(error);
+      }
+    }
     
-  //   getSingleCustomer();
+    getSingleCustomer();
 
-  // }, []);
+  }, []);
 
   return (
-    <div class='container-fluid'>
+    <div>
       <h4>Asiakkaan tiedot</h4>
       <p>{firstname}</p>
       <p>{lastname}</p>
