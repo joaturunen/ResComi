@@ -15,7 +15,7 @@ export default function Search({url, setCarId, setCustomerId}) {
    */
 
   
-  // function findRegister() {
+  function findRegister() {
   //   useEffect(() => {
   //     let address = url + 'car/car_search.php/' + searchRegister;
 
@@ -35,9 +35,9 @@ export default function Search({url, setCarId, setCustomerId}) {
   //     getRegisters();
 
   //   }, [searchRegister]);
-  // }
+  }
 
-  // function findPhone() {
+  function findPhone() {
   //   useEffect(() => {
   //     let address = url + 'customer/customer_search.php/' + searchPhone;
 
@@ -57,7 +57,7 @@ export default function Search({url, setCarId, setCustomerId}) {
   //     getPhones();
       
   //   }, [searchPhone]);
-  // }
+  }
 
   return (
     <div >
