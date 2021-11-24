@@ -3,6 +3,7 @@ import React,{useState, useEffect} from 'react';
 export default function Search({url, setCarId, setCustomerId}) {
   const [searchRegister, setSearchRegister] = useState('');
   const [searchPhone, setSearchPhone] = useState('');
+  const [searchCriteria, setSearchCriteria] = useState('');
   const [result, setResult] = useState([]);
 
   /**
@@ -14,49 +15,49 @@ export default function Search({url, setCarId, setCustomerId}) {
    */
 
   
-  function findRegister() {
-    useEffect(() => {
-      let address = url + 'car/car_search.php/' + searchRegister;
+  // function findRegister() {
+  //   useEffect(() => {
+  //     let address = url + 'car/car_search.php/' + searchRegister;
 
-      async function getRegisters() {
-        try {
-          const response = await fetch(address);
-          const json = await response.json();
-          if(response.ok) {
-            setResult(json);
-          } else {
-            alert(json.error);
-          }
-        } catch (error) {
-          alert(error);
-        }
-      }
-      getRegisters();
+  //     async function getRegisters() {
+  //       try {
+  //         const response = await fetch(address);
+  //         const json = await response.json();
+  //         if(response.ok) {
+  //           setResult(json);
+  //         } else {
+  //           alert(json.error);
+  //         }
+  //       } catch (error) {
+  //         alert(error);
+  //       }
+  //     }
+  //     getRegisters();
 
-    }, [searchRegister]);
-  }
+  //   }, [searchRegister]);
+  // }
 
-  function findPhone() {
-    useEffect(() => {
-      let address = url + 'customer/customer_search.php/' + searchPhone;
+  // function findPhone() {
+  //   useEffect(() => {
+  //     let address = url + 'customer/customer_search.php/' + searchPhone;
 
-      async function getPhones() {
-        try {
-          const response = await fetch(address);
-          const json = await response.json();
-          if(response.ok) {
-            setResult(json);
-          } else {
-            alert(json.error);
-          }
-        } catch (error) {
-          alert(error);
-        }
-      }
-      getPhones();
+  //     async function getPhones() {
+  //       try {
+  //         const response = await fetch(address);
+  //         const json = await response.json();
+  //         if(response.ok) {
+  //           setResult(json);
+  //         } else {
+  //           alert(json.error);
+  //         }
+  //       } catch (error) {
+  //         alert(error);
+  //       }
+  //     }
+  //     getPhones();
       
-    }, [searchPhone]);
-  }
+  //   }, [searchPhone]);
+  // }
 
   return (
     <div >
