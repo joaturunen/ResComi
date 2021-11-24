@@ -4,8 +4,10 @@ export default function NewCustomer() {
 
 
   return (
-    <div >
-      <h1>lisää uusi asiakas</h1>
+    <div class='container-fluid'>
+      <div>
+        <h1>lisää uusi asiakas</h1>
+      </div>
     </div>
   );
 }

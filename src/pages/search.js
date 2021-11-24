@@ -60,8 +60,8 @@ export default function Search({url, setCarId, setCustomerId}) {
   }
 
   return (
-    <div >
-      <div>
+   
+      <div class='container-fluid'>
         <div>
           <h2>Etsi asiakas</h2>
         </div>
@@ -93,6 +93,6 @@ export default function Search({url, setCarId, setCustomerId}) {
           {result} {/** tää pitää muotoilla jotenkin järkevästi */}
         </div>
       </div>
-    </div>
+    
   );
 }

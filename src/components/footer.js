@@ -5,7 +5,7 @@ export default function Footer() {
 
 
     return (
-        <footer className='footer container-fluid'>
+        <footer className='footer'>
             <div className='row'>
                     <p>&copy; ResComi</p>
             </div>

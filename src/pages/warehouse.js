@@ -5,7 +5,7 @@ import React from 'react';
 
 export default function Warehouse() {
   return (
-    <div >
+    <div class='container-fluid'>
       <h1>Varastotilanne</h1>
     </div>
   );

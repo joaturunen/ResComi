@@ -11,10 +11,11 @@
 }
 
 .container-fluid{
-    margin-left: 250px;
+    margin-left: 100px;
     align-items: center;
     justify-content: center;
-    padding: 40px;
+    padding-top: 10px;
+    padding-left: 40px;
     background-color: var(--color-background);
 }
 
@@ -24,7 +25,6 @@
     border-color:  #0088c2;
     border-width: 2px;
     border-radius: 1em;
-    margin-bottom:50px;
     margin-top:50px;
     width:50%;
     box-shadow: 5px 5px lightgrey;
@@ -41,7 +41,7 @@
     bottom: 0;
     margin-top:0;
     color: #F4F7FC;
-
+    padding-right:40px;
 }
 .header{
     background-color: #0088c2;
@@ -49,6 +49,7 @@
     width: 100%;
     height: 150px;
 }
+
 .user{ /* user signed-in in the header section */
     color: #F4F7FC;
     text-align: right;

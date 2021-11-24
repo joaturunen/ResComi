@@ -11,10 +11,10 @@ export default function Home() {
 
   return (
     <div className='container-fluid' >
-      
       <div className='row'>
-        <div className='col'>
-        </div>
+        <h1>DashBoard</h1>
+      </div>
+      <div className='row'>
 
         <div className='col-4 nappi'>
           <p>Hae
@@ -28,13 +28,11 @@ export default function Home() {
           <p>Varasto</p>
         </button>
 
-        <div class='col'>
-        </div>
+        
       </div>
 
       <div className='row'>
-        <div className='col'>
-        </div>
+        
 
         <button class='col-4 nappi'>
           <MdPersonAdd size={40} />
@@ -46,8 +44,7 @@ export default function Home() {
           <p>Valmiit työt</p>
         </button>
 
-        <div class='col'>
-        </div>
+        
       </div>
     </div>
   );
