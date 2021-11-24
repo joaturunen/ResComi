@@ -39,23 +39,23 @@ export default function Login({setUser}) {
   }
 
   return (
-    <div class='container-fluid login'>
+    <div class='container-fluid'>
         <div>
           <div>
-            <h2>Kirjaudu sisään</h2>
+            <h1>Kirjaudu sisään</h1>
           </div>
           <div>
-            <form onSubmit={login}>
+            <form onSubmit={login} class='login'>
 
               <div class='mb-3'>
-                <label class="form-label">Käyttäjätunnus</label>
+                
                 <input type='text' class="form-control" name='ktunnus'
                 value= {ktunnus} placeholder='Käyttäjätunnus' 
                 onChange={e => setKtunnus(e.target.value)}/>
               </div>
 
               <div class='mb-3'>
-                <label class="form-label">Salasana</label>
+                
                 <input type='password' class="form-control input" name='salasana' placeholder='Salasana' 
                 value={salasana} onChange={e => setSalasana(e.target.value)}/>
               </div>

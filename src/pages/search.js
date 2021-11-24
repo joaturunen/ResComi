@@ -63,7 +63,7 @@ export default function Search({url, setCarId, setCustomerId}) {
    
       <div class='container-fluid'>
         <div>
-          <h2>Etsi asiakas</h2>
+          <h1>Etsi asiakas</h1>
         </div>
         <div className="row">
           <div className="col-4">
