@@ -35,7 +35,7 @@ function App() {
             <Route path="/login" element={<Login/>}/> 
             <Route path="/newCustomer" element={<NewCustomer/>}/>
             <Route path="/warehouse" element={<Warehouse/>}/>
-            <Route path="/search" element={<Search/>}/>
+            <Route path="/search" element={<Search url={URL} setCarId={setCarId} setCustomerId={setCustomerId}/>}/>
             {/* <Route path="/customers" element={<Customers />}>
               <Route index element={<CustomerList url={URL} setCustomer={setCustomer}/>}/>
               <Route path=":customer_id" element={<Customer customer={customer}  />}/>
