@@ -48,7 +48,7 @@ export default function Customer({url, customerId}) {
     
     getSingleCustomer();
 
-  }, []);
+  }, [url, customerId]);
 
   return (
     <div>

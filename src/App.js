@@ -20,8 +20,8 @@ import {URL} from './back/Config';
 
 function App() {
   const [user, setUser] = useState('');
-  const [customerId, setCustomerId] = useState('');
-  const [carId, setCarId] = useState('');
+  const [customerId, setCustomerId] = useState(null);
+  const [carId, setCarId] = useState(null);
 
   return (
     <div >
