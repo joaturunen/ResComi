@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from "react";
+import {Navigate} from 'react-router-dom';
 
 
 export default function Services({url, addToCart}) {
     const [services, setServices] = useState([]);
+    const [showOrderSite, setShowOrderSite] = useState(false);
 
     useEffect(() => {
         async function getServices() {
@@ -21,6 +23,17 @@ export default function Services({url, addToCart}) {
         getServices();
     }, []);
 
+    function goOrderSite() {
+        setShowOrderSite(true);
+    }
+      
+    if (showOrderSite === true) {
+        return (
+            <Navigate to="/order" />
+          
+        );
+    }
+
     return (
         <div className="container-fluid">
             <h3>Palvelut</h3>
@@ -31,6 +44,7 @@ export default function Services({url, addToCart}) {
                     <button onClick={() => addToCart(service)}>Lisää tilaukseen</button>
                 </div>
             ))}
+            <button onClick={() => goOrderSite()}>Siirry tilaussivulle</button>
         </div>
 
     );
