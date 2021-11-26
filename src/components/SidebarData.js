@@ -25,6 +25,20 @@ export const SidebarData = [
     },
 
     {
+        title: 'Palvelut',
+        path: '/services',
+        icon:  '',
+        cName: 'nav-text'
+    },
+
+    {
+        title: 'Uusi tilaus',
+        path: '/order',
+        icon:  '',
+        cName: 'nav-text'
+    },
+
+    {
         title: 'Uusi asiakas',
         path: '/newCustomer',
         icon: <MdPersonAdd />,
