@@ -11,12 +11,10 @@ import Warehouse from './pages/warehouse';
 import Search from './pages/search';
 import Customers from './pages/customers';
 import CustomerList from './pages/customerlist';
-import Customer from './pages/customer';
+import Customer from './pages/Customer';
 import Car from './pages/car';
 import Empty from './pages/empty';
 import {URL} from './back/Config';
-
-
 
 function App() {
   const [user, setUser] = useState('');
@@ -26,29 +24,32 @@ function App() {
   return (
     <div >
       <Router>
+      <div className="container-fluid">
         <Header/>
-        
-        <Navbar />
-        
-        <div className="container-fluid">
-          <Routes>
-            <Route path="/login" element={<Login/>}/> 
-            <Route path="/newCustomer" element={<NewCustomer/>}/>
-            <Route path="/warehouse" element={<Warehouse/>}/>
-            <Route path="/search" element={<Search url={URL} setCarId={setCarId} setCustomerId={setCustomerId}/>}/>
-            {/* <Route path="/customers" element={<Customers />}>
-              <Route index element={<CustomerList url={URL} setCustomer={setCustomer}/>}/>
-              <Route path=":customer_id" element={<Customer customer={customer}  />}/>
-            </Route> */}
-            <Route path="/customer" element={<Customer url={URL} customer={customerId}/>} />
-            <Route path="/car" element={<Car url={URL} car={carId}/> }/>
-            <Route path="/" element={<Home />}>
-              {/* {user ? <Users /> : <Navigate to="/login" />} */}
-            </Route>
-            {/* <Route path="/login" element={<Login onLogin={login}/>}/> */}
-            <Route path="*" element={<Empty />} />
-          
-          </Routes>
+        <div className="row">
+          <div className='col-2 align-self-start no-padding col-sm-6'>
+            <Navbar />
+          </div>
+          <div className='col-lg-10 col-sm-6'>
+            <Routes>
+              <Route path="/login" element={<Login/>}/> 
+              <Route path="/newCustomer" element={<NewCustomer/>}/>
+              <Route path="/warehouse" element={<Warehouse/>}/>
+              <Route path="/search" element={<Search url={URL} setCarId={setCarId} setCustomerId={setCustomerId}/>}/>
+              {/* <Route path="/customers" element={<Customers />}>
+                <Route index element={<CustomerList url={URL} setCustomer={setCustomer}/>}/>
+                <Route path=":customer_id" element={<Customer customer={customer}  />}/>
+              </Route> */}
+              <Route path="/car" element={<Car url={URL} car={carId}/> }/>
+              <Route path="/" element={<Home />}>
+                {/* {user ? <Users /> : <Navigate to="/login" />} */}
+              </Route>
+              {/* <Route path="/login" element={<Login onLogin={login}/>}/> */}
+              <Route path="*" element={<Empty />} />
+            
+            </Routes>
+            </div>
+          </div>
         </div>
         <Footer/>
       </Router>
