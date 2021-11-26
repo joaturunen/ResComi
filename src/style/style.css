@@ -85,6 +85,11 @@
   color: black;
   text-decoration: none;
 }
+
+.nav-icon {
+  min-width: 20px;
+}
+
 .nav-menu {
   background-color: #f4f7fc;
   max-width: 250px;

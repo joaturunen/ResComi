@@ -27,10 +27,10 @@ function App() {
       <div className="container-fluid">
         <Header/>
         <div className="row">
-          <div className='col-2 align-self-start no-padding col-sm-6'>
+          <div className='col col-lg-2 col-md-2 align-self-start no-padding'>
             <Navbar />
           </div>
-          <div className='col-lg-10 col-sm-6'>
+          <div className='col col-md-10'>
             <Routes>
               <Route path="/login" element={<Login/>}/> 
               <Route path="/newCustomer" element={<NewCustomer/>}/>

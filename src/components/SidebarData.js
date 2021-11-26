@@ -6,7 +6,7 @@ export const SidebarData = [
     {
         title: 'Etsi',
         path: '/search',
-        icon: <FaSearch />,
+        icon: <FaSearch className='nav-icon' />,
         cName: 'nav-text'
     },
 
@@ -20,14 +20,14 @@ export const SidebarData = [
     {
         title: 'Etusivu',
         path: '/',
-        icon: <FaHome />,
+        icon: <FaHome className='nav-icon' />,
         cName: 'nav-text'
     },
 
     {
         title: 'Uusi asiakas',
         path: '/newCustomer',
-        icon: <MdPersonAdd />,
+        icon: <MdPersonAdd className='nav-icon' />,
         cName: 'nav-text'
     },
     
@@ -35,7 +35,7 @@ export const SidebarData = [
     {
         title: 'Varasto',
         path: '/Warehouse',
-        icon: <FaWarehouse />,
+        icon: <FaWarehouse className='nav-icon' />,
         cName: 'nav-text'
     },
 
@@ -50,7 +50,7 @@ export const SidebarData = [
     {
         title: 'Kirjaudu ulos',
         path: '/empty',
-        icon: <FaQuestion />,
+        icon: <FaQuestion className='nav-icon' />,
         cName: 'nav-text'
     }
 ]
