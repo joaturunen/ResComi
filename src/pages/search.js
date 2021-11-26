@@ -1,62 +1,104 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState /*, useEffect*/} from 'react';
+import { Navigate } from 'react-router-dom';
 
 export default function Search({url, setCarId, setCustomerId}) {
   const [searchRegister, setSearchRegister] = useState('');
   const [searchPhone, setSearchPhone] = useState('');
   const [searchCriteria, setSearchCriteria] = useState('');
   const [result, setResult] = useState([]);
+  const [showCustomerSite, setShowCustomerSite] = useState(false);
 
   /**
-   * haetaan tietokannasta kaikkien asiakkaiden tiedot ja kaikkien autojen tiedot ! FRONT OK, BACK-KOODI PUUTTUU
-   * verrataan hakukriteeriä puhelinnumeroihin ja rekisterinumeroihin ! BACKISSA, PUUTTUU
+   * haetaan tietokannasta kaikkien asiakkaiden tiedot ja kaikkien autojen tiedot ! BACK TOIMII, FRONT EI
+   * verrataan hakukriteeriä puhelinnumeroihin ja rekisterinumeroihin ! OK
    * asetetaan kriteeriin sopiva asiakas-id usestateen ! 
    * varmaan pitää olla täsmälleen oikea tulos, ei sumeaa hakua? ! HAKU like-operaattorilla, ei tarvi olla täsmällinen
    * näytetään hakutulos linkkinä, siitä kun painaa niin avautuu asiakas-sivu ! 
+   * 
+   * vanhan asiakkaan tiedot haetaan tilaus-sivulla
+   * hakusivulta haetaan auton perusteella renkaiden tiedot
+   * johonkin myös haku jolla saadaan asiakkaan kaikki tiedot: customer, car, tires, orders 
+   * 
    */
 
-  
-  function findRegister() {
-  //   useEffect(() => {
-  //     let address = url + 'car/car_search.php/' + searchRegister;
 
-  //     async function getRegisters() {
-  //       try {
-  //         const response = await fetch(address);
-  //         const json = await response.json();
-  //         if(response.ok) {
-  //           setResult(json);
-  //         } else {
-  //           alert(json.error);
-  //         }
-  //       } catch (error) {
-  //         alert(error);
-  //       }
-  //     }
-  //     getRegisters();
 
-  //   }, [searchRegister]);
+  function findRegister(e) {
+    setSearchCriteria(searchRegister);
+    e.preventDefault();
+    let status = 0;
+    fetch(url + 'car/car_search.php/', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        searchCriteria: searchCriteria
+      })
+    })
+    .then(res => {
+      status = parseInt(res.status);
+      return res.json();
+    })
+    .then(
+      (res) => {
+        if (status === 200) {
+          setResult(res);
+          setCarId(res.id);
+        } else {
+          alert(res.error);
+        }
+      }, (error) => {
+        alert(error);
+      }
+    );
   }
 
-  function findPhone() {
-  //   useEffect(() => {
-  //     let address = url + 'customer/customer_search.php/' + searchPhone;
+  function findPhone(e) {
+    setSearchCriteria(searchPhone);
+    console.log(searchCriteria);
+    e.preventDefault();
+    let status = 0;
+    fetch(url + 'customer/customer_search.php/', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        searchCriteria: searchCriteria
+      })
+    })
+    .then(res => {
+      return res.json();
+    })
+    .then(
+      (res) => {
+        if (status === 200) {
+          setResult(res);
+          console.log(res);
+          setCustomerId(res.customer.id);
+        } else {
+          alert(res.error);
+        }
+      }, (error) => {
+        alert(error);
+      }
+    );
+  }
 
-  //     async function getPhones() {
-  //       try {
-  //         const response = await fetch(address);
-  //         const json = await response.json();
-  //         if(response.ok) {
-  //           setResult(json);
-  //         } else {
-  //           alert(json.error);
-  //         }
-  //       } catch (error) {
-  //         alert(error);
-  //       }
-  //     }
-  //     getPhones();
+  function goCustomerSite(customerId) {
+    setCustomerId(customerId);
+    //setCarId(carId); tämä pitää pohtia vielä
+    setShowCustomerSite(true);
+  }
+  
+  if (showCustomerSite === true) {
+    return (
+      <Navigate to="/customer" />
       
-  //   }, [searchPhone]);
+    );
   }
 
   return (
@@ -71,7 +113,7 @@ export default function Search({url, setCarId, setCustomerId}) {
               <div className='mb-3'>
                 <label className="form-label">Etsi ajoneuvon rekisterinumerolla.</label>
                 <input type='text' 
-                  value={searchRegister} placeholder='ABC-123' 
+                  value={searchRegister} placeholder='ABC-123' maxLength="7"
                   onChange={e => setSearchRegister(e.target.value)}/>
                 <button className='btn btn-primary button'>Etsi</button>
               </div>
@@ -82,7 +124,7 @@ export default function Search({url, setCarId, setCustomerId}) {
               <div className='mb-3'>
                 <label className="form-label">Etsi asiakkaan puhelinnnumerolla.</label>
                 <input type='text' 
-                  value={searchPhone} placeholder='040-1234567' 
+                  value={searchPhone} placeholder='0401234567' maxLength="10"
                   onChange={e => setSearchPhone(e.target.value)}/>
                 <button className='btn btn-primary button'>Etsi</button>
               </div>
@@ -90,7 +132,19 @@ export default function Search({url, setCarId, setCustomerId}) {
           </div>
         </div>
         <div>
-          {result} {/** tää pitää muotoilla jotenkin järkevästi */}
+          <h4>Hakutulokset</h4>
+          <table>
+            <tbody>
+              {result.map(customer => (
+                <tr key={customer.id}>
+                  <td>{customer.firstname}</td>
+                  <td>{customer.lastname}</td>
+                  <td><a onClick={() => goCustomerSite(customer.id)} href="/">Näytä asiakassivu</a></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          
         </div>
       </div>
     
