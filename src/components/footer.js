@@ -6,7 +6,7 @@ export default function Footer() {
 
     return (
         <footer className='footer'>
-            <div className='row'>
+            <div className='row owner'>
                     <p>&copy; ResComi</p>
             </div>
             
