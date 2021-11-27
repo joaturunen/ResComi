@@ -22,17 +22,6 @@ li{
   --color-background: #ffffff;
 }
 
-.container-fluid{
-  
-  margin-left: 100px;
-  align-items: center;
-  justify-content: center;
-  padding-top: 10px;
-    padding-left: 40px;
-  background-color: var(--color-background);
-}
-
-
 .login{ /* login screen */
   border-style: solid;
   border-color:  #0088c2;
@@ -64,22 +53,22 @@ li{
   width: 100%;
   height: 150px;
 }
+
 .user{ /* user signed-in in the header section */
   color: #F4F7FC;
   text-align: right;
 }
 
-
 .button{/* Buttons on the home page */
   padding: 10px;
   text-align: center;
   margin:10px;
-  border: solid 2px;
+  border: none;
   border-radius: 1em;
   box-shadow: 5px 5px lightgrey;
   background-color:#E9EAEB;
-  border-color:  #0088c2;
 }
+
 .logo{ /* Logo in the header */
   height:80px;
 }
@@ -99,30 +88,30 @@ li{
   width: 80px;
 }
 
-.side-menu .top-section{
-  position: relative;
-}
-
-
-
-
 .side-menu .top-section .toggle-menu-btn{
   color: #666;
-  font-size: 20px;
+  font-size: 30px;
   position: absolute;
-  top: 50%;
   right: 0;
   transform: translateY(-50%);
   cursor: pointer;
 }
 
-.side-menu.inactive .top-section .toggle-menu-btn{
+.top-section{
+  height: 30px;
+}
+
+.side-menu .inactive .top-section .toggle-menu-btn{
   right: -50px;
 }
 
 .side-menu .search-controller{
   color: #fff;
   position: relative;
+}
+
+.main-menu-margin{
+  margin-top: 30px;
 }
 
 .side-menu .search-controller .search-btn{
@@ -149,6 +138,10 @@ li{
   color: #666;
 }
 
+.main-menu{
+  margin-top: 30px;
+}
+
 .side-menu .main-menu .menu-item{
   color: #333;
   text-decoration: none;
@@ -163,16 +156,6 @@ li{
   border-radius: 5px;
   color: #F4F7FC;
 }
-
-
-.side-menu .main-menu{
-  margin: 5px 0;
-  position: relative;
-  max-height: 250px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-
 
 .side-menu .main-menu .menu-item .menu-icon{
   display: inline-block;
@@ -209,12 +192,6 @@ li{
   transition: max-height .2s ease-in;
 }
 
-
-
-.side-menu .main-menu .sub-menu.active{
-  max-height: 200px;
-}
-
 .side-menu .main-menu .sub-menu a{
   display: block;
   margin: 5px 0;
@@ -226,15 +203,11 @@ li{
   padding: 5px;
 }
 
-
 .side-menu .main-menu .sub-menu a.active{
-  
   background: #222;
   display: block;
-  
   border-radius: 5px;
   color: #F4F7FC;
-
 }
 
 .side-menu-footer{
@@ -247,8 +220,6 @@ li{
   /* padding: 20px; */
   box-sizing: border-box;
 }
-
-
 
 .side-menu-footer .user-info{
   display: inline-block;
@@ -265,7 +236,6 @@ li{
   height: 0;
   overflow: hidden;
 }
-
 
 .side-menu-footer .user-info h5{
   font-size: 15px;
@@ -295,3 +265,10 @@ li{
 }
 /* End of navigation*/
 
+/* Hidding*/
+.visible {
+  visibility: visible !important;
+}
+.invisible {
+  visibility: hidden !important;
+}

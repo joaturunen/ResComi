@@ -56,17 +56,16 @@ function App() {
   return (
     <>
       <Router>
-      
-      {/* <div className="container-fluid"> */}
         <Header/>
-        {/* <div className="row">
-          <div className='col col-lg-2 col-md-2 align-self-start no-padding'> */}
-           <SideMenu 
-         onCollapse={(inactive) => {
-          console.log(inactive);
-          setInactive(inactive);
-        }}/>
-        <div className={`container ${inactive ? "inactive" : ""}`}>
+        <div className="container-fluid">
+          <div className="row">
+
+              <SideMenu 
+                onCollapse={(inactive) => {
+                console.log(inactive);
+                setInactive(inactive);
+              }}/>
+            <div className='col col-md-10'>
           <Routes>
             <Route path="/login" 
               element={<Login/>
@@ -116,9 +115,9 @@ function App() {
             <Route path="*" element={<Empty />} />
           
           </Routes>
-        {/*   </div>
+
         </div>
-        </div>  */}
+        </div>
         </div>
         {/* <Footer/> */}
       </Router>
