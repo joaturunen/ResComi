@@ -14,6 +14,11 @@ export default function Search({url, setCarId, setCustomerId}) {
    * asetetaan kriteeriin sopiva asiakas-id usestateen ! 
    * varmaan pitää olla täsmälleen oikea tulos, ei sumeaa hakua? ! HAKU like-operaattorilla, ei tarvi olla täsmällinen
    * näytetään hakutulos linkkinä, siitä kun painaa niin avautuu asiakas-sivu ! 
+   * 
+   * vanhan asiakkaan tiedot haetaan tilaus-sivulla
+   * hakusivulta haetaan auton perusteella renkaiden tiedot
+   * johonkin myös haku jolla saadaan asiakkaan kaikki tiedot: customer, car, tires, orders 
+   * 
    */
 
 

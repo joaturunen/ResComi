@@ -1,4 +1,7 @@
 import React, {useState} from 'react';
+import Search from './search';
+
+// kuinka tallennetaan myös auton tiedot samalla?
 
 export default function Order({url, cart, empty, removeFromCart}) {
     const [firstname, setFirstname] = useState('');
@@ -8,8 +11,11 @@ export default function Order({url, cart, empty, removeFromCart}) {
     const [address, setAddress] = useState('');
     const [zipcode, setZipcode] = useState('');
     const [city, setCity] = useState('');
-    const [saved, setSaved] = useState('');
     const [employeeId, setEmployeeId] = useState('');
+    const [register, setRegister] = useState('');
+    const [brand, setBrand] = useState('');
+    const [model, setModel] = useState('');
+    
     const [finished, setFinished] = useState(false);
 
     function order(e) {
@@ -76,6 +82,9 @@ export default function Order({url, cart, empty, removeFromCart}) {
                 {cart.length > 0 && 
                 <>
                     <h4>Asiakastiedot</h4>
+
+                    <Search />
+
                     <form onSubmit={order}>
                         <div>
                             <div>
@@ -106,6 +115,11 @@ export default function Order({url, cart, empty, removeFromCart}) {
             </div>
         )
     } else {
-        return (<h3>Tilaus onnistui.</h3>);
+        return (
+            <div>
+                <h3>Tilaus onnistui.</h3>
+            </div>
+            
+        );
     }
 }

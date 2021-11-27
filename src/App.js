@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import react, {useState, useEffect} from "react";
 import {BrowserRouter as Router, Routes, Route, Outlet, Navigate} from 'react-router-dom';
-import Navbar from './components/navbar';
+import SideMenu, { menuItems } from "./components/SideMenu";
 import Footer from './components/footer';
 import Header from './components/header';
 import Login from './pages/login';
@@ -11,21 +11,19 @@ import Warehouse from './pages/warehouse';
 import Search from './pages/search';
 import Customers from './pages/customers';
 import CustomerList from './pages/customerlist';
-import Customer from './pages/customer';
+import Customer from './pages/Customer';
 import Car from './pages/car';
 import Empty from './pages/empty';
 import Order from './pages/order';
 import Services from './pages/services';
 import {URL} from './back/Config';
 
-
-
 function App() {
   const [user, setUser] = useState('');
   const [customerId, setCustomerId] = useState(null);
   const [carId, setCarId] = useState(null);
   const [cart, setCart] = useState([]);
-
+  const [inactive, setInactive] = useState(false);
 
   useEffect(() => {
     if ('cart' in localStorage) {
@@ -56,13 +54,19 @@ function App() {
   }
 
   return (
-    <div >
+    <>
       <Router>
+      
+     {/*  <div className="container-fluid"> */}
         <Header/>
-        
-        <Navbar />
-        
-        <div className="container-fluid">
+       {/*  <div className="row">
+          <div className='col col-lg-2 col-md-2 align-self-start no-padding'> */}
+           <SideMenu 
+         onCollapse={(inactive) => {
+          console.log(inactive);
+          setInactive(inactive);
+        }}/>
+        <div className={`container ${inactive ? "inactive" : ""}`}>
           <Routes>
             <Route path="/login" 
               element={<Login/>
@@ -112,11 +116,13 @@ function App() {
             <Route path="*" element={<Empty />} />
           
           </Routes>
-        </div>
-        <Footer/>
+          </div>
+        {/* </div>
+        </div> */}
+       {/*  </div> */}
+        {/* <Footer/> */}
       </Router>
-      
-    </div>
+    </>
   );
 }
 
