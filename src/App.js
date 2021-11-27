@@ -57,9 +57,9 @@ function App() {
     <>
       <Router>
       
-     {/*  <div className="container-fluid"> */}
+      {/* <div className="container-fluid"> */}
         <Header/>
-       {/*  <div className="row">
+        {/* <div className="row">
           <div className='col col-lg-2 col-md-2 align-self-start no-padding'> */}
            <SideMenu 
          onCollapse={(inactive) => {
@@ -116,10 +116,10 @@ function App() {
             <Route path="*" element={<Empty />} />
           
           </Routes>
-          </div>
-        {/* </div>
-        </div> */}
-       {/*  </div> */}
+        {/*   </div>
+        </div>
+        </div>  */}
+        </div>
         {/* <Footer/> */}
       </Router>
     </>
