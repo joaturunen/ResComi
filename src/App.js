@@ -56,16 +56,16 @@ function App() {
   return (
     <>
       <Router>
+      <div className="max-wid">
+      <div className="container-fluid">
         <Header/>
-        <div className="container-fluid">
           <div className="row">
-
               <SideMenu 
                 onCollapse={(inactive) => {
                 console.log(inactive);
                 setInactive(inactive);
               }}/>
-            <div className='col col-md-10'>
+            <div className='col-10 '>
           <Routes>
             <Route path="/login" 
               element={<Login/>
@@ -116,6 +116,7 @@ function App() {
           
           </Routes>
 
+        </div>
         </div>
         </div>
         </div>
