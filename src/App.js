@@ -8,10 +8,11 @@ import Login from './pages/login';
 import Home from './pages/home';
 import NewCustomer from './pages/newCustomer';
 import Warehouse from './pages/warehouse';
-import Search from './pages/search';
+import SearchCustomer from './pages/searchCustomer';
+import SearchCar from './pages/searchCar';
 import Customers from './pages/customers';
 import CustomerList from './pages/customerlist';
-import Customer from './pages/Customer';
+import Customer from './pages/customer';
 import Car from './pages/car';
 import Empty from './pages/empty';
 import Order from './pages/order';
@@ -76,7 +77,8 @@ function App() {
                 cart={cart} 
                 addToCart={addToCart} 
                 empty={emptyCart} 
-                removeFromCart={removeFromCart}/>
+                removeFromCart={removeFromCart}
+                setCustomerId={setCustomerId}/>
               }/>
             <Route path="/services" 
               element={<Services
@@ -90,7 +92,12 @@ function App() {
               element={<Warehouse/>
             }/>
             <Route path="/search" 
-              element={<Search 
+              element={<SearchCustomer 
+                url={URL} 
+                setCustomerId={setCustomerId}/>
+            }/>
+            <Route path="/searchCar" 
+              element={<SearchCar 
                 url={URL} 
                 setCarId={setCarId} 
                 setCustomerId={setCustomerId}/>

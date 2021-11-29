@@ -1,6 +1,5 @@
 import React , {useEffect, useState } from 'react';
 
-
 // tämä avautuu hakutuloksesta, ei näy navissa
 
 export default function Customer({url, customerId}) {
@@ -23,7 +22,7 @@ export default function Customer({url, customerId}) {
     async function getSingleCustomer() {
       let address = '';
 
-      address = url + 'customer/customer_read_single.php?id=' + 1;
+      address = url + 'customer/customer_read_single.php?id=' + customerId;
     
       try {
         const response = await fetch(address); 

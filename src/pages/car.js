@@ -1,6 +1,5 @@
 import React , {useEffect, useState } from 'react';
 
-
 // tämä avautuu hakutuloksesta, ei näy navissa
 
 export default function Car({url, carId}) {

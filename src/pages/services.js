@@ -8,6 +8,7 @@ export default function Services({url, addToCart}) {
 
     useEffect(() => {
         async function getServices() {
+            console.log(url);
             try {
                 const response = await fetch(url + 'services/services_read_all.php');
                 const json = await response.json();

@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import Search from './search';
+import SearchCustomer from './searchCustomer';
 
 // kuinka tallennetaan myös auton tiedot samalla?
 
-export default function Order({url, cart, empty, removeFromCart}) {
+export default function Order({url, cart, empty, removeFromCart, setCustomerId}) {
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
     const [phone, setPhone] = useState('');
@@ -83,8 +83,9 @@ export default function Order({url, cart, empty, removeFromCart}) {
                 <>
                     <h4>Asiakastiedot</h4>
 
-                    <Search />
+                    <SearchCustomer url={url} setCustomerId={setCustomerId}/>
 
+                    <h4>Lisää uusi asiakas</h4>
                     <form onSubmit={order}>
                         <div>
                             <div>

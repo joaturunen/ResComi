@@ -14,12 +14,10 @@ export default function Home() {
     <div className='row justify-content-center'>
         <h1>DashBoard</h1>
       <div className='row'>
-        <div className='col-3 button'>
-          <p>Hae
-          <input className="form-control" name='haku'
-            value= {lookFor} placeholder='Rekisteri tai puh'/>
-            <FaSearch size={20}/></p>
-        </div>
+        <button className='col-3 button'>
+          <FaSearch size={20}/>
+          <p>Hae</p>
+        </button>
         <button class='col-3 button'>
           <FaWarehouse size={40}/>
           <p>Varasto</p>
