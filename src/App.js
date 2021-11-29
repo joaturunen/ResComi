@@ -13,12 +13,14 @@ import SearchCar from './pages/searchCar';
 import Customers from './pages/customers';
 import CustomerList from './pages/customerlist';
 import Customer from './pages/customer';
+import CustomerInfo from './pages/customerInfo';
 import Car from './pages/car';
 import Empty from './pages/empty';
 import Order from './pages/order';
 import Services from './pages/services';
 import {URL} from './back/Config';
 import Print from './printable/Print';
+import Tab from './components/tab/Tab';
 
 function App() {
   const [user, setUser] = useState('');
@@ -79,7 +81,8 @@ function App() {
                 addToCart={addToCart} 
                 empty={emptyCart} 
                 removeFromCart={removeFromCart}
-                setCustomer={setCustomer}/>
+                setCustomer={setCustomer}
+                customer={customer}/>
               }/>
             <Route path="/services" 
               element={<Services
@@ -108,6 +111,9 @@ function App() {
               <Route path=":customer_id" element={<Customer customer={customer}  />}/>
             </Route> */}
             <Route path="/customer" 
+              element={<Customer url={URL} customer={customer}/>
+            }/>
+            <Route path="/customerInfo" 
               element={<Customer url={URL} customer={customer}/>
             }/>
             <Route path="/car" 

@@ -46,7 +46,7 @@ export default function SearchCustomer({url, setCustomer}) {
   
   if (showCustomerSite === true) {
     return (
-      <Navigate to="/customer" />
+      <Navigate to="/customerInfo" />
       
     );
   }

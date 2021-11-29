@@ -34,10 +34,15 @@ export default function Home() {
           <p>Valmiit työt</p>
         </button>
 
-        <Link to="../printable/Print" class='col-4 nappi'>
+        <Link to="../printable/Print" class='col-3 button'>
           <GiTireIron size={40} />
           <p>Printtisivutesti</p>
-        </Link>        
+        </Link>
+
+        <Link to="./customer" class='col-3 button'>
+         <MdPersonAdd size={40} /> 
+          <p>Asiakas</p>
+        </Link>    
       </div>
       </div>
       </>
