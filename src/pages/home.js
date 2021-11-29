@@ -8,19 +8,15 @@ import Print from '../printable/Print';
 // tänne pitäs lisätä linkit noihin sivuihin samoin kuin navbarissa on
 
 export default function Home() {
-  const [search, setSearch]= useState('');
-  const [lookFor, setLookFor]= useState('');
 
   return (
     <>
         <h1>DashBoard</h1>
       <div className='row marginHome'>
-        <div className='col-3 button'>
-          <p>Hae
-          <input className="form-control" name='haku'
-            value= {lookFor} placeholder='Rekisteri tai puh'/>
-            <FaSearch size={20}/></p>
-        </div>
+        <button className='col-3 button'>
+          <FaSearch size={30}/>
+          <p>Hae</p>
+        </button>
         <button class='col-3 button'>
           <FaWarehouse size={40}/>
           <p>Varasto</p>
@@ -37,10 +33,15 @@ export default function Home() {
           <p>Valmiit työt</p>
         </button>
 
-        <Link to="../printable/Print" class='col-4 nappi'>
+        <Link to="../printable/Print" class='col-3 button'>
           <GiTireIron size={40} />
           <p>Printtisivutesti</p>
-        </Link>        
+        </Link>
+
+        <Link to="./customer" class='col-3 button'>
+         <MdPersonAdd size={40} /> 
+          <p>Asiakas</p>
+        </Link>    
       </div>
 
       </>

@@ -16,7 +16,7 @@ import {FaTimes, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react-icons/f
  {
         name: 'Etsi',
         exact: true,
-        to: '/search',
+        to: '/searchCar',
         icon: <FaSearch />,
        
     },
@@ -59,7 +59,7 @@ import {FaTimes, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react-icons/f
      {
       name: "Varasto",
       exact: true,
-      to: `/Warehouse`,
+      to: `/warehouse`,
       icon: <FaWarehouse />,
    
     },

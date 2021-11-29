@@ -8,6 +8,7 @@ export default function Services({url, addToCart}) {
 
     useEffect(() => {
         async function getServices() {
+            console.log(url);
             try {
                 const response = await fetch(url + 'services/services_read_all.php');
                 const json = await response.json();
@@ -37,13 +38,18 @@ export default function Services({url, addToCart}) {
     return (
         <div className="container-fluid">
             <h3>Palvelut</h3>
-            {services.map(service => (
-                <div key={service.id} > 
-                    <h6>{service.service}</h6>
-                    <h6>{service.price}</h6>
-                    <button onClick={() => addToCart(service)}>Lisää tilaukseen</button>
-                </div>
-            ))}
+            <table>
+                <tbody>
+                    {services.map(service => (
+                        <tr key={service.id} > 
+                            <td>{service.service}</td>
+                            <td>{service.price}</td>
+                            <button onClick={() => addToCart(service)}>Valitse</button>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+            
             <button onClick={() => goOrderSite()}>Siirry tilaussivulle</button>
         </div>
 
