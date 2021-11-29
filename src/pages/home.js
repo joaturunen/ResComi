@@ -41,7 +41,12 @@ export default function Home() {
         <Link to="../printable/Print" class='col-3 button'>
           <GiTireIron size={40} />
           <p>Printtisivutesti</p>
-        </Link>        
+        </Link>
+
+        <Link to="./Customer" class='col-3 button'>
+         <MdPersonAdd size={40} /> 
+          <p>Asiakas</p>
+        </Link>    
       </div>
       </div>
       </>

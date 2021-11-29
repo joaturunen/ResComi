@@ -1,11 +1,12 @@
-import React , {useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import Tab from '../components/tab/Tab';
 
 
 // tämä avautuu hakutuloksesta, ei näy navissa
 
-export default function Customer({url, customerId}) {
+export default function Customer({ url, customerId }) {
 
-  
+
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
   const [phone, setPhone] = useState('');
@@ -24,9 +25,9 @@ export default function Customer({url, customerId}) {
       let address = '';
 
       address = url + 'customer/customer_read_single.php?id=' + 1;
-    
+
       try {
-        const response = await fetch(address); 
+        const response = await fetch(address);
         const json = await response.json();
         if (response.ok) {
           setFirstname(json.firstname);
@@ -45,23 +46,108 @@ export default function Customer({url, customerId}) {
         alert(error);
       }
     }
-    
+
     getSingleCustomer();
 
   }, [url, customerId]);
 
+  const tabContent = [
+    {
+      title: "Perustiedot",
+      content: <div class="col-sm-3">
+        <label>Etunimi</label>
+        <input type="text" class="form-control" />
+      </div>,
+    },
+    {
+      title: "Auto",
+      content: <div class="col-sm-3">
+        <label>Rekisterinumero</label>
+        <input type="text" class="form-control" />
+      </div>,
+    },
+    {
+      title: "Renkaat",
+      content: <div class="col-sm-3">
+        <label>Renkaan merkki</label>
+        <input type="text" class="form-control" />
+      </div>,
+    },
+    {
+      title: "Varaus",
+      content: <div class="col-sm-3">
+        <label>Varaus numero</label>
+        <input type="text" class="form-control" />
+      </div>,
+    },
+    {
+      title: "Varaushistoria",
+      content: <div class="col-sm-3">
+        <label>Edelliset varaukset</label>
+        <input type="text" class="form-control" />
+      </div>,
+    },
+  ];
+
   return (
-    <div>
-      <h4>Asiakkaan tiedot</h4>
-      <p>{firstname}</p>
-      <p>{lastname}</p>
-      <p>{phone}</p>
-      <p>{email}</p>
-      <p>{address}</p>
-      <p>{zipcode}</p>
-      <p>{city}</p>
-      <p>{saved}</p>
-      <p>{employeeId}</p>
-    </div>
+    <>
+      <div class="container-fluid">
+        <div>
+          <form>
+            <div class="row">
+              <h4>Asiakkaan tiedot</h4>
+              <Tab active={1}>
+                {tabContent.map((tab, index) => (
+                  <Tab.TabPane key={'Tab-${index}'} tab={tab.title}>{tab.content}</Tab.TabPane>
+                ))}
+              </Tab>
+            </div>
+          </form>
+        </div>
+      </div>
+    </>
   );
-}
+};
+/* <div class="col-sm-3">,
+      <label>Lähiosoite</label>,
+      <input type="text" class="form-control" />,
+    </div>,
+    <div class="col-sm-3">,
+      <label>Asiakkuus luotu</label>,
+      <input type="text" class="form-control" />,
+    </div>,
+    <div class="col-sm-4">,
+      <label>Etunimi</label>,
+      <input type="text" class="form-control" />,
+    </div>,
+    <div class="col-sm-4">,
+      <label>Postinumero</label>,
+      <input type="text" class="form-control" />,
+    </div>,
+    <div class="col-sm-4">,
+      <label>Sukunimi</label>,
+      <input type="text" class="form-control" />,
+    </div>,
+    <div class="col-sm-4">,
+      <label>Postitoimipaikka</label>,
+      <input type="text" class="form-control" />,
+    </div>,
+    <div class="col-sm-4">,
+      <label>Puhelinumero</label>,
+      <input type="text" class="form-control" />,
+    </div>,
+    <div class="col-sm-4">,
+      <label>Sähköposti</label>,
+      <input type="text" class="form-control" />,
+    </div>,
+
+     <p>{firstname}</p>
+        <p>{lastname}</p>
+        <p>{phone}</p>
+        <p>{email}</p>
+        <p>{address}</p>
+        <p>{zipcode}</p>
+        <p>{city}</p>
+        <p>{saved}</p>
+        <p>{employeeId}</p>
+        */

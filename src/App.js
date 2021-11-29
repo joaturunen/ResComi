@@ -18,6 +18,7 @@ import Order from './pages/order';
 import Services from './pages/services';
 import {URL} from './back/Config';
 import Print from './printable/Print';
+import Tab from './components/tab/Tab';
 
 function App() {
   const [user, setUser] = useState('');
