@@ -8,21 +8,24 @@ import Login from './pages/login';
 import Home from './pages/home';
 import NewCustomer from './pages/newCustomer';
 import Warehouse from './pages/warehouse';
-import Search from './pages/search';
+import SearchCustomer from './pages/searchCustomer';
+import SearchCar from './pages/searchCar';
 import Customers from './pages/customers';
 import CustomerList from './pages/customerlist';
-import Customer from './pages/Customer';
+import Customer from './pages/customer';
+import CustomerInfo from './pages/customerInfo';
 import Car from './pages/car';
 import Empty from './pages/empty';
 import Order from './pages/order';
 import Services from './pages/services';
 import {URL} from './back/Config';
 import Print from './printable/Print';
+import Tab from './components/tab/Tab';
 
 function App() {
   const [user, setUser] = useState('');
-  const [customerId, setCustomerId] = useState(null);
-  const [carId, setCarId] = useState(null);
+  const [customer, setCustomer] = useState(null);
+  const [car, setCar] = useState(null);
   const [cart, setCart] = useState([]);
   const [inactive, setInactive] = useState(false);
 
@@ -42,8 +45,8 @@ function App() {
   }
 
   // poista tuote ostoskorista
-  function removeFromCart(tuote) {
-    const itemsWithoutRemoved = cart.filter(item => item.id !== tuote.id);
+  function removeFromCart(service) {
+    const itemsWithoutRemoved = cart.filter(service => service.id !== service.id);
     setCart(itemsWithoutRemoved);
     localStorage.setItem('cart',JSON.stringify(itemsWithoutRemoved));
   }
@@ -77,7 +80,9 @@ function App() {
                 cart={cart} 
                 addToCart={addToCart} 
                 empty={emptyCart} 
-                removeFromCart={removeFromCart}/>
+                removeFromCart={removeFromCart}
+                setCustomer={setCustomer}
+                customer={customer}/>
               }/>
             <Route path="/services" 
               element={<Services
@@ -91,20 +96,28 @@ function App() {
               element={<Warehouse/>
             }/>
             <Route path="/search" 
-              element={<Search 
+              element={<SearchCustomer 
                 url={URL} 
-                setCarId={setCarId} 
-                setCustomerId={setCustomerId}/>
+                setCustomer={setCustomer}/>
+            }/>
+            <Route path="/searchCar" 
+              element={<SearchCar 
+                url={URL} 
+                setCar={setCar} 
+                setCustomer={setCustomer}/>
               }/>
             {/* <Route path="/customers" element={<Customers />}>
               <Route index element={<CustomerList url={URL} setCustomer={setCustomer}/>}/>
               <Route path=":customer_id" element={<Customer customer={customer}  />}/>
             </Route> */}
             <Route path="/customer" 
-              element={<Customer url={URL} customer={customerId}/>
+              element={<Customer url={URL} customer={customer}/>
+            }/>
+            <Route path="/customerInfo" 
+              element={<Customer url={URL} customer={customer}/>
             }/>
             <Route path="/car" 
-              element={<Car url={URL} car={carId}/>
+              element={<Car url={URL} car={car}/>
             }/>
             <Route path="/" 
               element={<Home />}>
