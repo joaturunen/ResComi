@@ -113,12 +113,11 @@ import {FaTimes, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react-icons/f
     return (
       <div className={`side-menu nav-color ${inactive ? "inactive" : "col lign-self-start no-padding"}`}>
         <div className="top-section row">
-         
-          <div onClick={() => setInactive(!inactive)} className="toggle-menu-btn">
+          <div onClick={() => setInactive(!inactive)}>
             {inactive ? (
-              <MdArrowForward/>
+              <MdArrowForward className='toggle-menu-btn'/>
             ) : (
-              <MdArrowBack />
+              <MdArrowBack className='toggle-menu-btn' />
             )}
           </div>
         </div>
@@ -143,7 +142,6 @@ import {FaTimes, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react-icons/f
             </ul>
           </div>
             <div id="bottom" className="user-info">
-              <h5>Kirjaudu ulos</h5>
               <p>&copy; ResComi</p>
             </div>
 
