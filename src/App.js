@@ -66,7 +66,8 @@ function App() {
                 console.log(inactive);
                 setInactive(inactive);
               }}/>
-            <div className='col-10 '>
+            <div className='col-10'>
+            <div className='row justify-content-center content'>
           <Routes>
             <Route path="/login" 
               element={<Login/>
@@ -116,7 +117,7 @@ function App() {
             <Route path="*" element={<Empty />} />
             <Route path="/printable/Print" element={<Print />} />
           </Routes>
-
+          </div>
         </div>
         </div>
         </div>

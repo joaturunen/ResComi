@@ -13,9 +13,8 @@ export default function Home() {
 
   return (
     <>
-    <div className='row justify-content-center'>
         <h1>DashBoard</h1>
-      <div className='row'>
+      <div className='row marginHome'>
         <div className='col-3 button'>
           <p>Hae
           <input className="form-control" name='haku'
@@ -43,7 +42,7 @@ export default function Home() {
           <p>Printtisivutesti</p>
         </Link>        
       </div>
-      </div>
+
       </>
   );
 }
