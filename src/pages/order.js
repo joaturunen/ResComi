@@ -3,7 +3,7 @@ import SearchCustomer from './searchCustomer';
 
 // kuinka tallennetaan myös auton tiedot samalla?
 
-export default function Order({url, cart, empty, removeFromCart, setCustomerId}) {
+export default function Order({url, cart, empty, removeFromCart, setCustomer}) {
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
     const [phone, setPhone] = useState('');
@@ -83,7 +83,7 @@ export default function Order({url, cart, empty, removeFromCart, setCustomerId})
                 <>
                     <h4>Asiakastiedot</h4>
 
-                    <SearchCustomer url={url} setCustomerId={setCustomerId}/>
+                    <SearchCustomer url={url} setCustomer={setCustomer}/>
 
                     <h4>Lisää uusi asiakas</h4>
                     <form onSubmit={order}>

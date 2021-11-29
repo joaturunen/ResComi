@@ -2,9 +2,10 @@ import React,{useState /*, useEffect*/} from 'react';
 import { Navigate } from 'react-router-dom';
 
 
-export default function SearchCar({url, setCarId, setCustomerId}) {
+export default function SearchCar({url, setCar}) {
     const [searchRegister, setSearchRegister] = useState('');
     const [result, setResult] = useState([]);
+    const [showCarSite, setShowCarSite] = useState(false);
 
     function findRegister(e) {
         e.preventDefault();
@@ -26,15 +27,25 @@ export default function SearchCar({url, setCarId, setCustomerId}) {
         .then(
           (res) => {
             if (status === 200) {
-              setResult(res);
-              setCarId(res.car.id);
-              setCustomerId(res.car.customer_id);
+              setResult(result => [...result, res]);
             } else {
               alert(res.error);
             }
           }, (error) => {
             alert(error);
           }
+        );
+    }
+
+    function openCarSite(car) {
+        setCar(car);
+        setShowCarSite(true);
+      }
+      
+      if (showCarSite === true) {
+        return (
+          <Navigate to="/car" />
+          
         );
       }
 
@@ -51,19 +62,20 @@ export default function SearchCar({url, setCarId, setCustomerId}) {
                 </div>
             </form>
             <div>
-            <h4>Hakutulokset</h4>
-            <table>
-                <tbody>
-                    {result.map(car => (
-                        <tr key={car.id}>
-                            <td>{car.register}</td>
-                            <td>{car.brand}</td>
-                            <td>{car.model}</td>
-                            <td>{car.customer_id}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+                <h4>Hakutulokset</h4>
+                <table>
+                    <tbody>
+                        {result.map(car => (
+                            <tr key={car.id}>
+                                <td>{car.register}</td>
+                                <td>{car.brand}</td>
+                                <td>{car.model}</td>
+                                <td>{car.customer_id}</td>
+                                <button onClick={() => openCarSite(car)}>Avaa</button>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             
             </div>
         </div>

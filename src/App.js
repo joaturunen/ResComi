@@ -22,8 +22,8 @@ import Print from './printable/Print';
 
 function App() {
   const [user, setUser] = useState('');
-  const [customerId, setCustomerId] = useState(null);
-  const [carId, setCarId] = useState(null);
+  const [customer, setCustomer] = useState(null);
+  const [car, setCar] = useState(null);
   const [cart, setCart] = useState([]);
   const [inactive, setInactive] = useState(false);
 
@@ -43,8 +43,8 @@ function App() {
   }
 
   // poista tuote ostoskorista
-  function removeFromCart(tuote) {
-    const itemsWithoutRemoved = cart.filter(item => item.id !== tuote.id);
+  function removeFromCart(service) {
+    const itemsWithoutRemoved = cart.filter(service => service.id !== service.id);
     setCart(itemsWithoutRemoved);
     localStorage.setItem('cart',JSON.stringify(itemsWithoutRemoved));
   }
@@ -79,7 +79,7 @@ function App() {
                 addToCart={addToCart} 
                 empty={emptyCart} 
                 removeFromCart={removeFromCart}
-                setCustomerId={setCustomerId}/>
+                setCustomer={setCustomer}/>
               }/>
             <Route path="/services" 
               element={<Services
@@ -95,23 +95,23 @@ function App() {
             <Route path="/search" 
               element={<SearchCustomer 
                 url={URL} 
-                setCustomerId={setCustomerId}/>
+                setCustomer={setCustomer}/>
             }/>
             <Route path="/searchCar" 
               element={<SearchCar 
                 url={URL} 
-                setCarId={setCarId} 
-                setCustomerId={setCustomerId}/>
+                setCar={setCar} 
+                setCustomer={setCustomer}/>
               }/>
             {/* <Route path="/customers" element={<Customers />}>
               <Route index element={<CustomerList url={URL} setCustomer={setCustomer}/>}/>
               <Route path=":customer_id" element={<Customer customer={customer}  />}/>
             </Route> */}
             <Route path="/customer" 
-              element={<Customer url={URL} customer={customerId}/>
+              element={<Customer url={URL} customer={customer}/>
             }/>
             <Route path="/car" 
-              element={<Car url={URL} car={carId}/>
+              element={<Car url={URL} car={car}/>
             }/>
             <Route path="/" 
               element={<Home />}>

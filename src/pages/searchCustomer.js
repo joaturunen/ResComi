@@ -1,7 +1,7 @@
 import React,{useState /*, useEffect*/} from 'react';
 import { Link, Navigate } from 'react-router-dom';
 
-export default function SearchCustomer({url, setCustomerId}) {
+export default function SearchCustomer({url, setCustomer}) {
   const [searchPhone, setSearchPhone] = useState('');
   const [result, setResult] = useState([]);
   const [showCustomerSite, setShowCustomerSite] = useState(false);
@@ -9,13 +9,9 @@ export default function SearchCustomer({url, setCustomerId}) {
 
 
   function findPhone(e) {
-    console.log(searchPhone);
-    console.log(url);
     e.preventDefault();
     let status = 0;
-    let address = url + 'customer/customer_search.php/';
-    console.log(address);
-    fetch(address, {
+    fetch(url + 'customer/customer_search.php/', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -31,9 +27,9 @@ export default function SearchCustomer({url, setCustomerId}) {
     .then(
       (res) => {
         if (status === 200) {
+          console.log(res);
           setResult(result => [...result, res]);
-          console.log(result);
-          setCustomerId(res.customer.id);
+          
         } else {
           alert(res.error);
         }
@@ -43,8 +39,8 @@ export default function SearchCustomer({url, setCustomerId}) {
     );
   }
 
-  function goCustomerSite(customerId) {
-    setCustomerId(customerId);
+  function openCustomerSite(customer) {
+    setCustomer(customer);
     setShowCustomerSite(true);
   }
   
@@ -76,8 +72,7 @@ export default function SearchCustomer({url, setCustomerId}) {
                 <tr key={customer.id}>
                   <td>{customer.firstname}</td>
                   <td>{customer.lastname}</td>
-                  <td><a onClick={() => goCustomerSite(customer.id)} href="/">Näytä asiakassivu</a></td>
-                  <td><Link to="/customer">Näytä tiedot</Link></td>
+                  <button onClick={() => openCustomerSite(customer)}></button>
                 </tr>
               ))}
             </tbody>

@@ -8,8 +8,6 @@ import Print from '../printable/Print';
 // tänne pitäs lisätä linkit noihin sivuihin samoin kuin navbarissa on
 
 export default function Home() {
-  const [search, setSearch]= useState('');
-  const [lookFor, setLookFor]= useState('');
 
   return (
     <>
