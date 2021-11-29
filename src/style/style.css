@@ -5,6 +5,7 @@
     bakcround: #F4F7FC
     darker text: #0000
     highlihgtin colour #C23A00 
+    linearHeader: #0088c2 #006ea6
 */
 * {
   margin: 0;
@@ -50,13 +51,7 @@ li {
   color: #f4f7fc;
 }
 .header {
-  background: rgb(5, 67, 93);
-  background: linear-gradient(
-    0deg,
-    rgba(5, 67, 93, 1) 0%,
-    rgba(0, 136, 194, 1) 50%,
-    rgba(244, 247, 252, 1) 100%
-  );
+  background: linear-gradient(to bottom, #0088c2 55%, #006ea6 90%);
   padding: 40px;
   height: 150px;
 }
@@ -276,6 +271,6 @@ li {
   visibility: hidden !important;
 }
 
-.max-wid{
+.max-wid {
   min-width: 1000px !important;
 }
