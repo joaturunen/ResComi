@@ -39,7 +39,7 @@ export default function Login({setUser}) {
   }
 
   return (
-    <div class='container-fluid'>
+    <>
         <div>
           <div>
             <h1>Kirjaudu sisään</h1>
@@ -64,6 +64,6 @@ export default function Login({setUser}) {
             </form>
         </div>
       </div>
-    </div>
+    </>
   );
 }

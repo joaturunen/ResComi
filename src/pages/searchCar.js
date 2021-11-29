@@ -50,7 +50,7 @@ export default function SearchCar({url, setCar}) {
       }
 
     return (
-        <div>
+        <>
             <h3>Etsi auton tiedot</h3>
             <form onSubmit={findRegister}>
                 <div className='mb-3'>
@@ -78,7 +78,7 @@ export default function SearchCar({url, setCar}) {
                 </table>
             
             </div>
-        </div>
+        </>
         
     )
 }

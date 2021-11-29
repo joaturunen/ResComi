@@ -44,7 +44,7 @@ export default function NewCustomer({url}) {
   }
 
   return (
-      <div>
+      <>
         <h4>Lisää uusi asiakas</h4>
           <form onSubmit={addCustomer}>
             <div>
@@ -72,6 +72,6 @@ export default function NewCustomer({url}) {
             </div>
             <button>Tallenna</button>
           </form>
-      </div>
+      </>
   );
 }

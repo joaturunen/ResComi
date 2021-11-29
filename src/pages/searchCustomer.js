@@ -52,8 +52,7 @@ export default function SearchCustomer({url, setCustomer}) {
   }
 
   return (
-   
-      <div>
+      <>
           <h4>Etsi asiakas</h4>
           <form onSubmit={findPhone}>
             <div className='mb-3'>
@@ -79,7 +78,7 @@ export default function SearchCustomer({url, setCustomer}) {
           </table>
           
         </div>
-      </div>
+      </>
     
   );
 }

@@ -41,7 +41,7 @@ export default function Order({url, cart, empty, removeFromCart, setCustomer, cu
 
     if (finished === false) {
         return (
-            <div className="container-fluid">
+            <>
                 <div>
                     <h3>Tilaus</h3>
                     <table>
@@ -79,13 +79,13 @@ export default function Order({url, cart, empty, removeFromCart, setCustomer, cu
                 </div>
                     
                 
-            </div>
+            </>
         )
     } else {
         return (
-            <div>
+            <>
                 <h3>Tilaus onnistui.</h3>
-            </div>
+            </>
             
         );
     }
