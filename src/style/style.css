@@ -5,6 +5,7 @@
     bakcround: #F4F7FC
     darker text: #0000
     highlihgtin colour #C23A00 
+    linearHeader: #0088c2 #006ea6
 */
 * {
   margin: 0;
@@ -270,6 +271,6 @@ li {
   visibility: hidden !important;
 }
 
-.max-wid{
+.max-wid {
   min-width: 1000px !important;
 }
