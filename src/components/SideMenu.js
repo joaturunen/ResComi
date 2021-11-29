@@ -111,56 +111,42 @@ import {FaTimes, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react-icons/f
     }, []);
   
     return (
-      <div className={`side-menu ${inactive ? "inactive" : ""}`}>
+      <div className={`side-menu nav-color ${inactive ? "inactive" : "col lign-self-start no-padding"}`}>
         <div className="top-section row">
          
           <div onClick={() => setInactive(!inactive)} className="toggle-menu-btn">
             {inactive ? (
               <MdArrowForward/>
             ) : (
-              <MdArrowBack/>
+              <MdArrowBack />
             )}
           </div>
         </div>
-  
-        <div className="search-controller">
-          <button className="search-btn">
-          <FaSearch />
-          </button>
-  
-          <input type="text" placeholder="search" />
-        </div>
-  
-        <div className="divider"></div>
-  
-        <div className="main-menu row">
-          <ul>
-            {menuItems.map((menuItem, index) => (
-              <MenuItem
-                key={index}
-                name={menuItem.name}
-                exact={menuItem.exact}
-                to={menuItem.to}
-                subMenus={menuItem.subMenus || []}
-                icon={menuItem.icon}
-                onClick={(e) => {
-                  if (inactive) {
-                    setInactive(false);
-                  }
-                }}
-              />
-            ))}
-  
-            
-          </ul>
-        </div>
-  
-        <div className="side-menu-footer">
-          
-          <div className="user-info">
-            <h5>Kirjaudu ulos</h5>
-            <p>&copy; ResComi</p>
+        <div className={`${inactive ? "invisible" : "visible"}`}>
+          <div className="main-menu row main-menu-margin">
+            <ul>
+              {menuItems.map((menuItem, index) => (
+                <MenuItem
+                  key={index}
+                  name={menuItem.name}
+                  exact={menuItem.exact}
+                  to={menuItem.to}
+                  subMenus={menuItem.subMenus || []}
+                  icon={menuItem.icon}
+                  onClick={(e) => {
+                    if (inactive) {
+                      setInactive(false);
+                    }
+                  }}
+                />
+              ))}       
+            </ul>
           </div>
+            <div id="bottom" className="user-info">
+              <h5>Kirjaudu ulos</h5>
+              <p>&copy; ResComi</p>
+            </div>
+
         </div>
       </div>
     );

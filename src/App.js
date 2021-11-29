@@ -17,6 +17,7 @@ import Empty from './pages/empty';
 import Order from './pages/order';
 import Services from './pages/services';
 import {URL} from './back/Config';
+import Print from './printable/Print';
 
 function App() {
   const [user, setUser] = useState('');
@@ -56,17 +57,16 @@ function App() {
   return (
     <>
       <Router>
-      
-      {/* <div className="container-fluid"> */}
+      <div className="max-wid">
+      <div className="container-fluid">
         <Header/>
-        {/* <div className="row">
-          <div className='col col-lg-2 col-md-2 align-self-start no-padding'> */}
-           <SideMenu 
-         onCollapse={(inactive) => {
-          console.log(inactive);
-          setInactive(inactive);
-        }}/>
-        <div className={`container ${inactive ? "inactive" : ""}`}>
+          <div className="row">
+              <SideMenu 
+                onCollapse={(inactive) => {
+                console.log(inactive);
+                setInactive(inactive);
+              }}/>
+            <div className='col-10 '>
           <Routes>
             <Route path="/login" 
               element={<Login/>
@@ -114,11 +114,12 @@ function App() {
               element={<Login onLogin={login}/>
             }/> */}
             <Route path="*" element={<Empty />} />
-          
+            <Route path="/printable/Print" element={<Print />} />
           </Routes>
-        {/*   </div>
+
         </div>
-        </div>  */}
+        </div>
+        </div>
         </div>
         {/* <Footer/> */}
       </Router>
