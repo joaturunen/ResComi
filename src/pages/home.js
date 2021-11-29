@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
 import {FaWarehouse, FaSearch } from 'react-icons/fa'; 
 import {MdPersonAdd } from 'react-icons/md';
 import {GiTireIron} from 'react-icons/gi';
+import Print from '../printable/Print';
 
 // tänne pitäs lisätä linkit noihin sivuihin samoin kuin navbarissa on
 
@@ -44,7 +46,10 @@ export default function Home() {
           <p>Valmiit työt</p>
         </button>
 
-        
+        <Link to="../printable/Print" class='col-4 nappi'>
+          <GiTireIron size={40} />
+          <p>Printtisivutesti</p>
+        </Link>        
       </div>
     </div>
   );
