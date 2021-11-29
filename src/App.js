@@ -18,6 +18,7 @@ import Empty from './pages/empty';
 import Order from './pages/order';
 import Services from './pages/services';
 import {URL} from './back/Config';
+import Print from './printable/Print';
 
 function App() {
   const [user, setUser] = useState('');
@@ -120,7 +121,7 @@ function App() {
               element={<Login onLogin={login}/>
             }/> */}
             <Route path="*" element={<Empty />} />
-          
+            <Route path="/printable/Print" element={<Print />} />
           </Routes>
 
         </div>
