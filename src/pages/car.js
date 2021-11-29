@@ -38,7 +38,7 @@ export default function Car({url, carId}) {
     
     getSingleCar();
 
-  }, []);
+  }, [url, carId]);
 
   return (
     <div>

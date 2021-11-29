@@ -12,36 +12,28 @@ export default function Home() {
   const [lookFor, setLookFor]= useState('');
 
   return (
-    <div className='container-fluid' >
-      <div className='row'>
+    <>
+    <div className='row justify-content-center'>
         <h1>DashBoard</h1>
-      </div>
       <div className='row'>
-
-        <div className='col-4 nappi'>
+        <div className='col-3 button'>
           <p>Hae
           <input className="form-control" name='haku'
             value= {lookFor} placeholder='Rekisteri tai puh'/>
             <FaSearch size={20}/></p>
         </div>
-
-        <button class='col-4 nappi'>
+        <button class='col-3 button'>
           <FaWarehouse size={40}/>
           <p>Varasto</p>
         </button>
-
-        
-      </div>
-
-      <div className='row'>
-        
-
-        <button class='col-4 nappi'>
+        </div>
+        <div className='row'>
+        <button class='col-3 button'>
           <MdPersonAdd size={40} />
           <p>Uusi Asiakas</p>
         </button>
 
-        <button class='col-4 nappi'>
+        <button class='col-3 button'>
           <GiTireIron size={40} />
           <p>Valmiit työt</p>
         </button>
@@ -51,6 +43,7 @@ export default function Home() {
           <p>Printtisivutesti</p>
         </Link>        
       </div>
-    </div>
+      </div>
+      </>
   );
 }

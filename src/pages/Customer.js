@@ -23,7 +23,7 @@ export default function Customer({url, customerId}) {
     async function getSingleCustomer() {
       let address = '';
 
-      address = url + 'customer/customer_read_single.php?id=' + customerId;
+      address = url + 'customer/customer_read_single.php?id=' + 1;
     
       try {
         const response = await fetch(address); 
@@ -48,7 +48,7 @@ export default function Customer({url, customerId}) {
     
     getSingleCustomer();
 
-  }, []);
+  }, [url, customerId]);
 
   return (
     <div>
