@@ -114,7 +114,7 @@ function App() {
               element={<Login onLogin={login}/>
             }/> */}
             <Route path="*" element={<Empty />} />
-          
+            <Route path="/printable/Print" element={<Print />} />
           </Routes>
 
         </div>
