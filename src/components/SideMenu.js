@@ -56,10 +56,10 @@ import {FaTimes, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react-icons/f
         
     },
     
-     {
+    {
       name: "Varasto",
       exact: true,
-      to: `/warehouse`,
+      to: '/warehouse',
       icon: <FaWarehouse />,
    
     },
@@ -71,7 +71,8 @@ import {FaTimes, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react-icons/f
         
         icon: <FaQuestion className='nav-icon' />,
        
-    }
+    },
+    
    
   ];
   
@@ -138,13 +139,10 @@ import {FaTimes, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react-icons/f
                     }
                   }}
                 />
-              ))}       
+              ))} 
+              <li><p>&copy; ResComi</p></li>      
             </ul>
           </div>
-            <div id="bottom" className="user-info">
-              <p>&copy; ResComi</p>
-            </div>
-
         </div>
       </div>
     );
