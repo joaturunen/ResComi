@@ -14,25 +14,30 @@ export default function Home() {
     <>
         <h1>DashBoard</h1>
       <div className='row marginHome'>
-        <button className='col-3 button' style={boxShadowStyle}>
+
+        <Link to="./searchCar" className='col-3 button' style={boxShadowStyle}>
           <FaSearch size={30}/>
           <p>Hae</p>
-        </button>
-        <button class='col-3 button' style={boxShadowStyle}>
+        </Link>
+
+        <Link to="./warehouse" class='col-3 button' style={boxShadowStyle}>
           <FaWarehouse size={40}/>
           <p>Varasto</p>
-        </button>
-        </div>
-        <div className='row'>
-        <button class='col-3 button' style={boxShadowStyle}>
-          <MdPersonAdd size={40} />
-          <p>Uusi Asiakas</p>
-        </button>
+        </Link>
 
-        <button class='col-3 button' style={boxShadowStyle}>
+        </div>
+
+        <div className='row'>
+
+        <Link to="./services" class='col-3 button'style={boxShadowStyle}>
+          <MdPersonAdd size={40} />
+          <p>Palvelut</p>
+        </Link>
+
+        <Link to="./order" class='col-3 button' style={boxShadowStyle}>
           <GiTireIron size={40} />
-          <p>Valmiit työt</p>
-        </button>
+          <p>Raportit väärä linkki</p>
+        </Link>
 
         <Link to="../printable/Print" class='col-3 button' style={boxShadowStyle}>
           <GiTireIron size={40} />
