@@ -10,6 +10,11 @@ const boxShadow = "#D3D3D3";
 //Shock color
 
 
+//Pie-Chart taken
+export const pieChartTaken = "#E9897E";
+//Pie-Chart free
+export const pieChartFree = "#A0DAA9"; 
+
 //Header color
 export const headerColor = {
   'background': 'linear-gradient(to bottom, ' + headColor + ' 55%,' + headColorShadow  + ' 90%)'
@@ -27,6 +32,7 @@ export const boxColorLayot = {
   'border-radius': '30px',
   'padding': '1rem'
 };
+
 
 
 // Not sure why this must be

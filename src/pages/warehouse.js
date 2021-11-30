@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {FaSquareFull } from 'react-icons/fa';
-import {boxColorLayot} from '../style/colors';
+import {boxColorLayot, pieChartTaken, pieChartFree} from '../style/colors';
 
 // tänne lista kaikista varastopaikoista lajiteltuna varastoittain
 
@@ -9,8 +9,8 @@ export default function Warehouse({url}) {
   const [warehouseTaken, setWarehouseTaken] = useState(0);
   const [warehouseFree, setWarehouseFree] = useState(0);
   const [degree, setDegree] = useState(0);
-  const [colorTaken, setColorTaken] = useState("#E9897E");
-  const [colorFree, setColorFree] = useState("#A0DAA9");
+  const [colorTaken, setColorTaken] = useState(pieChartTaken);
+  const [colorFree, setColorFree] = useState(pieChartFree);
 
   useEffect(() => {
     async function getWarehouseData() {
