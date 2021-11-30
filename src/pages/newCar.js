@@ -39,7 +39,7 @@ export default function NewCar({url, customer}) {
   }
 
   return (
-      <div>
+      <>
         <h4>Lisää uusi auto</h4>
           <form onSubmit={addCar}>
             <div>
@@ -55,6 +55,6 @@ export default function NewCar({url, customer}) {
             </div>
             <button>Tallenna</button>
           </form>
-      </div>
+      </>
   );
 }

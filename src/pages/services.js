@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {Navigate} from 'react-router-dom';
 
-
 export default function Services({url, addToCart}) {
     const [services, setServices] = useState([]);
     const [showOrderSite, setShowOrderSite] = useState(false);
@@ -36,7 +35,7 @@ export default function Services({url, addToCart}) {
     }
 
     return (
-        <div className="container-fluid">
+        <>
             <h3>Palvelut</h3>
             <table>
                 <tbody>
@@ -51,7 +50,7 @@ export default function Services({url, addToCart}) {
             </table>
             
             <button onClick={() => goOrderSite()}>Siirry tilaussivulle</button>
-        </div>
+        </>
 
     );
 }

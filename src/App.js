@@ -36,17 +36,17 @@ function App() {
   }, []);
 
 
-  // lisää tuote ostoskoriin
-  function addToCart(tuote) {
-      const newCart = [...cart,tuote];
+  // lisää palvelu ostoskoriin
+  function addToCart(service) {
+      const newCart = [...cart,service];
       setCart(newCart);
       localStorage.setItem('cart',JSON.stringify(newCart));
     
   }
 
-  // poista tuote ostoskorista
+  // poista palvelu ostoskorista
   function removeFromCart(service) {
-    const itemsWithoutRemoved = cart.filter(service => service.id !== service.id);
+    const itemsWithoutRemoved = cart.filter(item => item.id !== service.id);
     setCart(itemsWithoutRemoved);
     localStorage.setItem('cart',JSON.stringify(itemsWithoutRemoved));
   }
@@ -69,7 +69,8 @@ function App() {
                 console.log(inactive);
                 setInactive(inactive);
               }}/>
-            <div className='col-10 '>
+            <div className='col-10'>
+            <div className='row justify-content-center content'>
           <Routes>
             <Route path="/login" 
               element={<Login/>
@@ -92,8 +93,9 @@ function App() {
             <Route path="/newCustomer" 
               element={<NewCustomer/>
             }/>
-            <Route path="/warehouse" 
-              element={<Warehouse/>
+            <Route path="/warehouse"
+              element={<Warehouse
+                url={URL}/>
             }/>
             <Route path="/search" 
               element={<SearchCustomer 
@@ -129,7 +131,7 @@ function App() {
             <Route path="*" element={<Empty />} />
             <Route path="/printable/Print" element={<Print />} />
           </Routes>
-
+          </div>
         </div>
         </div>
         </div>

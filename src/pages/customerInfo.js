@@ -83,7 +83,7 @@ export default function CustomerInfo({url, customer}) {
     }, []);
 
     return (
-        <div>
+        <>
           <div>
             <h4>Asiakkaan tiedot</h4>
             <p>{customer.firstname}</p>
@@ -99,6 +99,6 @@ export default function CustomerInfo({url, customer}) {
           <div>
             <Car car={car} />
           </div>
-        </div>
+        </>
     );
 }

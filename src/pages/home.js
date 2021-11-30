@@ -11,11 +11,10 @@ export default function Home() {
 
   return (
     <>
-    <div className='row justify-content-center'>
         <h1>DashBoard</h1>
-      <div className='row'>
+      <div className='row marginHome'>
         <button className='col-3 button'>
-          <FaSearch size={20}/>
+          <FaSearch size={30}/>
           <p>Hae</p>
         </button>
         <button class='col-3 button'>
@@ -44,7 +43,7 @@ export default function Home() {
           <p>Asiakas</p>
         </Link>    
       </div>
-      </div>
+
       </>
   );
 }

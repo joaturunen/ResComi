@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Tab from '../components/tab/Tab';
 
 
@@ -16,40 +16,6 @@ export default function Customer({ url, customer }) {
   const [city, setCity] = useState('');
   const [saved, setSaved] = useState('');
   const [employeeId, setEmployeeId] = useState('');
-
-
-  // haetaan tietokannasta yhden asiakkaan tiedot
-  // useEffect(() => {
-
-  //   async function getSingleCustomer() {
-  //     let address = '';
-
-  //     address = url + 'customer/customer_read_single.php?id=' + 1;
-
-  //     try {
-  //       const response = await fetch(address);
-  //       const json = await response.json();
-  //       if (response.ok) {
-  //         setFirstname(json.firstname);
-  //         setLastname(json.lastname);
-  //         setPhone(json.phone);
-  //         setEmail(json.email);
-  //         setAddress(json.address);
-  //         setZipcode(json.zipcode);
-  //         setCity(json.city);
-  //         setSaved(json.customersaved);
-  //         setEmployeeId(json.employee_id);
-  //       } else {
-  //         alert(json.error);
-  //       }
-  //     } catch (error) {
-  //       alert(error);
-  //     }
-  //   }
-
-  //   getSingleCustomer();
-
-  // }, []);
 
   const tabContent = [
     {
@@ -91,7 +57,6 @@ export default function Customer({ url, customer }) {
 
   return (
     <>
-      <div class="container-fluid">
         <div>
           <form>
             <div class="row">
@@ -104,50 +69,6 @@ export default function Customer({ url, customer }) {
             </div>
           </form>
         </div>
-      </div>
     </>
   );
 };
-/* <div class="col-sm-3">,
-      <label>Lähiosoite</label>,
-      <input type="text" class="form-control" />,
-    </div>,
-    <div class="col-sm-3">,
-      <label>Asiakkuus luotu</label>,
-      <input type="text" class="form-control" />,
-    </div>,
-    <div class="col-sm-4">,
-      <label>Etunimi</label>,
-      <input type="text" class="form-control" />,
-    </div>,
-    <div class="col-sm-4">,
-      <label>Postinumero</label>,
-      <input type="text" class="form-control" />,
-    </div>,
-    <div class="col-sm-4">,
-      <label>Sukunimi</label>,
-      <input type="text" class="form-control" />,
-    </div>,
-    <div class="col-sm-4">,
-      <label>Postitoimipaikka</label>,
-      <input type="text" class="form-control" />,
-    </div>,
-    <div class="col-sm-4">,
-      <label>Puhelinumero</label>,
-      <input type="text" class="form-control" />,
-    </div>,
-    <div class="col-sm-4">,
-      <label>Sähköposti</label>,
-      <input type="text" class="form-control" />,
-    </div>,
-
-     <p>{firstname}</p>
-        <p>{lastname}</p>
-        <p>{phone}</p>
-        <p>{email}</p>
-        <p>{address}</p>
-        <p>{zipcode}</p>
-        <p>{city}</p>
-        <p>{saved}</p>
-        <p>{employeeId}</p>
-        */

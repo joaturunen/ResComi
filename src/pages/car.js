@@ -40,12 +40,12 @@ export default function Car({ car}) {
 //   }, [url, carId]);
 
   return (
-    <div>
+    <>
       <h4>Auton tiedot</h4>
       <p>{car.register}</p>
       <p>{car.brand}</p>
       <p>{car.model}</p>
       <p>{car.customer_id}</p> {/** tämä ei saa näkyä lopullisessa versiossa */}
-    </div>
+    </>
   );
 }

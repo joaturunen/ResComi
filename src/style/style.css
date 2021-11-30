@@ -3,6 +3,7 @@
     inbox background: #E9EAEB
     white text: #F4F7FC
     bakcround: #F4F7FC
+    blackText : #333
     darker text: #0000
     highlihgtin colour #C23A00 
     linearHeader: #0088c2 #006ea6
@@ -25,6 +26,11 @@ li {
 .container-fluid {
   padding-right: 0px;
   padding-left: 0px;
+  color: #333;
+}
+
+.button {
+  color: #333;
 }
 
 .login {
@@ -62,11 +68,15 @@ li {
   text-align: right;
 }
 
+.marginHome {
+  margin-top: 20px !important;
+}
+
 .button {
   /* Buttons on the home page */
   padding: 10px;
   text-align: center;
-  margin: 10px;
+  margin: 15px;
   border: none;
   border-radius: 1em;
   box-shadow: 5px 5px lightgrey;
@@ -263,4 +273,9 @@ li {
 
 .max-wid {
   min-width: 1000px !important;
+}
+
+.content {
+  margin-left: 10px !important;
+  margin-top: 15px !important;
 }
