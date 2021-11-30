@@ -271,3 +271,8 @@ li {
   overflow-y: auto !important;
   max-height: calc(100vh - 150px) !important;
 }
+ /* Warehouse*/
+
+ .warehouse{
+   margin-top:5rem;
+ }

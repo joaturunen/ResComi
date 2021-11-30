@@ -46,9 +46,12 @@ export default function Warehouse({url}) {
 
   return (
     <>
-      <h1>Varastotilanne</h1>
-      <div className="row">
-        <div className="row pie-back" style={boxColorLayot}>
+    <div class='row' style={boxColorLayot}>
+      <div class='row'>
+        <h1>Varastotilanne</h1>
+      </div>
+      <div className="row mt-5">
+        <div className="row pie-back">
           <div className="col">
             <div className="text-center">
             <h5>Paikkoja yhteensä</h5>
@@ -79,6 +82,57 @@ export default function Warehouse({url}) {
           </div>
         </div>
       </div>
+      
+    <div class='row mt-5 warehouse'>
+      <div class='row'>
+        <h2>Varastotilanne</h2>
+      </div>
+      <div class='row mt-3 text-center'>
+       <div class='col-3'>
+          <h5>Hylly</h5>
+       </div>
+       <div class='col-3 text-center'>
+          <h5>Hyllypaikkoja</h5>
+       </div>
+       <div class='col-3 text-center'>
+          <h5>Tila</h5>
+       </div>
+       <hr></hr>
+      </div>
+      
+      <div class='row'>
+        <div class='col-3 text-center'>
+            <p>1</p>
+        </div>
+        <div class='col-3 text-center'>
+            <p>50</p>
+        </div>
+        <div class='col-3 text-center'>
+            <p style={PieChartFree}>Vapaita paikkoja</p>
+        </div>
+        <div class='col-3 text-center pb-3'>
+            <button class='btn btn-primary'>LISTAUS</button>
+        </div>
+        <hr></hr>
+      </div>
+
+      <div class='row'>
+        <div class='col-3 text-center'>
+            <p>2</p>
+        </div>
+        <div class='col-3 text-center'>
+            <p>50</p>
+        </div>
+        <div class='col-3 text-center'>
+            <p style={PieChartTaken}>Täynnä</p>
+        </div>
+        <div class='col-3 text-center pb-3'>
+            <button class='btn btn-primary'>LISTAUS</button>
+        </div>
+        <hr></hr>
+      </div>
+    </div>
+    </div>
     </>
   );
 }

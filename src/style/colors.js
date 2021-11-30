@@ -29,8 +29,9 @@ export const boxShadowStyle = {
 //Grey box with shadow
 export const boxColorLayot = {
   'background': boxColor,
-  'border-radius': '30px',
-  'padding': '1rem'
+  'border-radius': '10px',
+  'padding': '1rem',
+  'margin':'1rem'
 };
 
 
