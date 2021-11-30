@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {FaSquareFull } from 'react-icons/fa';
+import {boxColorLayot} from '../style/colors';
 
 // tänne lista kaikista varastopaikoista lajiteltuna varastoittain
 
@@ -47,7 +48,7 @@ export default function Warehouse({url}) {
     <>
       <h1>Varastotilanne</h1>
       <div className="row">
-        <div className="row pie-back">
+        <div className="row pie-back" style={boxColorLayot}>
           <div className="col">
             <div className="text-center">
             <h5>Paikkoja yhteensä</h5>

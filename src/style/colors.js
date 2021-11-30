@@ -21,6 +21,14 @@ export const boxShadowStyle = {
   'box-shadow': '5px 5px ' + boxShadow
 };
 
+//Grey box with shadow
+export const boxColorLayot = {
+  'background': boxColor,
+  'border-radius': '30px',
+  'padding': '1rem'
+};
+
+
 // Not sure why this must be
 const Colors = () =>{
   return '';
