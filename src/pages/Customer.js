@@ -1,21 +1,11 @@
 import React, { useState } from 'react';
 import Tab from '../components/tab/Tab';
-
+import CustomerInfo from './customerInfo';
+import Car from './car';
 
 // tämä avautuu hakutuloksesta, ei näy navissa
 
-export default function Customer({ url, customer }) {
-
-
-  const [firstname, setFirstname] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const [address, setAddress] = useState('');
-  const [zipcode, setZipcode] = useState('');
-  const [city, setCity] = useState('');
-  const [saved, setSaved] = useState('');
-  const [employeeId, setEmployeeId] = useState('');
+export default function Customer({ url, customer, car }) {
 
   const tabContent = [
     {
@@ -23,6 +13,7 @@ export default function Customer({ url, customer }) {
       content: <div class="col-sm-3">
         <label>Etunimi</label>
         <input type="text" class="form-control" />
+        {/* <CustomerInfo customer={customer} /> */}
       </div>,
     },
     {
@@ -30,6 +21,7 @@ export default function Customer({ url, customer }) {
       content: <div class="col-sm-3">
         <label>Rekisterinumero</label>
         <input type="text" class="form-control" />
+        {/* <Car car={car}/> */}
       </div>,
     },
     {
@@ -61,7 +53,7 @@ export default function Customer({ url, customer }) {
           <form>
             <div class="row">
               <h4>Asiakkaan tiedot</h4>
-              <Tab active={1}>
+              <Tab active={0}>
                 {tabContent.map((tab, index) => (
                   <Tab.TabPane key={'Tab-${index}'} tab={tab.title}>{tab.content}</Tab.TabPane>
                 ))}

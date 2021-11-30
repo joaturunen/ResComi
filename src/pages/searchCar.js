@@ -1,7 +1,6 @@
 import React,{useState /*, useEffect*/} from 'react';
 import { Navigate } from 'react-router-dom';
 
-
 export default function SearchCar({url, setCar}) {
     const [searchRegister, setSearchRegister] = useState('');
     const [result, setResult] = useState([]);
@@ -44,7 +43,7 @@ export default function SearchCar({url, setCar}) {
       
       if (showCarSite === true) {
         return (
-          <Navigate to="/car" />
+          <Navigate to="/customer" />
           
         );
       }

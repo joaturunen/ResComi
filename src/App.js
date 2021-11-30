@@ -97,7 +97,7 @@ function App() {
               element={<Warehouse
                 url={URL}/>
             }/>
-            <Route path="/search" 
+            <Route path="/searchCustomer" 
               element={<SearchCustomer 
                 url={URL} 
                 setCustomer={setCustomer}/>
@@ -116,7 +116,7 @@ function App() {
               element={<Customer url={URL} customer={customer}/>
             }/>
             <Route path="/customerInfo" 
-              element={<Customer url={URL} customer={customer}/>
+              element={<CustomerInfo url={URL} customer={customer}/>
             }/>
             <Route path="/car" 
               element={<Car url={URL} car={car}/>
