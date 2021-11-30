@@ -93,8 +93,9 @@ function App() {
             <Route path="/newCustomer" 
               element={<NewCustomer/>
             }/>
-            <Route path="/warehouse" 
-              element={<Warehouse/>
+            <Route path="/warehouse"
+              element={<Warehouse
+                url={URL}/>
             }/>
             <Route path="/search" 
               element={<SearchCustomer 
