@@ -36,17 +36,17 @@ function App() {
   }, []);
 
 
-  // lisää tuote ostoskoriin
-  function addToCart(tuote) {
-      const newCart = [...cart,tuote];
+  // lisää palvelu ostoskoriin
+  function addToCart(service) {
+      const newCart = [...cart,service];
       setCart(newCart);
       localStorage.setItem('cart',JSON.stringify(newCart));
     
   }
 
-  // poista tuote ostoskorista
+  // poista palvelu ostoskorista
   function removeFromCart(service) {
-    const itemsWithoutRemoved = cart.filter(service => service.id !== service.id);
+    const itemsWithoutRemoved = cart.filter(item => item.id !== service.id);
     setCart(itemsWithoutRemoved);
     localStorage.setItem('cart',JSON.stringify(itemsWithoutRemoved));
   }
