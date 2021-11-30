@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {FaTimes, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react-icons/fa';
+import {FaSquareFull } from 'react-icons/fa';
 
 // tänne lista kaikista varastopaikoista lajiteltuna varastoittain
 
@@ -31,9 +31,17 @@ export default function Warehouse({url}) {
     getWarehouseData();
   }, []);
 
-const PieChart = {
-  'background-image': 'conic-gradient(' + colorTaken + ' ' + degree + 'deg,' + colorFree + ' 0)'
-}
+  const PieChart = {
+    'background-image': 'conic-gradient(' + colorTaken + ' ' + degree + 'deg,' + colorFree + ' 0)'
+  }
+
+  const PieChartTaken = {
+    'color': colorTaken
+  }
+
+  const PieChartFree = {
+    'color': colorFree
+  }
 
   return (
     <>
@@ -62,8 +70,8 @@ const PieChart = {
               <div id="warehouse-pie-chart" style={PieChart}></div>
             </div>
             <div className="col-3 pie-text">
-              <p><FaSearch />Varattuna</p>
-              <p><FaSearch />Vapaana</p>
+              <p><FaSquareFull style={PieChartTaken}/>  Varattuna</p>
+              <p><FaSquareFull style={PieChartFree}/>  Vapaana</p>
 
             </div>
             </div>
