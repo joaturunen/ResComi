@@ -12,9 +12,11 @@ export default function Home() {
 
   return (
     <>
+   
         <h1>DashBoard</h1>
+  
       <div className='row marginHome'>
-
+      
         <Link to="./searchCar" className='col-3 button' style={boxShadowStyle}>
           <FaSearch size={30}/>
           <p>Hae</p>
