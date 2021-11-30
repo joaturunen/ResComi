@@ -70,7 +70,7 @@ function App() {
                 setInactive(inactive);
               }}/>
             <div className='col-10'>
-            <div className='row justify-content-center content'>
+            <div className='row justify-content-center scrollingRoute'>
           <Routes>
             <Route path="/login" 
               element={<Login/>

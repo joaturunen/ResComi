@@ -45,19 +45,8 @@ li {
   box-shadow: 5px 5px lightgrey;
   background-color: #e9eaeb;
 }
-.footer {
-  border-top: solid 1px;
-  width: 100%;
-  text-align: right;
-  background-color: #0088c2;
-  position: fixed;
-  height: 40px;
-  bottom: 0;
-  margin-top: 0;
-  color: #f4f7fc;
-}
+
 .header {
-  background: linear-gradient(to bottom, #0088c2 55%, #006ea6 90%);
   padding: 40px;
   height: 150px;
 }
@@ -79,13 +68,20 @@ li {
   margin: 15px;
   border: none;
   border-radius: 1em;
-  box-shadow: 5px 5px lightgrey;
-  background-color: #e9eaeb;
 }
 
 .logo {
   /* Logo in the header */
   height: 80px;
+}
+
+/* Search pages styling */
+.searchCar{
+  padding: 60px;
+  margin: 60px;
+   width: 80%;
+   text-align: center;
+   border-radius: 1em;
 }
 /* Navigation*/
 
@@ -279,3 +275,13 @@ li {
   margin-left: 10px !important;
   margin-top: 15px !important;
 }
+
+.scrollingRoute {
+  overflow-y: auto !important;
+  max-height: calc(100vh - 150px) !important;
+}
+ /* Warehouse*/
+
+ .warehouse{
+   margin-top:5rem;
+ }
