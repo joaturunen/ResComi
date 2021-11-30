@@ -74,6 +74,15 @@ li {
   /* Logo in the header */
   height: 80px;
 }
+
+/* Search pages styling */
+.searchCar{
+  padding: 60px;
+  margin: 60px;
+   width: 80%;
+   text-align: center;
+   border-radius: 1em;
+}
 /* Navigation*/
 
 .side-menu {
