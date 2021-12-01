@@ -37,8 +37,8 @@ export default function Services({ url, addToCart }) {
 
     return (
         <>
-            <div className='row' style={boxColorLayot}>
-                <div className='row warehouse'>
+            <div className='row'>
+                <div className='row' style={boxColorLayot}>
                     <div className='row'>
                         <h3>Palvelut</h3>
                     </div>
