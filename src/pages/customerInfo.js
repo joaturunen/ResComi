@@ -19,8 +19,6 @@ export default function CustomerInfo({url, customer_id}) {
 
 
     useEffect(() => {
-        console.log(cus_id);
-        console.log("Asiakkaan numero : " + cus_id + " 1");
         //let address = url + 'customer/customer_read_cus_cars_tires.php';
         let status = 0;
         fetch('http://localhost/rengasvarasto-back/API/customer/customer_read_cus_cars_tires.php', {
@@ -30,20 +28,16 @@ export default function CustomerInfo({url, customer_id}) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                cus_id: 1
+                cus_id: cus_id
             })
         })
         .then(res => {
-            console.log("Välitiedot ");
             status = parseInt(res.status);
-            console.log("status " + status);
             return res.json();
         })
         .then(
             (res) => {
-              console.log("Nyt tarkistetaan status " + status);
                 if (status === 200) {
-
                   setFirstname(res.customer.firstname);
                   setLastname(res.customer.lastname);
                   setPhone(res.customer.phone);
@@ -55,12 +49,10 @@ export default function CustomerInfo({url, customer_id}) {
 
                   setCustomerCars(res.cars);
                   setCustomerTires(res.tires);
-
                 } else {
                 alert(res.error);
                 }
             }, (error) => {
-                console.log("Täällä virheissä");
                 alert(error);
             }
         );
