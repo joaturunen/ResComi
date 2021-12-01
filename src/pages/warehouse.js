@@ -46,14 +46,11 @@ export default function Warehouse({ url }) {
 
   return (
     <>
-      <div class='row' style={boxColorLayot}>
-        <div class='row'>
-          <h1>Varastotilanne</h1>
-        </div>
-        <div className="row mt-5">
-
+      <div class='row'>
+        <div className="row" style={boxColorLayot}>
+        <h2>Varastotilanne</h2>
           <div className="row pie-back">
-            <div className="col">
+            <div className="col-5">
               <div className="text-center">
                 <h5>Paikkoja yhteensä</h5>
                 <h5 className="text-muted">{warehouseAll}</h5>
@@ -69,31 +66,26 @@ export default function Warehouse({ url }) {
                 </div>
               </div>
             </div>
-            <div className="col">
-              <div className="row">
-                <div className="col-2">
-                  <div id="warehouse-pie-chart" style={PieChart}></div>
-                </div>
-                <div className="col-3 pie-text">
-                  <p><FaSquareFull style={PieChartTaken} />  Varattuna</p>
-                  <p><FaSquareFull style={PieChartFree} />  Vapaana</p>
-                </div>
-                <div class='row'>
-                  <div class='col d-flex flex-row-reverse'>
-                    <button class='btn btn-primary' type='button'>
-                      NÄYTÄ HYLLYLISTAUS
-                    </button>
-                  </div>
-                </div>
+            <div className="col-4 d-flex flex-row">
+              <div id="warehouse-pie-chart" style={PieChart} className="align-self-start"></div>
+              <div className="align-self-center" style={{marginLeft: '1rem',}}>
+                <p><FaSquareFull style={PieChartTaken} />  Varattuna</p>
+                <p><FaSquareFull style={PieChartFree} />  Vapaana</p>
               </div>
+            </div>
+            <div className="col align-self-end">
+              <button class='btn btn-primary' type='button'>
+                Näytä hyllyt
+              </button>
             </div>
           </div>
         </div>
 
+        <div class='row' style={boxColorLayot}>
       
-          <div class='row mt-5 warehouse'>
+          <div class='row warehouse'>
             <div class='row'>
-              <h3>HYLLYLISTAUS</h3>
+              <h3>Hyllylistaus</h3>
             </div>
             <div class='row mt-5 warehouse'>
               <table class="table px-3 table-striped text-center">
@@ -110,13 +102,13 @@ export default function Warehouse({ url }) {
                     <th scope="row">1</th>
                     <td>50</td>
                     <td style={PieChartTaken}>Täynnä</td>
-                    <td><button class='btn btn-primary'>LISTAUS</button></td>
+                    <td><button class='btn btn-primary'>Näytä hylly</button></td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
                     <td>50</td>
                     <td style={PieChartFree}>Vapaita paikkoja</td>
-                    <td><button class='btn btn-primary'>LISTAUS</button></td>
+                    <td><button class='btn btn-primary'>Näytä hylly</button></td>
                   </tr>
 
                 </tbody>
@@ -124,7 +116,7 @@ export default function Warehouse({ url }) {
             </div>
           </div>
         </div>
-    
+    </div>
     </>
   );
 }

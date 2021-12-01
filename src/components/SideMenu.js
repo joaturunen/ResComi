@@ -140,7 +140,8 @@ import {FaTimes, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react-icons/f
                   }}
                 />
               ))} 
-              <li><p>&copy; ResComi</p></li>      
+            
+              <div class="fixed-bottom">&copy; ResComi</div>
             </ul>
           </div>
         </div>

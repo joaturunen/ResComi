@@ -22,6 +22,7 @@ import {URL} from './back/Config';
 import Print from './printable/Print';
 import Tab from './components/tab/Tab';
 
+
 function App() {
   const [user, setUser] = useState('');
   const [customer, setCustomer] = useState(null);
