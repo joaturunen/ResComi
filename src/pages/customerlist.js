@@ -1,6 +1,8 @@
 import React , { useEffect, useState } from 'react';
 import {Link, Navigate} from 'react-router-dom';
 
+// EI SAA KOSKEA
+
 // katotaan tarviiko tätä ollenkaan
 
 // export default function CustomerList({url, setCustomer}) {
