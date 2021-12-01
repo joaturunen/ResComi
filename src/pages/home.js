@@ -46,7 +46,7 @@ export default function Home() {
           <p>Printtisivutesti</p>
         </Link>
 
-        <Link to="./customer" class='col-3 button' style={boxShadowStyle}>
+        <Link to="./onecustomer" class='col-3 button' style={boxShadowStyle}>
          <MdPersonAdd size={40} /> 
           <p>Asiakas</p>
         </Link>    

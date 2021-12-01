@@ -46,7 +46,7 @@ export default function Warehouse({ url }) {
 
   return (
     <>
-      <div class='row'>
+      <div className='row'>
         <div className="row" style={boxColorLayot}>
         <h2>Varastotilanne</h2>
           <div className="row pie-back">
