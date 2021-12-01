@@ -266,3 +266,10 @@ li {
   margin-left: 10px !important;
   margin-top: 15px !important;
 }
+
+.custom-tab .tab-content {
+  min-height: 100px;
+  border: 1px solid #DCDCDC;
+  border-top: none;
+  color: green;
+}
