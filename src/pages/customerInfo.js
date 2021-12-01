@@ -5,17 +5,16 @@ import React , {useEffect, useState } from 'react';
 // tämä avautuu hakutuloksesta, ei näy navissa
 
 export default function CustomerInfo({url, customer_id}) {
-    const [customerData, setCustomerData] = useState({});
-    const [firstname, setFirstname] = useState("");
-    const [lastname, setLastname] = useState("");
-    const [phone, setPhone] = useState("");
-    const [email, setEmail] = useState("");
-    const [address, setAddress] = useState("");
-    const [zipcode, setZipcode] = useState("");
-    const [city, setCity] = useState("");
-    const [customersaved, setCustomersaved] = useState("");
+    const [firstname, setFirstname] = useState('');
+    const [lastname, setLastname] = useState('');
+    const [phone, setPhone] = useState('');
+    const [email, setEmail] = useState('');
+    const [address, setAddress] = useState('');
+    const [zipcode, setZipcode] = useState('');
+    const [city, setCity] = useState('');
+    const [customersaved, setCustomersaved] = useState('');
     const [cus_id, setCus_id] = useState(customer_id);
-
+    
 
     useEffect(() => {
         console.log(cus_id);
@@ -29,7 +28,7 @@ export default function CustomerInfo({url, customer_id}) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                cus_id: 1
+                cus_id: cus_id
             })
         })
         .then(res => {
@@ -44,6 +43,13 @@ export default function CustomerInfo({url, customer_id}) {
                 if (status === 200) {
 
                 setFirstname(res.customer.firstname);
+                setLastname(res.customer.lastname);
+                setPhone(res.customer.phone);
+                setEmail(res.customer.email);
+                setAddress(res.customer.address);
+                setZipcode(res.customer.zipcode);
+                setCity(res.customer.city);
+                setCustomersaved(res.customer.customersaved);
 
                 } else {
                 alert(res.error);
@@ -61,14 +67,14 @@ export default function CustomerInfo({url, customer_id}) {
           <div>
             <h5>Asiakkaan tiedot</h5>
             <p>{firstname}</p>
-            {/* <p>{customer.lastname}</p>
-            <p>{customer.phone}</p>
-            <p>{customer.email}</p>
-            <p>{customer.address}</p>
-            <p>{customer.zipcode}</p>
-            <p>{customer.city}</p>
-            <p>{customer.saved}</p>
-            <p>{customer.employeeId}</p> */}
+            <p>{lastname}</p>
+            <p>{phone}</p>
+            <p>{email}</p>
+            <p>{address}</p>
+            <p>{zipcode}</p>
+            <p>{city}</p>
+            <p>{customersaved}</p>
+            {/* <p>{employeeId}</p> */}
           </div>
           <div>
             <h5>Auton tiedot</h5>
