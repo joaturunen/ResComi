@@ -12,7 +12,7 @@ import SearchCustomer from './pages/searchCustomer';
 import SearchCar from './pages/searchCar';
 import Customers from './pages/customers';
 import CustomerList from './pages/customerlist';
-import Customer from './pages/customer';
+import Customer from './pages/oneCustomer';
 import CustomerInfo from './pages/customerInfo';
 import Car from './pages/car';
 import Empty from './pages/empty';
