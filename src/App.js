@@ -131,6 +131,7 @@ function App() {
             }/> */}
             <Route path="*" element={<Empty />} />
             <Route path="/printable/Print" element={<Print />} />
+            <Route path="/tab/Tab" element={<Tab />} />
           </Routes>
           </div>
         </div>
