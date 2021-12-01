@@ -82,15 +82,18 @@ export default function Warehouse({ url }) {
         </div>
 
         <div className='row' style={boxColorLayot}>
-      
+
           <div className='row warehouse'>
+
             <div className='row'>
               <h3>Hyllylistaus</h3>
             </div>
-            <div className='mx-3'>
+
+            <div className='row mx-3'>
               <h5>Varasto 1</h5>
             </div>
-            <div className='row mt-5 warehouse'>
+
+            <div className='row mt-3 warehouse'>
               <table className="table px-3 table-striped text-center">
                 <thead>
                   <tr>
@@ -113,10 +116,10 @@ export default function Warehouse({ url }) {
                     <td style={PieChartFree}>Vapaita paikkoja</td>
                     <td><button class='btn btn-primary'>Näytä hylly</button></td>
                   </tr>
-
                 </tbody>
               </table>
             </div>
+
           </div>
         </div>
 
@@ -129,7 +132,7 @@ export default function Warehouse({ url }) {
             <div className='mx-3'>
               <h5>Hylly 2</h5>
             </div>
-            <div className='row mt-5 warehouse'>
+            <div className='row mt-3 warehouse'>
               <table className="table px-3 table-striped text-center">
                 <thead>
                   <tr>
