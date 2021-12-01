@@ -17,12 +17,12 @@ useEffect(() => {
 }, [children])
 
     return (
-       <div class="w-100">
-           <ul class="nav nav-tab">
+       <div className="tab-title">
+           <ul className="nav nav-tab">
                {
                 tabsData.map(({tab}, index) => (
-                    <li class="nav-item">
-                        <a class={'nav-link ${idx === activeTab ? "active" : ""}'} 
+                    <li className="nav-item">
+                        <a className={'nav-link ${idx === activeTab ? "active" : ""}'} 
                            href="#" onClick={() => setActiveTab(index)}
                            >
                             {tab}                           
@@ -31,7 +31,7 @@ useEffect(() => {
                    ))
                }
            </ul>
-           <div class="tab-content p-3">
+           <div className="tab-content p-3">
                {tabsData[activeTab] && tabsData[activeTab].children}
            </div>
        </div>
