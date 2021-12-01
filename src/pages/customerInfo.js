@@ -19,6 +19,7 @@ export default function CustomerInfo({url, customer_id}) {
 
 
     useEffect(() => {
+        console.log(cus_id);
         console.log("Asiakkaan numero : " + cus_id + " 1");
         //let address = url + 'customer/customer_read_cus_cars_tires.php';
         let status = 0;
@@ -26,7 +27,7 @@ export default function CustomerInfo({url, customer_id}) {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 cus_id: 1
@@ -64,7 +65,7 @@ export default function CustomerInfo({url, customer_id}) {
             }
         );
 
-    }, []);
+    }, [customer_id]);
 
     return (
         <>
