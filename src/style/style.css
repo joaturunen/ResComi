@@ -276,11 +276,16 @@ li {
   margin-top: 15px !important;
 }
 
-.custom-tab .tab-content {
+.tab-content {
   min-height: 100px;
   border: 1px solid #DCDCDC;
   border-top: none;
-  background-color: green;
+}
+
+.tab-title {
+    min-height: 100px;
+    border: 1px solid #DCDCDC;
+    border-top: none;
 }
 
 .scrollingRoute {

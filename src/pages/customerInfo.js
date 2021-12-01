@@ -1,104 +1,77 @@
 import React , {useEffect, useState } from 'react';
-import Car from './car';
+
+// EI SAA KOSKEA
 
 // tämä avautuu hakutuloksesta, ei näy navissa
 
-export default function CustomerInfo({url, customer}) {
+export default function CustomerInfo({url, customer_id}) {
+    const [customerData, setCustomerData] = useState({});
+    const [firstname, setFirstname] = useState("");
+    const [lastname, setLastname] = useState("");
+    const [phone, setPhone] = useState("");
+    const [email, setEmail] = useState("");
+    const [address, setAddress] = useState("");
+    const [zipcode, setZipcode] = useState("");
+    const [city, setCity] = useState("");
+    const [customersaved, setCustomersaved] = useState("");
+    const [cus_id, setCus_id] = useState(customer_id);
 
 
-    //const [car, setCar] = useState([]);
-    
-    // const [firstname, setFirstname] = useState('');
-    // const [lastname, setLastname] = useState('');
-    // const [phone, setPhone] = useState('');
-    // const [email, setEmail] = useState('');
-    // const [address, setAddress] = useState('');
-    // const [zipcode, setZipcode] = useState('');
-    // const [city, setCity] = useState('');
-    // const [saved, setSaved] = useState('');
-    // const [employeeId, setEmployeeId] = useState('');
+    useEffect(() => {
+        console.log("Asiakkaan numero : " + cus_id + " 1");
+        //let address = url + 'customer/customer_read_cus_cars_tires.php';
+        let status = 0;
+        fetch('http://localhost/rengasvarasto-back/API/customer/customer_read_cus_cars_tires.php', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                cus_id: 1
+            })
+        })
+        .then(res => {
+            console.log("Välitiedot ");
+            status = parseInt(res.status);
+            console.log("status " + status);
+            return res.json();
+        })
+        .then(
+            (res) => {
+              console.log("Nyt tarkistetaan status " + status);
+                if (status === 200) {
 
-    // haetaan tietokannasta yhden asiakkaan tiedot
-    // useEffect(() => {
+                setFirstname(res.customer.firstname);
 
-    //     async function getSingleCustomer() {
-    //     let address = '';
+                } else {
+                alert(res.error);
+                }
+            }, (error) => {
+                console.log("Täällä virheissä");
+                alert(error);
+            }
+        );
 
-    //     address = url + 'customer/customer_read_single.php?id=' + customerId;
-        
-    //     try {
-    //       const response = await fetch(address); 
-    //       const json = await response.json();
-    //       if (response.ok) {
-    //         setFirstname(json.firstname);
-    //         setLastname(json.lastname);
-    //         setPhone(json.phone);
-    //         setEmail(json.email);
-    //         setAddress(json.address);
-    //         setZipcode(json.zipcode);
-    //         setCity(json.city);
-    //         setSaved(json.customersaved);
-    //         setEmployeeId(json.employee_id);
-    //       } else {
-    //         alert(json.error);
-    //       }
-    //     } catch (error) {
-    //       alert(error);
-    //     }
-    //   }
-        
-    //   getSingleCustomer();
-
-    // }, [url, customerId]);
-
-    // useEffect(() => {
-    //     let address = url + 'car/car_read_single.php?';
-    //     let status = 0;
-    //     fetch(address, {
-    //         method: 'POST',
-    //         headers: {
-    //             'Accept': 'application/json',
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify({
-    //             customer_id: customer.id
-    //         })
-    //     })
-    //     .then(res => {
-    //         status = parseInt(res.status);
-    //         return res.json();
-    //     })
-    //     .then(
-    //         (res) => {
-    //             if (status === 200) {
-    //             setCar(car => [...car, res]);
-    //             } else {
-    //             alert(res.error);
-    //             }
-    //         }, (error) => {
-    //             alert(error);
-    //         }
-    //     );
-
-    // }, []);
+    }, []);
 
     return (
         <>
           <div>
-            <h4>Asiakkaan tiedot</h4>
-            <p>{customer.firstname}</p>
-            <p>{customer.lastname}</p>
+            <h5>Asiakkaan tiedot</h5>
+            <p>{firstname}</p>
+            {/* <p>{customer.lastname}</p>
             <p>{customer.phone}</p>
             <p>{customer.email}</p>
             <p>{customer.address}</p>
             <p>{customer.zipcode}</p>
             <p>{customer.city}</p>
             <p>{customer.saved}</p>
-            <p>{customer.employeeId}</p>
+            <p>{customer.employeeId}</p> */}
           </div>
-          {/* <div>
-            <Car car={car} />
-          </div> */}
+          <div>
+            <h5>Auton tiedot</h5>
+          </div>
         </>
     );
 }

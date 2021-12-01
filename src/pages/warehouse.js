@@ -81,14 +81,20 @@ export default function Warehouse({ url }) {
           </div>
         </div>
 
-        <div class='row' style={boxColorLayot}>
-      
-          <div class='row warehouse'>
-            <div class='row'>
+        <div className='row' style={boxColorLayot}>
+
+          <div className='row warehouse'>
+
+            <div className='row'>
               <h3>Hyllylistaus</h3>
             </div>
-            <div class='row mt-5 warehouse'>
-              <table class="table px-3 table-striped text-center">
+
+            <div className='row mx-3'>
+              <h5>Varasto 1</h5>
+            </div>
+
+            <div className='row mt-3 warehouse'>
+              <table className="table px-3 table-striped text-center">
                 <thead>
                   <tr>
                     <th scope="col">Hylly</th>
@@ -109,6 +115,44 @@ export default function Warehouse({ url }) {
                     <td>50</td>
                     <td style={PieChartFree}>Vapaita paikkoja</td>
                     <td><button class='btn btn-primary'>Näytä hylly</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+
+        <div className='row' style={boxColorLayot}>
+      
+          <div className='row warehouse'>
+            <div className='row'>
+              <h3>Hyllypaikat</h3>
+            </div>
+            <div className='mx-3'>
+              <h5>Hylly 2</h5>
+            </div>
+            <div className='row mt-3 warehouse'>
+              <table className="table px-3 table-striped text-center">
+                <thead>
+                  <tr>
+                    <th scope="col">Hylly</th>
+                    <th scope="col">Hyllypaikka</th>
+                    <th scope="col">Tila</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>1</td>
+                    <td style={PieChartTaken}>Varattu</td>
+                    <td><button class='btn btn-primary'>Tiedot</button></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>2</td>
+                    <td style={PieChartFree}>Vapaa</td>
                   </tr>
 
                 </tbody>

@@ -5,47 +5,26 @@ import React , {useEffect, useState } from 'react';
 export default function Car({ car}) {
 
   
-//   const [register, setRegister] = useState('');
-//   const [brand, setBrand] = useState('');
-//   const [model, setModel] = useState('');
-//   const [customer_id, setCustomer_id] = useState('');
+    const [register, setRegister] = useState('');
+    const [brand, setBrand] = useState('');
+    const [model, setModel] = useState('');
+    const [customer_id, setCustomer_id] = useState('');
 
+    function SaveCar(e) {
+        e.preventDefault();
+    }
 
-  // haetaan tietokannasta yhden auton tiedot
-//   useEffect(() => {
+    return (
+        <>
+        <h4>Auton tiedot</h4>
+        <p>{car.register}</p>
+        <p>{car.brand}</p>
+        <p>{car.model}</p>
+        <p>{car.customer_id}</p> {/** tämä ei saa näkyä lopullisessa versiossa */}
 
-//     async function getSingleCar() {
-//       let address = '';
-
-//       address = url + 'car/car_read_single.php?id=' + carId;
-    
-//       try {
-//         const response = await fetch(address); 
-//         const json = await response.json();
-//         if (response.ok) {
-//             setRegister(json.register);
-//             setBrand(json.brand);
-//             setModel(json.model);
-//             setCustomer_id(json.customer_id);
-//         } else {
-//           alert(json.error);
-//         }
-//       } catch (error) {
-//         alert(error);
-//       }
-//     }
-    
-//     getSingleCar();
-
-//   }, [url, carId]);
-
-  return (
-    <>
-      <h4>Auton tiedot</h4>
-      <p>{car.register}</p>
-      <p>{car.brand}</p>
-      <p>{car.model}</p>
-      <p>{car.customer_id}</p> {/** tämä ei saa näkyä lopullisessa versiossa */}
-    </>
-  );
+        <form onSubmit={SaveCar}>
+            <input type="text" value={model} onChange={e => setModel(model)}></input>
+        </form>
+        </>
+    );
 }

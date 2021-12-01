@@ -26,6 +26,7 @@ import Tab from './components/tab/Tab';
 function App() {
   const [user, setUser] = useState('');
   const [customer, setCustomer] = useState(null);
+  const [customer_id, setCustomer_id] = useState('');
   const [car, setCar] = useState(null);
   const [cart, setCart] = useState([]);
   const [inactive, setInactive] = useState(false);
@@ -101,7 +102,7 @@ function App() {
             <Route path="/searchCustomer" 
               element={<SearchCustomer 
                 url={URL} 
-                setCustomer={setCustomer}/>
+                setCustomer_id={setCustomer_id}/>
             }/>
             <Route path="/searchCar" 
               element={<SearchCar 
@@ -113,11 +114,11 @@ function App() {
               <Route index element={<CustomerList url={URL} setCustomer={setCustomer}/>}/>
               <Route path=":customer_id" element={<Customer customer={customer}  />}/>
             </Route> */}
-            <Route path="/customer" 
+            <Route path="/oneCustomer" 
               element={<Customer url={URL} customer={customer}/>
             }/>
             <Route path="/customerInfo" 
-              element={<CustomerInfo url={URL} customer={customer}/>
+              element={<CustomerInfo url={URL} customer_id={customer_id}/>
             }/>
             <Route path="/car" 
               element={<Car url={URL} car={car}/>
