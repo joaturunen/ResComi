@@ -11,13 +11,12 @@ export default function CustomerInfo({url, customer_id}) {
 
     useEffect(() => {
         console.log(cus_id);
-        //let address = url + 'customer/customer_read_cus_cars_tires.php';
         let status = 0;
         fetch(url + 'customer/customer_read_cus_cars_tires.php', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 cus_id: cus_id
@@ -39,7 +38,7 @@ export default function CustomerInfo({url, customer_id}) {
             }
         );
 
-    }, []);
+    }, [customer_id]);
 
     return (
         <>

@@ -84,7 +84,7 @@ function App() {
                 addToCart={addToCart} 
                 empty={emptyCart} 
                 removeFromCart={removeFromCart}
-                setCustomer={setCustomer}
+                setCustomer_id={setCustomer_id}
                 customer={customer}/>
               }/>
             <Route path="/services" 
