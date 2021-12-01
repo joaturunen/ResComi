@@ -44,7 +44,7 @@ export default function SearchCar({url, setCar}) {
       
     if (showCarSite === true) {
         return (
-            <Navigate to="/oneCustomer" />
+            <Navigate to="/car" />
           
         );
     }

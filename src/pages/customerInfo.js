@@ -6,19 +6,21 @@ import React , {useEffect, useState } from 'react';
 
 export default function CustomerInfo({url, customer_id}) {
     const [customerData, setCustomerData] = useState([]);
+    const [cus_id, setCus_id] = useState(customer_id);
 
 
     useEffect(() => {
-        let address = url + 'customer/customer_read_cus_cars_tires.php';
+        console.log(cus_id);
+        //let address = url + 'customer/customer_read_cus_cars_tires.php';
         let status = 0;
-        fetch(address, {
+        fetch(url + 'customer/customer_read_cus_cars_tires.php', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                cus_id: customer_id
+                cus_id: cus_id
             })
         })
         .then(res => {
