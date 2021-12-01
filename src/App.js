@@ -12,7 +12,7 @@ import SearchCustomer from './pages/searchCustomer';
 import SearchCar from './pages/searchCar';
 import Customers from './pages/customers';
 import CustomerList from './pages/customerlist';
-import Customer from './pages/customer';
+import Customer from './pages/oneCustomer';
 import CustomerInfo from './pages/customerInfo';
 import Car from './pages/car';
 import Empty from './pages/empty';
@@ -21,6 +21,7 @@ import Services from './pages/services';
 import {URL} from './back/Config';
 import Print from './printable/Print';
 import Tab from './components/tab/Tab';
+
 
 function App() {
   const [user, setUser] = useState('');
@@ -113,7 +114,7 @@ function App() {
               <Route index element={<CustomerList url={URL} setCustomer={setCustomer}/>}/>
               <Route path=":customer_id" element={<Customer customer={customer}  />}/>
             </Route> */}
-            <Route path="/customer" 
+            <Route path="/oneCustomer" 
               element={<Customer url={URL} customer={customer}/>
             }/>
             <Route path="/customerInfo" 
@@ -131,6 +132,7 @@ function App() {
             }/> */}
             <Route path="*" element={<Empty />} />
             <Route path="/printable/Print" element={<Print />} />
+            <Route path="/tab/Tab" element={<Tab />} />
           </Routes>
           </div>
         </div>
