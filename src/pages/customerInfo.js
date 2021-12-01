@@ -6,7 +6,7 @@ import Car from './car';
 export default function CustomerInfo({url, customer}) {
 
 
-    const [car, setCar] = useState([]);
+    //const [car, setCar] = useState([]);
     
     // const [firstname, setFirstname] = useState('');
     // const [lastname, setLastname] = useState('');
@@ -51,36 +51,36 @@ export default function CustomerInfo({url, customer}) {
 
     // }, [url, customerId]);
 
-    useEffect(() => {
-        let address = url + 'car/car_read_single.php?';
-        let status = 0;
-        fetch(address, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                customer_id: customer.id
-            })
-        })
-        .then(res => {
-            status = parseInt(res.status);
-            return res.json();
-        })
-        .then(
-            (res) => {
-                if (status === 200) {
-                setCar(car => [...car, res]);
-                } else {
-                alert(res.error);
-                }
-            }, (error) => {
-                alert(error);
-            }
-        );
+    // useEffect(() => {
+    //     let address = url + 'car/car_read_single.php?';
+    //     let status = 0;
+    //     fetch(address, {
+    //         method: 'POST',
+    //         headers: {
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify({
+    //             customer_id: customer.id
+    //         })
+    //     })
+    //     .then(res => {
+    //         status = parseInt(res.status);
+    //         return res.json();
+    //     })
+    //     .then(
+    //         (res) => {
+    //             if (status === 200) {
+    //             setCar(car => [...car, res]);
+    //             } else {
+    //             alert(res.error);
+    //             }
+    //         }, (error) => {
+    //             alert(error);
+    //         }
+    //     );
 
-    }, []);
+    // }, []);
 
     return (
         <>
@@ -96,9 +96,9 @@ export default function CustomerInfo({url, customer}) {
             <p>{customer.saved}</p>
             <p>{customer.employeeId}</p>
           </div>
-          <div>
+          {/* <div>
             <Car car={car} />
-          </div>
+          </div> */}
         </>
     );
 }

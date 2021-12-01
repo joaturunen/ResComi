@@ -6,8 +6,6 @@ export default function SearchCustomer({url, setCustomer}) {
   const [result, setResult] = useState([]);
   const [showCustomerSite, setShowCustomerSite] = useState(false);
 
-
-
   function findPhone(e) {
     e.preventDefault();
     let status = 0;
@@ -22,12 +20,12 @@ export default function SearchCustomer({url, setCustomer}) {
       })
     })
     .then(res => {
+      status = parseInt(res.status);
       return res.json();
     })
     .then(
       (res) => {
         if (status === 200) {
-          console.log(res);
           setResult(result => [...result, res]);
           
         } else {
@@ -46,7 +44,7 @@ export default function SearchCustomer({url, setCustomer}) {
   
   if (showCustomerSite === true) {
     return (
-      <Navigate to="/customerInfo" />
+      <Navigate to="/customer" />
       
     );
   }
@@ -71,7 +69,7 @@ export default function SearchCustomer({url, setCustomer}) {
                 <tr key={customer.id}>
                   <td>{customer.firstname}</td>
                   <td>{customer.lastname}</td>
-                  <button onClick={() => openCustomerSite(customer)}></button>
+                  <button onClick={() => openCustomerSite(customer)}>Avaa</button>
                 </tr>
               ))}
             </tbody>

@@ -1,6 +1,6 @@
 import React,{useState /*, useEffect*/} from 'react';
 import { Navigate } from 'react-router-dom';
-
+import {boxShadowStyle} from '../style/colors';
 
 export default function SearchCar({url, setCar}) {
     const [searchRegister, setSearchRegister] = useState('');
@@ -40,27 +40,34 @@ export default function SearchCar({url, setCar}) {
     function openCarSite(car) {
         setCar(car);
         setShowCarSite(true);
-      }
+    }
       
-      if (showCarSite === true) {
+    if (showCarSite === true) {
         return (
-          <Navigate to="/car" />
+            <Navigate to="/customer" />
           
         );
-      }
+    }
 
     return (
-        <>
-            <h3>Etsi auton tiedot</h3>
+        <div className='row justify-content-md-center button'>
+            <h2>Etsi auton tiedot</h2>
+            <div  className='col-md-6 searchCar' style={boxShadowStyle}>
             <form onSubmit={findRegister}>
-                <div className='mb-3'>
-                    <label className="form-label">Etsi ajoneuvon rekisterinumerolla.</label>
+                <div className='justify-content-md-center'>
+                  <div>
+                    <label className="form-label"><h5>Etsi ajoneuvon rekisterinumerolla.</h5></label>
+                    </div>
                     <input type='text' 
                         value={searchRegister} placeholder='ABC-123' maxLength="7"
                         onChange={e => setSearchRegister(e.target.value)}/>
+                        <div>
                     <button className='btn btn-primary button'>Etsi</button>
+                    </div>
                 </div>
+      
             </form>
+            </div>
             <div>
                 <h4>Hakutulokset</h4>
                 <table>
@@ -78,7 +85,7 @@ export default function SearchCar({url, setCar}) {
                 </table>
             
             </div>
-        </>
+        </div>
         
     )
 }

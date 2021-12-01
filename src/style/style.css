@@ -74,6 +74,15 @@ li {
   /* Logo in the header */
   height: 80px;
 }
+
+/* Search pages styling */
+.searchCar{
+  padding: 60px;
+  margin: 60px;
+   width: 80%;
+   text-align: center;
+   border-radius: 1em;
+}
 /* Navigation*/
 
 .side-menu {
@@ -273,3 +282,13 @@ li {
   border-top: none;
   color: green;
 }
+
+.scrollingRoute {
+  overflow-y: auto !important;
+  max-height: calc(100vh - 150px) !important;
+}
+ /* Warehouse*/
+
+ .warehouse{
+   margin-top:5rem;
+ }
