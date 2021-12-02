@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaSquareFull } from 'react-icons/fa';
-import { boxColorLayot, pieChartTaken, pieChartFree } from '../style/colors';
+import { boxColorLayot, pieChartTaken, pieChartFree, buttonStyle } from '../style/colors';
 
 // tänne lista kaikista varastopaikoista lajiteltuna varastoittain
 
@@ -33,7 +33,7 @@ export default function Warehouse({ url }) {
     }
     async function getWarehouseShelfsData() {
       try {
-        const response = await fetch('http://localhost/rengasvarasto-back/API/warehouse/shelfs/warehouseShelf_read_all_data.php');
+        const response = await fetch(url + 'warehouse/shelfs/warehouseShelf_read_all_data.php');
         const json = await response.json();
         if (response) {
           setShelfs(Array.from(json));
@@ -90,7 +90,7 @@ export default function Warehouse({ url }) {
               </div>
             </div>
             <div className="col align-self-end">
-              <button class='btn btn-primary' type='button'>
+              <button class='btn btn-primary' style={buttonStyle} type='button'>
                 Näytä hyllyt
               </button>
             </div>
@@ -101,8 +101,8 @@ export default function Warehouse({ url }) {
             <table className="table px-3 table-striped">
             <thead>
                   <tr>
-                    <th scope="col">Hylly</th>
                     <th scope="col">Hyllypaikka</th>
+                    <th scope="col">Renkaat</th>
                     <th scope="col">Tila</th>
                     <th scope="col"></th>
                   </tr>

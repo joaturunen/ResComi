@@ -45,7 +45,8 @@ export default function Login({setUser}) {
           
          
           <div className='col-md-6 searchCar' style={boxShadowStyle}>
-          <h1 className='mb-5'>KIRJAUDU SISÄÄN</h1>
+          <h1>KIRJAUDU SISÄÄN</h1>
+          <hr></hr>
             <form onSubmit={login}>
 
               <div className='mb-3'>

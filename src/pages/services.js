@@ -39,27 +39,45 @@ export default function Services({ url, addToCart }) {
         <>
             <div className='row'>
                 <div className='row' style={boxColorLayot}>
-                    <div className='row'>
+                    <div className='row mt-3 mb-3'>
                         <h3>Palvelut</h3>
                     </div>
-                    <div className='row'>
+                    <div className='row mb-3'>
+                        <div className='col'>
+                        <h5>Säilytyskausi</h5>
+                        <table className="table px-3 table-striped">
+                            
+                            <tbody>
+                                {services.map(service => (
+                                    <tr key={service.id} >
+                                        <td>{service.service}</td>
+                                        <td>{service.price} €</td>
+                                        <button className='btn btn-primary' style={buttonStyle} onClick={() => addToCart(service)}>Valitse</button>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                        </div>
+                        <div className='col'>
+                        <h5>Lisäpalvelut</h5>
                         <table className="table px-3 table-striped">
                             <tbody>
                                 {services.map(service => (
                                     <tr key={service.id} >
                                         <td>{service.service}</td>
                                         <td>{service.price} €</td>
-                                        <button className='btn btn-primary' onClick={() => addToCart(service)}>Valitse</button>
+                                        <button className='btn btn-primary'  style={buttonStyle} onClick={() => addToCart(service)}>Valitse</button>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
+                        </div>
                     </div>
                     {/* <div>
                         <h5>Yhteensä: xxx€</h5>
                     </div> */}
-                    <div className='row'>
-                        <div className='col'>
+                    <div className='row mb-3'>
+                        <div className='col text-end'>
                             <button className='btn btn-primary' style={buttonStyle} onClick={() => goOrderSite()}>Jatka</button>
                         </div>
                     </div>

@@ -16,6 +16,7 @@ const headColorShadow = "#006ea6";
 //Box and Shadow
 const boxColor = "#e9eaeb";
 const boxShadow = "#D3D3D3";
+const homeShadow = '#333';
 
 //Shock color
 const shockColor = "#C23A00";
@@ -36,6 +37,10 @@ export const boxShadowStyle = {
   'background': boxColor,
   'box-shadow': '5px 5px ' + boxShadow
 };
+export const boxShadowHome = {
+  'background': homeShadow,
+  'box-shadow': '5px 5px ' + homeShadow
+};
 
 //Grey box with shadow
 export const boxColorLayot = {
@@ -48,7 +53,7 @@ export const boxColorLayot = {
 };
 
 export const buttonStyle = {
-  'background': headerColor, 
+  'background': headColor, 
   'color': '#F4F7FC',
   'border': headerColor,
   'border-width': '2px',

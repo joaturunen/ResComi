@@ -3,6 +3,7 @@ import NewCustomer from './newCustomer';
 import NewCar from './newCar';
 import SearchCustomer from './searchCustomer';
 import { boxColorLayot } from '../style/colors';
+import {FaTrash, FaTimes } from 'react-icons/fa'; 
 
 
 // kuinka tallennetaan myös auton tiedot samalla?
@@ -55,14 +56,14 @@ export default function Order({url, cart, empty, removeFromCart, setCustomer_id,
                                     <tr key={id}>
                                         <td>{service.service}</td>
                                         <td>{service.price}</td>
-                                        <td><a href="#" onClick={() => removeFromCart(service)}>Poista</a></td>
+                                        <td><FaTimes onClick={() => removeFromCart(service)}/></td>
                                     </tr>
                                 )
                             })}
                             <tr>
                                 <td></td>
                                 <td>{sum.toFixed(2)} €</td>
-                                <td><a href="#" onClick={() => empty()}>Tyhjennä tilaus</a></td>
+                                <td><FaTrash onClick={() => empty()}/></td>
                             </tr>
                         </tbody>
                     </table>

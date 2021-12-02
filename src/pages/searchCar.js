@@ -67,7 +67,8 @@ export default function SearchCar({url, setCustomer_id}) {
         <div className='row justify-content-md-center mt-5 button'>
             
             <div className='col-md-6 searchCar' style={boxShadowStyle}>
-            <h1 className='mb-5'>HAKU</h1>
+            <h1>HAKU</h1>
+            <hr></hr>
             <form onSubmit={findRegister}>
                 <div className='mb-3'>
                     <input type='text' className="form-control"

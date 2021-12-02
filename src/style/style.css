@@ -43,10 +43,15 @@ li {
   color: #f4f7fc;
   text-align: right;
 }
-
-.marginHome {
-  margin-top: 20px !important;
+.link{
+  text-decoration: none;
+  color:#0088c2;
+ 
 }
+.disabled{
+  pointer-events: none;
+}
+
 
 .button {
   /* Buttons on the home page */
@@ -56,7 +61,7 @@ li {
   border: none;
   border-radius: 1em;
 }
-.btn:hover{
+.btn:active{
   background-color: #C23A00 !important;
 }
 
