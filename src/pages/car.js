@@ -1,8 +1,8 @@
 import React , {useEffect, useState } from 'react';
 
-// tämä avautuu hakutuloksesta, ei näy navissa
+// tulostaa yhdelle asiakkaalle kuuluvat autot 
 
-export default function Car({ car}) {
+export default function Car({ customerCars}) {
 
   
     const [register, setRegister] = useState('');
@@ -16,14 +16,18 @@ export default function Car({ car}) {
 
     return (
         <>
-            <h4>Auton tiedot</h4>
-            <p>{car.register}</p>
-            <p>{car.brand}</p>
-            <p>{car.model}</p>
-            <p>{car.customer_id}</p> {/** tämä ei saa näkyä lopullisessa versiossa */}
-            {/* <form onSubmit={SaveCar}>
-                <input type="text" value={model} onChange={e => setModel(model)}></input>
-            </form> */}
+            <table className="table px-3 table-striped">
+                <tbody>
+                    {customerCars.map(car => (
+                        <tr key={car.id} >
+                            <td>{car.register}</td>
+                            <td>{car.brand}</td>
+                            <td>{car.model} </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+            
         </>
     );
 }

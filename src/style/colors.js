@@ -1,3 +1,13 @@
+/* Värit voisi määrittää tänne ylös, jotta helppo päivittää 
+    primary: #0088c2
+    inbox background: #E9EAEB
+    white text: #F4F7FC
+    bakcround: #F4F7FC
+    blackText : #333
+    darker text: #0000
+    highlihgtin colour #C23A00 
+    linearHeader: #0088c2 #006ea6
+*/
 
 //Head color
 const headColor = "#0088c2";
@@ -8,6 +18,7 @@ const boxColor = "#e9eaeb";
 const boxShadow = "#D3D3D3";
 
 //Shock color
+const shockColor = "#C23A00";
 
 
 //Pie-Chart taken
@@ -32,7 +43,18 @@ export const boxColorLayot = {
   'border-radius': '10px',
   'padding': '1rem',
   'marginLeft': '0.2rem',
-  'marginTop': '1rem'
+  'marginTop': '1rem',
+  'marginRight': '0.2rem',
+};
+
+export const buttonStyle = {
+  'background': headerColor, 
+  'color': '#F4F7FC',
+  'border': headerColor,
+  'border-width': '2px',
+  'border-radius':'30px',
+  'text-transform': 'uppercase',
+  'font': '15px Lato, sans-serif'
 };
 
 
