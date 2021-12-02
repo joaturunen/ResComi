@@ -102,7 +102,7 @@ export default function Warehouse({ url }) {
             <thead>
                   <tr>
                     <th scope="col">Hyllypaikka</th>
-                    <th scope="col">Renkaat</th>
+                    <th scope="col">Rengas paikkoja</th>
                     <th scope="col">Tila</th>
                     <th scope="col"></th>
                   </tr>
