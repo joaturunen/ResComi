@@ -12,46 +12,48 @@ export default function Home() {
 
   return (
     <>
-   
-    
-  
-      <div className='row marginHome'>
+    <div className='mt-5'>
+      <div className='row justify-content-md-center'>
       
-        <Link to="./searchCar" className='col-3 button' style={boxShadowStyle}>
-          <FaSearch size={30}/>
+        <Link to="./searchCar" className='col-3 button link' style={boxShadowStyle}>
+          <FaSearch size={35} className= 'mt-4'/>
           <p>Hae</p>
         </Link>
 
-        <Link to="./warehouse" class='col-3 button' style={boxShadowStyle}>
-          <FaWarehouse size={40}/>
+        <Link to="./warehouse" className='col-4 button link' style={boxShadowStyle}>
+          <FaWarehouse size={40} className= 'mt-4'/>
           <p>Varasto</p>
         </Link>
 
-        </div>
+      </div>
 
-        <div className='row'>
-
-        <Link to="./services" class='col-3 button'style={boxShadowStyle}>
-          <FaList size={40} />
+      <div className='row justify-content-md-center'>
+        
+        <Link to="./services" className='col-4 button link'style={boxShadowStyle}>
+          <FaList size={35} className= 'mt-4'/>
           <p>Palvelut</p>
         </Link>
 
-        <Link to="./order" class='col-3 button' style={boxShadowStyle}>
-          <GiTireIron size={40} />
+        <Link to="./order" className='col-3 button link' style={boxShadowStyle}>
+          <GiTireIron size={40} className= 'mt-4' />
           <p>Raportit väärä linkki</p>
         </Link>
+        </div>
 
-        <Link to="../printable/Print" class='col-3 button' style={boxShadowStyle}>
+
+
+      <div className='row'>
+        <Link to="../printable/Print" className='col-3 button'>
           <GiTireIron size={40} />
           <p>Printtisivutesti</p>
         </Link>
 
-        <Link to="./onecustomer" class='col-3 button' style={boxShadowStyle}>
+        <Link to="./onecustomer" className='col-3 button'>
          <MdPersonAdd size={40} /> 
-          <p>Asiakas</p>
+          <p>oneCustomer</p>
         </Link>    
       </div>
-
+      </div>
       </>
   );
 }
