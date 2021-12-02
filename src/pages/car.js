@@ -16,15 +16,14 @@ export default function Car({ car}) {
 
     return (
         <>
-        <h4>Auton tiedot</h4>
-        <p>{car.register}</p>
-        <p>{car.brand}</p>
-        <p>{car.model}</p>
-        <p>{car.customer_id}</p> {/** tämä ei saa näkyä lopullisessa versiossa */}
-
-        <form onSubmit={SaveCar}>
-            <input type="text" value={model} onChange={e => setModel(model)}></input>
-        </form>
+            <h4>Auton tiedot</h4>
+            <p>{car.register}</p>
+            <p>{car.brand}</p>
+            <p>{car.model}</p>
+            <p>{car.customer_id}</p> {/** tämä ei saa näkyä lopullisessa versiossa */}
+            {/* <form onSubmit={SaveCar}>
+                <input type="text" value={model} onChange={e => setModel(model)}></input>
+            </form> */}
         </>
     );
 }

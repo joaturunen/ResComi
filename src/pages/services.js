@@ -49,15 +49,15 @@ export default function Services({ url, addToCart }) {
                                     <tr key={service.id} >
                                         <td>{service.service}</td>
                                         <td>{service.price} €</td>
-                                        <button onClick={() => addToCart(service)}>Valitse</button>
+                                        <button className='btn btn-primary' onClick={() => addToCart(service)}>Valitse</button>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
                     </div>
-                    <div>
+                    {/* <div>
                         <h5>Yhteensä: xxx€</h5>
-                    </div>
+                    </div> */}
                     <div className='row'>
                         <div className='col'>
                             <button className='btn btn-primary' onClick={() => goOrderSite()}>Siirry tilaussivulle</button>

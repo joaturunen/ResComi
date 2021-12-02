@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
-import {FaWarehouse, FaSearch } from 'react-icons/fa'; 
+import {FaWarehouse, FaSearch, FaList } from 'react-icons/fa'; 
 import {MdPersonAdd } from 'react-icons/md';
 import {GiTireIron} from 'react-icons/gi';
 import Print from '../printable/Print';
@@ -32,7 +32,7 @@ export default function Home() {
         <div className='row'>
 
         <Link to="./services" class='col-3 button'style={boxShadowStyle}>
-          <MdPersonAdd size={40} />
+          <FaList size={40} />
           <p>Palvelut</p>
         </Link>
 
