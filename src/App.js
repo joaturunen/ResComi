@@ -136,7 +136,8 @@ function App() {
             }/>
             <Route path="/tires" 
               element={<Tires 
-                customerTires={customerTires}/>
+                customerTires={customerTires}
+                setCustomerTires={setCustomerTires}/>
             }/>
             <Route path="/" 
               element={<Home />}>
