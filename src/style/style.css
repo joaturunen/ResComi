@@ -33,19 +33,6 @@ li {
   color: #333;
 }
 
-.login {
-  /* login screen */
-  border-style: solid;
-  border-color: #0088c2;
-  border-width: 2px;
-  border-radius: 1em;
-  margin-bottom: 50px;
-  margin-top: 50px;
-  width: 50%;
-  box-shadow: 5px 5px lightgrey;
-  background-color: #e9eaeb;
-}
-
 .header {
   padding: 40px;
   height: 150px;
@@ -68,6 +55,9 @@ li {
   margin: 15px;
   border: none;
   border-radius: 1em;
+}
+.btn:hover{
+  background-color: #C23A00 !important;
 }
 
 .logo {

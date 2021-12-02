@@ -1,6 +1,6 @@
 import React,{useState /*, useEffect*/} from 'react';
 import { Navigate } from 'react-router-dom';
-import {boxShadowStyle} from '../style/colors';
+import {boxShadowStyle, buttonStyle} from '../style/colors';
 
 export default function SearchCar({url, setCar}) {
     const [searchRegister, setSearchRegister] = useState('');
@@ -50,21 +50,17 @@ export default function SearchCar({url, setCar}) {
     }
 
     return (
-        <div className='row justify-content-md-center button'>
-            <h2>Etsi auton tiedot</h2>
-            <div  className='col-md-6 searchCar' style={boxShadowStyle}>
+        <div className='row justify-content-md-center mt-5 button'>
+            
+            <div className='col-md-6 searchCar' style={boxShadowStyle}>
+            <h1 className='mb-5'>HAKU</h1>
             <form onSubmit={findRegister}>
-                <div className='justify-content-md-center'>
-                  <div>
-                    <label className="form-label"><h5>Etsi ajoneuvon rekisterinumerolla.</h5></label>
-                    </div>
-                    <input type='text' 
-                        value={searchRegister} placeholder='ABC-123' maxLength="7"
+                <div className='mb-3'>
+                    <input type='text' className="form-control"
+                        value={searchRegister} placeholder='Hae rekisterillä' maxLength="7"
                         onChange={e => setSearchRegister(e.target.value)}/>
-                        <div>
-                    <button className='btn btn-primary button'>Etsi</button>
-                    </div>
                 </div>
+                <button className='btn btn-primary button' style={buttonStyle}>Etsi ajoneuvo</button>
       
             </form>
             </div>
@@ -78,7 +74,7 @@ export default function SearchCar({url, setCar}) {
                                 <td>{car.brand}</td>
                                 <td>{car.model}</td>
                                 <td>{car.customer_id}</td>
-                                <button onClick={() => openCarSite(car)}>Avaa</button>
+                                <button style={buttonStyle} onClick={() => openCarSite(car)}>Avaa</button>
                             </tr>
                         ))}
                     </tbody>

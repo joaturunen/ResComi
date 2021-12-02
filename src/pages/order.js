@@ -44,6 +44,7 @@ export default function Order({url, cart, empty, removeFromCart, setCustomer_id,
     if (finished === false) {
         return (
             <>
+            <div className='row'>
                 <div className='row' style={boxColorLayot}>
                     <h3>Tilaus</h3>
                     <table className="table px-3 table-striped">
@@ -78,7 +79,7 @@ export default function Order({url, cart, empty, removeFromCart, setCustomer_id,
                         <NewCar url={url} customer={customer}/>
                     </div>
                 </div>
-                    
+                </div>   
                 
             </>
         )
