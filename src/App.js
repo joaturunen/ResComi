@@ -130,7 +130,9 @@ function App() {
             }/>
             <Route path="/car" 
               element={<Car 
-                customerCars={customerCars}/>
+                url={URL}
+                customerCars={customerCars}
+                customer_id={customer_id}/>
             }/>
             <Route path="/tires" 
               element={<Tires 

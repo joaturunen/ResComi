@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
 
+
+// TÄMÄ JÄÄ LUULTAVASTI POIS, AUTON TALLENNUS car.js
+
 export default function NewCar({url, customer}) {
 
   const [register, setRegister] = useState('');
