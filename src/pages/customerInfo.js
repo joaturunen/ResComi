@@ -1,12 +1,14 @@
 import React , {useEffect, useState } from 'react';
+import Car from './car';
+import Tires from './tires';
 
 // EI SAA KOSKEA
 
 // tämä avautuu hakutuloksesta, ei näy navissa
 
-export default function CustomerInfo({url, customer_id}) {
-    const [customerCars, setCustomerCars] = useState([]);
-    const [customerTires, setCustomerTires] = useState([]);
+export default function CustomerInfo({url, customer_id, customerCars, setCustomerCars, customerTires, setCustomerTires}) {
+    //const [customerCars, setCustomerCars] = useState([]);
+    //const [customerTires, setCustomerTires] = useState([]);
     const [firstname, setFirstname] = useState("");
     const [lastname, setLastname] = useState("");
     const [phone, setPhone] = useState("");
@@ -16,11 +18,9 @@ export default function CustomerInfo({url, customer_id}) {
     const [city, setCity] = useState("");
     const [customersaved, setCustomersaved] = useState("");
     const [cus_id, setCus_id] = useState(customer_id);
-
+    
 
     useEffect(() => {
-        console.log(cus_id);
-        console.log("Asiakkaan numero : " + cus_id + " 1");
         //let address = url + 'customer/customer_read_cus_cars_tires.php';
         let status = 0;
         fetch('http://localhost/rengasvarasto-back/API/customer/customer_read_cus_cars_tires.php', {
@@ -30,20 +30,16 @@ export default function CustomerInfo({url, customer_id}) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                cus_id: 1
+                cus_id: cus_id
             })
         })
         .then(res => {
-            console.log("Välitiedot ");
             status = parseInt(res.status);
-            console.log("status " + status);
             return res.json();
         })
         .then(
             (res) => {
-              console.log("Nyt tarkistetaan status " + status);
                 if (status === 200) {
-
                   setFirstname(res.customer.firstname);
                   setLastname(res.customer.lastname);
                   setPhone(res.customer.phone);
@@ -55,12 +51,10 @@ export default function CustomerInfo({url, customer_id}) {
 
                   setCustomerCars(res.cars);
                   setCustomerTires(res.tires);
-
                 } else {
                 alert(res.error);
                 }
             }, (error) => {
-                console.log("Täällä virheissä");
                 alert(error);
             }
         );
@@ -71,46 +65,29 @@ export default function CustomerInfo({url, customer_id}) {
         <>
           <div>
             <h5>Asiakkaan tiedot</h5>
-            <p>{firstname}</p>
-            <p>{lastname}</p>
-            <p>{phone}</p>
-            <p>{email}</p>
-            <p>{address}</p>
-            <p>{zipcode}</p>
-            <p>{city}</p>
-            <p>{customersaved}</p>
-            {/* <p>{customer.lastname}</p>
-            <p>{customer.phone}</p>
-            <p>{customer.email}</p>
-            <p>{customer.address}</p>
-            <p>{customer.zipcode}</p>
-            <p>{customer.city}</p>
-            <p>{customer.saved}</p>
-            <p>{customer.employeeId}</p> */}
+            <table className="table px-3 table-striped">
+                <tbody>
+                    <tr>
+                        <td>{firstname}</td>
+                        <td>{lastname}</td>
+                        <td>{phone}</td>
+                        <td>{email}</td>
+                        <td>{address}</td>
+                        <td>{zipcode}</td>
+                        <td>{city}</td>
+                        <td>{customersaved}</td>
+                    </tr>
+                </tbody>
+            </table>
+            
           </div>
           <div>
             <h5>Auton tiedot</h5>
-            <tbody>
-              {customerCars.map(car => (
-               <tr key={car.id} >
-                  <td>{car.register}::::</td>
-                  <td>{car.brand}:::::::</td>
-                  <td>{car.model} </td>
-                 </tr>
-               ))}
-            </tbody>
+            <Car customerCars={customerCars} />
           </div>
           <div>
             <h5>Renkaiden tiedot tiedot</h5>
-            <tbody>
-              {customerTires.map(tires => (
-               <tr key={tires.id} >
-                  <td>{tires.brand}::::</td>
-                  <td>{tires.model}:::::::</td>
-                  <td>{tires.type} </td>
-                 </tr>
-               ))}
-            </tbody>
+            <Tires customerTires={customerTires} />
           </div>
         </>
     );

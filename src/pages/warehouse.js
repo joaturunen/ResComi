@@ -11,6 +11,7 @@ export default function Warehouse({ url }) {
   const [degree, setDegree] = useState(0);
   const [colorTaken, setColorTaken] = useState(pieChartTaken);
   const [colorFree, setColorFree] = useState(pieChartFree);
+  const [shelfs, setShelfs] = useState([]);
 
   useEffect(() => {
     async function getWarehouseData() {
@@ -29,7 +30,21 @@ export default function Warehouse({ url }) {
         alert(error);
       }
     }
+    async function getWarehouseShelfsData() {
+      try {
+        const response = await fetch('http://localhost/rengasvarasto-back/API/warehouse/shelfs/warehouseShelf_read_all_data.php');
+        const json = await response.json();
+        if (response) {
+          setShelfs(parseInt(json));
+        } else {
+          alert(json.error);
+        }
+      } catch (error) {
+        alert(error);
+      }
+    }
     getWarehouseData();
+    getWarehouseShelfsData();
   }, []);
 
   const PieChart = {
@@ -160,6 +175,21 @@ export default function Warehouse({ url }) {
             </div>
           </div>
         </div>
+
+        <div className='row'>
+          <p>Tänne tietoa</p>
+                        <table className="table px-3 table-striped">
+                            <tbody>
+                                {shelfs.map(shelf => (
+                                    <tr key={shelf.id} >
+                                        <td>{shelf.id}</td>
+                                        <td>{shelf.amount} €</td>
+                                        <button className='btn btn-primary'>Valitse</button>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
     </div>
     </>
   );

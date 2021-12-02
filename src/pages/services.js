@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Navigate } from 'react-router-dom';
-import { boxColorLayot, pieChartTaken, pieChartFree, buttonStyle } from '../style/colors';
+import { boxColorLayot, buttonStyle } from '../style/colors';
 
 export default function Services({ url, addToCart }) {
     const [services, setServices] = useState([]);
