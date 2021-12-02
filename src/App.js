@@ -110,8 +110,7 @@ function App() {
             <Route path="/searchCar" 
               element={<SearchCar 
                 url={URL} 
-                setCar={setCar} 
-                setCustomer={setCustomer}/>
+                setCustomer_id={setCustomer_id}/>
               }/>
             {/* <Route path="/customers" element={<Customers />}>
               <Route index element={<CustomerList url={URL} setCustomer={setCustomer}/>}/>
