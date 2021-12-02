@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {buttonStyle} from '../style/colors';
 
 export default function NewCustomer({url}) {
 
@@ -70,7 +71,7 @@ export default function NewCustomer({url}) {
                   <input placeholder="Postitoimipaikka"value={city} onChange={e => setCity(e.target.value)}/>
               </div>
             </div>
-            <button>Tallenna</button>
+            <button className='btn btn-primary' style={buttonStyle}>Tallenna</button>
           </form>
       </>
   );

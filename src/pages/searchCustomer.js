@@ -1,5 +1,6 @@
 import React,{useState /*, useEffect*/} from 'react';
 import { Link, Navigate } from 'react-router-dom';
+import {buttonStyle} from '../style/colors';
 
 export default function SearchCustomer({url, setCustomer_id}) {
   const [searchPhone, setSearchPhone] = useState('');
@@ -58,7 +59,7 @@ export default function SearchCustomer({url, setCustomer_id}) {
               <input type='text' 
                 value={searchPhone} placeholder='0401234567' maxLength="10"
                 onChange={e => setSearchPhone(e.target.value)}/>
-              <button className='btn btn-primary button'>Etsi</button>
+              <button className='btn btn-primary button' style={buttonStyle}>Etsi</button>
             </div>
           </form>
         <div>
