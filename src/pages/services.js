@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Navigate } from 'react-router-dom';
-import { boxColorLayot, pieChartTaken, pieChartFree } from '../style/colors';
+import { boxColorLayot, pieChartTaken, pieChartFree, buttonStyle } from '../style/colors';
 
 export default function Services({ url, addToCart }) {
     const [services, setServices] = useState([]);
@@ -60,7 +60,7 @@ export default function Services({ url, addToCart }) {
                     </div> */}
                     <div className='row'>
                         <div className='col'>
-                            <button className='btn btn-primary' onClick={() => goOrderSite()}>Siirry tilaussivulle</button>
+                            <button className='btn btn-primary' style={buttonStyle} onClick={() => goOrderSite()}>Jatka</button>
                         </div>
                     </div>
                 </div>
