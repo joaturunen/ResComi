@@ -82,11 +82,11 @@ export default function CustomerInfo({url, customer_id, customerCars, setCustome
             
           </div>
           <div>
-            <h5>Auton tiedot</h5>
-            <Car customerCars={customerCars} />
+            
+            <Car url={url} customerCars={customerCars} setCustomerCars={setCustomerCars} customer_id={customer_id}/>
           </div>
           <div>
-            <h5>Renkaiden tiedot tiedot</h5>
+            <h5>Renkaiden tiedot</h5>
             <Tires customerTires={customerTires} />
           </div>
         </>

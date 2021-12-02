@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import {buttonStyle} from '../style/colors';
 
+
+// TÄMÄ JÄÄ LUULTAVASTI POIS, AUTON TALLENNUS car.js
+
 export default function NewCar({url, customer}) {
 
   const [register, setRegister] = useState('');
