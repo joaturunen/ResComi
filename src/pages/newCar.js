@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {buttonStyle} from '../style/colors';
 
 
 // TÄMÄ JÄÄ LUULTAVASTI POIS, AUTON TALLENNUS car.js
@@ -56,7 +57,7 @@ export default function NewCar({url, customer}) {
                   <input placeholder="Malli"value={model} onChange={e => setModel(e.target.value)}/>
               </div>
             </div>
-            <button>Tallenna</button>
+            <button className='btn btn-primary' style={buttonStyle}>Tallenna</button>
           </form>
       </>
   );

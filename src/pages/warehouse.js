@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaSquareFull } from 'react-icons/fa';
-import { boxColorLayot, pieChartTaken, pieChartFree } from '../style/colors';
+import { boxColorLayot, pieChartTaken, pieChartFree, buttonStyle } from '../style/colors';
 
 // tänne lista kaikista varastopaikoista lajiteltuna varastoittain
 
@@ -11,6 +11,7 @@ export default function Warehouse({ url }) {
   const [degree, setDegree] = useState(0);
   const [colorTaken, setColorTaken] = useState(pieChartTaken);
   const [colorFree, setColorFree] = useState(pieChartFree);
+  const [shelfs, setShelfs] = useState([]);
 
   useEffect(() => {
     async function getWarehouseData() {
@@ -29,7 +30,21 @@ export default function Warehouse({ url }) {
         alert(error);
       }
     }
+    async function getWarehouseShelfsData() {
+      try {
+        const response = await fetch('http://localhost/rengasvarasto-back/API/warehouse/shelfs/warehouseShelf_read_all_data.php');
+        const json = await response.json();
+        if (response) {
+          setShelfs(parseInt(json));
+        } else {
+          alert(json.error);
+        }
+      } catch (error) {
+        alert(error);
+      }
+    }
     getWarehouseData();
+    getWarehouseShelfsData();
   }, []);
 
   const PieChart = {
@@ -74,7 +89,7 @@ export default function Warehouse({ url }) {
               </div>
             </div>
             <div className="col align-self-end">
-              <button class='btn btn-primary' type='button'>
+              <button class='btn btn-primary' style={buttonStyle} type='button'>
                 Näytä hyllyt
               </button>
             </div>
@@ -108,13 +123,13 @@ export default function Warehouse({ url }) {
                     <th scope="row">1</th>
                     <td>50</td>
                     <td style={PieChartTaken}>Täynnä</td>
-                    <td><button class='btn btn-primary'>Näytä hylly</button></td>
+                    <td><button class='btn btn-primary' style={buttonStyle}>Näytä hylly</button></td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
                     <td>50</td>
                     <td style={PieChartFree}>Vapaita paikkoja</td>
-                    <td><button class='btn btn-primary'>Näytä hylly</button></td>
+                    <td><button class='btn btn-primary' style={buttonStyle}>Näytä hylly</button></td>
                   </tr>
                 </tbody>
               </table>
@@ -136,22 +151,22 @@ export default function Warehouse({ url }) {
               <table className="table px-3 table-striped text-center">
                 <thead>
                   <tr>
-                    <th scope="col">Hylly</th>
                     <th scope="col">Hyllypaikka</th>
+                    <th scope="col">Renkaat</th>
                     <th scope="col">Tila</th>
                     <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <th scope="row">2</th>
-                    <td>1</td>
+                    <th scope="row">1</th>
+                    <td>jotain oleellista renkaista</td>
                     <td style={PieChartTaken}>Varattu</td>
-                    <td><button class='btn btn-primary'>Tiedot</button></td>
+                    <td><button class='btn btn-primary' style={buttonStyle}>Tiedot</button></td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
-                    <td>2</td>
+                    <td></td>
                     <td style={PieChartFree}>Vapaa</td>
                   </tr>
 
@@ -160,6 +175,21 @@ export default function Warehouse({ url }) {
             </div>
           </div>
         </div>
+
+        <div className='row'>
+          <p>Tänne tietoa</p>
+                        <table className="table px-3 table-striped">
+                            <tbody>
+                                {shelfs.map(shelf => (
+                                    <tr key={shelf.id} >
+                                        <td>{shelf.id}</td>
+                                        <td>{shelf.amount} €</td>
+                                        <button className='btn btn-primary'>Valitse</button>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
     </div>
     </>
   );

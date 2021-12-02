@@ -42,9 +42,9 @@ export const boxColorLayot = {
   'background': boxColor,
   'border-radius': '10px',
   'padding': '1rem',
-  'margin-left': '0.2rem',
-  'margin-right': '0.2rem',
-  'margin-top': '1rem'
+  'marginLeft': '0.2rem',
+  'marginTop': '1rem',
+  'marginRight': '0.2rem',
 };
 
 export const buttonStyle = {
