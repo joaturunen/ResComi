@@ -32,6 +32,7 @@ export const boxColorLayot = {
   'border-radius': '10px',
   'padding': '1rem',
   'margin-left': '0.2rem',
+  'margin-right': '0.2rem',
   'margin-top': '1rem'
 };
 
