@@ -11,6 +11,7 @@ export default function Warehouse({ url }) {
   const [degree, setDegree] = useState(0);
   const [colorTaken, setColorTaken] = useState(pieChartTaken);
   const [colorFree, setColorFree] = useState(pieChartFree);
+  const [shelfs, setShelfs] = useState([]);
 
   useEffect(() => {
     async function getWarehouseData() {
@@ -32,8 +33,27 @@ export default function Warehouse({ url }) {
     getWarehouseData();
   }, []);
 
+
+  useEffect(() => {
+    async function getWarehouseShelfsData() {
+      try {
+        const response = await fetch(url + 'warehouse/warehouseShelf_read_all_data.php');
+        const json = await response.json();
+        if (response) {
+          setShelfs(parseInt(json.all));
+        } else {
+          alert(json.error);
+        }
+      } catch (error) {
+        alert(error);
+      }
+    }
+    getWarehouseShelfsData();
+  }, []);
+
+
   const PieChart = {
-    'background-image': 'conic-gradient(' + colorTaken + ' ' + degree + 'deg,' + colorFree + ' 0)'
+    'backgroundImage': 'conic-gradient(' + colorTaken + ' ' + degree + 'deg,' + colorFree + ' 0)'
   }
 
   const PieChartTaken = {

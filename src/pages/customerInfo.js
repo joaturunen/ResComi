@@ -84,7 +84,7 @@ export default function CustomerInfo({url, customer_id}) {
             <h5>Auton tiedot</h5>
             <tbody>
               {customerCars.map(car => (
-               <tr key={car.id} >
+               <tr key={car.id}>
                   <td>{car.register}::::</td>
                   <td>{car.brand}:::::::</td>
                   <td>{car.model} </td>
@@ -96,7 +96,7 @@ export default function CustomerInfo({url, customer_id}) {
             <h5>Renkaiden tiedot tiedot</h5>
             <tbody>
               {customerTires.map(tires => (
-               <tr key={tires.id} >
+               <tr key={tires.id}>
                   <td>{tires.brand}::::</td>
                   <td>{tires.model}:::::::</td>
                   <td>{tires.type} </td>

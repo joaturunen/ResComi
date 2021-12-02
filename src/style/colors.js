@@ -31,8 +31,8 @@ export const boxColorLayot = {
   'background': boxColor,
   'border-radius': '10px',
   'padding': '1rem',
-  'margin-left': '0.2rem',
-  'margin-top': '1rem'
+  'marginLeft': '0.2rem',
+  'marginTop': '1rem'
 };
 
 
