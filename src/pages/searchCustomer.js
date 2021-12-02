@@ -1,5 +1,6 @@
 import React,{useState /*, useEffect*/} from 'react';
 import { Link, Navigate } from 'react-router-dom';
+import {boxShadowStyle, buttonStyle} from '../style/colors';
 
 export default function SearchCustomer({url, setCustomer_id}) {
   const [searchPhone, setSearchPhone] = useState('');
@@ -58,18 +59,18 @@ export default function SearchCustomer({url, setCustomer_id}) {
               <input type='text' 
                 value={searchPhone} placeholder='0401234567' maxLength="10"
                 onChange={e => setSearchPhone(e.target.value)}/>
-              <button className='btn btn-primary button'>Etsi</button>
+              <button className='btn btn-primary button' style={buttonStyle}>Etsi</button>
             </div>
           </form>
         <div>
           <h4>Hakutulokset</h4>
-          <table>
+          <table className="table px-3 table-striped">
             <tbody>
               {result.map(customer => (
                 <tr key={customer.id}>
                   <td>{customer.firstname}</td>
                   <td>{customer.lastname}</td>
-                  <button onClick={() => openCustomerSite(customer)}>Avaa</button>
+                  <button style={buttonStyle} onClick={() => openCustomerSite(customer)}>Avaa</button>
                 </tr>
               ))}
             </tbody>

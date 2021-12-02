@@ -2,10 +2,13 @@ import React, {useState} from 'react';
 import NewCustomer from './newCustomer';
 import NewCar from './newCar';
 import SearchCustomer from './searchCustomer';
+import { boxColorLayot } from '../style/colors';
+import {FaTrash, FaTimes } from 'react-icons/fa'; 
+
 
 // kuinka tallennetaan myös auton tiedot samalla?
 
-export default function Order({url, cart, empty, removeFromCart, setCustomer, customer}) {
+export default function Order({url, cart, empty, removeFromCart, setCustomer_id, customer}) {
     
     const [finished, setFinished] = useState(false);
 
@@ -42,9 +45,10 @@ export default function Order({url, cart, empty, removeFromCart, setCustomer, cu
     if (finished === false) {
         return (
             <>
-                <div>
+            <div className='row'>
+                <div className='row' style={boxColorLayot}>
                     <h3>Tilaus</h3>
-                    <table>
+                    <table className="table px-3 table-striped">
                         <tbody>
                             {cart.map((service, id) => {
                                 sum+=parseFloat(service.price);
@@ -52,15 +56,14 @@ export default function Order({url, cart, empty, removeFromCart, setCustomer, cu
                                     <tr key={id}>
                                         <td>{service.service}</td>
                                         <td>{service.price}</td>
-                                        <td><a href="#" onClick={() => removeFromCart(service)}>Poista</a></td>
+                                        <td><FaTimes onClick={() => removeFromCart(service)}/></td>
                                     </tr>
                                 )
                             })}
                             <tr>
                                 <td></td>
                                 <td>{sum.toFixed(2)} €</td>
-                                <td></td>
-                                <td><a href="#" onClick={() => empty()}>Tyhjennä tilaus</a></td>
+                                <td><FaTrash onClick={() => empty()}/></td>
                             </tr>
                         </tbody>
                     </table>
@@ -68,7 +71,7 @@ export default function Order({url, cart, empty, removeFromCart, setCustomer, cu
                 <div>
                     <h4>Asiakastiedot</h4>
                     <div>
-                        <SearchCustomer url={url} setCustomer={setCustomer}/>
+                        <SearchCustomer url={url} setCustomer_id={setCustomer_id}/>
                     </div>
                     <div>
                         <NewCustomer url={url}/>
@@ -77,7 +80,7 @@ export default function Order({url, cart, empty, removeFromCart, setCustomer, cu
                         <NewCar url={url} customer={customer}/>
                     </div>
                 </div>
-                    
+                </div>   
                 
             </>
         )

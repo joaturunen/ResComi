@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom';
 import React, {useState, useEffect} from 'react';
 import MenuItem from "./MenuItem";
 
-import {MdPersonAdd, MdPerson, MdArrowForward, MdArrowBack } from 'react-icons/md';
+import {MdPersonAdd, MdPerson, MdArrowForward, MdReorder } from 'react-icons/md';
 import {FaTimes, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react-icons/fa';
 
 /**
@@ -118,7 +118,7 @@ import {FaTimes, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react-icons/f
             {inactive ? (
               <MdArrowForward className='toggle-menu-btn'/>
             ) : (
-              <MdArrowBack className='toggle-menu-btn' />
+              <MdReorder className='toggle-menu-btn' />
             )}
           </div>
         </div>

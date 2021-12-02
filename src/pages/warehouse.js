@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaSquareFull } from 'react-icons/fa';
-import { boxColorLayot, pieChartTaken, pieChartFree } from '../style/colors';
+import { boxColorLayot, pieChartTaken, pieChartFree, buttonStyle } from '../style/colors';
 
 // tänne lista kaikista varastopaikoista lajiteltuna varastoittain
 
@@ -11,6 +11,8 @@ export default function Warehouse({ url }) {
   const [degree, setDegree] = useState(0);
   const [colorTaken, setColorTaken] = useState(pieChartTaken);
   const [colorFree, setColorFree] = useState(pieChartFree);
+  const [shelfs, setShelfs] = useState([]);
+
 
   useEffect(() => {
     async function getWarehouseData() {
@@ -29,6 +31,20 @@ export default function Warehouse({ url }) {
         alert(error);
       }
     }
+    async function getWarehouseShelfsData() {
+      try {
+        const response = await fetch(url + 'warehouse/shelfs/warehouseShelf_read_all_data.php');
+        const json = await response.json();
+        if (response) {
+          setShelfs(Array.from(json));
+        } else {
+          alert(json.error);
+        }
+      } catch (error) {
+        alert(error);
+      }
+    }
+    getWarehouseShelfsData();
     getWarehouseData();
   }, []);
 
@@ -74,89 +90,35 @@ export default function Warehouse({ url }) {
               </div>
             </div>
             <div className="col align-self-end">
-              <button class='btn btn-primary' type='button'>
+              <button class='btn btn-primary' style={buttonStyle} type='button'>
                 Näytä hyllyt
               </button>
             </div>
           </div>
         </div>
 
-        <div className='row' style={boxColorLayot}>
-      
-          <div className='row warehouse'>
-            <div className='row'>
-              <h3>Hyllylistaus</h3>
-            </div>
-            <div className='mx-3'>
-              <h5>Varasto 1</h5>
-            </div>
-            <div className='row mt-5 warehouse'>
-              <table className="table px-3 table-striped text-center">
-                <thead>
+        <div className='row'>
+            <table className="table px-3 table-striped">
+            <thead>
                   <tr>
-                    <th scope="col">Hylly</th>
-                    <th scope="col">Hyllypaikkoja</th>
-                    <th scope="col">Tila</th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>50</td>
-                    <td style={PieChartTaken}>Täynnä</td>
-                    <td><button class='btn btn-primary'>Näytä hylly</button></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>50</td>
-                    <td style={PieChartFree}>Vapaita paikkoja</td>
-                    <td><button class='btn btn-primary'>Näytä hylly</button></td>
-                  </tr>
-
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <div className='row' style={boxColorLayot}>
-      
-          <div className='row warehouse'>
-            <div className='row'>
-              <h3>Hyllypaikat</h3>
-            </div>
-            <div className='mx-3'>
-              <h5>Hylly 2</h5>
-            </div>
-            <div className='row mt-5 warehouse'>
-              <table className="table px-3 table-striped text-center">
-                <thead>
-                  <tr>
-                    <th scope="col">Hylly</th>
                     <th scope="col">Hyllypaikka</th>
+                    <th scope="col">Rengas paikkoja</th>
                     <th scope="col">Tila</th>
                     <th scope="col"></th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>1</td>
-                    <td style={PieChartTaken}>Varattu</td>
-                    <td><button class='btn btn-primary'>Tiedot</button></td>
+              <tbody>
+                {shelfs.map(shelf => (
+                  <tr key={shelf.id} >
+                    <td>{shelf.id}</td>
+                    <td>{shelf.amount}</td>
+                    <td>{(shelf.free == 0) ? (<p style={PieChartTaken}>Täynnä</p>) : (<p style={PieChartFree}>Vapaana {shelf.free}</p>)}</td>
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>2</td>
-                    <td style={PieChartFree}>Vapaa</td>
-                  </tr>
-
-                </tbody>
-              </table>
-            </div>
-          </div>
+                ))}
+            </tbody>
+            </table>
         </div>
+
     </div>
     </>
   );

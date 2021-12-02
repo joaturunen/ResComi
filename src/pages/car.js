@@ -1,51 +1,73 @@
 import React , {useEffect, useState } from 'react';
 
-// tämä avautuu hakutuloksesta, ei näy navissa
+// tulostaa yhdelle asiakkaalle kuuluvat autot 
 
-export default function Car({ car}) {
+export default function Car({url, customerCars, setCustomerCars, customer_id}) {
 
   
-//   const [register, setRegister] = useState('');
-//   const [brand, setBrand] = useState('');
-//   const [model, setModel] = useState('');
-//   const [customer_id, setCustomer_id] = useState('');
+    const [register, setRegister] = useState('');
+    const [brand, setBrand] = useState('');
+    const [model, setModel] = useState('');
+    const [cus_id, setCus_id] = useState(customer_id);
 
+    function SaveCar(e) {
+        e.preventDefault();
+        let status = 0;
+        fetch('http://localhost/rengasvarasto-back/API/car/car_create.php', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                register: register,
+                brand: brand,
+                model: model,
+                customer_id: cus_id
+            })
+        })
+        .then(res => {
+            return res.json();
+        })
+        .then(
+            (res) => {
+                if (status === 200) {
+                    setCustomerCars(customerCars => [...customerCars, res]);
+                    setRegister('');
+                    setBrand('');
+                    setModel('');
+                } else {
+                    alert(res.error);
+                }
+            }, (error) => {
+                alert(error);
+            }
+        );
 
-  // haetaan tietokannasta yhden auton tiedot
-//   useEffect(() => {
+    }
 
-//     async function getSingleCar() {
-//       let address = '';
-
-//       address = url + 'car/car_read_single.php?id=' + carId;
-    
-//       try {
-//         const response = await fetch(address); 
-//         const json = await response.json();
-//         if (response.ok) {
-//             setRegister(json.register);
-//             setBrand(json.brand);
-//             setModel(json.model);
-//             setCustomer_id(json.customer_id);
-//         } else {
-//           alert(json.error);
-//         }
-//       } catch (error) {
-//         alert(error);
-//       }
-//     }
-    
-//     getSingleCar();
-
-//   }, [url, carId]);
-
-  return (
-    <>
-      <h4>Auton tiedot</h4>
-      <p>{car.register}</p>
-      <p>{car.brand}</p>
-      <p>{car.model}</p>
-      <p>{car.customer_id}</p> {/** tämä ei saa näkyä lopullisessa versiossa */}
-    </>
-  );
+    return (
+        <div>
+            <h5>Auton tiedot</h5>
+            <table className="table px-3 table-striped">
+                <tbody>
+                    {customerCars.map(car => (
+                        <tr key={car.id} >
+                            <td>{car.register}</td>
+                            <td>{car.brand}</td>
+                            <td>{car.model} </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+            <h6>Lisää uusi auto</h6>
+            <form onSubmit={SaveCar}>
+                <input placeholder="Rekisterinumero" value={register} onChange={e => setRegister(e.target.value)}/>
+                <input placeholder="Merkki" value={brand} onChange={e => setBrand(e.target.value)}/>
+                <input placeholder="Malli" value={model} onChange={e => setModel(e.target.value)}/>
+                <button>Tallenna</button>
+            </form>
+            
+        </div>
+    );
 }
