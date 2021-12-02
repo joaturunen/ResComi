@@ -70,7 +70,7 @@ export default function SearchCar({url, setCar}) {
             </div>
             <div>
                 <h4>Hakutulokset</h4>
-                <table>
+                <table className="table px-3 table-striped">
                     <tbody>
                         {result.map(car => (
                             <tr key={car.id}>
@@ -78,7 +78,7 @@ export default function SearchCar({url, setCar}) {
                                 <td>{car.brand}</td>
                                 <td>{car.model}</td>
                                 <td>{car.customer_id}</td>
-                                <button onClick={() => openCarSite(car)}>Avaa</button>
+                                <button className='btn btn-primary' onClick={() => openCarSite(car)}>Avaa</button>
                             </tr>
                         ))}
                     </tbody>

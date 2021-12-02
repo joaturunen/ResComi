@@ -15,6 +15,7 @@ import CustomerList from './pages/customerlist';
 import Customer from './pages/oneCustomer';
 import CustomerInfo from './pages/customerInfo';
 import Car from './pages/car';
+import Tires from './pages/tires';
 import Empty from './pages/empty';
 import Order from './pages/order';
 import Services from './pages/services';
@@ -30,6 +31,8 @@ function App() {
   const [car, setCar] = useState(null);
   const [cart, setCart] = useState([]);
   const [inactive, setInactive] = useState(false);
+  const [customerCars, setCustomerCars] = useState([]);
+  const [customerTires, setCustomerTires] = useState([]);
 
   useEffect(() => {
     if ('cart' in localStorage) {
@@ -118,10 +121,21 @@ function App() {
               element={<Customer url={URL} customer={customer}/>
             }/>
             <Route path="/customerInfo" 
-              element={<CustomerInfo url={URL} customer_id={customer_id}/>
+              element={<CustomerInfo 
+                url={URL} 
+                customer_id={customer_id}
+                customerCars={customerCars}
+                setCustomerCars={setCustomerCars}
+                customerTires={customerTires}
+                setCustomerTires={setCustomerTires}/>
             }/>
             <Route path="/car" 
-              element={<Car url={URL} car={car}/>
+              element={<Car 
+                customerCars={customerCars}/>
+            }/>
+            <Route path="/tires" 
+              element={<Tires 
+                customerTires={customerTires}/>
             }/>
             <Route path="/" 
               element={<Home />}>

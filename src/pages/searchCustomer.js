@@ -63,13 +63,13 @@ export default function SearchCustomer({url, setCustomer_id}) {
           </form>
         <div>
           <h4>Hakutulokset</h4>
-          <table>
+          <table className="table px-3 table-striped">
             <tbody>
               {result.map(customer => (
                 <tr key={customer.id}>
                   <td>{customer.firstname}</td>
                   <td>{customer.lastname}</td>
-                  <button onClick={() => openCustomerSite(customer)}>Avaa</button>
+                  <button className='btn btn-primary' onClick={() => openCustomerSite(customer)}>Avaa</button>
                 </tr>
               ))}
             </tbody>
