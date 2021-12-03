@@ -22,6 +22,7 @@ import Services from './pages/services';
 import {URL} from './back/Config';
 import Print from './printable/Print';
 import Tab from './components/tab/Tab';
+import ShelfSlots from './pages/shelfSlots';
 
 
 function App() {
@@ -33,11 +34,13 @@ function App() {
   const [inactive, setInactive] = useState(false);
   const [customerCars, setCustomerCars] = useState([]);
   const [customerTires, setCustomerTires] = useState([]);
+  const [shelf_id, setShelf_id] = useState(0);
 
   useEffect(() => {
     if ('cart' in localStorage) {
       setCart(JSON.parse(localStorage.getItem('cart')));
     }
+    console.log("Appissa: " + shelf_id);
   }, []);
 
 
@@ -100,7 +103,13 @@ function App() {
             }/>
             <Route path="/warehouse"
               element={<Warehouse
-                url={URL}/>
+                url={URL}
+                setShelf_id={setShelf_id}/>
+            }/>
+            <Route path="/shelfSlots" 
+              element={<ShelfSlots 
+                url={URL}
+                shelf_id={shelf_id}/>
             }/>
             <Route path="/searchCustomer" 
               element={<SearchCustomer 

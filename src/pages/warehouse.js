@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { FaSquareFull } from 'react-icons/fa';
 import { boxColorLayot, pieChartTaken, pieChartFree, buttonStyle } from '../style/colors';
+import { Navigate } from 'react-router-dom';
 
 // tänne lista kaikista varastopaikoista lajiteltuna varastoittain
 
-export default function Warehouse({ url }) {
+export default function Warehouse({ url, setShelf_id}) {
   const [warehouseAll, setWarehouseAll] = useState(0);
   const [warehouseTaken, setWarehouseTaken] = useState(0);
   const [warehouseFree, setWarehouseFree] = useState(0);
@@ -12,7 +13,7 @@ export default function Warehouse({ url }) {
   const [colorTaken, setColorTaken] = useState(pieChartTaken);
   const [colorFree, setColorFree] = useState(pieChartFree);
   const [shelfs, setShelfs] = useState([]);
-
+  const [showCustomerSite, setShowCustomerSite] = useState(false);
 
   useEffect(() => {
     async function getWarehouseData() {
@@ -60,6 +61,18 @@ export default function Warehouse({ url }) {
     'color': colorFree
   }
 
+  function openShelfSite(shelf) {
+    console.log(shelf.id);
+    setShelf_id(shelf.id);
+    setShowCustomerSite(true);
+  }
+  
+  if (showCustomerSite === true) {
+    return (
+      <Navigate to="/shelfSlots" />
+    );
+  }
+
   return (
     <>
       <div className='row'>
@@ -101,8 +114,8 @@ export default function Warehouse({ url }) {
             <table className="table px-3 table-striped">
             <thead>
                   <tr>
-                    <th scope="col">Hyllypaikka</th>
-                    <th scope="col">Rengas paikkoja</th>
+                    <th scope="col">Hylly</th>
+                    <th scope="col">Hylly paikkoja</th>
                     <th scope="col">Tila</th>
                     <th scope="col"></th>
                   </tr>
@@ -113,6 +126,9 @@ export default function Warehouse({ url }) {
                     <td>{shelf.id}</td>
                     <td>{shelf.amount}</td>
                     <td>{(shelf.free == 0) ? (<p style={PieChartTaken}>Täynnä</p>) : (<p style={PieChartFree}>Vapaana {shelf.free}</p>)}</td>
+                    <td>
+                    <button style={buttonStyle} onClick={() => openShelfSite(shelf)}>Näytä hylly {shelf.id}</button>
+                    </td>
                   </tr>
                 ))}
             </tbody>
