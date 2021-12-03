@@ -1,0 +1,68 @@
+import React, { useState, useEffect } from 'react';
+import { FaSquareFull } from 'react-icons/fa';
+import { boxColorLayot, pieChartTaken, pieChartFree, buttonStyle } from '../style/colors';
+
+// tänne lista kaikista varastopaikoista lajiteltuna varastoittain
+
+export default function ShelfSlots({ url, shelf_id}) {
+  const [slots, setSlots] = useState([]);
+
+  useEffect(() => {
+    console.log("Läpi tuleva arvo: " + shelf_id + url);
+    let address = url + 'warehouse/shelfs/warehouseShelf_read_slots.php';
+    let status = 0;
+    fetch(address, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            id: shelf_id
+        })
+    })
+    .then(res => {
+        status = parseInt(res.status);
+        return res.json();
+    })
+    .then(
+        (res) => {
+            if (status === 200) {
+              setSlots([]);
+              console.log("Data tulee");
+              console.log(res);
+            } else {
+            alert(res.error);
+            }
+        }, (error) => {
+            alert(error);
+        }
+    );
+
+}, [shelf_id]);
+
+
+  return (
+    <>
+        <div className='row'>
+            <table className="table px-3 table-striped">
+            <thead>
+                  <tr>
+                    <th scope="col">Hyllypaikka</th>
+                    <th scope="col">Rengas paikkoja</th>
+                    <th scope="col">Tila</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+              <tbody>
+                {slots.map(slot => (
+                  <tr key={slot.slot_id} >
+                    <td>{slot.slot_id}</td>
+                  </tr>
+                ))}
+            </tbody>
+            </table>
+        </div>
+    </>
+  );
+}

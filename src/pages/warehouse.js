@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { FaSquareFull } from 'react-icons/fa';
 import { boxColorLayot, pieChartTaken, pieChartFree, buttonStyle } from '../style/colors';
+import { Navigate } from 'react-router-dom';
 
 // tänne lista kaikista varastopaikoista lajiteltuna varastoittain
 
-export default function Warehouse({ url }) {
+export default function Warehouse({ url, setShelf_id}) {
   const [warehouseAll, setWarehouseAll] = useState(0);
   const [warehouseTaken, setWarehouseTaken] = useState(0);
   const [warehouseFree, setWarehouseFree] = useState(0);
@@ -12,7 +13,7 @@ export default function Warehouse({ url }) {
   const [colorTaken, setColorTaken] = useState(pieChartTaken);
   const [colorFree, setColorFree] = useState(pieChartFree);
   const [shelfs, setShelfs] = useState([]);
-
+  const [showCustomerSite, setShowCustomerSite] = useState(false);
 
   useEffect(() => {
     async function getWarehouseData() {
@@ -58,6 +59,18 @@ export default function Warehouse({ url }) {
 
   const PieChartFree = {
     'color': colorFree
+  }
+
+  function openShelfSite(shelf) {
+    console.log(shelf.id);
+    setShelf_id(shelf.id);
+    setShowCustomerSite(true);
+  }
+  
+  if (showCustomerSite === true) {
+    return (
+      <Navigate to="/shelfSlots" />
+    );
   }
 
   return (
@@ -121,7 +134,9 @@ export default function Warehouse({ url }) {
                   <td>{shelf.id}</td>
                   <td>{shelf.amount}</td>
                   <td>{(shelf.free == 0) ? (<p class='full'>Täynnä</p>) : (<p class='free'>Vapaita paikkoja {shelf.free}</p>)}</td>
-                  <td><button class='btn btn-primary' style={buttonStyle}>Näytä hylly</button></td>
+                  <td>
+                  <button style={buttonStyle} onClick={() => openShelfSite(shelf)}>Näytä hylly {shelf.id}</button>
+                  </td>
                 </tr>
               ))}
             </tbody>
