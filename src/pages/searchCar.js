@@ -64,7 +64,7 @@ export default function SearchCar({url, setCustomer_id}) {
       }
 
     return (
-        <div className='row mt-5 button'>
+        <div className='row mt-5'>
             
             <div className='col-md-6 searchCar' style={boxShadowStyle}>
             <h1>HAKU</h1>
