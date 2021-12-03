@@ -4,7 +4,7 @@ import {FaWarehouse, FaSearch, FaList } from 'react-icons/fa';
 import {MdPersonAdd } from 'react-icons/md';
 import {GiTireIron} from 'react-icons/gi';
 import Print from '../printable/Print';
-import {boxShadowStyle} from '../style/colors';
+import {boxShadowStyle, buttonStyle} from '../style/colors';
 
 // tänne pitäs lisätä linkit noihin sivuihin samoin kuin navbarissa on
 
@@ -13,32 +13,30 @@ export default function Home() {
   return (
     <>
     <div className='mt-5'>
+
       <div className='row justify-content-md-center'>
-      
-        <Link to="./searchCar" className='col-3 button link' style={boxShadowStyle}>
-          <FaSearch size={35} className= 'mt-4'/>
-          <p>Hae</p>
+        <Link to="./searchCar" className='col-4 shadow button link'>
+        <FaSearch size={35}  className='icon mt-4' />
+        <p class='hometext pt-2'>HAKU</p>
         </Link>
 
-        <Link to="./warehouse" className='col-4 button link' style={boxShadowStyle}>
-          <FaWarehouse size={40} className= 'mt-4'/>
-          <p>Varasto</p>
+        <Link to="./warehouse" className='col-3 link shadow button'>
+        <FaWarehouse size={40} className='mt-4'/>
+        <p class='hometext pt-2'>VARASTO</p>
         </Link>
-
       </div>
 
-      <div className='row justify-content-md-center'>
-        
-        <Link to="./services" className='col-4 button link'style={boxShadowStyle}>
-          <FaList size={35} className= 'mt-4'/>
-          <p>Palvelut</p>
+      <div className='row justify-content-md-center'> 
+        <Link to="./services" className='col-3 link button shadow'>
+          <GiTireIron size={40}  className='mt-4'/>
+          <p class='hometext pt-2'>PALVELUT</p>
         </Link>
 
-        <Link to="./order" className='col-3 button link' style={boxShadowStyle}>
-          <GiTireIron size={40} className= 'mt-4' />
-          <p>Raportit väärä linkki</p>
+        <Link to="./order" className='col-4 mb-3 button link shadow'>
+        <FaList size={35}  className='mt-4'/>
+          <p class='hometext pt-2'>RAPORTIT väärä linkki</p>
         </Link>
-        </div>
+      </div>
 
 
 
