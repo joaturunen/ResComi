@@ -111,28 +111,69 @@ export default function Warehouse({ url, setShelf_id}) {
         </div>
 
         <div className='row'>
-            <table className="table px-3 table-striped">
+          <div className='row mt-3'>
+            <h3>Hyllylistaus</h3>
+          </div>
+
+          <div className='row mx-3 my-3'>
+            <h5>Varasto 1</h5>
+          </div>
+          <div class='row'>
+          <table className="table text-center table-striped mx-3">
             <thead>
-                  <tr>
-                    <th scope="col">Hylly</th>
-                    <th scope="col">Hylly paikkoja</th>
-                    <th scope="col">Tila</th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
-              <tbody>
-                {shelfs.map(shelf => (
-                  <tr key={shelf.id} >
-                    <td>{shelf.id}</td>
-                    <td>{shelf.amount}</td>
-                    <td>{(shelf.free == 0) ? (<p style={PieChartTaken}>Täynnä</p>) : (<p style={PieChartFree}>Vapaana {shelf.free}</p>)}</td>
-                    <td>
-                    <button style={buttonStyle} onClick={() => openShelfSite(shelf)}>Näytä hylly {shelf.id}</button>
-                    </td>
-                  </tr>
-                ))}
+              <tr>
+                <th scope="col">Hylly</th>
+                <th scope="col">Rengas paikkoja</th>
+                <th scope="col">Tila</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              {shelfs.map(shelf => (
+                <tr key={shelf.id} >
+                  <td>{shelf.id}</td>
+                  <td>{shelf.amount}</td>
+                  <td>{(shelf.free == 0) ? (<p class='full'>Täynnä</p>) : (<p class='free'>Vapaita paikkoja {shelf.free}</p>)}</td>
+                  <td>
+                  <button style={buttonStyle} onClick={() => openShelfSite(shelf)}>Näytä hylly {shelf.id}</button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
-            </table>
+          </table>
+          </div>
+        </div>
+
+        <div className='row'>
+          <div className='row mt-3'>
+            <h3>Hyllypaikat</h3>
+          </div>
+
+          <div className='row mx-3 my-3'>
+            <h5>Hylly 2</h5>
+          </div>
+          <div class='row'>
+          <table className="table text-center table-striped mx-3">
+            <thead>
+              <tr>
+                <th scope="col">Rengaspaikka</th>
+                <th scope="col">Tilaus</th>
+                <th scope="col">Tila</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              {shelfs.map(shelf => (
+                <tr key={shelf.id} >
+                  <td>{shelf.id}</td>
+                  <td>tilausnro?</td>
+                  <td>{(shelf.free == 0) ? (<p class='full'>Varattu</p>) : (<p class='free'>Vapaa</p>)}</td>
+                  <td><button class='btn btn-primary' style={buttonStyle}>Tilaus</button></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          </div>
         </div>
 
     </div>
