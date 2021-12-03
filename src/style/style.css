@@ -292,3 +292,9 @@ li {
  .warehouse{
    margin-top:5rem;
  }
+ .full{
+   color:crimson;
+ }
+ .free{
+   color:rgb(35, 204, 35);
+ }
