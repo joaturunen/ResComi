@@ -90,6 +90,12 @@ li {
    text-align: center;
    border-radius: 1em;
 }
+.searchCustomer{
+  border:solid #0088c2 2px;
+  border-radius: 1em;
+}
+
+
 /* Navigation*/
 
 .side-menu {

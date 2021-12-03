@@ -4,6 +4,7 @@ import NewCar from './newCar';
 import SearchCustomer from './searchCustomer';
 import { boxColorLayot } from '../style/colors';
 import {FaTrash, FaTimes } from 'react-icons/fa'; 
+import {buttonStyle } from '../style/colors';
 
 
 // kuinka tallennetaan myös auton tiedot samalla?
@@ -47,6 +48,7 @@ export default function Order({url, cart, empty, removeFromCart, setCustomer_id,
             <>
             <div className='row'>
                 <div className='row' style={boxColorLayot}>
+                    <div className='col-7'>
                     <h3>Tilaus</h3>
                     <table className="table px-3 table-striped">
                         <tbody>
@@ -67,12 +69,19 @@ export default function Order({url, cart, empty, removeFromCart, setCustomer_id,
                             </tr>
                         </tbody>
                     </table>
-                </div>
-                <div>
-                    <h4>Asiakastiedot</h4>
+                    </div>
+                    <div className='col-1'></div>
+                    <div className='col-4'>
                     <div>
                         <SearchCustomer url={url} setCustomer_id={setCustomer_id}/>
                     </div>
+                    <div className='text-center'>
+                        <button class='btn btn-primary' style={buttonStyle}>Uusi asiakas</button></div>
+                    </div>
+                </div>
+
+                <div>
+                    
                     <div>
                         <NewCustomer url={url}/>
                     </div>

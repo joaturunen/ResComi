@@ -66,7 +66,7 @@ export default function Services({ url, addToCart }) {
                                     <tr key={service.id} >
                                         <td>{service.service}</td>
                                         <td>{service.price} €</td>
-                                        <button className='btn btn-primary'  style={buttonStyle} onClick={() => addToCart(service)}>Valitse</button>
+                                        <button className='btn btn-primary' style={buttonStyle} onClick={() => addToCart(service)}>Valitse</button>
                                     </tr>
                                 ))}
                             </tbody>
