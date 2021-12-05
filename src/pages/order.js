@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import Services from './services';
 import NewCustomer from './newCustomer';
 import NewCar from './newCar';
 import SearchCustomer from './searchCustomer';
@@ -8,7 +9,7 @@ import {FaTrash, FaTimes } from 'react-icons/fa';
 
 // kuinka tallennetaan myös auton tiedot samalla?
 
-export default function Order({url, cart, empty, removeFromCart, setCustomer_id, customer}) {
+export default function Order({url, cart, empty, addToCart, removeFromCart, setCustomer_id, customer}) {
     
     const [finished, setFinished] = useState(false);
 
@@ -45,6 +46,7 @@ export default function Order({url, cart, empty, removeFromCart, setCustomer_id,
     if (finished === false) {
         return (
             <>
+            <Services url={url} addToCart={addToCart} />
             <div className='row'>
                 <div className='row' style={boxColorLayot}>
                     <h3>Tilaus</h3>

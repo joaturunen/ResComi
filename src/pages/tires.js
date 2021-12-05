@@ -87,10 +87,10 @@ export default function Tires({customerTires, setCustomerTires, car_id}) {
                             <td>{tires.model}</td>
                             <td>{tires.type}</td>
                             <td>{tires.hubcups}</td>
-                            <td>{tires.grooveFL}</td>
-                            <td>{tires.grooveFR}</td>
-                            <td>{tires.grooveBL}</td>
-                            <td>{tires.grooveBR}</td>
+                            <td>{tires.groovefl}</td>
+                            <td>{tires.groovefr}</td>
+                            <td>{tires.groovebl}</td>
+                            <td>{tires.groovebr}</td>
                             <td>{tires.tiresize}</td>
                             <td>{tires.tirebolt}</td>
                             <td>{tires.text}</td>
