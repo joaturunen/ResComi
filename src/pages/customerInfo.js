@@ -82,12 +82,12 @@ export default function CustomerInfo({url, customer_id, customerCars, setCustome
             </table>
             
             </div>
-            <div>
+            {/* <div>
                 <Car url={url} customerCars={customerCars} setCustomerCars={setCustomerCars} customer_id={customer_id}/>
             </div>
             <div>
                 <Tires customerTires={customerTires} setCustomerTires={setCustomerTires} car_id={car_id} />
-            </div>
+            </div> */}
         </>
     );
 }
