@@ -43,13 +43,16 @@ li {
   color: #f4f7fc;
   text-align: right;
 }
+
+
+ /* home page */
 .link{
   text-decoration: none;
   color:#0088c2;
- 
 }
-.disabled{
-  pointer-events: none;
+.link:hover{
+  text-decoration: underline;
+  color:#C23A00 !important;
 }
 
 
@@ -58,10 +61,19 @@ li {
   padding: 10px;
   text-align: center;
   margin: 15px;
-  border: none;
+  border: solid;
   border-radius: 1em;
 }
-.btn:active{
+.hometext{
+  font-size:24px;
+  color:#333 !important;
+ 
+}
+.disabled{
+  pointer-events: none;
+}
+
+.btn:hover{
   background-color: #C23A00 !important;
 }
 
@@ -78,6 +90,12 @@ li {
    text-align: center;
    border-radius: 1em;
 }
+.searchCustomer{
+  border:solid #0088c2 2px;
+  border-radius: 1em;
+}
+
+
 /* Navigation*/
 
 .side-menu {
@@ -291,4 +309,12 @@ li {
 
  .warehouse{
    margin-top:5rem;
+ }
+ .full{
+   color:crimson;
+   font-weight: bold;
+ }
+ .free{
+   color:rgb(35, 204, 35);
+   font-weight: bold;
  }

@@ -59,7 +59,7 @@ export const buttonStyle = {
   'border-width': '2px',
   'border-radius':'30px',
   'text-transform': 'uppercase',
-  'font': '15px Lato, sans-serif'
+  'font': '12px Lato, sans-serif'
 };
 
 

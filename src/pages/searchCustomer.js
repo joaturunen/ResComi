@@ -52,18 +52,25 @@ export default function SearchCustomer({url, setCustomer_id}) {
 
   return (
       <>
+      <div className='row text-center mt-3'>
+        <div className='searchCustomer pt-3'>
           <h4>Etsi asiakas</h4>
           <form onSubmit={findPhone}>
-            <div className='mb-3'>
+            <div>
               <label className="form-label">Etsi asiakkaan puhelinnumerolla.</label>
               <input type='text' 
                 value={searchPhone} placeholder='0401234567' maxLength="10"
                 onChange={e => setSearchPhone(e.target.value)}/>
+                <div>
               <button className='btn btn-primary button' style={buttonStyle}>Etsi</button>
+              </div>
             </div>
           </form>
-        <div>
+        </div>
+     
+
           <h4>Hakutulokset</h4>
+          <p>hakutulokset ja uusi asiakas modal ikkunaan?</p>
           <table className="table px-3 table-striped">
             <tbody>
               {result.map(customer => (
@@ -76,7 +83,7 @@ export default function SearchCustomer({url, setCustomer_id}) {
             </tbody>
           </table>
           
-        </div>
+      </div>
       </>
     
   );
