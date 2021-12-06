@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {buttonStyle} from '../style/colors';
+import {boxColorLayot, buttonStyle} from '../style/colors';
 
 export default function NewCustomer({url}) {
 
@@ -12,6 +12,7 @@ export default function NewCustomer({url}) {
   const [city, setCity] = useState('');
   const [employeeId, setEmployeeId] = useState('');
 
+  const [marketing, setMarketing]= useState('phone');
   // back puuttuu!
   function addCustomer(e) {
     e.preventDefault();
@@ -45,10 +46,15 @@ export default function NewCustomer({url}) {
   }
 
   return (
-      <>
-        <h4>Lisää uusi asiakas</h4>
-          <form onSubmit={addCustomer}>
-            <div>
+      <div className='row'>
+          <div className=' searchCar' style={boxColorLayot}>
+        <h4> Uusi asiakas</h4>
+        <hr></hr>
+        <div className='d-flex justify-content-end'><p>Asiakkuus luotu:</p></div>
+        <div>
+          <form className='row' onSubmit={addCustomer}>
+           
+                <div className='col-md-3'>
               <div>
                   <input placeholder="Etunimi"value={firstname} onChange={e => setFirstname(e.target.value)}/>
               </div>
@@ -64,15 +70,38 @@ export default function NewCustomer({url}) {
               <div>
                   <input placeholder="Katuosoite"value={address} onChange={e => setAddress(e.target.value)}/>
               </div>
+              </div>
+              
+              
+              <div className='col-md-3'>
               <div>
                   <input placeholder="Postinumero"value={zipcode} onChange={e => setZipcode(e.target.value)}/>
               </div>
               <div>
                   <input placeholder="Postitoimipaikka"value={city} onChange={e => setCity(e.target.value)}/>
               </div>
+              
+              <div className='row'>
+              <div>
+             <label>Suoramarkkinointilupa</label>
+             </div>
+             <div>
+             <input type="radio" name="marketing" value="phone" defaultChecked onChange={e => setMarketing(e.target.value)}/><label>Puhelin</label>
+             </div>
+             <div>
+             <input type="radio" name="marketing" value="mail" onChange={e => setMarketing(e.target.value)}/><label>Sähköposti</label>
+             </div>
+             </div>
+              </div>
+              <div className='col-md-3'> <p>Ajoneuvot:</p></div>
+              <div className='row'>
+            <div className='col-md-12 d-flex justify-content-end '>
+            <button className='btn btn-primary ' style={buttonStyle}>Tallenna</button>
             </div>
-            <button className='btn btn-primary' style={buttonStyle}>Tallenna</button>
+            </div>
           </form>
-      </>
+          </div>
+          </div>
+      </div>
   );
 }

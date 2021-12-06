@@ -2,10 +2,11 @@ import React,{useState /*, useEffect*/} from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import {boxShadowStyle, buttonStyle} from '../style/colors';
 
-export default function SearchCustomer({url, setCustomer_id}) {
+export default function SearchCustomer({url, setCustomer_id, customer_id}) {
   const [searchPhone, setSearchPhone] = useState('');
   const [result, setResult] = useState([]);
   const [showCustomerSite, setShowCustomerSite] = useState(false);
+  const [showCustomerData, setShowCustomerData] = useState(false);
 
   function findPhone(e) {
     e.preventDefault();
@@ -28,7 +29,6 @@ export default function SearchCustomer({url, setCustomer_id}) {
       (res) => {
         if (status === 200) {
           setResult(result => [...result, res]);
-          
         } else {
           alert(res.error);
         }
@@ -40,12 +40,13 @@ export default function SearchCustomer({url, setCustomer_id}) {
 
   function openCustomerSite(customer) {
     setCustomer_id(customer.id);
+    //setShowCustomerData(true); // tällä ei saa näkymään orderissa 
     setShowCustomerSite(true);
   }
   
   if (showCustomerSite === true) {
     return (
-      <Navigate to="/customerInfo" />
+      <Navigate to="/oneCustomer" />
       
     );
   }

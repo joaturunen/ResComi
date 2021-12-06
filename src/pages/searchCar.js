@@ -58,7 +58,7 @@ export default function SearchCar({url, setCustomer_id}) {
       
       if (showCustomerSite === true) {
         return (
-          <Navigate to="/customerInfo" />
+          <Navigate to="/oneCustomer" />
           
         );
       }

@@ -1,15 +1,28 @@
 import React, {useState} from 'react';
+import Services from './services';
 import NewCustomer from './newCustomer';
 import NewCar from './newCar';
 import SearchCustomer from './searchCustomer';
 import { boxColorLayot } from '../style/colors';
 import {FaTrash, FaTimes } from 'react-icons/fa'; 
 import {buttonStyle } from '../style/colors';
+import Customer from './oneCustomer';
 
 
 // kuinka tallennetaan myös auton tiedot samalla?
 
-export default function Order({url, cart, empty, removeFromCart, setCustomer_id, customer}) {
+export default function Order({
+    url, 
+    cart, 
+    empty, 
+    addToCart, 
+    removeFromCart, 
+    setCustomer_id, 
+    customer_id, 
+    customerCars, 
+    setCustomerCars, 
+    customerTires, 
+    setCustomerTires}) {
     
     const [finished, setFinished] = useState(false);
 
@@ -41,11 +54,13 @@ export default function Order({url, cart, empty, removeFromCart, setCustomer_id,
     //     );
     // }
 
+
     let sum = 0;
 
-    if (finished === false) {
+    // if (finished === false) {
         return (
             <>
+            <Services url={url} addToCart={addToCart} />
             <div className='row'>
                 <div className='row mt-5'>
                     <div className='col-7'>
@@ -80,25 +95,31 @@ export default function Order({url, cart, empty, removeFromCart, setCustomer_id,
                     </div>
                 </div>
 
-                <div>
+                <div className='row' style={boxColorLayot}>
+                    {/* <Customer url={url} 
+                        customer_id={customer_id}
+                        customerCars={customerCars}
+                        setCustomerCars={setCustomerCars}
+                        customerTires={customerTires}
+                        setCustomerTires={setCustomerTires} /> */}
                     
-                    <div>
+                    {/* <div>
                         <NewCustomer url={url}/>
                     </div>
                     <div>
                         <NewCar url={url} customer={customer}/>
-                    </div>
+                    </div> */}
                 </div>
                 </div>   
                 
             </>
         )
-    } else {
-        return (
-            <>
-                <h3>Tilaus onnistui.</h3>
-            </>
+    // } else {
+    //     return (
+    //         <>
+    //             <h3>Tilaus onnistui.</h3>
+    //         </>
             
-        );
-    }
+    //     );
+    // }
 }

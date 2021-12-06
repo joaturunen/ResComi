@@ -114,7 +114,8 @@ function App() {
             <Route path="/searchCustomer" 
               element={<SearchCustomer 
                 url={URL} 
-                setCustomer_id={setCustomer_id}/>
+                setCustomer_id={setCustomer_id}
+                customer_id={customer_id}/>
             }/>
             <Route path="/searchCar" 
               element={<SearchCar 
@@ -126,9 +127,14 @@ function App() {
               <Route path=":customer_id" element={<Customer customer={customer}  />}/>
             </Route> */}
             <Route path="/oneCustomer" 
-              element={<Customer url={URL} customer={customer}/>
+              element={<Customer url={URL} 
+                customer_id={customer_id}
+                customerCars={customerCars}
+                setCustomerCars={setCustomerCars}
+                customerTires={customerTires}
+                setCustomerTires={setCustomerTires}/>
             }/>
-            <Route path="/customerInfo" 
+            {/* <Route path="/customerInfo" 
               element={<CustomerInfo 
                 url={URL} 
                 customer_id={customer_id}
@@ -136,8 +142,8 @@ function App() {
                 setCustomerCars={setCustomerCars}
                 customerTires={customerTires}
                 setCustomerTires={setCustomerTires}/>
-            }/>
-            <Route path="/car" 
+            }/> */}
+            {/* <Route path="/car" 
               element={<Car 
                 url={URL}
                 customerCars={customerCars}
@@ -147,7 +153,7 @@ function App() {
               element={<Tires 
                 customerTires={customerTires}
                 setCustomerTires={setCustomerTires}/>
-            }/>
+            }/> */}
             <Route path="/" 
               element={<Home />}>
               {/* {user ? <Users /> : <Navigate to="/login" />} */}
@@ -157,7 +163,7 @@ function App() {
             }/> */}
             <Route path="*" element={<Empty />} />
             <Route path="/printable/Print" element={<Print />} />
-            <Route path="/tab/Tab" element={<Tab />} />
+            {/* <Route path="/tab/Tab" element={<Tab />} /> */}
           </Routes>
           </div>
         </div>

@@ -12,6 +12,10 @@
   margin: 0;
   padding: 0;
 }
+div {
+  margin-bottom: 5px;
+}
+
 ul {
   padding: 0;
   margin: 0;

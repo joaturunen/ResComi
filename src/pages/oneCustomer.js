@@ -1,33 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MdEmojiObjects } from 'react-icons/md';
 import Tab from '../components/tab/Tab';
 import CustomerInfo from './customerInfo';
 import Car from './car';
 import _ from 'lodash';
+import Tires from './tires';
+
 
 // tämä avautuu hakutuloksesta, ei näy navissa
 
-export default function Customer({ url, customer, car }) {
+export default function Customer({url, customer_id, customerCars, setCustomerCars, customerTires, setCustomerTires}) {
 
-  const [firstname, setFirstname] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const [address, setAddress] = useState('');
-  const [zipcode, setZipcode] = useState('');
-  const [city, setCity] = useState('');
-  const [saved, setSaved] = useState('');
-  const [employeeId, setEmployeeId] = useState('');
+  
+  const [cus_id, setCus_id] = useState(customer_id);
   const MAX_GROOVE = 10.1;
   const MAX_TIRE_SIZE = 26;
   const MAX_BOLT_SIZE = 21;
+
+  
 
   const tabContent = [
     {
       title: "Perustiedot",
       content:
         <div className="row col-sm-6">
-          <div className="col-sm-4">
+          {/* <div className="col-sm-4">
             <label>Etunimi</label>
             <input type="text" className="form-control" />
           </div>
@@ -80,134 +77,148 @@ export default function Customer({ url, customer, car }) {
           </div>
           <div className="col-sm-6">
             <button className="btn btn-primary">Tallenna</button>
-          </div>
+          </div> */}
+          <CustomerInfo url={url} 
+              customer_id={customer_id}
+              customerCars={customerCars}
+              setCustomerCars={setCustomerCars}
+              customerTires={customerTires}
+              setCustomerTires={setCustomerTires} />
         </div>,
     },
     {
       title: "Ajoneuvo",
       content: 
       <div className="row col-sm-6">
-      <div className="col-sm-4">
-        <label>Rekisterinumero</label>
-        <input type="text" className="form-control" />
-      </div>
-      <div className="col-sm-4">
-        <label>Merkki</label>
-        <input type="text" className="form-control" />
-      </div>
-      <div className="col-sm-4">
-        <label>Malli</label>
-        <input type="text" className="form-control" />
-      </div>
-      <div className="col-sm-4">
-        <label>Vuosimalli</label>
-        <input type="text" className="form-control" />
-      </div>
-      <div className="col-sm-4">
-        <label>Säilytyskausi</label>
-        <div className="col-sm-6">
-          <select className="form-select">
-          <option value="1">Kesä</option>
-          <option value="2">Talvi</option>
-        </select>
-        </div>       
-      </div>
-      <div className="col-sm-4">
-        <label>Lisätietoja</label>
-        <textarea rows="3"/>
-      </div>
+        {/* <div className="col-sm-4">
+          <label>Rekisterinumero</label>
+          <input type="text" className="form-control" />
+        </div>
+        <div className="col-sm-4">
+          <label>Merkki</label>
+          <input type="text" className="form-control" />
+        </div>
+        <div className="col-sm-4">
+          <label>Malli</label>
+          <input type="text" className="form-control" />
+        </div>
+        <div className="col-sm-4">
+          <label>Vuosimalli</label>
+          <input type="text" className="form-control" />
+        </div>
+        <div className="col-sm-4">
+          <label>Säilytyskausi</label>
+          <div className="col-sm-6">
+            <select className="form-select">
+            <option value="1">Kesä</option>
+            <option value="2">Talvi</option>
+          </select>
+          </div>       
+        </div>
+        <div className="col-sm-4">
+          <label>Lisätietoja</label>
+          <textarea rows="3"/>
+        </div> */}
+        <Car url={url} 
+          customerCars={customerCars} 
+          setCustomerCars={setCustomerCars} 
+          customer_id={customer_id}/>
       </div>,
     },
     {
       title: "Renkaat",
       content: 
       <div className="row col-sm-6">
-      <div className="col-sm-4">
-        <label>Rengaspaikka</label>
-        <input type="text" class="form-control" />
-      </div>
-      <div className="col-sm-4">
-        <label>Rengasmerkki</label>
-        <input type="text" class="form-control" />
-      </div>
-      <div className="col-sm-4">
-        <label>Vannetyyppi</label>
-        <input type="text" class="form-control" />
-      </div>
-      <div className="col-sm-3">
-        <label>Rengastyyppi</label>
-        <div className="col-sm-6">
-          <select class="form-select">
-          <option value="1">Kesä</option>
-          <option value="2">Talvi</option>
-          <option value="3">Kitka</option>
-        </select>
-        </div>       
-      </div>
-      <div className="col-sm-3">
-        <label>Pölykapselit</label>
-        <div className="col-sm-6">
-          <select class="form-select">
-          <option value="1">Kyllä</option>
-          <option value="2">Ei</option>
-        </select>
-        </div>       
-      </div>
-      <div className="col-sm-3">
-        <label>Renkaan koko</label>
-        <div className="col-sm-6">
-          <select className="form-select">
-          {_.range(10, MAX_TIRE_SIZE, 1).map(value => <option key={value} value={value}>{value}</option>)}
-        </select>
-        </div>       
-      </div>
-      <div className="col-sm-3">
-        <label>Pultit</label>
-        <div className="col-sm-6">
-          <select className="form-select">
-          {_.range(10, MAX_BOLT_SIZE, 1).map(value => <option key={value} value={value}>{value}</option>)}
-        </select>
-        </div>       
-      </div>
-      <div className="col-sm-12">
-        <h5 className="text-center">Urasyvyydet</h5>
-      </div>
-      <div className="col-sm-3">
-        <label>Oikea eturengas</label>
-        <div className="col-sm-6">
-          <select class="form-select">
-           {_.range(1, MAX_GROOVE, 0.1).map(value => <option key={value} value={value}>{value.toFixed(1)}</option>)}
+        {/* <div className="col-sm-4">
+          <label>Rengaspaikka</label>
+          <input type="text" class="form-control" />
+        </div>
+        <div className="col-sm-4">
+          <label>Rengasmerkki</label>
+          <input type="text" class="form-control" />
+        </div>
+        <div className="col-sm-4">
+          <label>Vannetyyppi</label>
+          <input type="text" class="form-control" />
+        </div>
+        <div className="col-sm-3">
+          <label>Rengastyyppi</label>
+          <div className="col-sm-6">
+            <select class="form-select">
+            <option value="1">Kesä</option>
+            <option value="2">Talvi</option>
+            <option value="3">Kitka</option>
           </select>
-        </div>       
-      </div>
-      <div className="col-sm-3">
-        <label>Oikea takarengas</label>
-        <div className="col-sm-6">
-          <select className="form-select">
-           {_.range(1, MAX_GROOVE, 0.1).map(value => <option key={value} value={value}>{value.toFixed(1)}</option>)}
+          </div>       
+        </div>
+        <div className="col-sm-3">
+          <label>Pölykapselit</label>
+          <div className="col-sm-6">
+            <select class="form-select">
+            <option value="1">Kyllä</option>
+            <option value="2">Ei</option>
           </select>
-        </div>       
-      </div>
-      <div className="col-sm-3">
-        <label>Vasen takarengas</label>
-        <div className="col-sm-6">
-          <select className="form-select">
-           {_.range(1, MAX_GROOVE, 0.1).map(value => <option key={value} value={value}>{value.toFixed(1)}</option>)}
+          </div>       
+        </div>
+        <div className="col-sm-3">
+          <label>Renkaan koko</label>
+          <div className="col-sm-6">
+            <select className="form-select">
+            {_.range(10, MAX_TIRE_SIZE, 1).map(value => <option key={value} value={value}>{value}</option>)}
           </select>
-        </div>       
-      </div>
-      <div className="col-sm-3">
-        <label>Vasen eturengas</label>
-        <div className="col-sm-6">
-          <select class="form-select">
-           {_.range(1, MAX_GROOVE, 0.1).map(value => <option key={value} value={value}>{value.toFixed(1)}</option>)}
+          </div>       
+        </div>
+        <div className="col-sm-3">
+          <label>Pultit</label>
+          <div className="col-sm-6">
+            <select className="form-select">
+            {_.range(10, MAX_BOLT_SIZE, 1).map(value => <option key={value} value={value}>{value}</option>)}
           </select>
-        </div>       
-      </div>
-      <div class="col-sm-12">
-        <label>Havaittu poikkeama</label>
-        <textarea type="text" class="form-control" rows="2"/>
-      </div>
+          </div>       
+        </div>
+        <div className="col-sm-12">
+          <h5 className="text-center">Urasyvyydet</h5>
+        </div>
+        <div className="col-sm-3">
+          <label>Oikea eturengas</label>
+          <div className="col-sm-6">
+            <select class="form-select">
+            {_.range(1, MAX_GROOVE, 0.1).map(value => <option key={value} value={value}>{value.toFixed(1)}</option>)}
+            </select>
+          </div>       
+        </div>
+        <div className="col-sm-3">
+          <label>Oikea takarengas</label>
+          <div className="col-sm-6">
+            <select className="form-select">
+            {_.range(1, MAX_GROOVE, 0.1).map(value => <option key={value} value={value}>{value.toFixed(1)}</option>)}
+            </select>
+          </div>       
+        </div>
+        <div className="col-sm-3">
+          <label>Vasen takarengas</label>
+          <div className="col-sm-6">
+            <select className="form-select">
+            {_.range(1, MAX_GROOVE, 0.1).map(value => <option key={value} value={value}>{value.toFixed(1)}</option>)}
+            </select>
+          </div>       
+        </div>
+        <div className="col-sm-3">
+          <label>Vasen eturengas</label>
+          <div className="col-sm-6">
+            <select class="form-select">
+            {_.range(1, MAX_GROOVE, 0.1).map(value => <option key={value} value={value}>{value.toFixed(1)}</option>)}
+            </select>
+          </div>       
+        </div>
+        <div class="col-sm-12">
+          <label>Havaittu poikkeama</label>
+          <textarea type="text" class="form-control" rows="2"/>
+        </div> */}
+        <Tires customerTires={customerTires} 
+          setCustomerTires={setCustomerTires} 
+          // car_id={car_id} 
+          />
       </div>,
     },
     {
