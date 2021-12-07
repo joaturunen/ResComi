@@ -96,7 +96,7 @@ export default function NewCustomer({url}) {
               <div className='col-md-3'> <p>Ajoneuvot:</p></div>
               <div className='row'>
             <div className='col-md-12 d-flex justify-content-end '>
-            <button className='btn btn-primary ' style={buttonStyle}>Tallenna</button>
+            <button className='btn btn-primary' style={buttonStyle}>Tallenna</button>
             </div>
             </div>
           </form>

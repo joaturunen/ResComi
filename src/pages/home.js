@@ -34,7 +34,7 @@ export default function Home() {
 
         <Link to="./order" className='col-4 mb-3 button shadow link' style={LinkStyle}>
         <FaList size={35}  className='mt-4'/>
-          <p class='hometext pt-2'>RAPORTIT väärä linkki</p>
+          <p class='hometext pt-2'>VALMIIT TILAUKSET väärä linkki</p>
         </Link>
       </div>
 
