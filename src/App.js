@@ -26,7 +26,6 @@ function App() {
   const [customerCars, setCustomerCars] = useState([]);
   const [customerTires, setCustomerTires] = useState([]);
   const [currentShelfID, setCurrentShelfID] = useState(0);
-  const [shelfsIds, setShelfsIds] = useState([]);
 
   useEffect(() => {
     if ('cart' in localStorage) {
@@ -93,15 +92,13 @@ function App() {
                   <Route path="/warehouse"
                     element={<Warehouse
                       url={URL}
-                      setCurrentShelfID={setCurrentShelfID}
-                      setShelfsIds={setShelfsIds}/>
+                      setCurrentShelfID={setCurrentShelfID}/>
                   }/>
                   <Route path="/shelfSlots" 
                     element={<ShelfSlots 
                       url={URL}
                       setCurrentShelfID={setCurrentShelfID}
-                      currentShelfID={currentShelfID}
-                      shelfsIds={shelfsIds}/>
+                      currentShelfID={currentShelfID}/>
                   }/>
                   <Route path="/completedOrders"
                     element={<Orders

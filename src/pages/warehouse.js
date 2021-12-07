@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 
 // tänne lista kaikista varastopaikoista lajiteltuna varastoittain
 
-export default function Warehouse({ url, setCurrentShelfID, setShelfsIds}) {
+export default function Warehouse({ url, setCurrentShelfID}) {
   const [warehouseAll, setWarehouseAll] = useState(0);
   const [warehouseTaken, setWarehouseTaken] = useState(0);
   const [warehouseFree, setWarehouseFree] = useState(0);
@@ -25,7 +25,6 @@ export default function Warehouse({ url, setCurrentShelfID, setShelfsIds}) {
           setWarehouseTaken(parseInt(json.taken));
           setWarehouseFree(parseInt(json.free));
           setDegree(parseInt(json.degree));
-          setShelfsIds(json.shelfs_ids);
         } else {
           alert(json.error);
         }

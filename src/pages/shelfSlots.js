@@ -5,27 +5,26 @@ import { Navigate } from 'react-router-dom';
 
 // tänne lista kaikista varastopaikoista lajiteltuna varastoittain
 
-export default function ShelfSlots({ url, setCurrentShelfID, currentShelfID = 1, shelfsIds}) {
+export default function ShelfSlots({ url, currentShelfID = 1, setCurrentShelfID}) {
   const [slots, setSlots] = useState([]);
-  const [currentShelf, setCurrentShelf] = useState(currentShelfID);
+  const [currentShelf, setCurrentShelf] = useState([currentShelfID]);
   const [showOtherShelf, setShowOtherShelf] = useState(false);
   const [previosShelf, setPreviousShelf] = useState(0);
   const [nextShelf, setNextShelf] = useState(0);
-  const [shelfIdsArray, setShelfsIdsArray] = useState([shelfsIds]);
+  const [shelfIdsArray, setShelfsIdsArray] = useState([]);
 
   useEffect(() => {
     console.log("Läpi tuleva arvo: " + currentShelfID + " " + url);
-    const data = { id: currentShelf };
-    console.log(data);
-    let address = url + 'warehouse/shelfs/warehouseShelf_read_slots.php';
+    console.log(currentShelf);
     let status = 0;
+    let address = url + 'warehouse/shelfs/warehouseShelf_read_slots.php';
     fetch(address, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify({id: currentShelf[0]})
     })
     .then(res => {
         status = parseInt(res.status);
@@ -36,8 +35,6 @@ export default function ShelfSlots({ url, setCurrentShelfID, currentShelfID = 1,
             if (status === 200) {
               setSlots(res);
               console.log(slots);
-              //setCurrentShelf(slots[0].shelf_id);
-              checkShelfIds();
             } else {
             alert(res.error);
             }
@@ -46,27 +43,40 @@ export default function ShelfSlots({ url, setCurrentShelfID, currentShelfID = 1,
             alert(error);
         }
     );
-
-}, [currentShelfID]);
+    async function getWarehouseShelfsArray() {
+      try {
+        const response = await fetch(url + 'warehouse/shelfs/warehouseShelf_read_shelfs.php');
+        const json = await response.json();
+        if (response) {
+          console.log("Hyllyrivit " + json);
+          setShelfsIdsArray(json);
+          checkShelfIds();
+        } else {
+          alert(json.error);
+        }
+      } catch (error) {
+        alert(error);
+      }
+    }
+    getWarehouseShelfsArray();
+}, [currentShelf]);
 
 function checkShelfIds(){
-  console.log("tulosteet: " + shelfIdsArray[0].length);
-  for(let i = 0; i < shelfIdsArray[0].length; i++){
-    console.log("ai " + i);
-    console.log(shelfIdsArray[0][i].id)
-    console.log(currentShelf)
-    if(shelfIdsArray[0][i].id === currentShelf){
+  console.log("tulosteet: " + shelfIdsArray[1].id);
+  for(let i = 0; i < shelfIdsArray.length; i++){
+    console.log("Nykyinen " + currentShelf + " " + shelfIdsArray[i].id)
+    if(shelfIdsArray[i].id === currentShelf[0]){
       console.log("löytyi");
       if(i !== 0){
         let previous = i - 1;
-        setPreviousShelf(shelfIdsArray[0][previous].id);
+        setPreviousShelf(shelfIdsArray[previous].id);
         console.log("edellinen luotu");
       } else{
         setPreviousShelf(0);
       }
       let next = i + 1;
-      if(next !== shelfIdsArray[0].length){
-        setNextShelf(shelfIdsArray[0][next].id);
+      if(next !== shelfIdsArray.length){
+        setNextShelf(shelfIdsArray[next].id);
         console.log("Seuraava luotu");
       } else{
         setNextShelf(0);
@@ -78,9 +88,19 @@ function checkShelfIds(){
 }
 
 function openShelfSite(shelf) {
-  setCurrentShelfID(shelf);
   console.log("nappia painettu ");
-  window.location.reload();
+  const newShelf = shelf;
+  setCurrentShelf([]);
+  setCurrentShelf([newShelf]);
+  // setCurrentShelfID();useState([currentShelfID]);
+
+  //setShowOtherShelf(true);
+}
+
+if (showOtherShelf === true) {
+  return (
+    <Navigate to="/shelfSlots" />
+  );
 }
 
   return (
@@ -91,11 +111,11 @@ function openShelfSite(shelf) {
           </div>
           <div className='row mx-3 my-3'>
             <div className='col'>
-            {(previosShelf == 0) ? (<p class='full'>Edellistä ei ole olemassa</p>) : (<button className='btn btn-primary' style={buttonStyle} onClick={() => openShelfSite(previosShelf)}> <FaArrowLeft /> Edellinen hylly</button>)}
+            {(previosShelf == 0) ? ("") : (<button className='btn btn-primary' style={buttonStyle} onClick={() => openShelfSite(previosShelf)}> <FaArrowLeft /> Edellinen hylly</button>)}
             </div>
             <div className='col'><h5>Hylly {currentShelf}</h5></div>
             <div className='col'>
-            {(nextShelf == 0) ? (<p class='full'>Seuraavaa ei ole olemassa</p>) : (<button className='btn btn-primary' style={buttonStyle} onClick={() => openShelfSite(nextShelf)}>Seuraava hylly <FaArrowRight />  </button>)}
+            {(nextShelf == 0) ? ("") : (<button className='btn btn-primary' style={buttonStyle} onClick={() => openShelfSite(nextShelf)}>Seuraava hylly <FaArrowRight />  </button>)}
             </div>
             
           </div>
