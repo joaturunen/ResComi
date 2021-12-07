@@ -43,7 +43,7 @@ window.onclick = function(event) {
       <div className='row justify-content-md-center'>
 
       
-      <Link to="./searchPage" className='col-3 button link shadow' style={LinkStyle}>
+      <Link to="./searchPage" className='col-4 button link shadow' style={LinkStyle}>
           <FaSearch size={35} className= 'mt-4'/>
           <p class='hometext pt-2'>HAE</p>
         </Link>
