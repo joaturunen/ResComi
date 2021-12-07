@@ -35,9 +35,9 @@ export default function Home() {
           <p class='hometext pt-2'>UUSI TILAUS</p>
         </Link>
 
-        <Link to="./empty" className='col-4 mb-3 button shadow link' style={LinkStyle}>
+        <Link to="./completedOrders" className='col-4 mb-3 button shadow link' style={LinkStyle}>
         <FaList size={35}  className='mt-4'/>
-          <p class='hometext pt-2'>VALMIIT TILAUKSET väärä linkki</p>
+          <p class='hometext pt-2'>VALMIIT TILAUKSET</p>
         </Link>
       </div>
 
