@@ -28,7 +28,7 @@ export default function Orders({url}) {
         <div className='row'>
             <div className='row' style={boxColorLayot}>
                 <div className='row mt-3 mb-3'>
-                    <h3>Tilaukset</h3>
+                    <h3>Valmiit tilaukset</h3>
                 </div>
                 <div className='row mb-3'>
                     <table className="table px-3 table-striped">
