@@ -126,7 +126,7 @@ export default function CustomerInfo({ url, customer_id, customerCars, setCustom
                     <p>{customersaved}</p>
                 </div>
 
-                <div className="col">
+                <div className="col align-self-end">
                 <div>
                     <button className="btn btn-primary" style={buttonStyle}>Lisää ajoneuvo</button>
                 </div>

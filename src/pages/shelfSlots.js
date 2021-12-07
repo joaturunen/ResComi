@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaSquareFull } from 'react-icons/fa';
+import { FaSquareFull, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { boxColorLayot, pieChartTaken, pieChartFree, buttonStyle } from '../style/colors';
 
 // tänne lista kaikista varastopaikoista lajiteltuna varastoittain
@@ -45,6 +45,15 @@ export default function ShelfSlots({ url, shelf_id}) {
   return (
     <>
         <div className='row'>
+        <div className='row mt-3'>
+            <h3>Hyllypaikat</h3>
+          </div>
+          <div className='row mx-3 my-3'>
+            <div className='col'><FaArrowLeft /> Edellinen hylly</div>
+            <div className='col'><h5>Hylly 2</h5></div>
+            <div className='col'>Seuraava hylly <FaArrowRight /></div>
+            
+          </div>
             <table className="table px-3 table-striped">
             <thead>
                   <tr>
