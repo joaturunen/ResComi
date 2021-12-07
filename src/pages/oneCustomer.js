@@ -27,7 +27,7 @@ export default function Customer({url, customer_id, customerCars, setCustomerCar
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        searchCriteria: customerId
+        searchCriteria: customer_id
       })
     })
       .then(res => {

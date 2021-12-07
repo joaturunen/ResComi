@@ -9,6 +9,7 @@ export default function ShelfSlots({ url, shelf_id}) {
 
   useEffect(() => {
     console.log("Läpi tuleva arvo: " + shelf_id + url);
+    const data = { id: shelf_id };
     let address = url + 'warehouse/shelfs/warehouseShelf_read_slots.php';
     let status = 0;
     fetch(address, {
@@ -17,9 +18,7 @@ export default function ShelfSlots({ url, shelf_id}) {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            id: shelf_id
-        })
+        body: JSON.stringify(data)
     })
     .then(res => {
         status = parseInt(res.status);
@@ -27,14 +26,17 @@ export default function ShelfSlots({ url, shelf_id}) {
     })
     .then(
         (res) => {
+          console.log("Data tulee");
             if (status === 200) {
               setSlots([]);
               console.log("Data tulee");
               console.log(res);
             } else {
             alert(res.error);
+            console.log(shelf_id);
             }
         }, (error) => {
+          console.log("SUuri virhe " + shelf_id);
             alert(error);
         }
     );
