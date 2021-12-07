@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import NewTires from "./newTires";
+import Warehouse from "./warehouse";
 
 export default function Tires({customerTires, setCustomerTires, car_id}) {
 
@@ -11,7 +12,7 @@ export default function Tires({customerTires, setCustomerTires, car_id}) {
                     <tbody>
                         {customerTires.map(tires => (
                             <tr key={tires.id} >
-                                <td>{tires.car_id}</td>
+                                <td>{tires.car_register}</td>
                                 <td>{tires.brand}</td>
                                 <td>{tires.model}</td>
                                 <td>{tires.type}</td>
@@ -25,6 +26,7 @@ export default function Tires({customerTires, setCustomerTires, car_id}) {
                                 <td>{tires.text}</td>
                                 <td>{tires.rims}</td>
                                 <td>{tires.info}</td>
+                                <td>{tires.slot_id}-{tires.shelf_id}-{tires.warehouse_id}</td>
                             </tr>
                         ))}
                     </tbody>

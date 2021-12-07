@@ -64,36 +64,36 @@ export default function Order({
             <div className='row'>
                 <div className='row mt-5'>
                     <div className='col-7'>
-                    <h3>Tilaus</h3>
-                    <table className="table px-3 table-striped">
-                        <tbody>
-                            {cart.map((service, id) => {
-                                sum+=parseFloat(service.price);
-                                return (
-                                    <tr key={id}>
-                                        <td>{service.service}</td>
-                                        <td>{service.price}</td>
-                                        <td><FaTimes onClick={() => removeFromCart(service)}/></td>
-                                    </tr>
-                                )
-                            })}
-                            <tr>
-                                <td></td>
-                                <td>{sum.toFixed(2)} €</td>
-                                <td><FaTrash onClick={() => empty()}/></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                        <h3>Tilaus</h3>
+                        <table className="table px-3 table-striped">
+                            <tbody>
+                                {cart.map((service, id) => {
+                                    sum+=parseFloat(service.price);
+                                    return (
+                                        <tr key={id}>
+                                            <td>{service.service}</td>
+                                            <td>{service.price}</td>
+                                            <td><FaTimes onClick={() => removeFromCart(service)}/></td>
+                                        </tr>
+                                    )
+                                })}
+                                <tr>
+                                    <td></td>
+                                    <td>{sum.toFixed(2)} €</td>
+                                    <td><FaTrash onClick={() => empty()}/></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                     <div className='col-1'></div>
                     <div className='col-4'>
-                    <div>
-                        <SearchCustomer url={url} setCustomer_id={setCustomer_id}/>
+                        <div>
+                            <SearchCustomer url={url} setCustomer_id={setCustomer_id}/>
+                        </div>
+                        <div className='text-center'>
+                            <button class='btn btn-primary' style={buttonStyle}>Uusi asiakas</button></div>
+                        </div>
                     </div>
-                    <div className='text-center'>
-                        <button class='btn btn-primary' style={buttonStyle}>Uusi asiakas</button></div>
-                    </div>
-                </div>
 
                 <div className='row' style={boxColorLayot}>
                     {/* <Customer url={url} 

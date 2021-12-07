@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Navigate } from 'react-router-dom';
 import { boxColorLayot, buttonStyle } from '../style/colors';
 
 export default function Services({ url, addToCart }) {
     const [services, setServices] = useState([]);
-    const [showOrderSite, setShowOrderSite] = useState(false);
 
     useEffect(() => {
         async function getServices() {
@@ -24,16 +22,6 @@ export default function Services({ url, addToCart }) {
         getServices();
     }, []);
 
-    function goOrderSite() {
-        setShowOrderSite(true);
-    }
-
-    if (showOrderSite === true) {
-        return (
-            <Navigate to="/order" />
-
-        );
-    }
 
     return (
         <>

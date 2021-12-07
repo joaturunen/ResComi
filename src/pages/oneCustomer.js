@@ -37,36 +37,7 @@ export default function Customer({url, customer_id, customerCars, setCustomerCar
     {
       title: "Ajoneuvo",
       content: 
-      <div className="row col-sm-6">
-        {/* <div className="col-sm-4">
-          <label>Rekisterinumero</label>
-          <input type="text" className="form-control" />
-        </div>
-        <div className="col-sm-4">
-          <label>Merkki</label>
-          <input type="text" className="form-control" />
-        </div>
-        <div className="col-sm-4">
-          <label>Malli</label>
-          <input type="text" className="form-control" />
-        </div>
-        <div className="col-sm-4">
-          <label>Vuosimalli</label>
-          <input type="text" className="form-control" />
-        </div>
-        <div className="col-sm-4">
-          <label>Säilytyskausi</label>
-          <div className="col-sm-6">
-            <select className="form-select">
-            <option value="1">Kesä</option>
-            <option value="2">Talvi</option>
-          </select>
-          </div>       
-        </div>
-        <div className="col-sm-4">
-          <label>Lisätietoja</label>
-          <textarea rows="3"/>
-        </div> */}
+      <div className="row">
         <Car url={url} 
           customerCars={customerCars} 
           setCustomerCars={setCustomerCars} 

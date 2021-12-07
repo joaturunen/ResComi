@@ -53,25 +53,27 @@ export default function SearchCustomer({url, setCustomer_id, customer_id}) {
 
   return (
       <>
-      <div className='row text-center mt-3'>
-        <div className='searchCustomer pt-3'>
+      <div>
+        <div className='searchCar'>
           <h4>Etsi asiakas</h4>
+
           <form onSubmit={findPhone}>
             <div>
               <label className="form-label">Etsi asiakkaan puhelinnumerolla.</label>
-              <input type='text' 
+              <input type='text' className="form-control"
                 value={searchPhone} placeholder='0401234567' maxLength="10"
                 onChange={e => setSearchPhone(e.target.value)}/>
                 <div>
-              <button className='btn btn-primary button' style={buttonStyle}>Etsi</button>
+              <button className='btn btn-primary button' style={buttonStyle}>Etsi Asiakas</button>
               </div>
             </div>
           </form>
+
         </div>
      
 
           <h4>Hakutulokset</h4>
-          <p>hakutulokset ja uusi asiakas modal ikkunaan?</p>
+         
           <table className="table px-3 table-striped">
             <tbody>
               {result.map(customer => (

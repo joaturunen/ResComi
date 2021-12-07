@@ -56,7 +56,15 @@ import {FaMinus, FaPlus, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react
     icon: <MdPersonAdd className='nav-icon' />,
     
   },
-    
+  
+  {
+    name: "Tilaukset",
+    exact: true,
+    to: '/completedOrders',
+    icon: <FaWarehouse />,
+  
+  },
+
   {
     name: "Varasto",
     exact: true,

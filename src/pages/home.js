@@ -4,11 +4,37 @@ import {FaWarehouse, FaSearch, FaList } from 'react-icons/fa';
 import {MdPersonAdd } from 'react-icons/md';
 import {GiTireIron} from 'react-icons/gi';
 import Print from '../printable/Print';
-import {boxShadowStyle, buttonStyle, LinkStyle} from '../style/colors';
+import {LinkStyle} from '../style/colors';
+import NewCar from './newCar';
 
 // tänne pitäs lisätä linkit noihin sivuihin samoin kuin navbarissa on
 
 export default function Home() {
+  // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("modal");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+function Modal() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+function Close() {
+  modal.style.display = "none";
+}
+
+/* // When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}  */
 
   return (
     <>
@@ -17,7 +43,7 @@ export default function Home() {
       <div className='row justify-content-md-center'>
 
       
-      <Link to="./searchPage" className='col-3 button link shadow' style={LinkStyle}>
+      <Link to="./searchPage" className='col-4 button link shadow' style={LinkStyle}>
           <FaSearch size={35} className= 'mt-4'/>
           <p class='hometext pt-2'>HAE</p>
         </Link>
@@ -35,9 +61,9 @@ export default function Home() {
           <p class='hometext pt-2'>UUSI TILAUS</p>
         </Link>
 
-        <Link to="./empty" className='col-4 mb-3 button shadow link' style={LinkStyle}>
+        <Link to="./completedOrders" className='col-4 mb-3 button shadow link' style={LinkStyle}>
         <FaList size={35}  className='mt-4'/>
-          <p class='hometext pt-2'>VALMIIT TILAUKSET väärä linkki</p>
+          <p class='hometext pt-2'>VALMIIT TILAUKSET</p>
         </Link>
       </div>
 
@@ -54,7 +80,19 @@ export default function Home() {
           <p>oneCustomer</p>
         </Link>    
       </div>
-      </div>
+    </div>
+
+      <div>
+        <button id='modal' onClick={Modal}>modal testinki</button>
+        
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <span class="close" onClick={Close}>&times;</span>
+            <p>dippadai</p>
+          </div>
+        </div>
+
+    </div>
       </>
   );
 }
