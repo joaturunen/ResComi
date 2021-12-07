@@ -10,45 +10,14 @@ import { buttonStyle } from '../style/colors';
 
 // tämä avautuu hakutuloksesta, ei näy navissa
 
-export default function Customer({url, customer_id, customerCars, setCustomerCars, customerTires, setCustomerTires}) {
+export default function Customer({url, customer_id, customerCars, setCustomerCars, car_id, customerTires, setCustomerTires}) {
 
-  const [customerId, setCustomerId] = useState(0);
-  const [result, setResult] = useState([]);
-  const [cus_id, setCus_id] = useState(customer_id);
+  
   const MAX_GROOVE = 10.1;
   const MAX_TIRE_SIZE = 26;
   const MAX_BOLT_SIZE = 21;
 
-  function searchInfo(e) {
-    e.preventDefault();
-    let status = 0;
-    fetch(url + 'customer/customer_searchid.php/', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        searchCriteria: customerId
-      })
-    })
-      .then(res => {
-        status = parseInt(res.status);
-        return res.json();
-      })
-      .then(
-        (res) => {
-          if (status === 200) {
-            setResult(result => [...result, res]);
-
-          } else {
-            alert(res.error);
-          }
-        }, (error) => {
-          alert(error);
-        }
-      );
-  }
+  
 
   const tabContent = [
     {
@@ -249,7 +218,7 @@ export default function Customer({url, customer_id, customerCars, setCustomerCar
         </div> */}
         <Tires customerTires={customerTires} 
           setCustomerTires={setCustomerTires} 
-          // car_id={car_id} 
+          car_id={car_id} 
           />
       </div>,
     },
@@ -283,30 +252,14 @@ export default function Customer({url, customer_id, customerCars, setCustomerCar
   ];
 
   return (
-    <>
-        <div>
-          <form onSubmit={searchInfo}>
-            <div className="row">        
-              <h4>Asiakkaan tiedot</h4>
-              <div>
-                <div className="col-sm-1">
-                  <label for="customerId">Asiakasnumero:</label>
-                  <input type="text" class="form-control" id="customerId" placeholder="Asiakasnumero" 
-                  value={customerId} onChange={e => setCustomerId(e.target.value)}/>           
-                </div>
-                <div className="col-sm-1 pull-right">
-                  <button className="btn btn-primary">Hae</button>
-                </div>
-                </div>
-              <Tab active={0}>
-                {tabContent.map((tab, index) => (
-                  <Tab.TabPane key={'Tab-${index}'} tab={tab.title}>{tab.content}</Tab.TabPane>
-                ))}
-              </Tab>
-            </div>
-            
-          </form>
-        </div>
-    </>
+    <div>
+      <div className="row">       
+        <Tab active={0}>
+          {tabContent.map((tab, index) => (
+            <Tab.TabPane key={'Tab-${index}'} tab={tab.title}>{tab.content}</Tab.TabPane>
+          ))}
+        </Tab>
+      </div>
+    </div>
   );
 };

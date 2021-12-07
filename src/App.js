@@ -131,6 +131,7 @@ function App() {
                 customer_id={customer_id}
                 customerCars={customerCars}
                 setCustomerCars={setCustomerCars}
+                car_id={car_id}
                 customerTires={customerTires}
                 setCustomerTires={setCustomerTires}/>
             }/>
