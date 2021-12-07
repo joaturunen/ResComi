@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 
 // tänne lista kaikista varastopaikoista lajiteltuna varastoittain
 
-export default function ShelfSlots({ url, currentShelfID = 1, setCurrentShelfID}) {
+export default function ShelfSlots({ url, currentShelfID = 1}) {
   const [slots, setSlots] = useState([]);
   const [currentShelf, setCurrentShelf] = useState([currentShelfID]);
   const [showOtherShelf, setShowOtherShelf] = useState(false);
@@ -13,10 +13,13 @@ export default function ShelfSlots({ url, currentShelfID = 1, setCurrentShelfID}
   const [nextShelf, setNextShelf] = useState(0);
   const [shelfIdsArray, setShelfsIdsArray] = useState([]);
 
+  
+
   useEffect(() => {
-    console.log("Läpi tuleva arvo: " + currentShelfID + " " + url);
-    console.log(currentShelf);
     let status = 0;
+    if(currentShelf === null){
+      setCurrentShelf(["1"]);
+    };
     let address = url + 'warehouse/shelfs/warehouseShelf_read_slots.php';
     fetch(address, {
         method: 'POST',
@@ -34,11 +37,10 @@ export default function ShelfSlots({ url, currentShelfID = 1, setCurrentShelfID}
         (res) => {
             if (status === 200) {
               setSlots(res);
-              console.log(slots);
+              getWarehouseShelfsArray();
             } else {
             alert(res.error);
             }
-
         }, (error) => {
             alert(error);
         }
@@ -49,7 +51,9 @@ export default function ShelfSlots({ url, currentShelfID = 1, setCurrentShelfID}
         const json = await response.json();
         if (response) {
           console.log("Hyllyrivit " + json);
-          setShelfsIdsArray(json);
+          setShelfsIdsArray([...json]);
+          console.log(shelfIdsArray.length);
+          console.log(shelfIdsArray);
           checkShelfIds();
         } else {
           alert(json.error);
@@ -58,17 +62,21 @@ export default function ShelfSlots({ url, currentShelfID = 1, setCurrentShelfID}
         alert(error);
       }
     }
-    getWarehouseShelfsArray();
 }, [currentShelf]);
 
+
+
 function checkShelfIds(){
-  console.log("tulosteet: " + shelfIdsArray[1].id);
+  console.log(shelfIdsArray.length);
   for(let i = 0; i < shelfIdsArray.length; i++){
     console.log("Nykyinen " + currentShelf + " " + shelfIdsArray[i].id)
     if(shelfIdsArray[i].id === currentShelf[0]){
+      setPreviousShelf();
+      setNextShelf();
       console.log("löytyi");
       if(i !== 0){
         let previous = i - 1;
+        setPreviousShelf();
         setPreviousShelf(shelfIdsArray[previous].id);
         console.log("edellinen luotu");
       } else{
@@ -88,20 +96,11 @@ function checkShelfIds(){
 }
 
 function openShelfSite(shelf) {
-  console.log("nappia painettu ");
   const newShelf = shelf;
   setCurrentShelf([]);
   setCurrentShelf([newShelf]);
-  // setCurrentShelfID();useState([currentShelfID]);
-
-  //setShowOtherShelf(true);
 }
 
-if (showOtherShelf === true) {
-  return (
-    <Navigate to="/shelfSlots" />
-  );
-}
 
   return (
     <>
