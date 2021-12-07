@@ -29,7 +29,7 @@ function App() {
   const [user, setUser] = useState('');
   const [customer, setCustomer] = useState(null);
   const [customer_id, setCustomer_id] = useState('');
-  const [car, setCar] = useState(null);
+  const [car_id, setCar_id] = useState('');
   const [cart, setCart] = useState([]);
   const [inactive, setInactive] = useState(false);
   const [customerCars, setCustomerCars] = useState([]);

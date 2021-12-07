@@ -79,11 +79,11 @@ export default function Customer({url, customer_id, customerCars, setCustomerCar
             <button className="btn btn-primary">Tallenna</button>
           </div> */}
           <CustomerInfo url={url} 
-              customer_id={customer_id}
-              customerCars={customerCars}
-              setCustomerCars={setCustomerCars}
-              customerTires={customerTires}
-              setCustomerTires={setCustomerTires} />
+            customer_id={customer_id}
+            customerCars={customerCars}
+            setCustomerCars={setCustomerCars}
+            customerTires={customerTires}
+            setCustomerTires={setCustomerTires} />
         </div>,
     },
     {
@@ -251,19 +251,15 @@ export default function Customer({url, customer_id, customerCars, setCustomerCar
   ];
 
   return (
-    <>
-        <div>
-          <form>
-            <div className="row">
-              <h4>Asiakkaan tiedot</h4>
-              <Tab active={0}>
-                {tabContent.map((tab, index) => (
-                  <Tab.TabPane key={'Tab-${index}'} tab={tab.title}>{tab.content}</Tab.TabPane>
-                ))}
-              </Tab>
-            </div>
-          </form>
-        </div>
-    </>
+    <div>
+      <div className="row">
+        <h4>Asiakkaan tiedot</h4>
+        <Tab active={0}>
+          {tabContent.map((tab, index) => (
+            <Tab.TabPane key={'Tab-${index}'} tab={tab.title}>{tab.content}</Tab.TabPane>
+          ))}
+        </Tab>
+      </div>
+    </div>
   );
 };
