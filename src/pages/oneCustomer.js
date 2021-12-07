@@ -23,68 +23,16 @@ export default function Customer({url, customer_id, customerCars, setCustomerCar
     {
       title: "Perustiedot",
       content:
-      <div className="row">
-        {/* <div className="col-sm-4">
-          <label>Etunimi</label>
-          <input type="text" className="form-control" value={firstname}/>
-        </div>
-        <div className="col-sm-4">
-          <label>Sukunimi</label>
-          <input type="text" className="form-control" />
-        </div>
-        <div className="col-sm-4">
-          <label>Asiakkuus luotu</label>
-          <input type="text" className="form-control" />
-        </div>
-        <div className="col-sm-4">
-          <label>Lähiosoite</label>
-          <input type="text" className="form-control" />
-        </div>
-        <div className="col-sm-4">
-          <label>Postinumero</label>
-          <input type="text" className="form-control" />
-        </div>
-        <div className="col-sm-4">
-          <label>Postitoimipaikka</label>
-          <input type="text" className="form-control" />
-        </div>
-        <div className="col-sm-4">
-          <label>Puhelinumero</label>
-          <input type="text" className="form-control" />
-        </div>
-        <div className="col-sm-1">
-          <label className="form-check-label" for="suoramarkkinointi1">Lupa?</label>
-          <input type="checkbox" className="form-check-input" id="suoramarkkinointi1" value="phone" />
-        </div>
-        <div className="col-sm-4">
-          <label>Sähköposti</label>
-          <input type="text" className="form-control" />
-        </div>
-        <div className="col-sm-1">
-          <label className="form-check-label" for="suoramarkkinointi2">Lupa?</label>
-          <input type="checkbox" className="form-check-input" id="suoramarkkinointi2" value="email" />
-        </div>
-        <div className="col-sm-12">
-          <label>Ajoneuvot</label>
-          <ul>
-            <li>LOL-666</li>
-            <li>LOL-666</li>
-            <li>LOL-666</li>
-          </ul>
-        </div>
-        <div className="col-sm-6">
-          <button className="btn btn-primary" style={buttonStyle}>Lisää ajoneuvo</button>
-        </div>
-        <div className="col-sm-6">
-          <button className="btn btn-primary">Tallenna</button>
-        </div> */}
-        <CustomerInfo url={url} 
-          customer_id={customer_id}
-          customerCars={customerCars}
-          setCustomerCars={setCustomerCars}
-          customerTires={customerTires}
-          setCustomerTires={setCustomerTires} />
-      </div>,
+        <div className="row">
+          
+          <CustomerInfo url={url} 
+            customer_id={customer_id}
+            customerCars={customerCars}
+            setCustomerCars={setCustomerCars}
+            customerTires={customerTires}
+            setCustomerTires={setCustomerTires} />
+            }
+        </div>,
     },
     {
       title: "Ajoneuvo",
