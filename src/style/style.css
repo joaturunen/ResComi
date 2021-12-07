@@ -42,18 +42,8 @@ li {
   height: 150px;
 }
 
-.user {
-  /* user signed-in in the header section */
-  color: #f4f7fc;
-  text-align: right;
-}
-
-
  /* home page */
-.link{
-  text-decoration: none;
-  color:#0088c2;
-}
+
 .link:hover{
   text-decoration: underline;
   color:#C23A00 !important;
@@ -97,13 +87,14 @@ li {
 .searchCustomer{
   border:solid #0088c2 2px;
   border-radius: 1em;
+  background-color: #e9eaeb;
 }
 
 
 /* Navigation*/
 
 .side-menu {
-  background: #f4f7fc;
+  background: #e9eaeb;
   width: 250px;
   height: calc(100vh - 150px);
   min-height: 400px;
@@ -111,7 +102,7 @@ li {
 }
 
 .nav-color {
-  background: #f4f7fc;
+  background: #e9eaeb;
 }
 
 .side-menu.inactive {
@@ -293,16 +284,10 @@ li {
   margin-top: 15px !important;
 }
 
-.tab-content {
+.tab-title, .tab-content {
   min-height: 100px;
   border: 1px solid #DCDCDC;
   border-top: none;
-}
-
-.tab-title {
-    min-height: 100px;
-    border: 1px solid #DCDCDC;
-    border-top: none;
 }
 
 .scrollingRoute {

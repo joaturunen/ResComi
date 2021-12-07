@@ -62,7 +62,7 @@ export default function Order({
             <>
             <Services url={url} addToCart={addToCart} />
             <div className='row'>
-                <div className='row' style={boxColorLayot}>
+                <div className='row mt-5'>
                     <div className='col-7'>
                     <h3>Tilaus</h3>
                     <table className="table px-3 table-striped">

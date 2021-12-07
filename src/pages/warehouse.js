@@ -102,11 +102,7 @@ export default function Warehouse({ url, setShelf_id}) {
                 <p><FaSquareFull style={PieChartFree} />  Vapaana</p>
               </div>
             </div>
-            <div className="col align-self-end">
-              <button class='btn btn-primary' style={buttonStyle} type='button'>
-                Näytä hyllyt
-              </button>
-            </div>
+            
           </div>
         </div>
 
@@ -135,7 +131,7 @@ export default function Warehouse({ url, setShelf_id}) {
                   <td>{shelf.amount}</td>
                   <td>{(shelf.free == 0) ? (<p class='full'>Täynnä</p>) : (<p class='free'>Vapaita paikkoja {shelf.free}</p>)}</td>
                   <td>
-                  <button style={buttonStyle} onClick={() => openShelfSite(shelf)}>Näytä hylly {shelf.id}</button>
+                  <button className='btn btn-primary' style={buttonStyle} onClick={() => openShelfSite(shelf)}>Näytä hylly {shelf.id}</button>
                   </td>
                 </tr>
               ))}
@@ -144,37 +140,7 @@ export default function Warehouse({ url, setShelf_id}) {
           </div>
         </div>
 
-        <div className='row'>
-          <div className='row mt-3'>
-            <h3>Hyllypaikat</h3>
-          </div>
-
-          <div className='row mx-3 my-3'>
-            <h5>Hylly 2</h5>
-          </div>
-          <div class='row'>
-          <table className="table text-center table-striped mx-3">
-            <thead>
-              <tr>
-                <th scope="col">Rengaspaikka</th>
-                <th scope="col">Tilaus</th>
-                <th scope="col">Tila</th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {shelfs.map(shelf => (
-                <tr key={shelf.id} >
-                  <td>{shelf.id}</td>
-                  <td>tilausnro?</td>
-                  <td>{(shelf.free == 0) ? (<p class='full'>Varattu</p>) : (<p class='free'>Vapaa</p>)}</td>
-                  <td><button class='btn btn-primary' style={buttonStyle}>Tilaus</button></td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          </div>
-        </div>
+        
 
     </div>
     </>

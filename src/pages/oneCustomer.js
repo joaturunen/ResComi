@@ -22,10 +22,10 @@ export default function Customer({url, customer_id, customerCars, setCustomerCar
     {
       title: "Perustiedot",
       content:
-        <div className="row col-sm-6">
+        <div className="row">
           {/* <div className="col-sm-4">
             <label>Etunimi</label>
-            <input type="text" className="form-control" />
+            <input type="text" className="form-control" value={firstname}/>
           </div>
           <div className="col-sm-4">
             <label>Sukunimi</label>
@@ -72,17 +72,18 @@ export default function Customer({url, customer_id, customerCars, setCustomerCar
             </ul>
           </div>
           <div className="col-sm-6">
-            <button className="btn btn-primary">Lisää ajoneuvo</button>
+            <button className="btn btn-primary" style={buttonStyle}>Lisää ajoneuvo</button>
           </div>
           <div className="col-sm-6">
             <button className="btn btn-primary">Tallenna</button>
-          </div> */}
+          </div> }*/
           <CustomerInfo url={url} 
             customer_id={customer_id}
             customerCars={customerCars}
             setCustomerCars={setCustomerCars}
             customerTires={customerTires}
             setCustomerTires={setCustomerTires} />
+            }
         </div>,
     },
     {
@@ -251,8 +252,7 @@ export default function Customer({url, customer_id, customerCars, setCustomerCar
 
   return (
     <div>
-      <div className="row">
-        <h4>Asiakkaan tiedot</h4>
+      <div className="row">       
         <Tab active={0}>
           {tabContent.map((tab, index) => (
             <Tab.TabPane key={'Tab-${index}'} tab={tab.title}>{tab.content}</Tab.TabPane>
