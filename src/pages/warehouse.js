@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 
 // tänne lista kaikista varastopaikoista lajiteltuna varastoittain
 
-export default function Warehouse({ url, setShelf_id}) {
+export default function Warehouse({ url, setCurrentShelfID, setShelfsIds}) {
   const [warehouseAll, setWarehouseAll] = useState(0);
   const [warehouseTaken, setWarehouseTaken] = useState(0);
   const [warehouseFree, setWarehouseFree] = useState(0);
@@ -25,6 +25,7 @@ export default function Warehouse({ url, setShelf_id}) {
           setWarehouseTaken(parseInt(json.taken));
           setWarehouseFree(parseInt(json.free));
           setDegree(parseInt(json.degree));
+          setShelfsIds(json.shelfs_ids);
         } else {
           alert(json.error);
         }
@@ -62,8 +63,8 @@ export default function Warehouse({ url, setShelf_id}) {
   }
 
   function openShelfSite(shelf) {
-    console.log(shelf.id);
-    setShelf_id(shelf.id);
+    setCurrentShelfID(shelf.id);
+    console.log("Asetetaan haettava hylly: " + shelf.id);
     setShowCustomerSite(true);
   }
   
