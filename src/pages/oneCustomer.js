@@ -9,10 +9,9 @@ import Tires from './tires';
 
 // tämä avautuu hakutuloksesta, ei näy navissa
 
-export default function Customer({url, customer_id, customerCars, setCustomerCars, customerTires, setCustomerTires}) {
+export default function Customer({url, customer_id, customerCars, setCustomerCars, car_id, customerTires, setCustomerTires}) {
 
   
-  const [cus_id, setCus_id] = useState(customer_id);
   const MAX_GROOVE = 10.1;
   const MAX_TIRE_SIZE = 26;
   const MAX_BOLT_SIZE = 21;
@@ -217,7 +216,7 @@ export default function Customer({url, customer_id, customerCars, setCustomerCar
         </div> */}
         <Tires customerTires={customerTires} 
           setCustomerTires={setCustomerTires} 
-          // car_id={car_id} 
+          car_id={car_id} 
           />
       </div>,
     },
