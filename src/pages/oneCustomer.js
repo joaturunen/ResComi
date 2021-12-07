@@ -11,7 +11,8 @@ import Tires from './tires';
 
 export default function Customer({url, customer_id, customerCars, setCustomerCars, customerTires, setCustomerTires}) {
 
-  
+  const [customerId, setCustomerId] = useState(0);
+  const [result, setResult] = useState([]);
   const [cus_id, setCus_id] = useState(customer_id);
   const MAX_GROOVE = 10.1;
   const MAX_TIRE_SIZE = 26;
@@ -106,13 +107,14 @@ export default function Customer({url, customer_id, customerCars, setCustomerCar
           </div>
           <div className="col-sm-6">
             <button className="btn btn-primary">Tallenna</button>
-          </div> */}
+          </div> }*/
           <CustomerInfo url={url} 
             customer_id={customer_id}
             customerCars={customerCars}
             setCustomerCars={setCustomerCars}
             customerTires={customerTires}
             setCustomerTires={setCustomerTires} />
+            }
         </div>,
     },
     {
@@ -273,7 +275,7 @@ export default function Customer({url, customer_id, customerCars, setCustomerCar
         <label>Tähän tulee rekisteri</label>
       </div>
       <div className="col-sm-3">
-        <button className="btn btn-primary" style={buttonStyle}>RAPORTTI</button>
+        <button className="btn btn-primary">RAPORTTI</button>
       </div>
       </div>,
     },
@@ -292,7 +294,7 @@ export default function Customer({url, customer_id, customerCars, setCustomerCar
                   value={customerId} onChange={e => setCustomerId(e.target.value)}/>           
                 </div>
                 <div className="col-sm-1 pull-right">
-                  <button className="btn btn-primary" style={buttonStyle}>Hae</button>
+                  <button className="btn btn-primary">Hae</button>
                 </div>
                 </div>
               <Tab active={0}>

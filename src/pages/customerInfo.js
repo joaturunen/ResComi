@@ -19,12 +19,7 @@ export default function CustomerInfo({ url, customer_id, customerCars, setCustom
     const [city, setCity] = useState("");
     const [customersaved, setCustomersaved] = useState("");
     const [cus_id, setCus_id] = useState(customer_id);
-<<<<<<< HEAD
-    const [car_id, setCar_id] = useState(''); // mistä tämä menee tires.js ?
-
-=======
     
->>>>>>> 7b6dc1b666984d8e7f691ab52f43fa9add24bd6c
 
     useEffect(() => {
         //let address = url + 'customer/customer_read_cus_cars_tires.php';
