@@ -13,24 +13,25 @@ import {FaMinus, FaPlus, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react
 
  export const menuItems = [
 
- {
-        name: 'Etsi',
-        exact: true,
-        to: '/searchCar',
-        icon: <FaSearch />,
-       
-    },
-    {
-      name: "Etusivu",
-      exact: true,
-      to: `/`,
-      icon: <FaHome />,
-       
-    },
-    { name: "Palvelut",
-    exact: true, 
-    to: `/services`,
-     icon: <MdPersonAdd /> },
+  {
+    name: "Etusivu",
+    exact: true,
+    to: '/',
+    icon: <FaHome />,
+     
+  },
+  {
+    name: 'Etsi',
+    exact: true,
+    to: '/searchPage',
+    icon: <FaSearch />,
+    
+  },
+    
+    // { name: "Palvelut",
+    // exact: true, 
+    // to: `/services`,
+    //  icon: <MdPersonAdd /> },
      /**
          * Tarvittaessa submenua varten
          */
@@ -39,39 +40,39 @@ import {FaMinus, FaPlus, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react
         { name: "", to: "//" },
         { name: "", to: "//" },
       ], */
-     {
-        name: 'Uusi tilaus',
-        exact: true,
-        to: '/order',
-        icon:  '',
-        
-    },
+  {
+    name: 'Uusi tilaus',
+    exact: true,
+    to: '/order',
+    icon:  '',
+    
+  },
 
-    {
-        name: 'Uusi asiakas',
-        exact: true,
-        to: '/newCustomer',
-       
-        icon: <MdPersonAdd className='nav-icon' />,
-        
-    },
+  {
+    name: 'Uusi asiakas',
+    exact: true,
+    to: '/newCustomer',
     
-    {
-      name: "Varasto",
-      exact: true,
-      to: '/warehouse',
-      icon: <FaWarehouse />,
-   
-    },
+    icon: <MdPersonAdd className='nav-icon' />,
     
-    {
-        name: 'Kirjaudu ulos',
-        exact: true,
-        to: '/empty',
-        
-        icon: <FaQuestion className='nav-icon' />,
-       
-    },
+  },
+    
+  {
+    name: "Varasto",
+    exact: true,
+    to: '/warehouse',
+    icon: <FaWarehouse />,
+  
+  },
+  
+  {
+    name: 'Kirjaudu ulos',
+    exact: true,
+    to: '/empty',
+    
+    icon: <FaQuestion className='nav-icon' />,
+      
+  },
     
    
   ];

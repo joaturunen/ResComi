@@ -3,7 +3,6 @@ import { buttonStyle } from '../style/colors';
 import Car from './car';
 import Tires from './tires';
 
-// EI SAA KOSKEA
 
 // tämä avautuu hakutuloksesta, ei näy navissa
 
@@ -67,72 +66,46 @@ export default function CustomerInfo({ url, customer_id, customerCars, setCustom
             <div className='row'>
                 <h5>Asiakkaan tiedot</h5>
                 <div className='col'>
-                <div>
-                    <label>Etunimi</label>
-                    <input type="text" className="form-control" value={firstname} />
-                </div>
-                <div>
-                    <label>Sukunimi</label>
-                    <input type="text" className="form-control" value={lastname} />
-                </div>
-                <div>
-                    <label>Lähiosoite</label>
-                    <input type="text" className="form-control" value={address} />
-                </div>
-                <div>
-                    <label>Postinumero</label>
-                    <input type="text" className="form-control" value={zipcode} />
-                </div>
-                <div>
-                    <label>Postitoimipaikka</label>
-                    <input type="text" className="form-control" value={city} />
-                </div>
+                    <div>
+                        <label>Etunimi</label>
+                        <input type="text" className="form-control" value={firstname} />
+                    </div>
+                    <div>
+                        <label>Sukunimi</label>
+                        <input type="text" className="form-control" value={lastname} />
+                    </div>
+                    <div>
+                        <label>Lähiosoite</label>
+                        <input type="text" className="form-control" value={address} />
+                    </div>
+                    <div>
+                        <label>Postinumero</label>
+                        <input type="text" className="form-control" value={zipcode} />
+                    </div>
+                    <div>
+                        <label>Postitoimipaikka</label>
+                        <input type="text" className="form-control" value={city} />
+                    </div>
                 </div>
 
                 <div className='col'>
-                <div>
-                    <label>Puhelinumero</label>
-                    <input type="text" className="form-control" value={phone} />
-                </div>
-                <div>
-                    <label>Sähköposti</label>
-                    <input type="text" className="form-control" value={email} />
-                </div>
-
-                <div>
-                <label>Suoramarkkinointi lupa</label>
                     <div>
-                        <input type="checkbox" className="form-check-input mx-3" id="suoramarkkinointi1" value="phone" />
-                        <label className="form-check-label" for="suoramarkkinointi1">Puhelin</label>
+                        <label>Puhelinumero</label>
+                        <input type="text" className="form-control" value={phone} />
                     </div>
                     <div>
-                        <input type="checkbox" className="form-check-input mx-3" id="suoramarkkinointi2" value="email" />
-                        <label className="form-check-label" for="suoramarkkinointi2">Sähköposti</label>
+                        <label>Sähköposti</label>
+                        <input type="text" className="form-control" value={email} />
                     </div>
-                </div>
-                </div>
-
-                <div className="col">
-                    <label>Ajoneuvot</label>
-                    <ul>
-                        <li>LOL-666</li>
-                        <li>LOL-666</li>
-                        <li>LOL-666</li>
-                    </ul>
                 </div>
 
                 <div className='col'>
-                <label>Asiakkuus luotu</label>
+                    <label>Asiakkuus luotu</label>
                     <p>{customersaved}</p>
                 </div>
 
                 <div className="col align-self-end">
-                <div>
-                    <button className="btn btn-primary" style={buttonStyle}>Lisää ajoneuvo</button>
-                </div>
-                <div>
                     <button className="btn btn-primary" style={buttonStyle}>Tallenna</button>
-                </div>
                 </div>
                 
 

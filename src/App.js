@@ -8,6 +8,7 @@ import Login from './pages/login';
 import Home from './pages/home';
 import NewCustomer from './pages/newCustomer';
 import Warehouse from './pages/warehouse';
+import SearchPage from './pages/searchPage';
 import SearchCustomer from './pages/searchCustomer';
 import SearchCar from './pages/searchCar';
 import Customers from './pages/customers';
@@ -93,11 +94,11 @@ function App() {
                 setCustomer_id={setCustomer_id}
                 customer={customer}/>
               }/>
-            <Route path="/services" 
+            {/* <Route path="/services" 
               element={<Services
                 url={URL}
                 addToCart={addToCart}/>
-              }/>
+              }/> */}
             <Route path="/newCustomer" 
               element={<NewCustomer/>
             }/>
@@ -110,6 +111,12 @@ function App() {
               element={<ShelfSlots 
                 url={URL}
                 shelf_id={shelf_id}/>
+            }/>
+            <Route path="/searchPage" 
+              element={<SearchPage 
+                url={URL} 
+                setCustomer_id={setCustomer_id}
+                customer_id={customer_id}/>
             }/>
             <Route path="/searchCustomer" 
               element={<SearchCustomer 
