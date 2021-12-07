@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import MenuItem from "./MenuItem";
 
 import {MdPersonAdd, MdPerson, MdArrowForward, MdReorder } from 'react-icons/md';
-import {FaTimes, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react-icons/fa';
+import {FaMinus, FaPlus, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react-icons/fa';
 
 /**
  * @author
@@ -116,9 +116,9 @@ import {FaTimes, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react-icons/f
         <div className="top-section row">
           <div onClick={() => setInactive(!inactive)}>
             {inactive ? (
-              <MdArrowForward className='toggle-menu-btn'/>
+              <FaPlus className='toggle-menu-btn'/>
             ) : (
-              <MdReorder className='toggle-menu-btn' />
+              <FaMinus className='toggle-menu-btn' />
             )}
           </div>
         </div>

@@ -1,4 +1,5 @@
-import React , {useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { buttonStyle } from '../style/colors';
 import Car from './car';
 import Tires from './tires';
 
@@ -6,7 +7,7 @@ import Tires from './tires';
 
 // tämä avautuu hakutuloksesta, ei näy navissa
 
-export default function CustomerInfo({url, customer_id, customerCars, setCustomerCars, customerTires, setCustomerTires}) {
+export default function CustomerInfo({ url, customer_id, customerCars, setCustomerCars, customerTires, setCustomerTires }) {
     //const [customerCars, setCustomerCars] = useState([]);
     //const [customerTires, setCustomerTires] = useState([]);
     const [firstname, setFirstname] = useState("");
@@ -19,7 +20,7 @@ export default function CustomerInfo({url, customer_id, customerCars, setCustome
     const [customersaved, setCustomersaved] = useState("");
     const [cus_id, setCus_id] = useState(customer_id);
     const [car_id, setCar_id] = useState(''); // mistä tämä menee tires.js ?
-    
+
 
     useEffect(() => {
         //let address = url + 'customer/customer_read_cus_cars_tires.php';
@@ -34,53 +35,108 @@ export default function CustomerInfo({url, customer_id, customerCars, setCustome
                 cus_id: cus_id
             })
         })
-        .then(res => {
-            status = parseInt(res.status);
-            return res.json();
-        })
-        .then(
-            (res) => {
-                if (status === 200) {
-                  setFirstname(res.customer.firstname);
-                  setLastname(res.customer.lastname);
-                  setPhone(res.customer.phone);
-                  setEmail(res.customer.email);
-                  setAddress(res.customer.address);
-                  setZipcode(res.customer.zipcode);
-                  setCity(res.customer.city);
-                  setCustomersaved(res.customer.customersaved);
+            .then(res => {
+                status = parseInt(res.status);
+                return res.json();
+            })
+            .then(
+                (res) => {
+                    if (status === 200) {
+                        setFirstname(res.customer.firstname);
+                        setLastname(res.customer.lastname);
+                        setPhone(res.customer.phone);
+                        setEmail(res.customer.email);
+                        setAddress(res.customer.address);
+                        setZipcode(res.customer.zipcode);
+                        setCity(res.customer.city);
+                        setCustomersaved(res.customer.customersaved);
 
-                  setCustomerCars(res.cars);
-                  setCustomerTires(res.tires);
-                } else {
-                alert(res.error);
+                        setCustomerCars(res.cars);
+                        setCustomerTires(res.tires);
+                    } else {
+                        alert(res.error);
+                    }
+                }, (error) => {
+                    alert(error);
                 }
-            }, (error) => {
-                alert(error);
-            }
-        );
+            );
 
     }, [customer_id]);
 
     return (
         <>
-          <div>
-            <h5>Asiakkaan tiedot</h5>
-            <table className="table px-3 table-striped">
-                <tbody>
-                    <tr>
-                        <td>{firstname}</td>
-                        <td>{lastname}</td>
-                        <td>{phone}</td>
-                        <td>{email}</td>
-                        <td>{address}</td>
-                        <td>{zipcode}</td>
-                        <td>{city}</td>
-                        <td>{customersaved}</td>
-                    </tr>
-                </tbody>
-            </table>
-            
+            <div className='row'>
+                <h5>Asiakkaan tiedot</h5>
+                <div className='col'>
+                <div>
+                    <label>Etunimi</label>
+                    <input type="text" className="form-control" value={firstname} />
+                </div>
+                <div>
+                    <label>Sukunimi</label>
+                    <input type="text" className="form-control" value={lastname} />
+                </div>
+                <div>
+                    <label>Lähiosoite</label>
+                    <input type="text" className="form-control" value={address} />
+                </div>
+                <div>
+                    <label>Postinumero</label>
+                    <input type="text" className="form-control" value={zipcode} />
+                </div>
+                <div>
+                    <label>Postitoimipaikka</label>
+                    <input type="text" className="form-control" value={city} />
+                </div>
+                </div>
+
+                <div className='col'>
+                <div>
+                    <label>Puhelinumero</label>
+                    <input type="text" className="form-control" value={phone} />
+                </div>
+                <div>
+                    <label>Sähköposti</label>
+                    <input type="text" className="form-control" value={email} />
+                </div>
+
+                <div>
+                <label>Suoramarkkinointi lupa</label>
+                    <div>
+                        <input type="checkbox" className="form-check-input mx-3" id="suoramarkkinointi1" value="phone" />
+                        <label className="form-check-label" for="suoramarkkinointi1">Puhelin</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" className="form-check-input mx-3" id="suoramarkkinointi2" value="email" />
+                        <label className="form-check-label" for="suoramarkkinointi2">Sähköposti</label>
+                    </div>
+                </div>
+                </div>
+
+                <div className="col">
+                    <label>Ajoneuvot</label>
+                    <ul>
+                        <li>LOL-666</li>
+                        <li>LOL-666</li>
+                        <li>LOL-666</li>
+                    </ul>
+                </div>
+
+                <div className='col'>
+                <label>Asiakkuus luotu</label>
+                    <p>{customersaved}</p>
+                </div>
+
+                <div className="col">
+                <div>
+                    <button className="btn btn-primary" style={buttonStyle}>Lisää ajoneuvo</button>
+                </div>
+                <div>
+                    <button className="btn btn-primary" style={buttonStyle}>Tallenna</button>
+                </div>
+                </div>
+                
+
             </div>
             {/* <div>
                 <Car url={url} customerCars={customerCars} setCustomerCars={setCustomerCars} customer_id={customer_id}/>

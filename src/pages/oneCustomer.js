@@ -23,7 +23,7 @@ export default function Customer({url, customer_id, customerCars, setCustomerCar
     {
       title: "Perustiedot",
       content:
-        <div className="row col-sm-6">
+        <div className="row">
           {/* <div className="col-sm-4">
             <label>Etunimi</label>
             <input type="text" className="form-control" />
