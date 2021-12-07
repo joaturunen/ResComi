@@ -15,10 +15,13 @@ export default function Home() {
     <div className='mt-5'>
 
       <div className='row justify-content-md-center'>
-        <Link to="./searchCar" className='col-4 shadow button link' style={LinkStyle}>
-        <FaSearch size={35}  className='icon mt-4' />
-        <p class='hometext pt-2'>HAKU</p>
+      <div className='col-3 button' style={boxShadowStyle}>
+      <Link to="./searchCar" >
+          <FaSearch size={35} className= 'mt-4 link'/>
+          <p>Hae</p>
         </Link>
+      </div>
+        
 
         <Link to="./warehouse" className='col-3 link shadow button' style={LinkStyle}>
         <FaWarehouse size={40} className='mt-4'/>
