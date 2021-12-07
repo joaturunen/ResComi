@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { boxColorLayot, buttonStyle } from '../style/colors';
 
 
-export default function Orders({url}) {
+export default function Orders({url, openReport}) {
 
     const [orders, setOrders] = useState([]);
 
@@ -39,7 +39,7 @@ export default function Orders({url}) {
                                     <td>{order.customer_id}</td>
                                     <td>{order.orderdate}</td>
                                     <td>{order.service}</td>
-                                    <button className='btn btn-primary' style={buttonStyle} >Raportti</button>
+                                    <button className='btn btn-primary' style={buttonStyle} onClick={() => openReport(order)} >Raportti</button>
                                 </tr>
                             ))}
                         </tbody>
