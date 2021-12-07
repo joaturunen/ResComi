@@ -31,7 +31,7 @@ export default function Customer({url, customer_id, customerCars, setCustomerCar
             setCustomerCars={setCustomerCars}
             customerTires={customerTires}
             setCustomerTires={setCustomerTires} />
-            }
+            
         </div>,
     },
     {
