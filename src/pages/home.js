@@ -15,13 +15,12 @@ export default function Home() {
     <div className='mt-5'>
 
       <div className='row justify-content-md-center'>
-      <div className='col-3 button' style={boxShadowStyle}>
-      <Link to="./searchCar" >
-          <FaSearch size={35} className= 'mt-4 link'/>
-          <p>Hae</p>
+
+      
+      <Link to="./searchCar" className='col-3 button link shadow' style={LinkStyle}>
+          <FaSearch size={35} className= 'mt-4'/>
+          <p class='hometext pt-2'>HAE</p>
         </Link>
-      </div>
-        
 
         <Link to="./warehouse" className='col-3 link shadow button' style={LinkStyle}>
         <FaWarehouse size={40} className='mt-4'/>
@@ -30,6 +29,7 @@ export default function Home() {
       </div>
 
       <div className='row justify-content-md-center'> 
+
         <Link to="./services" className='col-3 link button shadow' style={LinkStyle}>
           <GiTireIron size={40}  className='mt-4'/>
           <p class='hometext pt-2'>UUSI TILAUS</p>
@@ -37,7 +37,7 @@ export default function Home() {
 
         <Link to="./order" className='col-4 mb-3 button shadow link' style={LinkStyle}>
         <FaList size={35}  className='mt-4'/>
-          <p class='hometext pt-2'>RAPORTIT väärä linkki</p>
+          <p class='hometext pt-2'>VALMIIT TILAUKSET väärä linkki</p>
         </Link>
       </div>
 

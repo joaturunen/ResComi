@@ -53,7 +53,6 @@ export const boxColorLayot = {
   'marginLeft': '0.2rem',
   'marginTop': '1rem',
   'marginRight': '0.2rem',
-  
 };
 
 //button style
@@ -78,8 +77,6 @@ export const LinkStyle={
   'text-decoration': 'none',
   'color':'#0088c2'
 }
-
-
 
 
 
