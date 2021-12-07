@@ -108,12 +108,9 @@ export default function Warehouse({ url, setShelf_id}) {
 
         <div className='row'>
           <div className='row mt-3'>
-            <h3>Hyllylistaus</h3>
+            <h3>Varasto 1</h3>
           </div>
 
-          <div className='row mx-3 my-3'>
-            <h5>Varasto 1</h5>
-          </div>
           <div class='row'>
           <table className="table text-center table-striped mx-3">
             <thead>
