@@ -5,6 +5,7 @@ import CustomerInfo from './customerInfo';
 import Car from './car';
 import _ from 'lodash';
 import Tires from './tires';
+import { buttonStyle } from '../style/colors';
 
 
 // tämä avautuu hakutuloksesta, ei näy navissa
