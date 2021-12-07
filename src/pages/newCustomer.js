@@ -56,29 +56,36 @@ export default function NewCustomer({url}) {
            
                 <div className='col-md-3'>
               <div>
-                  <input placeholder="Etunimi"value={firstname} onChange={e => setFirstname(e.target.value)}/>
+              <label>Etunimi</label>
+                  <input type="text" className="form-control" value={firstname} onChange={e => setFirstname(e.target.value)}/>
               </div>
               <div>
-                  <input placeholder="Sukunimi"value={lastname} onChange={e => setLastname(e.target.value)}/>
+              <label>Sukunimi</label>
+                  <input type="text" className="form-control"value={lastname} onChange={e => setLastname(e.target.value)}/>
               </div>
               <div>
-                  <input placeholder="Puhelin"value={phone} onChange={e => setPhone(e.target.value)}/>
+              <label>Puhelinumero</label>
+                  <input type="text" className="form-control" value={phone} onChange={e => setPhone(e.target.value)}/>
               </div>
               <div>
-                  <input placeholder="Sähköposti"value={email} onChange={e => setEmail(e.target.value)}/>
+              <label>Sähköposti</label>
+                  <input type="text" className="form-control" value={email} onChange={e => setEmail(e.target.value)}/>
               </div>
               <div>
-                  <input placeholder="Katuosoite"value={address} onChange={e => setAddress(e.target.value)}/>
+              <label>Lähiosoite</label>
+                  <input type="text" className="form-control" value={address} onChange={e => setAddress(e.target.value)}/>
               </div>
               </div>
               
               
               <div className='col-md-3'>
               <div>
-                  <input placeholder="Postinumero"value={zipcode} onChange={e => setZipcode(e.target.value)}/>
+              <label>Postinumero</label>
+                  <input type="text" className="form-control" value={zipcode} onChange={e => setZipcode(e.target.value)}/>
               </div>
               <div>
-                  <input placeholder="Postitoimipaikka"value={city} onChange={e => setCity(e.target.value)}/>
+              <label>Postitoimipaikka</label>
+                  <input type="text" className="form-control" value={city} onChange={e => setCity(e.target.value)}/>
               </div>
               
               <div className='row'>
