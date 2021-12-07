@@ -18,7 +18,6 @@ export default function CustomerInfo({url, customer_id, customerCars, setCustome
     const [city, setCity] = useState("");
     const [customersaved, setCustomersaved] = useState("");
     const [cus_id, setCus_id] = useState(customer_id);
-    const [car_id, setCar_id] = useState(''); // mistä tämä menee tires.js ?
     
 
     useEffect(() => {
