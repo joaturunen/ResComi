@@ -21,6 +21,9 @@ const homeShadow = '#333';
 //Shock color
 const shockColor = "#C23A00";
 
+//Text color light
+const textLight ='#F4F7FC'
+
 
 //Pie-Chart taken
 export const pieChartTaken = "#E9897E";
@@ -50,17 +53,33 @@ export const boxColorLayot = {
   'marginLeft': '0.2rem',
   'marginTop': '1rem',
   'marginRight': '0.2rem',
+  
 };
 
+//button style
 export const buttonStyle = {
   'background': headColor, 
-  'color': '#F4F7FC',
+  'color': textLight,
   'border': headerColor,
   'border-width': '2px',
   'border-radius':'30px',
   'text-transform': 'uppercase',
-  'font': '15px Lato, sans-serif'
+  'font': '12px Lato, sans-serif'
 };
+
+//user signed in
+export const userStyle={
+  'color': textLight,
+  'text-align': 'right'
+}
+
+//Homepage LinkStyle
+export const LinkStyle={
+  'text-decoration': 'none',
+  'color':'#0088c2'
+}
+
+
 
 
 

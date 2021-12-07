@@ -22,22 +22,25 @@ import Services from './pages/services';
 import {URL} from './back/Config';
 import Print from './printable/Print';
 import Tab from './components/tab/Tab';
+import ShelfSlots from './pages/shelfSlots';
 
 
 function App() {
   const [user, setUser] = useState('');
   const [customer, setCustomer] = useState(null);
   const [customer_id, setCustomer_id] = useState('');
-  const [car, setCar] = useState(null);
+  const [car_id, setCar_id] = useState('');
   const [cart, setCart] = useState([]);
   const [inactive, setInactive] = useState(false);
   const [customerCars, setCustomerCars] = useState([]);
   const [customerTires, setCustomerTires] = useState([]);
+  const [shelf_id, setShelf_id] = useState(0);
 
   useEffect(() => {
     if ('cart' in localStorage) {
       setCart(JSON.parse(localStorage.getItem('cart')));
     }
+    console.log("Appissa: " + shelf_id);
   }, []);
 
 
@@ -100,12 +103,19 @@ function App() {
             }/>
             <Route path="/warehouse"
               element={<Warehouse
-                url={URL}/>
+                url={URL}
+                setShelf_id={setShelf_id}/>
+            }/>
+            <Route path="/shelfSlots" 
+              element={<ShelfSlots 
+                url={URL}
+                shelf_id={shelf_id}/>
             }/>
             <Route path="/searchCustomer" 
               element={<SearchCustomer 
                 url={URL} 
-                setCustomer_id={setCustomer_id}/>
+                setCustomer_id={setCustomer_id}
+                customer_id={customer_id}/>
             }/>
             <Route path="/searchCar" 
               element={<SearchCar 
@@ -117,9 +127,14 @@ function App() {
               <Route path=":customer_id" element={<Customer customer={customer}  />}/>
             </Route> */}
             <Route path="/oneCustomer" 
-              element={<Customer url={URL} customer={customer}/>
+              element={<Customer url={URL} 
+                customer_id={customer_id}
+                customerCars={customerCars}
+                setCustomerCars={setCustomerCars}
+                customerTires={customerTires}
+                setCustomerTires={setCustomerTires}/>
             }/>
-            <Route path="/customerInfo" 
+            {/* <Route path="/customerInfo" 
               element={<CustomerInfo 
                 url={URL} 
                 customer_id={customer_id}
@@ -127,8 +142,8 @@ function App() {
                 setCustomerCars={setCustomerCars}
                 customerTires={customerTires}
                 setCustomerTires={setCustomerTires}/>
-            }/>
-            <Route path="/car" 
+            }/> */}
+            {/* <Route path="/car" 
               element={<Car 
                 url={URL}
                 customerCars={customerCars}
@@ -136,8 +151,9 @@ function App() {
             }/>
             <Route path="/tires" 
               element={<Tires 
-                customerTires={customerTires}/>
-            }/>
+                customerTires={customerTires}
+                setCustomerTires={setCustomerTires}/>
+            }/> */}
             <Route path="/" 
               element={<Home />}>
               {/* {user ? <Users /> : <Navigate to="/login" />} */}
@@ -147,7 +163,7 @@ function App() {
             }/> */}
             <Route path="*" element={<Empty />} />
             <Route path="/printable/Print" element={<Print />} />
-            <Route path="/tab/Tab" element={<Tab />} />
+            {/* <Route path="/tab/Tab" element={<Tab />} /> */}
           </Routes>
           </div>
         </div>

@@ -41,7 +41,7 @@ export default function Login({setUser}) {
 
   return (
     <>
-        <div className='row justify-content-md-center mt-5 button'>
+        <div className='row justify-content-md-center mt-5'>
           
          
           <div className='col-md-6 searchCar' style={boxShadowStyle}>

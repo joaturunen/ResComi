@@ -2,23 +2,19 @@ import React, {useState} from 'react';
 import {buttonStyle} from '../style/colors';
 
 
-// TÄMÄ JÄÄ LUULTAVASTI POIS, AUTON TALLENNUS car.js
-
-export default function NewCar({url, customer}) {
+export default function NewCar({setCustomerCars, customer_id}) {
 
   const [register, setRegister] = useState('');
   const [brand, setBrand] = useState('');
   const [model, setModel] = useState('');
-  const [customerId, setCustomerId] = useState('');
-  const [employeeId, setEmployeeId] = useState('');
+  const [cus_id, setCus_id] = useState(customer_id);
 
-  // back puuttuu!
-  function addCar(e) {
-    setCustomerId(customer.id);
+  function SaveCar(e) {
     e.preventDefault();
-      fetch(url + 'LISÄÄTÄNNEOIKEA!', { 
+    let status = 0;
+    fetch('http://localhost/rengasvarasto-back/API/car/car_create.php', {
         method: 'POST',
-        header: {
+        headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
         },
@@ -26,39 +22,46 @@ export default function NewCar({url, customer}) {
             register: register,
             brand: brand,
             model: model,
-            customer_id: customerId,
-            employee_id: employeeId
+            customer_id: cus_id
         })
     })
-    .then (res => {
+    .then(res => {
         return res.json();
     })
-    .then (
+    .then(
         (res) => {
-            console.log(res);
+            if (status === 200) {
+                setCustomerCars(customerCars => [...customerCars, res]);
+                setRegister('');
+                setBrand('');
+                setModel('');
+            } else {
+                alert(res.error);
+            }
         }, (error) => {
             alert(error);
         }
     );
+
   }
 
   return (
-      <>
-        <h4>Lisää uusi auto</h4>
-          <form onSubmit={addCar}>
+      <div>
+        <h5>Lisää uusi auto</h5>
+        <form onSubmit={SaveCar}>
+          <div>
             <div>
-              <div>
-                  <input placeholder="Rekisterinumero"value={register} onChange={e => setRegister(e.target.value)}/>
-              </div>
-              <div>
-                  <input placeholder="Merkki"value={brand} onChange={e => setBrand(e.target.value)}/>
-              </div>
-              <div>
-                  <input placeholder="Malli"value={model} onChange={e => setModel(e.target.value)}/>
-              </div>
+                <input placeholder="Rekisterinumero"value={register} onChange={e => setRegister(e.target.value)}/>
             </div>
-            <button className='btn btn-primary' style={buttonStyle}>Tallenna</button>
-          </form>
-      </>
+            <div>
+                <input placeholder="Merkki"value={brand} onChange={e => setBrand(e.target.value)}/>
+            </div>
+            <div>
+                <input placeholder="Malli"value={model} onChange={e => setModel(e.target.value)}/>
+            </div>
+          </div>
+          <button className='btn btn-primary' style={buttonStyle}>Tallenna</button>
+        </form>
+      </div>
   );
 }

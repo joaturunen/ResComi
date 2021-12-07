@@ -2,10 +2,11 @@ import React,{useState /*, useEffect*/} from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import {boxShadowStyle, buttonStyle} from '../style/colors';
 
-export default function SearchCustomer({url, setCustomer_id}) {
+export default function SearchCustomer({url, setCustomer_id, customer_id}) {
   const [searchPhone, setSearchPhone] = useState('');
   const [result, setResult] = useState([]);
   const [showCustomerSite, setShowCustomerSite] = useState(false);
+  const [showCustomerData, setShowCustomerData] = useState(false);
 
   function findPhone(e) {
     e.preventDefault();
@@ -28,7 +29,6 @@ export default function SearchCustomer({url, setCustomer_id}) {
       (res) => {
         if (status === 200) {
           setResult(result => [...result, res]);
-          
         } else {
           alert(res.error);
         }
@@ -40,30 +40,38 @@ export default function SearchCustomer({url, setCustomer_id}) {
 
   function openCustomerSite(customer) {
     setCustomer_id(customer.id);
+    //setShowCustomerData(true); // tällä ei saa näkymään orderissa 
     setShowCustomerSite(true);
   }
   
   if (showCustomerSite === true) {
     return (
-      <Navigate to="/customerInfo" />
+      <Navigate to="/oneCustomer" />
       
     );
   }
 
   return (
       <>
+      <div className='row text-center mt-3'>
+        <div className='searchCustomer pt-3'>
           <h4>Etsi asiakas</h4>
           <form onSubmit={findPhone}>
-            <div className='mb-3'>
+            <div>
               <label className="form-label">Etsi asiakkaan puhelinnumerolla.</label>
               <input type='text' 
                 value={searchPhone} placeholder='0401234567' maxLength="10"
                 onChange={e => setSearchPhone(e.target.value)}/>
+                <div>
               <button className='btn btn-primary button' style={buttonStyle}>Etsi</button>
+              </div>
             </div>
           </form>
-        <div>
+        </div>
+     
+
           <h4>Hakutulokset</h4>
+          <p>hakutulokset ja uusi asiakas modal ikkunaan?</p>
           <table className="table px-3 table-striped">
             <tbody>
               {result.map(customer => (
@@ -76,7 +84,7 @@ export default function SearchCustomer({url, setCustomer_id}) {
             </tbody>
           </table>
           
-        </div>
+      </div>
       </>
     
   );

@@ -58,13 +58,13 @@ export default function SearchCar({url, setCustomer_id}) {
       
       if (showCustomerSite === true) {
         return (
-          <Navigate to="/customerInfo" />
+          <Navigate to="/oneCustomer" />
           
         );
       }
 
     return (
-        <div className='row justify-content-md-center mt-5 button'>
+        <div className='row mt-5'>
             
             <div className='col-md-6 searchCar' style={boxShadowStyle}>
             <h1>HAKU</h1>
