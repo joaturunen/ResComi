@@ -24,6 +24,7 @@ import {URL} from './back/Config';
 import Print from './printable/Print';
 import Tab from './components/tab/Tab';
 import ShelfSlots from './pages/shelfSlots';
+import Orders from './pages/completedOrders';
 
 
 function App() {
@@ -111,6 +112,10 @@ function App() {
               element={<ShelfSlots 
                 url={URL}
                 shelf_id={shelf_id}/>
+            }/>
+            <Route path="/completedOrders"
+              element={<Orders
+                url={URL} />
             }/>
             <Route path="/searchPage" 
               element={<SearchPage 
