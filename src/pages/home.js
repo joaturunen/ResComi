@@ -7,7 +7,6 @@ import Print from '../printable/Print';
 import {LinkStyle} from '../style/colors';
 import NewCar from './newCar';
 
-// tänne pitäs lisätä linkit noihin sivuihin samoin kuin navbarissa on
 
 export default function Home() {
   // Get the modal
