@@ -1,37 +1,37 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Services from './services';
 import NewCustomer from './newCustomer';
 import NewCar from './newCar';
 import SearchCustomer from './searchCustomer';
 import { boxColorLayot } from '../style/colors';
-import {FaTrash, FaTimes } from 'react-icons/fa'; 
-import {buttonStyle } from '../style/colors';
+import { FaTrash, FaTimes } from 'react-icons/fa';
+import { buttonStyle } from '../style/colors';
 import Customer from './oneCustomer';
 
 
 // kuinka tallennetaan myös auton tiedot samalla?
 
 export default function Order({
-    url, 
-    cart, 
-    empty, 
-    addToCart, 
-    removeFromCart, 
-    setCustomer_id, 
-    customer_id, 
-    customerCars, 
-    setCustomerCars, 
-    customerTires, 
+    url,
+    cart,
+    empty,
+    addToCart,
+    removeFromCart,
+    setCustomer_id,
+    customer_id,
+    customerCars,
+    setCustomerCars,
+    customerTires,
     setCustomerTires,
-    employee_id}) {
-    
+    employee_id }) {
+
     const [finished, setFinished] = useState(false);
     const [cus_id, setCus_id] = useState(customer_id);
     const [employ_id, setEmploy_id] = useState(employee_id);
 
     function SaveOrder(e) {
         e.preventDefault();
-        fetch(url + 'order/order_create.php', { 
+        fetch(url + 'order/order_create.php', {
             method: 'POST',
             header: {
                 'Accept': 'application/json',
@@ -43,26 +43,26 @@ export default function Order({
                 cart: cart,
             })
         })
-        .then (res => {
-            return res.json();
-        })
-        .then (
-            (res) => {
-                console.log(res);
-                empty();
-                setFinished(true);
-            }, (error) => {
-                alert(error);
-            }
-        );
+            .then(res => {
+                return res.json();
+            })
+            .then(
+                (res) => {
+                    console.log(res);
+                    empty();
+                    setFinished(true);
+                }, (error) => {
+                    alert(error);
+                }
+            );
     }
 
 
     let sum = 0;
 
     // if (finished === false) {
-        return (
-            <>
+    return (
+        <>
             <Services url={url} addToCart={addToCart} />
             <div className='row'>
                 <div className='row mt-5'>
@@ -71,19 +71,19 @@ export default function Order({
                         <table className="table px-3 table-striped">
                             <tbody>
                                 {cart.map((service, id) => {
-                                    sum+=parseFloat(service.price);
+                                    sum += parseFloat(service.price);
                                     return (
                                         <tr key={id}>
                                             <td>{service.service}</td>
                                             <td>{service.price}</td>
-                                            <td><FaTimes onClick={() => removeFromCart(service)}/></td>
+                                            <td><FaTimes onClick={() => removeFromCart(service)} /></td>
                                         </tr>
                                     )
                                 })}
                                 <tr>
                                     <td></td>
                                     <td>{sum.toFixed(2)} €</td>
-                                    <td><FaTrash onClick={() => empty()}/></td>
+                                    <td><FaTrash onClick={() => empty()} /></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -95,12 +95,30 @@ export default function Order({
                     <div className='col-1'></div>
                     <div className='col-4'>
                         <div>
-                            <SearchCustomer url={url} setCustomer_id={setCustomer_id}/>
+                            <SearchCustomer url={url} setCustomer_id={setCustomer_id} />
                         </div>
                         <div className='text-center'>
-                            <button class='btn btn-primary' style={buttonStyle}>Uusi asiakas</button></div>
+                            <button class='btn btn-primary' style={buttonStyle} data-toggle="modal" data-target="#exampleModal">Uusi asiakas</button></div>
+                    </div>
+                </div>
+                <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <NewCustomer url={url} />
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
+                </div>
 
                 <div className='row' style={boxColorLayot}>
                     {/* <Customer url={url} 
@@ -109,7 +127,7 @@ export default function Order({
                         setCustomerCars={setCustomerCars}
                         customerTires={customerTires}
                         setCustomerTires={setCustomerTires} /> */}
-                    
+
                     {/* <div>
                         <NewCustomer url={url}/>
                     </div>
@@ -117,16 +135,16 @@ export default function Order({
                         <NewCar url={url} customer={customer}/>
                     </div> */}
                 </div>
-                </div>   
-                
-            </>
-        )
+            </div>
+
+        </>
+    )
     // } else {
     //     return (
     //         <>
     //             <h3>Tilaus onnistui.</h3>
     //         </>
-            
+
     //     );
     // }
 }
