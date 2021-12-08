@@ -26,13 +26,12 @@ function App() {
   const [inactive, setInactive] = useState(false);
   const [customerCars, setCustomerCars] = useState([]);
   const [customerTires, setCustomerTires] = useState([]);
-  const [shelf_id, setShelf_id] = useState(0);
+  const [currentShelfID, setCurrentShelfID] = useState(0);
 
   useEffect(() => {
     if ('cart' in localStorage) {
       setCart(JSON.parse(localStorage.getItem('cart')));
     }
-    console.log("Appissa: " + shelf_id);
   }, []);
 
 
@@ -95,12 +94,13 @@ function App() {
                   <Route path="/warehouse"
                     element={<Warehouse
                       url={URL}
-                      setShelf_id={setShelf_id}/>
+                      setCurrentShelfID={setCurrentShelfID}/>
                   }/>
                   <Route path="/shelfSlots" 
                     element={<ShelfSlots 
                       url={URL}
-                      shelf_id={shelf_id}/>
+                      setCurrentShelfID={setCurrentShelfID}
+                      currentShelfID={currentShelfID}/>
                   }/>
                   <Route path="/completedOrders"
                     element={<Orders
