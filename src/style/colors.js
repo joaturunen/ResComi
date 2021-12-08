@@ -48,7 +48,8 @@ export const boxShadowHome = {
 //Grey box with shadow
 export const boxColorLayot = {
   'background': boxColor,
-  'borderRadius': '10px'
+  'borderRadius': '10px',
+  'margin': '1rem'
 };
 
 //button style
