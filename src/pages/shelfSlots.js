@@ -59,10 +59,10 @@ function openShelfSite(shelf) {
 
 const shelfPage =
   <div className='row'>
-  <div className='row mt-3'>
+  <div className='row'>
       <h3>Hyllypaikat</h3>
     </div>
-    <div className='row mx-3 my-3'>
+    <div className='row'>
       <div className='col'>
       {(previosShelf == 0) ? ("") : (<button className='btn' style={buttonStyle} onClick={() => openShelfSite(previosShelf)}> <FaArrowLeft /> Edellinen hylly {previosShelf}</button>)}
       </div>

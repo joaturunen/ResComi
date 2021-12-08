@@ -13,7 +13,6 @@
   padding: 0;
 }
 
-
 ul {
   padding: 0;
   margin: 0;
@@ -40,13 +39,12 @@ li {
   height: 150px;
 }
 
- /* home page */
+/* home page */
 
-.link:hover{
+.link:hover {
   text-decoration: underline;
-  color:#C23A00 !important;
+  color: #c23a00 !important;
 }
-
 
 .button {
   /* Buttons on the home page */
@@ -56,17 +54,16 @@ li {
   border: solid;
   border-radius: 1em;
 }
-.hometext{
-  font-size:24px;
-  color:#333 !important;
- 
+.hometext {
+  font-size: 24px;
+  color: #333 !important;
 }
-.disabled{
+.disabled {
   pointer-events: none;
 }
 
-.btn:hover{
-  background-color: #C23A00 !important;
+.btn:hover {
+  background-color: #c23a00 !important;
 }
 
 .logo {
@@ -75,18 +72,17 @@ li {
 }
 
 /* Search pages styling */
-.searchCar{
-  border:solid #0088c2 2px;
+.searchCar {
+  border: solid #0088c2 2px;
   width: 80%;
   border-radius: 1em;
-  padding:20px;
+  padding: 20px;
 }
-.searchCustomer{
-  border:solid #0088c2 2px;
+.searchCustomer {
+  border: solid #0088c2 2px;
   border-radius: 1em;
   background-color: #e9eaeb;
 }
-
 
 /* Navigation*/
 
@@ -281,9 +277,10 @@ li {
   margin-top: 15px !important;
 }
 
-.tab-title, .tab-content {
+.tab-title,
+.tab-content {
   min-height: 100px;
-  border: 1px solid #DCDCDC;
+  border: 1px solid #dcdcdc;
   border-top: none;
 }
 
@@ -291,21 +288,20 @@ li {
   overflow-y: auto !important;
   max-height: calc(100vh - 150px) !important;
 }
- /* Warehouse*/
+/* Warehouse*/
 
- .warehouse{
-   margin-top:5rem;
- }
- .full{
-   color:crimson;
-   font-weight: bold;
- }
- .free{
-   color:rgb(35, 204, 35);
-   font-weight: bold;
- }
+.warehouse {
+  margin-top: 5rem;
+}
+.full {
+  color: crimson;
+  font-weight: bold;
+}
+.free {
+  color: rgb(35, 204, 35);
+  font-weight: bold;
+}
 
- 
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -316,8 +312,8 @@ li {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
@@ -342,4 +338,9 @@ li {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+.stylingContent {
+  margin-left: 1rem !important;
+  margin-top: 1.3rem !important;
 }

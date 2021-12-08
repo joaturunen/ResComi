@@ -77,7 +77,7 @@ export default function Warehouse({ url, setCurrentShelfID}) {
     <>
       <div className='row'>
         <div className="row" style={boxColorLayot}>
-        <h2>Varastotilanne</h2>
+        <h2>Varastotilanne - Varasto 1</h2>
           <div className="row pie-back">
             <div className="col-5">
               <div className="text-center">
@@ -107,10 +107,6 @@ export default function Warehouse({ url, setCurrentShelfID}) {
         </div>
 
         <div className='row'>
-          <div className='row mt-3'>
-            <h3>Varasto 1</h3>
-          </div>
-
           <div class='row'>
           <table className="table text-center table-striped mx-3">
             <thead>
