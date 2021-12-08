@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FaSquareFull } from 'react-icons/fa';
 import { boxColorLayot, pieChartTaken, pieChartFree, buttonStyle } from '../style/colors';
 import { Navigate } from 'react-router-dom';
+import Loading from '../components/loading';
 
 // tänne lista kaikista varastopaikoista lajiteltuna varastoittain
 
@@ -14,6 +15,7 @@ export default function Warehouse({ url, setCurrentShelfID}) {
   const [colorFree, setColorFree] = useState(pieChartFree);
   const [shelfs, setShelfs] = useState([]);
   const [showCustomerSite, setShowCustomerSite] = useState(false);
+  const [isLoading, setIsloading] = useState(true);
 
   useEffect(() => {
     async function getWarehouseData() {
@@ -38,6 +40,7 @@ export default function Warehouse({ url, setCurrentShelfID}) {
         const json = await response.json();
         if (response) {
           setShelfs(Array.from(json));
+          setIsloading(false);
         } else {
           alert(json.error);
         }
@@ -73,6 +76,32 @@ export default function Warehouse({ url, setCurrentShelfID}) {
     );
   }
 
+  const warehousePage =
+    <>
+      <table className="table text-center table-striped">
+        <thead>
+          <tr>
+                <th scope="col">Hylly</th>
+                <th scope="col">Rengas paikkoja</th>
+                <th scope="col">Tila</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+        <tbody>
+              {shelfs.map(shelf => (
+                <tr key={shelf.id} >
+                  <td>{shelf.id}</td>
+                  <td>{shelf.amount}</td>
+                  <td>{(shelf.free == 0) ? (<p class='full'>Täynnä</p>) : (<p class='free'>Vapaita paikkoja {shelf.free}</p>)}</td>
+                  <td>
+                  <button className='btn' style={buttonStyle} onClick={() => openShelfSite(shelf)}>Näytä hylly {shelf.id}</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+      </table>
+    </>;
+    
   return (
     <>
       <div>
@@ -106,29 +135,7 @@ export default function Warehouse({ url, setCurrentShelfID}) {
               </div>
             </div>
         </div>
-
-          <table className="table text-center table-striped">
-            <thead>
-              <tr>
-                <th scope="col">Hylly</th>
-                <th scope="col">Rengas paikkoja</th>
-                <th scope="col">Tila</th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {shelfs.map(shelf => (
-                <tr key={shelf.id} >
-                  <td>{shelf.id}</td>
-                  <td>{shelf.amount}</td>
-                  <td>{(shelf.free == 0) ? (<p class='full'>Täynnä</p>) : (<p class='free'>Vapaita paikkoja {shelf.free}</p>)}</td>
-                  <td>
-                  <button className='btn' style={buttonStyle} onClick={() => openShelfSite(shelf)}>Näytä hylly {shelf.id}</button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        {(isLoading) ? (<Loading/>) : (warehousePage)}
     </div>
     </>
   );
