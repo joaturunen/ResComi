@@ -6,18 +6,12 @@ import { boxColorLayot, boxShadowStyle, buttonStyle } from '../style/colors';
 export default function SearchPage({url, setCustomer_id, customer_id}) {
 
     return (
-        <div className='row'>
-            <div className='row' style={boxColorLayot}>
-                <div className='row mt-3 mb-3'>
-                    <h3>Haku</h3>
-                </div>
-                <div className='col-6'>
-                    <SearchCar url={url} setCustomer_id={setCustomer_id} />
-                </div>
-                <div className='col-6'>
-                    <SearchCustomer url={url} setCustomer_id={setCustomer_id} customer_id={customer_id} />
-                </div>
-            </div>
-        </div>
+        <div>
+          <h3>Haku</h3>
+          <div class="row">
+            <div class="col" style={boxColorLayot}><SearchCar url={url} setCustomer_id={setCustomer_id} /></div>
+            <div class="col" style={boxColorLayot}><SearchCustomer url={url} setCustomer_id={setCustomer_id} customer_id={customer_id} /></div>
+          </div>
+      </div>
     )
 }

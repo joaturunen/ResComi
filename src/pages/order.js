@@ -63,70 +63,46 @@ export default function Order({
     // if (finished === false) {
         return (
             <>
-            <Services url={url} addToCart={addToCart} />
-            <div className='row'>
-                <div className='row mt-5'>
-                    <div className='col-7'>
-                        <h3>Tilaus</h3>
-                        <table className="table px-3 table-striped">
-                            <tbody>
-                                {cart.map((service, id) => {
-                                    sum+=parseFloat(service.price);
-                                    return (
-                                        <tr key={id}>
-                                            <td>{service.service}</td>
-                                            <td>{service.price}</td>
-                                            <td><FaTimes onClick={() => removeFromCart(service)}/></td>
-                                        </tr>
-                                    )
-                                })}
-                                <tr>
-                                    <td></td>
-                                    <td>{sum.toFixed(2)} €</td>
-                                    <td><FaTrash onClick={() => empty()}/></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <form onSubmit={SaveOrder}>
-                            <input placeholder="asiakasnumero" value={cus_id} />
-                            <button class='btn btn-primary' style={buttonStyle}>Tallenna tilaus</button>
-                        </form>
-                    </div>
-                    <div className='col-1'></div>
-                    <div className='col-4'>
-                        <div>
-                            <SearchCustomer url={url} setCustomer_id={setCustomer_id}/>
-                        </div>
-                        <div className='text-center'>
-                            <button class='btn btn-primary' style={buttonStyle}>Uusi asiakas</button></div>
-                        </div>
-                    </div>
-
-                <div className='row' style={boxColorLayot}>
-                    {/* <Customer url={url} 
-                        customer_id={customer_id}
-                        customerCars={customerCars}
-                        setCustomerCars={setCustomerCars}
-                        customerTires={customerTires}
-                        setCustomerTires={setCustomerTires} /> */}
-                    
-                    {/* <div>
-                        <NewCustomer url={url}/>
-                    </div>
-                    <div>
-                        <NewCar url={url} customer={customer}/>
-                    </div> */}
+            <h3>Uusi tilaus</h3>
+            <div class="d-flex justify-content-start">
+              <div class="p-2"><Services url={url} addToCart={addToCart} /></div>
+              <div class="p-2">
+              <div className="padding" style={boxColorLayot}>
+                <h3>Tilaus</h3>
+                  <table className="table px-3 table-striped">
+                    <tbody>
+                      {cart.map((service, id) => {
+                        sum+=parseFloat(service.price);
+                          return (
+                            <tr key={id}>
+                            <td>{service.service}</td>
+                            <td>{service.price}</td>
+                            <td><FaTimes onClick={() => removeFromCart(service)}/></td>
+                            </tr>
+                          )
+                       })}
+                       <tr>
+                        <td></td>
+                        <td>{sum.toFixed(2)} €</td>
+                        <td><FaTrash onClick={() => empty()}/></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                 <form onSubmit={SaveOrder}>
+                  <input placeholder="asiakasnumero" value={cus_id} />
+                  <button class='btn' style={buttonStyle}>Tallenna tilaus</button>
+                  </form>
                 </div>
-                </div>   
-                
+              </div>
+              <div class="p-2">
+              <div>
+                <SearchCustomer url={url} setCustomer_id={setCustomer_id}/>
+                <div className='text-center'><button class='btn' style={buttonStyle}>Uusi asiakas</button></div>
+                </div>
+              </div>
+            </div>
+            
             </>
         )
-    // } else {
-    //     return (
-    //         <>
-    //             <h3>Tilaus onnistui.</h3>
-    //         </>
-            
-    //     );
-    // }
+
 }

@@ -1,6 +1,6 @@
 import React,{useState /*, useEffect*/} from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import {boxShadowStyle, buttonStyle} from '../style/colors';
+import {boxShadowStyle, buttonStyle, boxColorLayot} from '../style/colors';
 
 export default function SearchCustomer({url, setCustomer_id, customer_id}) {
   const [searchPhone, setSearchPhone] = useState('');
@@ -53,10 +53,8 @@ export default function SearchCustomer({url, setCustomer_id, customer_id}) {
 
   return (
       <>
-      <div>
-        <div className='searchCar'>
+      <div className="padding" style={boxColorLayot}>
           <h4>Etsi asiakas</h4>
-
           <form onSubmit={findPhone}>
             <div>
               <label className="form-label">Etsi asiakkaan puhelinnumerolla.</label>
@@ -64,28 +62,24 @@ export default function SearchCustomer({url, setCustomer_id, customer_id}) {
                 value={searchPhone} placeholder='0401234567' maxLength="10"
                 onChange={e => setSearchPhone(e.target.value)}/>
                 <div>
-              <button className='btn btn-primary button' style={buttonStyle}>Etsi Asiakas</button>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                  <button class="btn button" style={buttonStyle} type="button">Etsi Asiakas</button>
+                </div>
               </div>
             </div>
           </form>
-
-        </div>
-     
-
           <h4>Hakutulokset</h4>
-         
           <table className="table px-3 table-striped">
             <tbody>
               {result.map(customer => (
                 <tr key={customer.id}>
                   <td>{customer.firstname}</td>
                   <td>{customer.lastname}</td>
-                  <button style={buttonStyle} onClick={() => openCustomerSite(customer)}>Avaa</button>
+                  <button className='btn' style={buttonStyle} onClick={() => openCustomerSite(customer)}>Avaa</button>
                 </tr>
               ))}
             </tbody>
           </table>
-          
       </div>
       </>
     

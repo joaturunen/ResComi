@@ -25,29 +25,21 @@ export default function Orders({url, openReport}) {
     }, []);
 
     return (
-        <div className='row'>
-            <div className='row' style={boxColorLayot}>
-                <div className='row mt-3 mb-3'>
-                    <h3>Valmiit tilaukset</h3>
-                </div>
-                <div className='row mb-3'>
-                    <table className="table px-3 table-striped">
-                        <tbody>
-                            {orders.map(order => (
-                                <tr key={order.id} >
-                                    <td>{order.id}</td>
-                                    <td>{order.customer_id}</td>
-                                    <td>{order.orderdate}</td>
-                                    <td>{order.service}</td>
-                                    <button className='btn btn-primary' style={buttonStyle} onClick={() => openReport(order)} >Raportti</button>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                    
-                </div>
-                
-            </div>
-        </div>
+        <>
+          <h3>Valmiit tilaukset</h3>
+          <table className="table px-3 table-striped">
+            <tbody>
+              {orders.map(order => (
+                <tr key={order.id} >
+                <td>{order.id}</td>
+                <td>{order.customer_id}</td>
+                <td>{order.orderdate}</td>
+                <td>{order.service}</td>
+                <button className='btn' style={buttonStyle} onClick={() => openReport(order)} >Raportti</button>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </>
     );
 }
