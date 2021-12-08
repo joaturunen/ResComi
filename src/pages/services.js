@@ -25,33 +25,21 @@ export default function Services({ url, addToCart }) {
 
     return (
         <>
-            <div className='row'>
-                <div className='row' style={boxColorLayot}>
-                    <div className='row mt-3 mb-3'>
-                        <h3>Palvelut</h3>
-                    </div>
-                    <div className='row mb-3'>
-                        <div className='col'>
-                        <h5>Säilytyskausi</h5>
-                        <table className="table px-3 table-striped">
-                            
-                            <tbody>
-                                {services.map(service => (
-                                    <tr key={service.id} >
-                                        <td>{service.service}</td>
-                                        <td>{service.price} €</td>
-                                        <button className='btn btn-primary' style={buttonStyle} onClick={() => addToCart(service)}>Valitse</button>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-            </div>
+          <div className="padding" style={boxColorLayot}>
+            <h3>Palvelut</h3>
+                <h5>Säilytyskausi</h5>
+                <table className="table px-3 table-striped">
+                  <tbody>
+                    {services.map(service => (
+                      <tr key={service.id} >
+                        <td>{service.service}</td>
+                        <td>{service.price} €</td>
+                        <button className='btn' style={buttonStyle} onClick={() => addToCart(service)}>Valitse</button>
+                      </tr>
+                      ))}
+                  </tbody>
+                </table>
+          </div>
         </>
-
     );
 }

@@ -104,10 +104,10 @@ export default function Warehouse({ url, setCurrentShelfID}) {
     
   return (
     <>
+    <h3>Varastotilanne - Varasto 1</h3>
       <div>
           <div class="d-inline-flex p-2" style={boxColorLayot}>
           <div class="p-2 align-self-stretch">
-          <h3>Varastotilanne - Varasto 1</h3>
           </div>
             <div class="p-2 align-self-center">
               <div className="text-center">

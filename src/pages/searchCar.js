@@ -1,6 +1,6 @@
 import React, { useState /*, useEffect*/ } from 'react';
 import { Navigate } from 'react-router-dom';
-import { boxShadowStyle, buttonStyle } from '../style/colors';
+import { boxShadowStyle, buttonStyle, boxColorLayot } from '../style/colors';
 import Car from './car';
 
 export default function SearchCar({ url, setCustomer_id }) {
@@ -65,8 +65,8 @@ export default function SearchCar({ url, setCustomer_id }) {
 
   return (
 
-    <div>
-      <div className='searchCar'>
+    <>
+      <div className="padding" style={boxColorLayot}>
         <h4>Etsi ajoneuvo</h4>
 
         <form onSubmit={findRegister}>
@@ -76,7 +76,9 @@ export default function SearchCar({ url, setCustomer_id }) {
               value={searchRegister} placeholder='ABC-123' maxLength="7"
               onChange={e => setSearchRegister(e.target.value)} />
           </div>
-          <button className='btn button' style={buttonStyle}>Etsi ajoneuvo</button>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button className='btn button' style={buttonStyle}>Etsi ajoneuvo</button>
+          </div>
 
         </form>
       </div>
@@ -98,8 +100,7 @@ export default function SearchCar({ url, setCustomer_id }) {
         </table>
 
       </div>
-
-    </div>
+    </>
 
   )
 }

@@ -352,18 +352,21 @@ li {
   margin-top: 1.3rem !important;
 }
 
-.row {
-  padding: 0 !important;
-}
-
-.forceW{
+.forceW {
   min-width: 150px;
 }
 
-.forceD{
+.forceD {
   opacity: 0;
 }
 
-.margin-top{
+.margin-top {
   margin-top: 5rem;
 }
+<<<<<<< HEAD
+=======
+
+.padding {
+  padding: 1rem;
+}
+>>>>>>> 515e9c7cc2b51e6c1a69addaf6625361c3a94f8b

@@ -47,6 +47,7 @@ export default function NewCustomer({url}) {
 
   return (
       <>
+      <h3>Lisää uusi asiakas</h3>
         <div className='searchCar' style={boxColorLayot}>
         <h4>Uusi asiakas</h4>
         <hr/>
