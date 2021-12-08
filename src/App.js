@@ -74,7 +74,7 @@ function App() {
                 console.log(inactive);
                 setInactive(inactive);
               }}/>
-              <div className='col-10 row justify-content-center scrollingRoute'>
+              <div className={`scrollingRoute stylingContent ${inactive ? "col" : "col-10" }`}>
                 <Routes>
                   <Route path="/login" 
                     element={<Login/>

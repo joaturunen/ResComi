@@ -62,10 +62,9 @@ export default function SearchCustomer({ url, setCustomer_id, customer_id }) {
               <label className="form-label">Etsi asiakkaan puhelinnumerolla.</label>
               <input type='text' className="form-control"
                 value={searchPhone} placeholder='0401234567' maxLength="10"
-                onChange={e => setSearchPhone(e.target.value)} />
-              <div>
-                <button className='btn btn-primary button' style={buttonStyle} >
-                  Etsi Asiakas</button>
+                onChange={e => setSearchPhone(e.target.value)}/>
+                <div>
+              <button className='btn button' style={buttonStyle}>Etsi Asiakas</button>
               </div>
             </div>
           </form>
@@ -89,6 +88,20 @@ export default function SearchCustomer({ url, setCustomer_id, customer_id }) {
         </div>
 
 
+          <h4>Hakutulokset</h4>
+         
+          <table className="table px-3 table-striped">
+            <tbody>
+              {result.map(customer => (
+                <tr key={customer.id}>
+                  <td>{customer.firstname}</td>
+                  <td>{customer.lastname}</td>
+                  <button className='btn' style={buttonStyle} onClick={() => openCustomerSite(customer)}>Avaa</button>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          
       </div>
     </>
 
