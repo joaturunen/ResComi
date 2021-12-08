@@ -26,15 +26,16 @@ export default function ShelfSlots({ url, shelf_id}) {
     })
     .then(
         (res) => {
-          console.log("Data tulee");
+           console.log("Data tulee");
             if (status === 200) {
-              setSlots([]);
+              setSlots(res);
               console.log("Data tulee");
-              console.log(res);
+               console.log(res);
             } else {
             alert(res.error);
             console.log(shelf_id);
             }
+
         }, (error) => {
           console.log("SUuri virhe " + shelf_id);
             alert(error);
