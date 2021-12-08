@@ -62,10 +62,8 @@ export default function SearchCustomer({url, setCustomer_id, customer_id}) {
                 value={searchPhone} placeholder='0401234567' maxLength="10"
                 onChange={e => setSearchPhone(e.target.value)}/>
             </div>
-            <div>
-              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button class="btn button" style={buttonStyle} type="button">Etsi Asiakas</button>
-              </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button class="btn button" style={buttonStyle}>Etsi Asiakas</button>
             </div>
             
           </form>
