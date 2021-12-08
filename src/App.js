@@ -122,7 +122,7 @@ function App() {
                       customerTires={customerTires}
                       setCustomerTires={setCustomerTires}/>
                   }/>
-                  <Route path="/" element={<Home />}>
+                  <Route path="/" element={<Home url={URL}/> }>
                     {/* {user ? <Users /> : <Navigate to="/login" />} */}
                   </Route>
                   {/* <Route path="/login" 

@@ -79,11 +79,8 @@ export default function SearchCar({ url, setCustomer_id }) {
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <button className='btn button' style={buttonStyle}>Etsi ajoneuvo</button>
           </div>
-
         </form>
-      </div>
 
-      <div>
         <h4>Hakutulokset</h4>
         <table className="table px-3 table-striped">
           <tbody>
@@ -98,8 +95,7 @@ export default function SearchCar({ url, setCustomer_id }) {
             ))}
           </tbody>
         </table>
-
-      </div>
+        </div>
     </>
 
   )
