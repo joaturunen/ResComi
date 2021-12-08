@@ -66,7 +66,7 @@ if (showWarehouse === true) {
 
 const shelfPage =
 <>
-<button className='btn' style={buttonStyle} onClick={() => setShowWarehouse(true)}>Näytä varaston kaikki hyllyt</button>
+<button className='btn' style={buttonStyle} onClick={() => setShowWarehouse(true)}>Näytä koko varasto</button>
 <div class="d-flex justify-content-between">
   <div class="p-2">{(previosShelf == 0) ? (<button className='forceW forceD' disabled>  </button>) : (<button className='btn forceW' style={buttonStyle} onClick={() => openShelfSite(previosShelf)}> <FaArrowLeft /> Edellinen hylly {previosShelf}</button>)}</div>
   <div class="p-2"><h3>Hylly {currentShelf}</h3></div>
@@ -95,10 +95,6 @@ const shelfPage =
       </table>
       </>
 ;
-
-
-
-
 
   return (
     <>
