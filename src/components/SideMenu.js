@@ -150,7 +150,7 @@ import {FaMinus, FaPlus, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react
                 />
               ))} 
             
-              <div class="fixed-bottom">&copy; ResComi</div>
+              {/* <div class="fixed-bottom">&copy; ResComi</div> */}
             </ul>
           </div>
         </div>

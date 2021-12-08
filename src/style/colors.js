@@ -59,11 +59,9 @@ export const boxColorLayot = {
 export const buttonStyle = {
   'background': headColor, 
   'color': textLight,
-  'border': headerColor,
-  'border-width': '2px',
-  'border-radius':'30px',
-  'text-transform': 'uppercase',
-  'font': '12px Lato, sans-serif'
+  'border-radius':'10px',
+  'font': '13px Lato, sans-serif',
+  'box-shadow': '4px 4px ' + boxShadow
 };
 
 //user signed in
@@ -77,8 +75,6 @@ export const LinkStyle={
   'text-decoration': 'none',
   'color':'#0088c2'
 }
-
-
 
 // Not sure why this must be
 const Colors = () =>{

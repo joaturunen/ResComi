@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 
 // tänne lista kaikista varastopaikoista lajiteltuna varastoittain
 
-export default function Warehouse({ url, setShelf_id}) {
+export default function Warehouse({ url, setCurrentShelfID}) {
   const [warehouseAll, setWarehouseAll] = useState(0);
   const [warehouseTaken, setWarehouseTaken] = useState(0);
   const [warehouseFree, setWarehouseFree] = useState(0);
@@ -62,8 +62,8 @@ export default function Warehouse({ url, setShelf_id}) {
   }
 
   function openShelfSite(shelf) {
-    console.log(shelf.id);
-    setShelf_id(shelf.id);
+    setCurrentShelfID(shelf.id);
+    console.log("Asetetaan haettava hylly: " + shelf.id);
     setShowCustomerSite(true);
   }
   
@@ -128,7 +128,7 @@ export default function Warehouse({ url, setShelf_id}) {
                   <td>{shelf.amount}</td>
                   <td>{(shelf.free == 0) ? (<p class='full'>Täynnä</p>) : (<p class='free'>Vapaita paikkoja {shelf.free}</p>)}</td>
                   <td>
-                  <button className='btn btn-primary' style={buttonStyle} onClick={() => openShelfSite(shelf)}>Näytä hylly {shelf.id}</button>
+                  <button className='btn' style={buttonStyle} onClick={() => openShelfSite(shelf)}>Näytä hylly {shelf.id}</button>
                   </td>
                 </tr>
               ))}
@@ -136,9 +136,6 @@ export default function Warehouse({ url, setShelf_id}) {
           </table>
           </div>
         </div>
-
-        
-
     </div>
     </>
   );
