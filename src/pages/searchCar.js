@@ -67,16 +67,16 @@ export default function SearchCar({ url, setCustomer_id }) {
 
     <div>
       <div className='searchCar'>
-        <h4>Etsi Ajoneuvo</h4>
+        <h4>Etsi ajoneuvo</h4>
 
         <form onSubmit={findRegister}>
           <div>
-            <label className="form-label">Etsi ajoneuvon rekisterillä.</label>
+            <label className="form-label">Etsi asiakas ajoneuvon rekisterinumerolla.</label>
             <input type='text' className="form-control"
               value={searchRegister} placeholder='ABC-123' maxLength="7"
               onChange={e => setSearchRegister(e.target.value)} />
           </div>
-          <button className='btn btn-primary button' style={buttonStyle}>Etsi ajoneuvo</button>
+          <button className='btn button' style={buttonStyle}>Etsi ajoneuvo</button>
 
         </form>
       </div>

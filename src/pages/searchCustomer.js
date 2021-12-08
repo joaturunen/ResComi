@@ -64,7 +64,7 @@ export default function SearchCustomer({url, setCustomer_id, customer_id}) {
                 value={searchPhone} placeholder='0401234567' maxLength="10"
                 onChange={e => setSearchPhone(e.target.value)}/>
                 <div>
-              <button className='btn btn-primary button' style={buttonStyle}>Etsi Asiakas</button>
+              <button className='btn button' style={buttonStyle}>Etsi Asiakas</button>
               </div>
             </div>
           </form>
@@ -80,7 +80,7 @@ export default function SearchCustomer({url, setCustomer_id, customer_id}) {
                 <tr key={customer.id}>
                   <td>{customer.firstname}</td>
                   <td>{customer.lastname}</td>
-                  <button style={buttonStyle} onClick={() => openCustomerSite(customer)}>Avaa</button>
+                  <button className='btn' style={buttonStyle} onClick={() => openCustomerSite(customer)}>Avaa</button>
                 </tr>
               ))}
             </tbody>
