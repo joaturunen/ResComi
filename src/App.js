@@ -19,6 +19,7 @@ import Orders from './pages/completedOrders';
 
 function App() {
   const [user, setUser] = useState('');
+  const [employee_id, setEmployee_id] = useState('');
   const [customer_id, setCustomer_id] = useState('');
   const [car_id, setCar_id] = useState('');
   const [cart, setCart] = useState([]);
@@ -84,7 +85,8 @@ function App() {
                       addToCart={addToCart} 
                       empty={emptyCart} 
                       removeFromCart={removeFromCart}
-                      setCustomer_id={setCustomer_id}/>
+                      setCustomer_id={setCustomer_id}
+                      employee_id={employee_id}/>
                     }/>
                   <Route path="/newCustomer" 
                     element={<NewCustomer/>
