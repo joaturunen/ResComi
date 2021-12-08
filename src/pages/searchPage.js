@@ -11,13 +11,15 @@ export default function SearchPage({url, setCustomer_id, customer_id}) {
                 <div className='row mt-3 mb-3'>
                     <h3>Haku</h3>
                 </div>
-                <div className='col-6'>
+                <div className='col'>
                     <SearchCar url={url} setCustomer_id={setCustomer_id} />
                 </div>
-                <div className='col-6'>
+                <div className='col'>
                     <SearchCustomer url={url} setCustomer_id={setCustomer_id} customer_id={customer_id} />
                 </div>
             </div>
+            
         </div>
+        
     )
 }
