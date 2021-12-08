@@ -8,7 +8,6 @@ import {LinkStyle} from '../style/colors';
 import NewCar from './newCar';
 import ModalNewCustomer from './modalNewCustomer';
 
-// tänne pitäs lisätä linkit noihin sivuihin samoin kuin navbarissa on
 
 export default function Home({url}) {
 
@@ -71,63 +70,50 @@ function tallennaRooli(e) {
 
   return (
     <>
-    <div className='mt-5'>
+      <div className='mt-5'>
 
-      <div className='row justify-content-md-center'>
+        <div className='row justify-content-md-center'>
 
-      
-      <Link to="./searchPage" className='col-4 button link shadow' style={LinkStyle}>
-          <FaSearch size={35} className= 'mt-4'/>
-          <p class='hometext pt-2'>HAE</p>
-        </Link>
+        
+        <Link to="./searchPage" className='col-4 button link shadow' style={LinkStyle}>
+            <FaSearch size={35} className= 'mt-4'/>
+            <p class='hometext pt-2'>HAE</p>
+          </Link>
 
-        <Link to="./warehouse" className='col-3 link shadow button' style={LinkStyle}>
-        <FaWarehouse size={40} className='mt-4'/>
-        <p class='hometext pt-2'>VARASTO</p>
-        </Link>
-      </div>
-
-      <div className='row justify-content-md-center'> 
-
-        <Link to="./order" className='col-3 link button shadow' style={LinkStyle}>
-          <GiTireIron size={40}  className='mt-4'/>
-          <p class='hometext pt-2'>UUSI TILAUS</p>
-        </Link>
-
-        <Link to="./completedOrders" className='col-4 mb-3 button shadow link' style={LinkStyle}>
-        <FaList size={35}  className='mt-4'/>
-          <p class='hometext pt-2'>VALMIIT TILAUKSET</p>
-        </Link>
-      </div>
-
-
-
-      <div className='row'>
-        <Link to="../printable/Print" className='col-3 button'>
-          <GiTireIron size={40} />
-          <p>Printtisivutesti</p>
-        </Link>
-
-        <Link to="./onecustomer" className='col-3 button'>
-         <MdPersonAdd size={40} /> 
-          <p>oneCustomer</p>
-        </Link>    
-      </div>
-    </div>
-      <ModalNewCustomer url="url"/>
-
-      <h5>Lisätään rooli</h5>
-      <form onSubmit={tallennaRooli}>
-        <div>
-          <div>
-              <input placeholder="Rooli"value={rooli} onChange={e => setRooli(e.target.value)}/>
-          </div>
+          <Link to="./warehouse" className='col-3 link shadow button' style={LinkStyle}>
+          <FaWarehouse size={40} className='mt-4'/>
+          <p class='hometext pt-2'>VARASTO</p>
+          </Link>
         </div>
-        <button className='btn'>Tallenna ROOOLII</button>
-      </form>
-      
-      </>
 
-      
+        <div className='row justify-content-md-center'> 
+
+          <Link to="./order" className='col-3 link button shadow' style={LinkStyle}>
+            <GiTireIron size={40}  className='mt-4'/>
+            <p class='hometext pt-2'>UUSI TILAUS</p>
+          </Link>
+
+          <Link to="./completedOrders" className='col-4 mb-3 button shadow link' style={LinkStyle}>
+          <FaList size={35}  className='mt-4'/>
+            <p class='hometext pt-2'>VALMIIT TILAUKSET</p>
+          </Link>
+        </div>
+
+
+
+        <div className='row'>
+          <Link to="../printable/Print" className='col-3 button'>
+            <GiTireIron size={40} />
+            <p>Printtisivutesti</p>
+          </Link>
+
+          <Link to="./onecustomer" className='col-3 button'>
+          <MdPersonAdd size={40} /> 
+            <p>oneCustomer</p>
+          </Link>    
+        </div>
+      </div>
+      <ModalNewCustomer url="url" />
+    </>
   );
 }

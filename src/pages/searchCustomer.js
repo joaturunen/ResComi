@@ -52,7 +52,7 @@ export default function SearchCustomer({url, setCustomer_id, customer_id}) {
   }
 
   return (
-      <>
+    <>
       <div className="padding" style={boxColorLayot}>
           <h4>Etsi asiakas</h4>
           <form onSubmit={findPhone}>
@@ -64,20 +64,22 @@ export default function SearchCustomer({url, setCustomer_id, customer_id}) {
                   <button class="btn button" style={buttonStyle}>Etsi asiakas</button>
                 </div>
           </form>
-          <h4>Hakutulokset</h4>
-          <table className="table px-3 table-striped">
-            <tbody>
-              {result.map(customer => (
-                <tr key={customer.id}>
-                  <td>{customer.firstname}</td>
-                  <td>{customer.lastname}</td>
-                  <button className='btn' style={buttonStyle} onClick={() => openCustomerSite(customer)}>Avaa</button>
-                </tr>
-              ))}
-            </tbody>
-          </table>
       </div>
-      </>
+      <div>
+        <h4>Hakutulokset</h4>
+        <table className="table px-3 table-striped">
+          <tbody>
+            {result.map(customer => (
+              <tr key={customer.id}>
+                <td>{customer.firstname}</td>
+                <td>{customer.lastname}</td>
+                <button className='btn' style={buttonStyle} onClick={() => openCustomerSite(customer)}>Avaa</button>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
     
   );
 }
