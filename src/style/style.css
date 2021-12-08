@@ -344,3 +344,7 @@ li {
   margin-left: 1rem !important;
   margin-top: 1.3rem !important;
 }
+
+.row {
+  padding: 0 !important;
+}

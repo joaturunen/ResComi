@@ -75,40 +75,39 @@ export default function Warehouse({ url, setCurrentShelfID}) {
 
   return (
     <>
-      <div className='row'>
-        <div className="row" style={boxColorLayot}>
-        <h2>Varastotilanne - Varasto 1</h2>
-          <div className="row pie-back">
-            <div className="col-5">
+      <div>
+          <div class="d-inline-flex p-2" style={boxColorLayot}>
+          <div class="p-2 align-self-stretch">
+          <h3>Varastotilanne - Varasto 1</h3>
+          </div>
+            <div class="p-2 align-self-center">
               <div className="text-center">
-                <h5>Paikkoja yhteensä</h5>
-                <h5 className="text-muted">{warehouseAll}</h5>
-              </div>
-              <div className="row">
-                <div className="col text-center">
-                  <h5>Varattuna</h5>
-                  <h5 className="text-muted">{warehouseTaken}</h5>
-                </div>
-                <div className="col text-center">
-                  <h5>Vapaana</h5>
-                  <h5 className="text-muted">{warehouseFree}</h5>
-                </div>
+                <h6>Paikkoja yhteensä</h6>
+                <h6 className="text-muted">{warehouseAll}</h6>
               </div>
             </div>
-            <div className="col-4 d-flex flex-row">
-              <div id="warehouse-pie-chart" style={PieChart} className="align-self-start"></div>
-              <div className="align-self-center" style={{marginLeft: '1rem',}}>
+            <div class="p-2 align-self-center">
+            <div className="text-center">
+                <h6>Varattuna</h6>
+                <h6 className="text-muted">{warehouseTaken}</h6>
+              </div>
+            </div>
+            <div class="p-2 align-self-center">
+              <div className="text-center">
+                <h6>Vapaana</h6>
+                <h6 className="text-muted">{warehouseFree}</h6>
+              </div>
+            </div>
+            <div class="p-2"><div id="warehouse-pie-chart" style={PieChart} ></div></div>
+            <div class="p-2 align-self-center">
+              <div style={{marginLeft: '1rem',}}>
                 <p><FaSquareFull style={PieChartTaken} />  Varattuna</p>
                 <p><FaSquareFull style={PieChartFree} />  Vapaana</p>
               </div>
             </div>
-            
-          </div>
         </div>
 
-        <div className='row'>
-          <div class='row'>
-          <table className="table text-center table-striped mx-3">
+          <table className="table text-center table-striped">
             <thead>
               <tr>
                 <th scope="col">Hylly</th>
@@ -130,8 +129,6 @@ export default function Warehouse({ url, setCurrentShelfID}) {
               ))}
             </tbody>
           </table>
-          </div>
-        </div>
     </div>
     </>
   );
