@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import {boxShadowStyle, buttonStyle, boxColorLayot} from '../style/colors';
 import '../style/modal.css';
@@ -17,6 +17,13 @@ export default function ModalNewCustomer({url}) {
   const [register, setRegister] = useState('');
   const [brand, setBrand] = useState('');
   const [model, setModel] = useState('');
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showFailed, setShowFailed] = useState(false);
+
+  useEffect(() => {
+    setShowFailed(false);
+    setShowSuccess(false);
+  }, [openModel]);
 
   function addCustomer(e) {
     e.preventDefault();
@@ -48,25 +55,51 @@ export default function ModalNewCustomer({url}) {
     })
     .then (
         (res) => {
+          setShowSuccess(false);
+          setShowSuccess(false);
             console.log(res);
             if (status === 200) {
-              alert("Uuden asiakkaan ja auton lisäys tietokantaan onnistui. Uusia asiakas ja auto on lisätty tilaukseen. Voit poistua näkymästä.");
+              setShowSuccess(true);
           } else {
               alert(res.error);
+              setShowFailed(true);
           }
         }, (error) => {
             alert(error);
         }
     );
   }
+
+const alertSuccees =
+  <div className="p-2">
+  <div class="alert alert-success" role="alert">
+    Lisäys onnistui. Voit poistua näkymästä
+  </div>
+</div>;
+
+
+const alertFailed =
+  <div className="p-2">
+  <div class="alert alert-danger" role="alert">
+    Lisäys epäonnistui. :D
+  </div>
+</div>;
+
+
+
   const content = <>
   <div className="modalBackground">
     <div className="modalContainer">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close" onClick={()=>{setOpenModel(false);}}>
         <span aria-hidden="true">&times;</span>
       </button>
-      <div className="title">
-      <h3>Lisää uusi asiakas ja ajoneuvo</h3>
+      <div class="d-flex flex-row">
+        <div className="p-2">
+          <h3>Lisää uusi asiakas ja ajoneuvo</h3>
+          
+      </div>
+      { showSuccess && (alertSuccees)}
+      { showFailed && (alertFailed)}
       </div>
 
       <hr/>
@@ -124,9 +157,10 @@ export default function ModalNewCustomer({url}) {
                 
               </div>
               <div className='row'>
-            <div className='col-md-12 d-flex justify-content-end '>
-            <button className='btn' style={buttonStyle} onClick={()=>{setOpenModel(false);}}>Peruuta</button>
-            <button className='btn' style={buttonStyle}>Tallenna uusi asiakas</button>
+                
+                <div className='col-12 d-flex justify-content-end '>
+                <button className='btn' style={buttonStyle} onClick={()=>{setOpenModel(false);}}>Peruuta</button>
+                <button className='btn' style={buttonStyle}>Tallenna uusi asiakas</button>
             </div>
             </div>
           </form>
