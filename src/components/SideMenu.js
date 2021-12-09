@@ -58,7 +58,7 @@ import {FaMinus, FaPlus, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react
   },
   
   {
-    name: "Tilaukset",
+    name: "Valmiit tilaukset",
     exact: true,
     to: '/completedOrders',
     icon: <FaWarehouse />,
