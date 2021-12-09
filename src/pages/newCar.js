@@ -1,15 +1,17 @@
 import React, {useState} from 'react';
 import {buttonStyle} from '../style/colors';
 
-
 export default function NewCar({setCustomerCars, customer_id}) {
 
   const [register, setRegister] = useState('');
   const [brand, setBrand] = useState('');
   const [model, setModel] = useState('');
   const [cus_id, setCus_id] = useState(customer_id);
+  const [rooli, setRooli] = useState('');
 
   function SaveCar(e) {
+
+    console.log("Tallennettava data: " + cus_id + " " + brand  + " " + model + " " + register)
     e.preventDefault();
     let status = 0;
     fetch('http://localhost/rengasvarasto-back/API/car/car_create.php', {
@@ -26,7 +28,8 @@ export default function NewCar({setCustomerCars, customer_id}) {
         })
     })
     .then(res => {
-        return res.json();
+      status = parseInt(res.status);
+      return res.json();
     })
     .then(
         (res) => {
@@ -35,6 +38,38 @@ export default function NewCar({setCustomerCars, customer_id}) {
                 setRegister('');
                 setBrand('');
                 setModel('');
+            } else {
+                alert(res.error);
+            }
+        }, (error) => {
+            alert(error);
+        }
+    );
+
+  }
+
+  function tallennaRooli(e) {
+
+    console.log("Tallennettava data: " +  rooli)
+    e.preventDefault();
+    let status = 0;
+    fetch('http://localhost/post-testi/back.php', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            role: rooli,
+        })
+    })
+    .then(res => {
+        return res.json();
+    })
+    .then(
+        (res) => {
+            if (status === 200) {
+                console.log("Vastaamista : " + res);
             } else {
                 alert(res.error);
             }
@@ -62,6 +97,16 @@ export default function NewCar({setCustomerCars, customer_id}) {
           </div>
           <button className='btn btn-primary' style={buttonStyle}>Tallenna</button>
         </form>
+
+      <h5>Lisätään rooli</h5>
+      <form onSubmit={tallennaRooli}>
+        <div>
+          <div>
+              <input placeholder="Rooli"value={rooli} onChange={e => setRooli(e.target.value)}/>
+          </div>
+        </div>
+        <button className='btn' style={buttonStyle}>Tallenna ROOOLII</button>
+      </form>
       </div>
   );
 }

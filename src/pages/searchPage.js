@@ -4,7 +4,6 @@ import SearchCustomer from './searchCustomer';
 import { boxColorLayot, boxShadowStyle, buttonStyle } from '../style/colors';
 
 export default function SearchPage({url, setCustomer_id, customer_id}) {
-
     return (
         <div>
           <h3>Haku</h3>
