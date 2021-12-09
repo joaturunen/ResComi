@@ -17,10 +17,6 @@ export default function ShelfSlots({ url, currentShelfID = 1}) {
 
   useEffect(() => {
     let status = 0;
-    console.log("Nykyinen hylly " +  currentShelf)
-    if(currentShelf[0] === 0){
-      setCurrentShelf([1]);
-    };
     let address = url + 'warehouse/shelfs/warehouseShelf_read_shelfs_slots.php';
     fetch(address, {
         method: 'POST',
