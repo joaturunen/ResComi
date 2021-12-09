@@ -12,32 +12,17 @@ export default function ModalNewCustomer({url}) {
   const [address, setAddress] = useState('');
   const [zipcode, setZipcode] = useState('');
   const [city, setCity] = useState('');
-  const [employeeId, setEmployeeId] = useState('');
+  const [employeeId, setEmployeeId] = useState(3);
   const [openModel, setOpenModel] = useState(false);
-
-  // Get the modal
-  var modal = document.getElementById("myModal");
-
-  // Get the button that opens the modal
-  var btn = document.getElementById("modal");
-
-  // Get the <span> element that closes the modal
-  var span = document.getElementsByClassName("close")[0];
-
-  // When the user clicks on the button, open the modal
-  function ShowModal() {
-    modal.style.display = "block";
-  }
-
-  // When the user clicks on <span> (x), close the modal
-  function CloseModal() {
-    modal.style.display = "none";
-  }
-
+  const [register, setRegister] = useState('');
+  const [brand, setBrand] = useState('');
+  const [model, setModel] = useState('');
 
   function addCustomer(e) {
     e.preventDefault();
-      fetch(url + 'LISÄÄTÄNNEOIKEA!', { 
+    console.log(url)
+    let status = 0;
+      fetch(url + 'customer/customer_createModal.php', { 
         method: 'POST',
         header: {
             'Accept': 'application/json',
@@ -51,10 +36,14 @@ export default function ModalNewCustomer({url}) {
             address: address,
             zipcode: zipcode,
             city: city,
-            employee_id: employeeId
+            employee_id: employeeId,
+            register: register,
+            brand: brand,
+            model: model
         })
     })
     .then (res => {
+        status = parseInt(res.status);
         return res.json();
     })
     .then (
@@ -69,10 +58,10 @@ export default function ModalNewCustomer({url}) {
   <div className="modalBackground">
     <div className="modalContainer">
       <div className="title">
-      <h3>Lisää uusi asiakas</h3>
+      <h3>Lisää uusi asiakas ja ajoneuvo</h3>
       </div>
 
-        <div className='d-flex justify-content-end'><p>Asiakkuus luotu:</p></div>
+      <hr/>
         <div>
           <form className='row' onSubmit={addCustomer}>
               <div className='col-md-3'>
@@ -98,7 +87,6 @@ export default function ModalNewCustomer({url}) {
               </div>
               </div>
               
-              
               <div className='col-md-3'>
                 <div>
                 <label>Postinumero</label>
@@ -110,7 +98,23 @@ export default function ModalNewCustomer({url}) {
                 </div>
               </div>
 
-              <div className='col-md-3'> <p>Ajoneuvot:</p></div>
+              <div className='col-md-3'>
+                <div>
+                  <div>
+                  <label>Auton rekisterinumero</label>
+                      <input className="form-control" value={register} onChange={e => setRegister(e.target.value)}/>
+                  </div>
+                  <div>
+                  <label>Merkki</label>
+                      <input className="form-control" value={brand} onChange={e => setBrand(e.target.value)}/>
+                  </div>
+                  <div>
+                  <label>Malli</label>
+                      <input className="form-control" value={model} onChange={e => setModel(e.target.value)}/>
+                  </div>
+                </div>
+                
+              </div>
               <div className='row'>
             <div className='col-md-12 d-flex justify-content-end '>
             <button className='btn' style={buttonStyle} onClick={()=>{setOpenModel(false);}}>Peruuta</button>

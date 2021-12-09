@@ -76,7 +76,7 @@ export default function Order({
 
                 <h4>Lisää uusi asiakas</h4>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <ModalNewCustomer url="url" setCustomer_id={setCustomer_id}/>
+                    <ModalNewCustomer url={url} setCustomer_id={setCustomer_id}/>
                     </div>
                 </div>
               </div>
