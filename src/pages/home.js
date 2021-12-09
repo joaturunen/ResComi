@@ -6,9 +6,12 @@ import {GiTireIron} from 'react-icons/gi';
 import Print from '../printable/Print';
 import {LinkStyle} from '../style/colors';
 import NewCar from './newCar';
+import ModalNewCustomer from './modalNewCustomer';
 
 
-export default function Home() {
+export default function Home({url}) {
+
+  const [rooli, setRooli] = useState('');
   // Get the modal
 var modal = document.getElementById("myModal");
 
@@ -34,6 +37,36 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }  */
+
+function tallennaRooli(e) {
+
+  console.log("Tallennettava data: " +  rooli)
+  e.preventDefault();
+  let status = 0;
+  fetch('http://localhost/post-testi/back.php', {
+      method: 'POST',
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+          role: rooli,
+      })
+  })
+  .then(res => {
+      return res.json();
+  })
+  .then(
+      (res) => {
+
+        console.log("Vastaamista : " + res);
+
+      }, (error) => {
+          alert(error);
+      }
+  );
+
+}
 
   return (
     <>
@@ -80,18 +113,7 @@ window.onclick = function(event) {
           </Link>    
         </div>
       </div>
-
-      <div>
-        <button id='modal' onClick={Modal}>modal testinki</button>
-        
-        <div id="myModal" class="modal">
-          <div class="modal-content">
-            <span class="close" onClick={Close}>&times;</span>
-            <p>dippadai</p>
-          </div>
-        </div>
-
-      </div>
+      <ModalNewCustomer url="url" />
     </>
   );
 }

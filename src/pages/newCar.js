@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {buttonStyle} from '../style/colors';
 
-
 export default function NewCar({setCustomerCars, customer_id}) {
 
   const [register, setRegister] = useState('');
@@ -10,6 +9,8 @@ export default function NewCar({setCustomerCars, customer_id}) {
   const [cus_id, setCus_id] = useState(customer_id);
 
   function SaveCar(e) {
+
+    console.log("Tallennettava data: " + cus_id + " " + brand  + " " + model + " " + register)
     e.preventDefault();
     let status = 0;
     fetch('http://localhost/rengasvarasto-back/API/car/car_create.php', {
@@ -27,7 +28,9 @@ export default function NewCar({setCustomerCars, customer_id}) {
     })
     .then(res => {
         status = parseInt(res.status);
+        console.log(status);
         return res.json();
+        
     })
     .then(
         (res) => {
@@ -46,23 +49,24 @@ export default function NewCar({setCustomerCars, customer_id}) {
 
   }
 
+  
   return (
-      <div>
-        <h5>Lisää uusi auto</h5>
-        <form onSubmit={SaveCar}>
-          <div>
-            <div>
-                <input placeholder="Rekisterinumero"value={register} onChange={e => setRegister(e.target.value)}/>
-            </div>
-            <div>
-                <input placeholder="Merkki"value={brand} onChange={e => setBrand(e.target.value)}/>
-            </div>
-            <div>
-                <input placeholder="Malli"value={model} onChange={e => setModel(e.target.value)}/>
-            </div>
-          </div>
-          <button className='btn btn-primary' style={buttonStyle}>Tallenna</button>
-        </form>
-      </div>
-  );
+        <div>
+            <h5>Lisää uusi auto</h5>
+            <form onSubmit={SaveCar}>
+                <div>
+                    <div>
+                        <input placeholder="Rekisterinumero"value={register} onChange={e => setRegister(e.target.value)}/>
+                    </div>
+                    <div>
+                        <input placeholder="Merkki"value={brand} onChange={e => setBrand(e.target.value)}/>
+                    </div>
+                    <div>
+                        <input placeholder="Malli"value={model} onChange={e => setModel(e.target.value)}/>
+                    </div>
+                </div>
+                <button className='btn btn-primary' style={buttonStyle}>Tallenna</button>
+            </form>
+        </div>
+    );
 }
