@@ -9,7 +9,7 @@ import NewCar from './newCar';
 import ModalNewCustomer from './modalNewCustomer';
 
 
-export default function Home({url}) {
+export default function Home() {
 
 
   return (
@@ -57,7 +57,6 @@ export default function Home({url}) {
           </Link>    
         </div>
       </div>
-      <ModalNewCustomer url="url" />
     </>
   );
 }
