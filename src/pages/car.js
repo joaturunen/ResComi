@@ -7,7 +7,7 @@ import { buttonStyle } from '../style/colors';
 export default function Car({ customerCars, setCustomerCars, customer_id }) {
 
     return (
-        <div>
+        <>
             <div className='row'>
                 <h5>Auton tiedot</h5>
                 <div className="col">
@@ -74,6 +74,6 @@ export default function Car({ customerCars, setCustomerCars, customer_id }) {
             </div>
 
 
-        </div>
+        </>
     );
 }
