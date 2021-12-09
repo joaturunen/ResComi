@@ -47,7 +47,7 @@ export default function Customer({url, customer_id, customerCars, setCustomerCar
     {
       title: "Renkaat",
       content: 
-      <div className="row col-sm-6">
+      <div className="rows">
         {/* <div className="col-sm-4">
           <label>Rengaspaikka</label>
           <input type="text" class="form-control" />

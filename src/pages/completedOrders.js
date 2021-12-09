@@ -31,12 +31,9 @@ export default function Orders({url, openReport}) {
             <tbody>
               {orders.map(order => (
                 <tr key={order.id} >
-                  <td>{order.id}</td>
                   <td>{order.orderdate}</td>
-                  <td>{order.lastname}</td>
-                  <td>{order.firstname}</td>
-                  <td>{order.register}</td>
-                  <button className='btn' style={buttonStyle} onClick={() => openReport(order)} >Raportti</button>
+                  <td>{order.customer_firstname} {order.customer_lastname}</td>
+                  <td></td><button className='btn' style={buttonStyle} onClick={() => openReport(order)} >Raportti</button>
                 </tr>
               ))}
             </tbody>

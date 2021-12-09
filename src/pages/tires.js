@@ -1,14 +1,118 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import NewTires from "./newTires";
 import Warehouse from "./warehouse";
+import Car from '../images/3121893.png'
+import { buttonStyle } from "../style/colors";
 
-export default function Tires({customerTires, setCustomerTires, car_id}) {
+export default function Tires({ customerTires, setCustomerTires, car_id }) {
 
     return (
         <div>
-            <div>
+            <div className='row'>
                 <h5>Renkaiden tiedot</h5>
-                <table  className="table px-3 table-striped">
+                <div className='col-3'>
+                    <div>
+                        <label>Rengaspaikka</label>
+                        <input type="text" className="form-control" placeholder='1-3-55' disabled/>
+                    </div>
+                    <div>
+                        <label>Rengasmerkki</label>
+                        <input type="text" className="form-control" placeholder='Continental' />
+                    </div>
+                    <div className='mt-1'>
+                        <label>Vannetyyppi</label>
+                        <input type="text" className="form-control" placeholder='Alumiini/Teräs' />
+                    </div>
+                    <div className='mt-1'>
+                        <label>Rengastyyppi</label>
+                        <input type="text" className="form-control" placeholder='Kesä/Nasta/Kitka' />
+                    </div>
+                    <div className='mt-1'>
+                        <label>Pölykapselit</label>
+                        <input type="text" className="form-control" placeholder='Kyllä/Ei' />
+                    </div>
+                </div>
+
+                <div className='col -2'>
+                    <div>
+                        <label>Säilytyskausi</label>
+                        <input type="text" className="form-control" placeholder='Kesä/Talvi' />
+                    </div>
+                    <div className='mt-1'>
+                        <label>Koko</label>
+                        <input type="text" className="form-control" placeholder='Esim, 16' />
+                    </div>
+                    <div className='mt-1'>
+                        <label>Korkeus</label>
+                        <input type="text" className="form-control" placeholder='Esim. 55' />
+                    </div>
+                    <div className='mt-1'>
+                        <label>Leveys</label>
+                        <input type="text" className="form-control" placeholder='Esim. 205' />
+                    </div>
+                    <div className='mt-1'>
+                        <label>Pultit</label>
+                        <input type="text" className="form-control" placeholder='Määrä/rengas?' />
+                    </div>
+
+                </div>
+                <div className='col-1'>
+                    <div className='mt-1'>
+                        <label>EV</label>
+                        <div>
+                            <select className="form-select">
+                                <option value="1">3</option>
+                                <option value="2">4</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div className='mt-1'>
+                        <label>TV</label>
+                        <div>
+                            <select className="form-select">
+                                <option value="1">3</option>
+                                <option value="2">4</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div className='col-2 justify-content-center'>
+
+                    <img className='car' src={Car} alt='car' />
+
+                </div>
+
+                <div className='col-1'>
+                    <div className='mt-1'>
+                        <label>OE</label>
+                        <div>
+                            <select className="form-select">
+                                <option value="1">3</option>
+                                <option value="2">4</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div className='mt-1'>
+                        <label>OT</label>
+                        <div>
+                            <select className="form-select">
+                                <option value="1">3</option>
+                                <option value="2">4</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div className='col-3'>
+                    <label>Havaittu poikkeama</label>
+                    <textarea className='form-control' rows="10" placeholder='tänne tulostuu poikkeamat?' />
+                    <div className='d-flex justify-content-end mt-3'>
+                        <button className='btn btn-primary' style={buttonStyle}>Tallenna</button>
+                    </div>
+                </div>
+
+                {/* <table  className="table px-3 table-striped">
                     <tbody>
                         {customerTires.map(tires => (
                             <tr key={tires.id} >
@@ -30,7 +134,7 @@ export default function Tires({customerTires, setCustomerTires, car_id}) {
                             </tr>
                         ))}
                     </tbody>
-                </table>
+                </table> */}
             </div>
             <div>
                 <NewTires setCustomerTires={setCustomerTires} car_id={car_id} />

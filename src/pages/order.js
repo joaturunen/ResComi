@@ -1,30 +1,31 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Services from './services';
 import NewCustomer from './newCustomer';
 import NewCar from './newCar';
 import SearchCustomer from './searchCustomer';
 import { boxColorLayot } from '../style/colors';
-import {FaTrash, FaTimes } from 'react-icons/fa'; 
-import {buttonStyle } from '../style/colors';
+import { FaTrash, FaTimes } from 'react-icons/fa';
+import { buttonStyle } from '../style/colors';
 import Customer from './oneCustomer';
+import ModalNewCustomer from './modalNewCustomer';
 
 
 // kuinka tallennetaan myös auton tiedot samalla?
 
 export default function Order({
-    url, 
-    cart, 
-    empty, 
-    addToCart, 
-    removeFromCart, 
-    setCustomer_id, 
-    customer_id, 
-    customerCars, 
-    setCustomerCars, 
-    customerTires, 
+    url,
+    cart,
+    empty,
+    addToCart,
+    removeFromCart,
+    setCustomer_id,
+    customer_id,
+    customerCars,
+    setCustomerCars,
+    customerTires,
     setCustomerTires,
-    employee_id}) {
-    
+    employee_id }) {
+
     const [finished, setFinished] = useState(false);
     const [cus_id, setCus_id] = useState('');
     const [employ_id, setEmploy_id] = useState('');
@@ -68,6 +69,20 @@ export default function Order({
             <h3>Uusi tilaus</h3>
             <div class="d-flex justify-content-start">
               <div class="p-2"><Services url={url} addToCart={addToCart} /></div>
+
+              <div class="p-2">
+                <div>
+                  <SearchCustomer url={url} setCustomer_id={setCustomer_id}/>
+                </div>
+                <div className="padding" style={boxColorLayot}>
+
+                <h4>Lisää uusi asiakas</h4>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <ModalNewCustomer url={url} setCustomer_id={setCustomer_id}/>
+                    </div>
+                </div>
+              </div>
+
               <div class="p-2">
               <div className="padding" style={boxColorLayot}>
                 <h3>Tilaus</h3>
@@ -95,12 +110,6 @@ export default function Order({
                   <input placeholder="ttnumber" value={employ_id} onChange={e => setEmploy_id(e.target.value)} />
                   <button class='btn' style={buttonStyle}>Tallenna tilaus</button>
                   </form>
-                </div>
-              </div>
-              <div class="p-2">
-              <div>
-                <SearchCustomer url={url} setCustomer_id={setCustomer_id}/>
-                <div className='text-center'><button class='btn' style={buttonStyle}>Uusi asiakas</button></div>
                 </div>
               </div>
             </div>

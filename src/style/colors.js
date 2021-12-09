@@ -58,7 +58,8 @@ export const buttonStyle = {
   'color': textLight,
   'border-radius':'10px',
   'font': '13px Lato, sans-serif',
-  'box-shadow': '4px 4px ' + boxShadow
+  'box-shadow': '4px 4px ' + boxShadow,
+  'margin': "0.5rem"
 };
 
 //user signed in
