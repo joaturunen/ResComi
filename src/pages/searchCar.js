@@ -70,12 +70,10 @@ export default function SearchCar({ url, setCustomer_id }) {
         <h4>Etsi ajoneuvo</h4>
 
         <form onSubmit={findRegister}>
-          <div>
-            <label className="form-label">Etsi asiakas ajoneuvon rekisterinumerolla.</label>
-            <input type='text' className="form-control"
-              value={searchRegister} placeholder='ABC-123' maxLength="7"
-              onChange={e => setSearchRegister(e.target.value)} />
-          </div>
+          <label className="form-label">Etsi asiakas ajoneuvon rekisterinumerolla.</label>
+          <input type='text' className="form-control"
+            value={searchRegister} placeholder='ABC-123' maxLength="7"
+            onChange={e => setSearchRegister(e.target.value)} />
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <button className='btn button' style={buttonStyle}>Etsi ajoneuvo</button>
           </div>
@@ -95,7 +93,7 @@ export default function SearchCar({ url, setCustomer_id }) {
             ))}
           </tbody>
         </table>
-        </div>
+      </div>
     </>
 
   )

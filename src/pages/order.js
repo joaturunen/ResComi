@@ -27,12 +27,13 @@ export default function Order({
     employee_id }) {
 
     const [finished, setFinished] = useState(false);
-    const [cus_id, setCus_id] = useState(customer_id);
-    const [employ_id, setEmploy_id] = useState(employee_id);
+    const [cus_id, setCus_id] = useState('');
+    const [employ_id, setEmploy_id] = useState('');
 
     function SaveOrder(e) {
         e.preventDefault();
-        fetch(url + 'order/order_create.php', {
+        let status = 0;
+        fetch(url + 'order/order_create.php', { 
             method: 'POST',
             header: {
                 'Accept': 'application/json',
@@ -44,18 +45,19 @@ export default function Order({
                 cart: cart,
             })
         })
-            .then(res => {
-                return res.json();
-            })
-            .then(
-                (res) => {
-                    console.log(res);
-                    empty();
-                    setFinished(true);
-                }, (error) => {
-                    alert(error);
-                }
-            );
+        .then (res => {
+            status = parseInt(res.status);
+            return res.json();
+        })
+        .then (
+            (res) => {
+                console.log(res);
+                empty();
+                setFinished(true);
+            }, (error) => {
+                alert(error);
+            }
+        );
     }
 
 
@@ -104,7 +106,8 @@ export default function Order({
                     </tbody>
                   </table>
                  <form onSubmit={SaveOrder}>
-                  <input placeholder="asiakasnumero" value={cus_id} />
+                  <input placeholder="asiakasnumero" value={cus_id} onChange={e => setCus_id(e.target.value)} />
+                  <input placeholder="ttnumber" value={employ_id} onChange={e => setEmploy_id(e.target.value)} />
                   <button class='btn' style={buttonStyle}>Tallenna tilaus</button>
                   </form>
                 </div>
