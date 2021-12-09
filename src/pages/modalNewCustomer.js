@@ -128,7 +128,7 @@ export default function ModalNewCustomer({url}) {
       <div>
         <button className="btn"  style={buttonStyle} onClick={()=>{
           setOpenModel(true);
-        }}>Lisää uusi asiakas</button>
+        }}>Lisää uusi asiakas ja auto</button>
         { openModel && (content)}
       </div>
       </>
