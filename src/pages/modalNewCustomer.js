@@ -49,6 +49,11 @@ export default function ModalNewCustomer({url}) {
     .then (
         (res) => {
             console.log(res);
+            if (status === 200) {
+              alert("Uuden asiakkaan ja auton lisäys tietokantaan onnistui. Uusia asiakas ja auto on lisätty tilaukseen. Voit poistua näkymästä.");
+          } else {
+              alert(res.error);
+          }
         }, (error) => {
             alert(error);
         }
@@ -57,6 +62,9 @@ export default function ModalNewCustomer({url}) {
   const content = <>
   <div className="modalBackground">
     <div className="modalContainer">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close" onClick={()=>{setOpenModel(false);}}>
+        <span aria-hidden="true">&times;</span>
+      </button>
       <div className="title">
       <h3>Lisää uusi asiakas ja ajoneuvo</h3>
       </div>
@@ -90,7 +98,7 @@ export default function ModalNewCustomer({url}) {
               <div className='col-md-3'>
                 <div>
                 <label>Postinumero</label>
-                    <input type="text" className="form-control" value={zipcode} onChange={e => setZipcode(e.target.value)}/>
+                    <input type="number" step="1" className="form-control" value={zipcode} onChange={e => setZipcode(e.target.value)} maxlength="5"/>
                 </div>
                 <div>
                 <label>Postitoimipaikka</label>
