@@ -1,8 +1,8 @@
-import React,{useState /*, useEffect*/} from 'react';
+import React, { useState /*, useEffect*/ } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import {boxShadowStyle, buttonStyle, boxColorLayot} from '../style/colors';
 
-export default function SearchCustomer({url, setCustomer_id, customer_id}) {
+export default function SearchCustomer({ url, setCustomer_id, customer_id }) {
   const [searchPhone, setSearchPhone] = useState('');
   const [result, setResult] = useState([]);
   const [showCustomerSite, setShowCustomerSite] = useState(false);
@@ -21,21 +21,21 @@ export default function SearchCustomer({url, setCustomer_id, customer_id}) {
         searchCriteria: searchPhone
       })
     })
-    .then(res => {
-      status = parseInt(res.status);
-      return res.json();
-    })
-    .then(
-      (res) => {
-        if (status === 200) {
-          setResult(result => [...result, res]);
-        } else {
-          alert(res.error);
+      .then(res => {
+        status = parseInt(res.status);
+        return res.json();
+      })
+      .then(
+        (res) => {
+          if (status === 200) {
+            setResult(result => [...result, res]);
+          } else {
+            alert(res.error);
+          }
+        }, (error) => {
+          alert(error);
         }
-      }, (error) => {
-        alert(error);
-      }
-    );
+      );
   }
 
   function openCustomerSite(customer) {
@@ -43,11 +43,11 @@ export default function SearchCustomer({url, setCustomer_id, customer_id}) {
     //setShowCustomerData(true); // tällä ei saa näkymään orderissa
     setShowCustomerSite(true);
   }
-  
+
   if (showCustomerSite === true) {
     return (
       <Navigate to="/oneCustomer" />
-      
+
     );
   }
 
@@ -65,6 +65,10 @@ export default function SearchCustomer({url, setCustomer_id, customer_id}) {
                 </div>
           </form>
       </div>
+<<<<<<< HEAD
+    </>
+
+=======
       <div>
         <h4>Hakutulokset</h4>
         <table className="table px-3 table-striped">
@@ -81,5 +85,6 @@ export default function SearchCustomer({url, setCustomer_id, customer_id}) {
       </div>
     </>
     
+>>>>>>> f5ade81d19423b7b8b35c6c5d08d9d0fec9edede
   );
 }

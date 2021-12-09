@@ -1,37 +1,37 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Services from './services';
 import NewCustomer from './newCustomer';
 import NewCar from './newCar';
 import SearchCustomer from './searchCustomer';
 import { boxColorLayot } from '../style/colors';
-import {FaTrash, FaTimes } from 'react-icons/fa'; 
-import {buttonStyle } from '../style/colors';
+import { FaTrash, FaTimes } from 'react-icons/fa';
+import { buttonStyle } from '../style/colors';
 import Customer from './oneCustomer';
 
 
 // kuinka tallennetaan myös auton tiedot samalla?
 
 export default function Order({
-    url, 
-    cart, 
-    empty, 
-    addToCart, 
-    removeFromCart, 
-    setCustomer_id, 
-    customer_id, 
-    customerCars, 
-    setCustomerCars, 
-    customerTires, 
+    url,
+    cart,
+    empty,
+    addToCart,
+    removeFromCart,
+    setCustomer_id,
+    customer_id,
+    customerCars,
+    setCustomerCars,
+    customerTires,
     setCustomerTires,
-    employee_id}) {
-    
+    employee_id }) {
+
     const [finished, setFinished] = useState(false);
     const [cus_id, setCus_id] = useState(customer_id);
     const [employ_id, setEmploy_id] = useState(employee_id);
 
     function SaveOrder(e) {
         e.preventDefault();
-        fetch(url + 'order/order_create.php', { 
+        fetch(url + 'order/order_create.php', {
             method: 'POST',
             header: {
                 'Accept': 'application/json',
@@ -43,18 +43,18 @@ export default function Order({
                 cart: cart,
             })
         })
-        .then (res => {
-            return res.json();
-        })
-        .then (
-            (res) => {
-                console.log(res);
-                empty();
-                setFinished(true);
-            }, (error) => {
-                alert(error);
-            }
-        );
+            .then(res => {
+                return res.json();
+            })
+            .then(
+                (res) => {
+                    console.log(res);
+                    empty();
+                    setFinished(true);
+                }, (error) => {
+                    alert(error);
+                }
+            );
     }
 
 

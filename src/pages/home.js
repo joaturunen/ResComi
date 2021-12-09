@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
-import {FaWarehouse, FaSearch, FaList } from 'react-icons/fa'; 
-import {MdPersonAdd } from 'react-icons/md';
-import {GiTireIron} from 'react-icons/gi';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FaWarehouse, FaSearch, FaList } from 'react-icons/fa';
+import { MdPersonAdd } from 'react-icons/md';
+import { GiTireIron } from 'react-icons/gi';
 import Print from '../printable/Print';
-import {LinkStyle} from '../style/colors';
+import { LinkStyle } from '../style/colors';
 import NewCar from './newCar';
 import ModalNewCustomer from './modalNewCustomer';
 
