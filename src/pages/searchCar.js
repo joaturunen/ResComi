@@ -81,12 +81,7 @@ export default function SearchCar({ url, setCustomer_id }) {
           </div>
         </form>
 
-<<<<<<< HEAD
-      <div className='mt-3 mx-3'>
-        <h5>Hakutulokset</h5>
-=======
         <h4>Hakutulokset</h4>
->>>>>>> f5ade81d19423b7b8b35c6c5d08d9d0fec9edede
         <table className="table px-3 table-striped">
           <tbody>
             {result.map(car => (
