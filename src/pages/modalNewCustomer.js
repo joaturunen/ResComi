@@ -29,7 +29,7 @@ export default function ModalNewCustomer({url}) {
     e.preventDefault();
     console.log(url)
     let status = 0;
-      fetch(url + 'customer/customer_createModal.php', { 
+      fetch('http://localhost/rengasvarasto-back/API/customer/customer_createModal.php', { 
         method: 'POST',
         header: {
             'Accept': 'application/json',
