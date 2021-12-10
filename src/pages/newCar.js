@@ -26,7 +26,6 @@ export default function NewCar({setCustomerCars, customer_id}) {
         })
         .then(res => {
             status = parseInt(res.status);
-            console.log(status);
             return res.json();
             
         })
