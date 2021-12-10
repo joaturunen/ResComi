@@ -1,5 +1,4 @@
 import React,{useState, useEffect} from 'react';
-import { Link, Navigate } from 'react-router-dom';
 import { buttonStyle, Customerdata } from '../style/colors';
 import '../style/modal.css';
 
@@ -46,7 +45,10 @@ export default function ComponentCustomer({customerData}) {
   return (
       <>
       <div>
-        { (customerData[0] == null) ? (<p>Asiakasta ei ole valittu</p>) : (<p>{content}</p>)}
+        { (customerData[0] == null) ? (
+        <div class="alert alert-warning" role="alert">
+          Asiakasta ei ole valittuna
+        </div>) : (<p>{content}</p>)}
       </div>
       </>
     

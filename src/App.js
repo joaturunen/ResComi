@@ -37,10 +37,10 @@ function App() {
   }, []);
 
 
-  // lisää palvelu ostoskoriin
+  // lisää palvelu ostoskoriin nyt on pakotettu vain yksi tuote koriin-
   function addToCart(service) {
       const newCart = [...cart,service];
-      setCart(newCart);
+      setCart([service]); // tässä pitäisi olla vain yksi 
       localStorage.setItem('cart',JSON.stringify(newCart));
     
   }

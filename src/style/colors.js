@@ -84,6 +84,11 @@ export const Customerdata = {
   'line-height': '70%'
 };
 
+export const Choice = {
+  'background': headColor, 
+  'color': textLight
+};
+
 // Not sure why this must be
 const Colors = () =>{
   return '';

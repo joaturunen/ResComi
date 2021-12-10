@@ -330,3 +330,11 @@ li {
 .padding {
   padding: 1rem;
 }
+
+.wholeW{
+  width: 100%;
+}
+
+.radioStyle{
+  margin: 0.5rem
+}

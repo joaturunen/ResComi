@@ -31,7 +31,7 @@ export default function Order({
 
     const [finished, setFinished] = useState(false);
     const [cus_id, setCus_id] = useState('');
-    const [employ_id, setEmploy_id] = useState('');
+    const [employ_id, setEmploy_id] = useState(3);
 
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
@@ -73,54 +73,67 @@ export default function Order({
 
     let sum = 0;
 
+    const orderShow = <>
+      <table className="table px-3 table-striped">
+        <tbody>
+           {cart.map((service, id) => {
+            sum+=parseFloat(service.price);
+            let price =  (parseFloat(service.price).toFixed(2));
+              return (
+                <tr key={id}>
+                <td width="70%">{service.service}</td>
+                <td className="text-right">{price} €</td>
+                <td className="text-right"><FaTimes onClick={() => removeFromCart(service)}/></td>
+                </tr>
+              )
+          })}
+          <tr>
+            <td></td>
+            <td className="text-right">{sum.toFixed(2)} €</td>
+            <td className="text-right"><FaTrash onClick={() => empty()}/></td>
+          </tr>
+        </tbody>
+      </table>
+    </>
+
+
     // if (finished === false) {
         return (
             <>
             <h3>Uusi tilaus</h3>
-            <div class="d-flex justify-content-start">
-              <div class="p-2"><Services url={url} addToCart={addToCart} /></div>
-
-              <div class="p-2">
+            <div class="row">
+              <div class="col">
+              <div className="padding" style={boxColorLayot}>
+                  <h4>Lisää asiakas</h4>
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                      <ModalNewCustomer url={url} setCustomer_id={setCustomer_id} setCustomerData={setCustomerData} customerData={customerData}/>
+                      </div>
+                  </div>
                 <div>
                   <SearchCustomer url={url} setCustomer_id={setCustomer_id}/>
                 </div>
-                <div className="padding" style={boxColorLayot}>
-
-                <h4>Lisää uusi asiakas</h4>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <ModalNewCustomer url={url} setCustomer_id={setCustomer_id} setCustomerData={setCustomerData} customerData={customerData}/>
-                    </div>
-                </div>
+              </div>
+              <div class="col-4">
+              <Services url={url} addToCart={addToCart} />
               </div>
 
-              <div class="p-2">
+              <div class="col">
               <div className="padding" style={boxColorLayot}>
-                <h3>Tilaus</h3>
-                  <table className="table px-3 table-striped">
-                    <tbody>
-                      {cart.map((service, id) => {
-                        sum+=parseFloat(service.price);
-                          return (
-                            <tr key={id}>
-                            <td>{service.service}</td>
-                            <td>{service.price}</td>
-                            <td><FaTimes onClick={() => removeFromCart(service)}/></td>
-                            </tr>
-                          )
-                       })}
-                       <tr>
-                        <td></td>
-                        <td>{sum.toFixed(2)} €</td>
-                        <td><FaTrash onClick={() => empty()}/></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                <ComponentCustomer customerData={customerData}/>
+              <ComponentCustomer customerData={customerData}/>
+                <h4>Tilaus</h4>
+                <div>
+                  { (cart[0] == null) ? (
+                  <div class="alert alert-warning" role="alert">
+                    Tilauksia ei ole valittu
+                  </div>) : (<p>{orderShow}</p>)}
+                </div>
                  <form onSubmit={SaveOrder}>
-                  <input placeholder="asiakasnumero" value={cus_id} onChange={e => setCus_id(e.target.value)} />
-                  <input placeholder="ttnumber" value={employ_id} onChange={e => setEmploy_id(e.target.value)} />
-                  <button class='btn' style={buttonStyle}>Tallenna tilaus</button>
-                  </form>
+                  <input type="hidden" value={cus_id} id="customer"/>
+                  <input type="hidden" value={employ_id} id="employee"/>
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class='btn' style={buttonStyle}>Tallenna tilaus</button>
+                  </div>
+                </form>
                 </div>
               </div>
             </div>
