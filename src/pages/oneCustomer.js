@@ -143,28 +143,31 @@ export default function Customer({url, customer_id, customerCars, setCustomerCar
     {
       title: "Raportit",
       content: 
+      
       <div className="row col-sm-6">
-      <div className="col-sm-4">
-        <label>Tilausnumero</label>
-      </div>
-      <div className="col-sm-4">
-        <label>PVM</label>
-      </div>
-      <div className="col-sm-4">
-        <label>Rekisteri</label>
-      </div>
-      <div className="col-sm-3">
-        <label>Tähän tulee tilausnumero</label>
-      </div>
-      <div className="col-sm-3">
-        <label>Tähän tulee päivämäärä</label>
-      </div>
-      <div className="col-sm-3">
-        <label>Tähän tulee rekisteri</label>
-      </div>
-      <div className="col-sm-3">
-        <button className="btn btn-primary">RAPORTTI</button>
-      </div>
+        <table className="table text-center table-striped">
+        <thead>
+          <tr>
+                <th scope="col">Tilausnumero</th>
+                <th scope="col">PVM</th>
+                <th scope="col">Rekisteri</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+        <tbody>
+              
+                <tr >
+                  <td>Tähän tulee tilausnumero</td>
+                  <td>Tähän tulee päivämäärä</td>
+                  <td>Tähän tulee rekisteri</td>
+                  <td>
+                  <button className='btn' style={buttonStyle} >Raportti</button>
+                  </td>
+                </tr>
+             
+            </tbody>
+      </table>
+     
       </div>,
     },
   ];

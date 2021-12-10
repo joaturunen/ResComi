@@ -48,20 +48,22 @@ export default function NewCar({setCustomerCars, customer_id}) {
 
   
   return (
-        <div>
+        <div className='row mt-5'>
             <h5>Lisää uusi auto</h5>
-            <form onSubmit={SaveCar}>
-                <div>
+            <form onSubmit={SaveCar} className='col-4'>
                     <div>
-                        <input placeholder="Rekisterinumero"value={register} onChange={e => setRegister(e.target.value)}/>
+                        <label>Rekisteri</label>
+                        <input type="text" className="form-control" value={register} onChange={e => setRegister(e.target.value)}/>
                     </div>
                     <div>
-                        <input placeholder="Merkki"value={brand} onChange={e => setBrand(e.target.value)}/>
+                        <label>Merkki</label>
+                        <input type="text" className="form-control" value={brand} onChange={e => setBrand(e.target.value)}/>
                     </div>
                     <div>
-                        <input placeholder="Malli"value={model} onChange={e => setModel(e.target.value)}/>
+                        <label>Malli</label>
+                        <input type="text" className="form-control" value={model} onChange={e => setModel(e.target.value)}/>
                     </div>
-                </div>
+                
                 <button className='btn btn-primary' style={buttonStyle}>Tallenna</button>
             </form>
         </div>
