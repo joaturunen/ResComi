@@ -10,7 +10,7 @@
 */
 
 //Head color
-const headColor = "#0088c2";
+const headColor = "#004766";
 const headColorShadow = "#006ea6";
 
 //Box and Shadow
@@ -71,7 +71,7 @@ export const userStyle={
 //Homepage LinkStyle
 export const LinkStyle={
   'text-decoration': 'none',
-  'color':'#0088c2'
+  'color': headColor
 }
 
 // Not sure why this must be
