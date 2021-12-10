@@ -10,7 +10,7 @@
 */
 
 //Head color
-const headColor = "#0088c2";
+const headColor = "#004766";
 const headColorShadow = "#006ea6";
 
 //Box and Shadow
@@ -22,7 +22,7 @@ const homeShadow = '#333';
 const shockColor = "#C23A00";
 
 //Text color light
-const textLight ='#F4F7FC'
+const textLight ='#FFFFFF'
 
 
 //Pie-Chart taken
@@ -71,7 +71,7 @@ export const userStyle={
 //Homepage LinkStyle
 export const LinkStyle={
   'text-decoration': 'none',
-  'color':'#0088c2'
+  'color': headColor
 }
 
 // Not sure why this must be
