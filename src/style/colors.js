@@ -58,7 +58,8 @@ export const buttonStyle = {
   'color': textLight,
   'border-radius':'10px',
   'box-shadow': '4px 4px ' + boxShadow,
-  'margin': "0.5rem"
+  'margin': "0.5rem",
+  'font-size': '15px'
 };
 
 //user signed in
