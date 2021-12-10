@@ -28,6 +28,7 @@ function App() {
   const [customerCars, setCustomerCars] = useState([]);
   const [customerTires, setCustomerTires] = useState([]);
   const [currentShelfID, setCurrentShelfID] = useState(0);
+  const [customerData, setCustomerData] = useState([]);
 
   useEffect(() => {
     if ('cart' in localStorage) {
@@ -36,10 +37,10 @@ function App() {
   }, []);
 
 
-  // lisää palvelu ostoskoriin
+  // lisää palvelu ostoskoriin nyt on pakotettu vain yksi tuote koriin-
   function addToCart(service) {
       const newCart = [...cart,service];
-      setCart(newCart);
+      setCart([service]); // tässä pitäisi olla vain yksi 
       localStorage.setItem('cart',JSON.stringify(newCart));
     
   }
@@ -87,7 +88,9 @@ function App() {
                       empty={emptyCart} 
                       removeFromCart={removeFromCart}
                       setCustomer_id={setCustomer_id}
-                      employee_id={employee_id}/>
+                      employee_id={employee_id}
+                      setCustomerData={setCustomerData}
+                      customerData={customerData}/>
                     }/>
                   <Route path="/newCustomer" 
                     element={<NewCustomer/>

@@ -11,6 +11,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 ul {
@@ -329,4 +330,12 @@ li {
 
 .padding {
   padding: 1rem;
+}
+
+.wholeW{
+  width: 100%;
+}
+
+.radioStyle{
+  margin: 0.5rem
 }

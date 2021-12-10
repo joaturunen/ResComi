@@ -4,7 +4,7 @@ import {boxShadowStyle, buttonStyle, boxColorLayot} from '../style/colors';
 import '../style/modal.css';
 
 
-export default function ModalNewCustomer({url}) {
+export default function ModalNewCustomer({url, setCustomerData}) {
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
   const [phone, setPhone] = useState('');
@@ -26,10 +26,11 @@ export default function ModalNewCustomer({url}) {
   }, [openModel]);
 
   function addCustomer(e) {
+    setShowSuccess(false);
+    setShowFailed(false);
     e.preventDefault();
-    console.log(url)
     let status = 0;
-      fetch('http://localhost/rengasvarasto-back/API/customer/customer_createModal.php', { 
+      fetch( url + 'customer/customer_createModal.php', { 
         method: 'POST',
         header: {
             'Accept': 'application/json',
@@ -55,11 +56,12 @@ export default function ModalNewCustomer({url}) {
     })
     .then (
         (res) => {
-          setShowSuccess(false);
-          setShowSuccess(false);
             console.log(res);
             if (status === 200) {
+              setCustomerData([]);
+              setCustomerData([res]);
               setShowSuccess(true);
+              console.log("Nyt asiakas tallenutui.");
           } else {
               alert(res.error);
               setShowFailed(true);
@@ -131,7 +133,7 @@ const alertFailed =
               <div className='col-md-3'>
                 <div>
                 <label>Postinumero</label>
-                    <input type="number" step="1" className="form-control" value={zipcode} onChange={e => setZipcode(e.target.value)} maxlength="5"/>
+                    <input type="number" step="1" className="form-control" value={zipcode} onChange={e => setZipcode(e.target.value)} maxLength="5"/>
                 </div>
                 <div>
                 <label>Postitoimipaikka</label>
