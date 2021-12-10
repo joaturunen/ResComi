@@ -133,7 +133,7 @@ const alertFailed =
               <div className='col-md-3'>
                 <div>
                 <label>Postinumero</label>
-                    <input type="number" step="1" className="form-control" value={zipcode} onChange={e => setZipcode(e.target.value)} maxlength="5"/>
+                    <input type="number" step="1" className="form-control" value={zipcode} onChange={e => setZipcode(e.target.value)} maxLength="5"/>
                 </div>
                 <div>
                 <label>Postitoimipaikka</label>

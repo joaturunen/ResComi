@@ -9,6 +9,7 @@ import { buttonStyle } from '../style/colors';
 import Customer from './oneCustomer';
 import ModalNewCustomer from './modalNewCustomer';
 import ComponentCustomer from './componentCustomer';
+import ComponentOrderCar from './componentOrderCar';
 
 
 // kuinka tallennetaan myös auton tiedot samalla?
@@ -33,14 +34,6 @@ export default function Order({
     const [cus_id, setCus_id] = useState('');
     const [employ_id, setEmploy_id] = useState(3);
 
-    const [firstname, setFirstname] = useState('');
-    const [lastname, setLastname] = useState('');
-    const [phone, setPhone] = useState('');
-    const [email, setEmail] = useState('');
-    const [address, setAddress] = useState('');
-    const [zipcode, setZipcode] = useState('');
-    const [city, setCity] = useState('');
-
     function SaveOrder(e) {
         e.preventDefault();
         let status = 0;
@@ -51,9 +44,11 @@ export default function Order({
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                customer_id: cus_id,
+                customer_id: customerData[0].customer_id,
+                car_id: customerData[0].car_id,
+                tires_id: customerData[0].tires_id,
                 employee_id: employ_id,
-                cart: cart,
+                cart: cart
             })
         })
         .then (res => {
@@ -63,8 +58,8 @@ export default function Order({
         .then (
             (res) => {
                 console.log(res);
-                empty();
-                setFinished(true);
+                // empty();
+                // setFinished(true);
             }, (error) => {
                 alert(error);
             }
@@ -102,7 +97,7 @@ export default function Order({
             <>
             <h3>Uusi tilaus</h3>
             <div class="row">
-              <div class="col">
+              <div class="col-3">
               <div className="padding" style={boxColorLayot}>
                   <h4>Lisää asiakas</h4>
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -119,7 +114,9 @@ export default function Order({
 
               <div class="col">
               <div className="padding" style={boxColorLayot}>
+              <h4>Asiakas</h4>
               <ComponentCustomer customerData={customerData}/>
+              <ComponentOrderCar customerData={customerData}/>
                 <h4>Tilaus</h4>
                 <div>
                   { (cart[0] == null) ? (
@@ -130,9 +127,11 @@ export default function Order({
                  <form onSubmit={SaveOrder}>
                   <input type="hidden" value={cus_id} id="customer"/>
                   <input type="hidden" value={employ_id} id="employee"/>
+
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class='btn' style={buttonStyle}>Tallenna tilaus</button>
                   </div>
+
                 </form>
                 </div>
               </div>

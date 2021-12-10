@@ -78,10 +78,10 @@ export const LinkStyle={
 
 export const Customerdata = {
   'border': 'solid 2px' + headColor,
-  'border-left': 'solid 10px' + headColor,
+  'borderLeft': 'solid 10px' + headColor,
   'borderRadius': '0.2rem',
   'background': backgroundLight,
-  'line-height': '70%'
+  'lineHeight': '70%'
 };
 
 export const Choice = {

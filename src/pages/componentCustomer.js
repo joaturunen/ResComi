@@ -13,7 +13,6 @@ export default function ComponentCustomer({customerData}) {
 
 
   useEffect(() => {
-    console.log("Data on täällä nyt: " + customerData);
     if(customerData[0]){
       setFirstname(customerData[0].firstname);
       setLastname(customerData[0].lastname);
@@ -27,7 +26,6 @@ export default function ComponentCustomer({customerData}) {
 
   const content =
   <>
-  <h4>Valittuna asiakas</h4>
   <div style={Customerdata} className='d-flex flex-row'>
     <div className='p-2'>
       <p><strong>{firstname} {lastname}</strong></p>
@@ -39,6 +37,7 @@ export default function ComponentCustomer({customerData}) {
     <div className='p-2 ml-auto align-self-end'>
       <button class='btn' style={buttonStyle}>Muokkaa</button>
     </div>
+
   </div>
   </>;
 
