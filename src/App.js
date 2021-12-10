@@ -28,6 +28,7 @@ function App() {
   const [customerCars, setCustomerCars] = useState([]);
   const [customerTires, setCustomerTires] = useState([]);
   const [currentShelfID, setCurrentShelfID] = useState(0);
+  const [customerData, setCustomerData] = useState([]);
 
   useEffect(() => {
     if ('cart' in localStorage) {
@@ -87,7 +88,9 @@ function App() {
                       empty={emptyCart} 
                       removeFromCart={removeFromCart}
                       setCustomer_id={setCustomer_id}
-                      employee_id={employee_id}/>
+                      employee_id={employee_id}
+                      setCustomerData={setCustomerData}
+                      customerData={customerData}/>
                     }/>
                   <Route path="/newCustomer" 
                     element={<NewCustomer/>

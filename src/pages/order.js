@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState, useEffect} from 'react';
 import Services from './services';
 import NewCustomer from './newCustomer';
 import NewCar from './newCar';
@@ -8,6 +8,7 @@ import { FaTrash, FaTimes } from 'react-icons/fa';
 import { buttonStyle } from '../style/colors';
 import Customer from './oneCustomer';
 import ModalNewCustomer from './modalNewCustomer';
+import ComponentCustomer from './componentCustomer';
 
 
 // kuinka tallennetaan myös auton tiedot samalla?
@@ -24,11 +25,21 @@ export default function Order({
     setCustomerCars,
     customerTires,
     setCustomerTires,
-    employee_id }) {
+    employee_id,
+    setCustomerData,
+    customerData }) {
 
     const [finished, setFinished] = useState(false);
     const [cus_id, setCus_id] = useState('');
     const [employ_id, setEmploy_id] = useState('');
+
+    const [firstname, setFirstname] = useState('');
+    const [lastname, setLastname] = useState('');
+    const [phone, setPhone] = useState('');
+    const [email, setEmail] = useState('');
+    const [address, setAddress] = useState('');
+    const [zipcode, setZipcode] = useState('');
+    const [city, setCity] = useState('');
 
     function SaveOrder(e) {
         e.preventDefault();
@@ -60,7 +71,6 @@ export default function Order({
         );
     }
 
-
     let sum = 0;
 
     // if (finished === false) {
@@ -78,7 +88,7 @@ export default function Order({
 
                 <h4>Lisää uusi asiakas</h4>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <ModalNewCustomer url={url} setCustomer_id={setCustomer_id}/>
+                    <ModalNewCustomer url={url} setCustomer_id={setCustomer_id} setCustomerData={setCustomerData} customerData={customerData}/>
                     </div>
                 </div>
               </div>
@@ -105,6 +115,7 @@ export default function Order({
                       </tr>
                     </tbody>
                   </table>
+                <ComponentCustomer customerData={customerData}/>
                  <form onSubmit={SaveOrder}>
                   <input placeholder="asiakasnumero" value={cus_id} onChange={e => setCus_id(e.target.value)} />
                   <input placeholder="ttnumber" value={employ_id} onChange={e => setEmploy_id(e.target.value)} />
