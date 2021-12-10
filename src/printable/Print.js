@@ -118,6 +118,7 @@ export default function Print({ url, orders_id, customerCars, setCustomerCars, c
             </div>
           </div>
 
+{/*
           <div className="input-group container-fluid">
             <div className="input-group-prepend">
               <span className="input-group-text">Tilausnumero:</span>
@@ -130,8 +131,9 @@ export default function Print({ url, orders_id, customerCars, setCustomerCars, c
                 <button className="btn btn-primary" style={buttonStyle}>Hae</button>
               </div>
             </div>
-
           </div>
+*/}
+
           <div className='container-fluid'>
             <div className='row'>
               <div className="col-sm-6">
@@ -217,8 +219,7 @@ export default function Print({ url, orders_id, customerCars, setCustomerCars, c
                 <ul className="list-group" >
                   <li className="list-group-item">Renkaiden koko: {tireSize}</li>
                 </ul>
-              </div>
-              
+              </div>       
               <div className="col-sm-4">
                 <ul className="list-group" >
                   <li className="list-group-item">Vanteet: {hubcups}</li>
