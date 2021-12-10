@@ -46,6 +46,8 @@ export default function Print({ url, orders_id, customerCars, setCustomerCars, c
   const [companyZip, setCompanyZip] = useState('');
   const [companyCity, setCompanyCity] = useState('');
 
+  
+
   useEffect(() => {
     let status = 0;
     fetch('http://localhost/rengasvarasto-back/API/orders/orders_print.php', {
@@ -116,7 +118,9 @@ export default function Print({ url, orders_id, customerCars, setCustomerCars, c
               <img className='logo' src={logo3} />
             </div>
           </div>
-
+          <div className="col-sm-6">
+                <button className="btn btn-primary" style={buttonStyle} onClick={() => window.print()}>Tulosta</button>
+              </div>
 {/*
           <div className="input-group container-fluid">
             <div className="input-group-prepend">

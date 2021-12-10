@@ -9,28 +9,18 @@ export default function SearchOrders() {
     /*function inputOrders(orders) {
         setOrders_id(orders.id);
     }*/
-
-    function goToPrint() {  
-        setShowPrintSite(true);
-    }  
-        
-    if (showPrintSite === true) {
-        return (
-            <Navigate to="/printable/Print" />
-        )
-    }  
     
   return (
     <>
       <div className="padding" style={boxColorLayot}>
           <h4>Tulosta tilaus</h4>
           <form>
-              <label className="form-label">Tulosta tilaus</label>
+              <label className="form-label">Tulosta tilaus tilausnumerolla</label>
               <input type='text' className="form-control"
                   placeholder='Syötä tilausnumero...' maxLength="10"
               />
-              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button class="btn button" style={buttonStyle} onClick={() => {goToPrint()}}>Siirry tulostukseen</button>
+              <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+                <Link to="/printable/Print" target="_blank" className="btn button" style={buttonStyle}>Siirry tulostukseen</Link>
               </div>
           </form>
       </div>
