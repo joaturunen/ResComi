@@ -22,7 +22,7 @@ const homeShadow = '#333';
 const shockColor = "#C23A00";
 
 //Text color light
-const textLight ='#F4F7FC'
+const textLight ='#FFFFFF'
 
 
 //Pie-Chart taken
