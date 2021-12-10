@@ -59,48 +59,29 @@ export default function Tires({ customerTires, setCustomerTires, car_id }) {
                 <div className='col-1'>
                     <div className='mt-1'>
                         <label>EV</label>
-                        <div>
-                            <select className="form-select">
-                                <option value="1">3</option>
-                                <option value="2">4</option>
-                            </select>
-                        </div>
+                        <input type="text" className="form-control" placeholder='3' />
                     </div>
-                    <div className='mt-1'>
+                    <div className='mt-5'>
                         <label>TV</label>
-                        <div>
-                            <select className="form-select">
-                                <option value="1">3</option>
-                                <option value="2">4</option>
-                            </select>
-                        </div>
+                        <input type="text" className="form-control" placeholder='3' />
                     </div>
                 </div>
 
-                <div className='col-2 justify-content-center'>
-
-                    <img className='car' src={Car} alt='car' />
-
+                <div className='col-2 text-center'>
+                    <label className='mb-3'>Urasyvyydet</label>
+                    <div className='d-flex justify-content-center'>
+                    <   img className='car' src={Car} alt='car' />
+                    </div>
                 </div>
 
                 <div className='col-1'>
                     <div className='mt-1'>
                         <label>OE</label>
-                        <div>
-                            <select className="form-select">
-                                <option value="1">3</option>
-                                <option value="2">4</option>
-                            </select>
-                        </div>
+                        <input type="text" className="form-control" placeholder='3' />
                     </div>
-                    <div className='mt-1'>
+                    <div className='mt-5'>
                         <label>OT</label>
-                        <div>
-                            <select className="form-select">
-                                <option value="1">3</option>
-                                <option value="2">4</option>
-                            </select>
-                        </div>
+                        <input type="text" className="form-control" placeholder='3' />
                     </div>
                 </div>
 

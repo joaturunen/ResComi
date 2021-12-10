@@ -22,7 +22,7 @@ const homeShadow = '#333';
 const shockColor = "#C23A00";
 
 //Text color light
-const textLight ='#FFFFFF'
+const textLight ='#F4F7FC';
 
 
 //Pie-Chart taken
@@ -32,7 +32,7 @@ export const pieChartFree = "#A0DAA9";
 
 //Header color
 export const headerColor = {
-  'background': 'linear-gradient(to bottom, ' + headColor + ' 55%,' + headColorShadow  + ' 90%)'
+  'background': 'linear-gradient(to top, ' + headColor + ' 55%,' + headColorShadow  + ' 90%)'
 };
 
 //Grey box with shadow
@@ -57,9 +57,9 @@ export const buttonStyle = {
   'background': headColor, 
   'color': textLight,
   'border-radius':'10px',
-  'font': '13px Lato, sans-serif',
   'box-shadow': '4px 4px ' + boxShadow,
-  'margin': "0.5rem"
+  'margin': "0.5rem",
+  'font-size': '15px'
 };
 
 //user signed in

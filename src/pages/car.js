@@ -5,7 +5,7 @@ import { buttonStyle } from '../style/colors';
 // tulostaa yhdelle asiakkaalle kuuluvat autot 
 
 export default function Car({ customerCars, setCustomerCars, customer_id }) {
-
+  
     return (
         <>
             <div className='row'>
