@@ -1,11 +1,43 @@
 import React, { useEffect, useState } from 'react';
 import NewCar from './newCar';
 import { buttonStyle } from '../style/colors';
+import { FaTrash } from 'react-icons/fa';
 
 // tulostaa yhdelle asiakkaalle kuuluvat autot 
 
 export default function Car({ customerCars, setCustomerCars, customer_id }) {
-  
+
+
+    function deleteCar(id) {
+        let status = 0;
+        fetch('http://localhost/rengasvarasto-back/API/car/car_delete.php', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: id
+            })
+        })
+        .then(res => {
+            status = parseInt(res.status);
+            return res.json();
+        })
+        .then(
+            (res) => {
+                if (status === 200) {
+                    const newListWithoutRemoved = customerCars.filter((car) => car.id !== id);
+                    setCustomerCars(newListWithoutRemoved);
+                  } else {
+                    alert(res.error);
+                  }
+            }, (error) => {
+                alert(error);
+            }
+        );
+    }
+
     return (
         <>
             <div className='row'>
@@ -61,6 +93,7 @@ export default function Car({ customerCars, setCustomerCars, customer_id }) {
                                 <td>{car.register}</td>
                                 <td>{car.brand}</td>
                                 <td>{car.model} </td>
+                                <td><FaTrash onClick={() => deleteCar(car.id)}/></td>
                             </tr>
                         ))}
                     </tbody>

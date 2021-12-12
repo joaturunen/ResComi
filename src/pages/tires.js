@@ -94,7 +94,7 @@ export default function Tires({ customerTires, setCustomerTires, car_id }) {
                     </div>
                 </div>
 
-                {/* <table  className="table px-3 table-striped">
+                <table  className="table px-3 table-striped">
                     <tbody>
                         {customerTires.map(tires => (
                             <tr key={tires.id} >
@@ -116,7 +116,7 @@ export default function Tires({ customerTires, setCustomerTires, car_id }) {
                             </tr>
                         ))}
                     </tbody>
-                </table> */}
+                </table>
             </div>
             <div>
                 <NewTires setCustomerTires={setCustomerTires} car_id={car_id} />

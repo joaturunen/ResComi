@@ -34,7 +34,7 @@ export default function NewTires({setCustomerTires, car_id}) {
                 brand: brand,
                 model: model,
                 type: type,
-                hubcups: hubcups,
+                //hubcups: hubcups,
                 groovefl: grooveFL,
                 groovefr: grooveFR,
                 groovebl: grooveBL,
@@ -48,6 +48,7 @@ export default function NewTires({setCustomerTires, car_id}) {
             })
         })
         .then(res => {
+            status = parseInt(res.status);
             return res.json();
         })
         .then(
@@ -57,7 +58,7 @@ export default function NewTires({setCustomerTires, car_id}) {
                     setBrand('');
                     setModel('');
                     setType('');
-                    setHubcups('');
+                    //setHubcups('');
                     setGrooveFL('');
                     setGrooveFR('');
                     setGrooveBL('');
@@ -90,9 +91,9 @@ export default function NewTires({setCustomerTires, car_id}) {
                 <div>
                     <input placeholder="Tyyppi" value={type} onChange={e => setType(e.target.value)}/>
                 </div>
-                <div>
+                {/* <div>
                     <input placeholder="Pölykapselit" value={hubcups} onChange={e => setHubcups(e.target.value)}/>
-                </div>
+                </div> */}
                 <div>
                     <input placeholder="VE" value={grooveFL} onChange={e => setGrooveFL(e.target.value)}/>
                 </div>
@@ -112,7 +113,10 @@ export default function NewTires({setCustomerTires, car_id}) {
                     <input placeholder="Renkaiden leveys" value={tirebolt} onChange={e => setTirebolt(e.target.value)}/>
                 </div>
                 <div>
-                    <input placeholder="" value={rims} onChange={e => setRims(e.target.value)}/>
+                    <input placeholder="Renkaiden kunto" value={text} onChange={e => setText(e.target.value)}/>
+                </div>
+                <div>
+                    <input placeholder="rims" value={rims} onChange={e => setRims(e.target.value)}/>
                 </div>
                 <div>
                     <input placeholder="Lisätietoja" value={info} onChange={e => setInfo(e.target.value)}/>

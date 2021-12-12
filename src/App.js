@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import react, {useState, useEffect} from "react";
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route,useLocation} from 'react-router-dom';
 import SideMenu from "./components/SideMenu";
 import Header from './components/header';
 import Login from './pages/login';
@@ -28,6 +28,8 @@ function App() {
   const [customerCars, setCustomerCars] = useState([]);
   const [customerTires, setCustomerTires] = useState([]);
   const [currentShelfID, setCurrentShelfID] = useState(0);
+  const [customerData, setCustomerData] = useState([]);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     if ('cart' in localStorage) {
@@ -36,10 +38,10 @@ function App() {
   }, []);
 
 
-  // lisää palvelu ostoskoriin
+  // lisää palvelu ostoskoriin nyt on pakotettu vain yksi tuote koriin-
   function addToCart(service) {
       const newCart = [...cart,service];
-      setCart(newCart);
+      setCart([service]); // tässä pitäisi olla vain yksi 
       localStorage.setItem('cart',JSON.stringify(newCart));
     
   }
@@ -64,16 +66,16 @@ function App() {
 
   return (
     <>
-      <Router>
+      {/* <Router> */}
         <div className="max-wid">
           <div className="container-fluid">
             <Header/>
             <div className="row">
-              <SideMenu 
+              { (pathname !== "/login") && (pathname !== "/") &&  <SideMenu 
                 onCollapse={(inactive) => {
                 console.log(inactive);
                 setInactive(inactive);
-              }}/>
+              }}/>}
               <div className={`scrollingRoute stylingContent ${inactive ? "col" : "col-10" }`}>
                 <Routes>
                   <Route path="/login" 
@@ -87,7 +89,9 @@ function App() {
                       empty={emptyCart} 
                       removeFromCart={removeFromCart}
                       setCustomer_id={setCustomer_id}
-                      employee_id={employee_id}/>
+                      employee_id={employee_id}
+                      setCustomerData={setCustomerData}
+                      customerData={customerData}/>
                     }/>
                   <Route path="/newCustomer" 
                     element={<NewCustomer/>
@@ -139,7 +143,7 @@ function App() {
             </div>
           </div>
         </div>
-      </Router>
+      {/* </Router> */}
     </>
   );
 }

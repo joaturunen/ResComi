@@ -24,6 +24,8 @@ const shockColor = "#C23A00";
 //Text color light
 const textLight ='#F4F7FC';
 
+const backgroundLight = '#F4F7FC'
+
 
 //Pie-Chart taken
 export const pieChartTaken = "#E9897E";
@@ -73,6 +75,19 @@ export const LinkStyle={
   'text-decoration': 'none',
   'color': headColor
 }
+
+export const Customerdata = {
+  'border': 'solid 2px' + headColor,
+  'borderLeft': 'solid 10px' + headColor,
+  'borderRadius': '0.2rem',
+  'background': backgroundLight,
+  'lineHeight': '70%'
+};
+
+export const Choice = {
+  'background': headColor, 
+  'color': textLight
+};
 
 // Not sure why this must be
 const Colors = () =>{
