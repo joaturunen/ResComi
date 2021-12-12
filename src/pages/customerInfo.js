@@ -65,7 +65,7 @@ export default function CustomerInfo({ url, customer_id, customerCars, setCustom
         <>
             <div className='row'>
                 <h5>Asiakkaan tiedot</h5>
-                <div className='col'>
+                <div className='col-md-4'>
                     <div>
                         <label>Etunimi</label>
                         <input type="text" className="form-control" value={firstname} />
@@ -88,7 +88,7 @@ export default function CustomerInfo({ url, customer_id, customerCars, setCustom
                     </div>
                 </div>
 
-                <div className='col'>
+                <div className='col-md-4'>
                     <div>
                         <label>Puhelinumero</label>
                         <input type="text" className="form-control" value={phone} />
@@ -99,12 +99,12 @@ export default function CustomerInfo({ url, customer_id, customerCars, setCustom
                     </div>
                 </div>
 
-                <div className='col'>
+                <div className='col-md-4'>
                     <label>Asiakkuus luotu</label>
                     <p>{customersaved}</p>
                 </div>
 
-                <div className="col align-self-end">
+                <div className=" d-flex justify-content-end">
                     <button className="btn btn-primary" style={buttonStyle}>Tallenna</button>
                 </div>
                 

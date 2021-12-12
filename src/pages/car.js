@@ -10,7 +10,7 @@ export default function Car({ customerCars, setCustomerCars, customer_id }) {
         <>
             <div className='row'>
                 <h5>Auton tiedot</h5>
-                <div className="col">
+                <div className="col-md-4">
                     <div>
                         <label>Rekisteri</label>
                         <input type="text" className="form-control" />
@@ -28,7 +28,7 @@ export default function Car({ customerCars, setCustomerCars, customer_id }) {
                         <input type="text" className="form-control" />
                     </div>
                 </div>
-                <div className='col'>
+                <div className='col-md-4'>
                     <div>
                         <label>Säilytyskausi</label>
                         <div>
@@ -44,17 +44,14 @@ export default function Car({ customerCars, setCustomerCars, customer_id }) {
                     </div>
                 </div>
 
-                <div className="col">
+                <div className="col-md-4">
                     <label>Lisätietoja</label>
                     <textarea className='form-control' rows="10" />
                 </div>
-                <div className="col align-self-end">
-                    <div>
+
+                <div className="d-flex justify-content-end">
                     <button className="btn btn-primary" style={buttonStyle}>Lisää uusi auto</button>
-                    </div>
-                    <div>
                     <button className="btn btn-primary" style={buttonStyle}>Tallenna</button>
-                    </div>
                 </div>
 
                 <table className="table px-3 table-striped">

@@ -10,7 +10,7 @@ export default function Tires({ customerTires, setCustomerTires, car_id }) {
         <div>
             <div className='row'>
                 <h5>Renkaiden tiedot</h5>
-                <div className='col-3'>
+                <div className='col-md-3'>
                     <div>
                         <label>Rengaspaikka</label>
                         <input type="text" className="form-control" placeholder='1-3-55' disabled/>
@@ -33,7 +33,7 @@ export default function Tires({ customerTires, setCustomerTires, car_id }) {
                     </div>
                 </div>
 
-                <div className='col -2'>
+                <div className='col-md-2'>
                     <div>
                         <label>Säilytyskausi</label>
                         <input type="text" className="form-control" placeholder='Kesä/Talvi' />
@@ -56,7 +56,7 @@ export default function Tires({ customerTires, setCustomerTires, car_id }) {
                     </div>
 
                 </div>
-                <div className='col-1'>
+                <div className='col-md-1'>
                     <div className='mt-1'>
                         <label>EV</label>
                         <input type="text" className="form-control" placeholder='3' />
@@ -67,14 +67,14 @@ export default function Tires({ customerTires, setCustomerTires, car_id }) {
                     </div>
                 </div>
 
-                <div className='col-2 text-center'>
+                <div className='col-md-2 text-center'>
                     <label className='mb-3'>Urasyvyydet</label>
                     <div className='d-flex justify-content-center'>
                     <   img className='car' src={Car} alt='car' />
                     </div>
                 </div>
 
-                <div className='col-1'>
+                <div className='col-md-1'>
                     <div className='mt-1'>
                         <label>OE</label>
                         <input type="text" className="form-control" placeholder='3' />
@@ -85,10 +85,11 @@ export default function Tires({ customerTires, setCustomerTires, car_id }) {
                     </div>
                 </div>
 
-                <div className='col-3'>
+                <div className='col-md-3'>
                     <label>Havaittu poikkeama</label>
                     <textarea className='form-control' rows="10" placeholder='tänne tulostuu poikkeamat?' />
                     <div className='d-flex justify-content-end mt-3'>
+                        <button className='btn btn-primary' style={buttonStyle}>Lisää renkaat</button>
                         <button className='btn btn-primary' style={buttonStyle}>Tallenna</button>
                     </div>
                 </div>
