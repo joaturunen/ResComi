@@ -73,11 +73,10 @@ export default function Order({
         <tbody>
            {cart.map((service, id) => {
             sum+=parseFloat(service.price);
-            let price =  (parseFloat(service.price).toFixed(2));
               return (
                 <tr key={id}>
                 <td width="70%">{service.service}</td>
-                <td className="text-right">{price} €</td>
+                <td className="text-right">{service.price} €</td>
                 <td className="text-right"><FaTimes onClick={() => removeFromCart(service)}/></td>
                 </tr>
               )
