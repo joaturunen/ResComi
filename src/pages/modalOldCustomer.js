@@ -2,9 +2,10 @@ import React,{useState, useEffect} from 'react';
 import {buttonStyle} from '../style/colors';
 import '../style/modal.css';
 import {URL} from '../back/Config';
+import { getDefaultNormalizer } from '@testing-library/react';
 
 
-export default function ModalNewCustomer({setCustomerData}) {
+export default function ModalOldCustomer({setCustomerData, showModal = false, setShowModalOldCustomer, customer_id}) {
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
   const [phone, setPhone] = useState('');
@@ -12,7 +13,6 @@ export default function ModalNewCustomer({setCustomerData}) {
   const [address, setAddress] = useState('');
   const [zipcode, setZipcode] = useState('');
   const [city, setCity] = useState('');
-  const [employeeId, setEmployeeId] = useState(3);
   const [openModel, setOpenModel] = useState(false);
   const [register, setRegister] = useState('');
   const [brand, setBrand] = useState('');
@@ -25,57 +25,46 @@ export default function ModalNewCustomer({setCustomerData}) {
     setShowSuccess(false);
   }, [openModel]);
 
-  function addCustomer(e) {
-    setShowSuccess(false);
-    setShowFailed(false);
-    e.preventDefault();
+  useEffect(() => {
+    function getData(){
+    console.log("Haetaan dataa " +  customer_id);
     let status = 0;
-      fetch( URL + 'customer/customer_createModal.php', { 
+    let address = URL + 'customer/customer_allData.php';
+    fetch(address, {
         method: 'POST',
-        header: {
+        headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            firstname: firstname,
-            lastname: lastname,
-            phone: phone,
-            email: email,
-            address: address,
-            zipcode: zipcode,
-            city: city,
-            employee_id: employeeId,
-            register: register,
-            brand: brand,
-            model: model
+          'customer_id':  customer_id
         })
     })
-    .then (res => {
+    .then(res => {
         status = parseInt(res.status);
         return res.json();
     })
-    .then (
+    .then(
         (res) => {
-            console.log(res);
             if (status === 200) {
-              setCustomerData([]);
-              setCustomerData([res]);
-              setShowSuccess(true);
-              console.log("Nyt asiakas tallentui.");
-          } else {
-              alert(res.error);
-              setShowFailed(true);
-          }
+              console.log("Asiakkaalla on olemassa " + res);
+            } else {
+            alert(res.error);
+            }
         }, (error) => {
             alert(error);
         }
-    );
-  }
+    );};
+    if(showModal){
+      getData();
+    }
+}, [showModal]);
+
 
 const alertSuccees =
   <div className="p-2">
   <div class="alert alert-success" role="alert">
-    Lisäys onnistui. Voit poistua näkymästä
+    Valinta onnistui. Voit poistua näkymästä
   </div>
 </div>;
 
@@ -83,21 +72,38 @@ const alertSuccees =
 const alertFailed =
   <div className="p-2">
   <div class="alert alert-danger" role="alert">
-    Lisäys epäonnistui. :D
+    Valinta epäonnistui. :D
   </div>
 </div>;
 
+const addCar =
+<div className='col-md-3'>
+<div>
+
+  <label>Auton rekisterinumero</label>
+      <input className="form-control" value={register} onChange={e => setRegister(e.target.value)}/>
+  </div>
+  <div>
+  <label>Merkki</label>
+      <input className="form-control" value={brand} onChange={e => setBrand(e.target.value)}/>
+  </div>
+  <div>
+  <label>Malli</label>
+      <input className="form-control" value={model} onChange={e => setModel(e.target.value)}/>
+  </div>
+  </div>
+;
 
 
   const content = <>
   <div className="modalBackground">
     <div className="modalContainer">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close" onClick={()=>{setOpenModel(false);}}>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close" onClick={()=>{setShowModalOldCustomer(false);}}>
         <span aria-hidden="true">&times;</span>
       </button>
       <div class="d-flex flex-row">
         <div className="p-2">
-          <h3>Lisää uusi asiakas ja ajoneuvo</h3>
+          <h4>Valitse asiakas, auto ja renkaat asiakkaalle tai luo uudet</h4>
           
       </div>
       { showSuccess && (alertSuccees)}
@@ -106,7 +112,7 @@ const alertFailed =
 
       <hr/>
         <div>
-          <form className='row' onSubmit={addCustomer}>
+          <form className='row' onSubmit={""}>
               <div className='col-md-3'>
               <div>
               <label>Etunimi</label>
@@ -141,28 +147,10 @@ const alertFailed =
                 </div>
               </div>
 
-              <div className='col-md-3'>
-                <div>
-                  <div>
-                  <label>Auton rekisterinumero</label>
-                      <input className="form-control" value={register} onChange={e => setRegister(e.target.value)}/>
-                  </div>
-                  <div>
-                  <label>Merkki</label>
-                      <input className="form-control" value={brand} onChange={e => setBrand(e.target.value)}/>
-                  </div>
-                  <div>
-                  <label>Malli</label>
-                      <input className="form-control" value={model} onChange={e => setModel(e.target.value)}/>
-                  </div>
-                </div>
-                
-              </div>
               <div className='row'>
-                
                 <div className='col-12 d-flex justify-content-end '>
                 <button className='btn' style={buttonStyle} onClick={()=>{setOpenModel(false);}}>Peruuta</button>
-                <button className='btn' style={buttonStyle}>Tallenna uusi asiakas</button>
+                <button className='btn' style={buttonStyle}>Valitse</button>
             </div>
             </div>
           </form>
@@ -174,10 +162,10 @@ const alertFailed =
   return (
       <>
       <div>
-        <button className="btn"  style={buttonStyle} onClick={()=>{
+        {/* <button className="btn"  style={buttonStyle} onClick={()=>{
           setOpenModel(true);
-        }}>Lisää uusi asiakas ja auto</button>
-        { openModel && (content)}
+        }}>Valittu asiakas</button> */}
+        { showModal && (content)}
       </div>
       </>
     
