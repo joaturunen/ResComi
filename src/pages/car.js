@@ -10,6 +10,7 @@ export default function Car({ customerCars, setCustomerCars, customer_id }) {
 
     function deleteCar(id) {
         let status = 0;
+        console.log(id);
         fetch('http://localhost/rengasvarasto-back/API/car/car_delete.php', {
             method: 'POST',
             headers: {
@@ -90,6 +91,7 @@ export default function Car({ customerCars, setCustomerCars, customer_id }) {
                     <tbody>
                         {customerCars.map(car => (
                             <tr key={car.id} >
+                                <td>{car.id}</td>
                                 <td>{car.register}</td>
                                 <td>{car.brand}</td>
                                 <td>{car.model} </td>

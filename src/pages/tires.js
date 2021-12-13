@@ -8,6 +8,7 @@ import { FaTrash } from 'react-icons/fa';
 export default function Tires({ customerTires, setCustomerTires, car_id }) {
 
     function deleteTires(id) {
+        console.log(car_id);
         let status = 0;
         fetch('http://localhost/rengasvarasto-back/API/tires/tires_delete.php', {
             method: 'POST',
@@ -129,7 +130,9 @@ export default function Tires({ customerTires, setCustomerTires, car_id }) {
                     <tbody>
                         {customerTires.map(tires => (
                             <tr key={tires.id} >
+                                <td>{tires.id}</td>
                                 <td>{tires.car_register}</td>
+                                <td>{tires.car_id}</td>
                                 <td>{tires.brand}</td>
                                 <td>{tires.model}</td>
                                 <td>{tires.type}</td>

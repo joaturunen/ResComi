@@ -125,8 +125,6 @@ export default function Order({
                   </div>) : (<p>{orderShow}</p>)}
                 </div>
                  <form onSubmit={SaveOrder}>
-                  <input type="hidden" value={cus_id} id="customer"/>
-                  <input type="hidden" value={employ_id} id="employee"/>
 
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class='btn' style={buttonStyle}>Tallenna tilaus</button>
