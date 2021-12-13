@@ -6,7 +6,6 @@ export default function SearchCustomer({ url, setCustomer_id, customer_id }) {
   const [searchPhone, setSearchPhone] = useState('');
   const [result, setResult] = useState([]);
   const [showCustomerSite, setShowCustomerSite] = useState(false);
-  const [showCustomerData, setShowCustomerData] = useState(false);
 
   function findPhone(e) {
     e.preventDefault();
@@ -40,7 +39,6 @@ export default function SearchCustomer({ url, setCustomer_id, customer_id }) {
 
   function openCustomerSite(customer) {
     setCustomer_id(customer.id);
-    //setShowCustomerData(true); // tällä ei saa näkymään orderissa
     setShowCustomerSite(true);
   }
 
