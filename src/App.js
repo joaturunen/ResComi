@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import react, {useState, useEffect} from "react";
-import {BrowserRouter as Router, Routes, Route,useLocation} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, useLocation} from 'react-router-dom';
 import SideMenu from "./components/SideMenu";
 import Header from './components/header';
 import Login from './pages/login';
@@ -25,6 +25,7 @@ function App() {
   const [car_id, setCar_id] = useState('');
   const [cart, setCart] = useState([]);
   const [inactive, setInactive] = useState(false);
+  const [headerInactive, setHeaderInactive] = useState(false);
   const [customerCars, setCustomerCars] = useState([]);
   const [customerTires, setCustomerTires] = useState([]);
   const [currentShelfID, setCurrentShelfID] = useState(0);
@@ -69,9 +70,12 @@ function App() {
       {/* <Router> */}
         <div className="max-wid">
           <div className="container-fluid">
-            <Header/>
+            { pathname !== "/printable/Print" && <Header 
+              onCollapse={(headerInactive) => {
+              setHeaderInactive(headerInactive);
+            }}/>}
             <div className="row">
-              { (pathname !== "/login") && (pathname !== "/") &&  <SideMenu 
+              { (pathname !== "/login") && (pathname !== "/") && (pathname !== "/printable/Print") && <SideMenu 
                 onCollapse={(inactive) => {
                 console.log(inactive);
                 setInactive(inactive);
