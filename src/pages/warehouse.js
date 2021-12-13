@@ -14,7 +14,7 @@ export default function Warehouse({ url, setCurrentShelfID}) {
   const [colorTaken, setColorTaken] = useState(pieChartTaken);
   const [colorFree, setColorFree] = useState(pieChartFree);
   const [shelfs, setShelfs] = useState([]);
-  const [showCustomerSite, setShowCustomerSite] = useState(false);
+  const [showShelfSite, setShowShelfSite] = useState(false);
   const [isLoading, setIsloading] = useState(true);
 
   useEffect(() => {
@@ -67,10 +67,10 @@ export default function Warehouse({ url, setCurrentShelfID}) {
   function openShelfSite(shelf) {
     setCurrentShelfID(shelf.id);
     console.log("Asetetaan haettava hylly: " + shelf.id);
-    setShowCustomerSite(true);
+    setShowShelfSite(true);
   }
   
-  if (showCustomerSite === true) {
+  if (showShelfSite === true) {
     return (
       <Navigate to="/shelfSlots" />
     );

@@ -111,15 +111,15 @@ export default function Print({ url, orders_id, customerCars, setCustomerCars, c
 
   return (
     <>
-      <form>
+      <form className="ml-5">
         <div className="printable">
           <div className='header' >
             <div className='row'>
-              <img className='logo' src={logo3} />
+              <img className='img logo' src={logo3} alt="Printtilogo" />
             </div>
           </div>
           <div className="col-sm-6">
-                <button className="btn btn-primary" style={buttonStyle} onClick={() => window.print()}>Tulosta</button>
+                <button className="btn btn-primary" id="printButton" style={buttonStyle} onClick={() => window.print()}>Tulosta</button>
               </div>
 {/*
           <div className="input-group container-fluid">

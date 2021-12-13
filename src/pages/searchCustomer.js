@@ -57,7 +57,6 @@ export default function SearchCustomer({ url, setCustomer_id, customer_id, hight
   if (showCustomerSite === true) {
     return (
       <Navigate to="/oneCustomer" />
-
     );
   }
 

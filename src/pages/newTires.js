@@ -1,5 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {buttonStyle} from '../style/colors';
+import '../style/modal.css';
+import Car from '../images/3121893.png';
 
 
 // uusien renkaiden tallennus: voiko valita slotin vai tuleeko automaattisesti seuraava vapaa?
@@ -19,8 +21,18 @@ export default function NewTires({setCustomerTires, car_id}) {
     const [text, setText] = useState('');
     const [rims, setRims] = useState('');
     const [info, setInfo] = useState('');
+    
+    const [openNewTiresModel, setOpenNewTiresModel] = useState('');
+    const [showSuccess, setShowSuccess] = useState(false);
+    const [showFailed, setShowFailed] = useState(false);
+
+    useEffect(() => {
+        setShowFailed(false);
+        setShowSuccess(false);
+      }, [openNewTiresModel]);
 
     function SaveTires(e) {
+        console.log(carId);
         e.preventDefault();
         let status = 0;
         fetch('http://localhost/rengasvarasto-back/API/tires/tires_create.php', {
@@ -34,7 +46,7 @@ export default function NewTires({setCustomerTires, car_id}) {
                 brand: brand,
                 model: model,
                 type: type,
-                hubcups: hubcups,
+                //hubcups: hubcups,
                 groovefl: grooveFL,
                 groovefr: grooveFR,
                 groovebl: grooveBL,
@@ -48,6 +60,7 @@ export default function NewTires({setCustomerTires, car_id}) {
             })
         })
         .then(res => {
+            status = parseInt(res.status);
             return res.json();
         })
         .then(
@@ -57,7 +70,7 @@ export default function NewTires({setCustomerTires, car_id}) {
                     setBrand('');
                     setModel('');
                     setType('');
-                    setHubcups('');
+                    //setHubcups('');
                     setGrooveFL('');
                     setGrooveFR('');
                     setGrooveBL('');
@@ -67,8 +80,10 @@ export default function NewTires({setCustomerTires, car_id}) {
                     setText('');
                     setRims('');
                     setInfo('');
+                    setShowSuccess(true);
                 } else {
                     alert(res.error);
+                    setShowFailed(true);
                 }
             }, (error) => {
                 alert(error);
@@ -77,54 +92,145 @@ export default function NewTires({setCustomerTires, car_id}) {
 
     }
 
-    return (
-        <div>
-            <h5>Lisää renkaat</h5>
-            <form onSubmit={SaveTires}>
-                <div>
-                    <input placeholder="Merkki" value={brand} onChange={e => setBrand(e.target.value)}/>
+    const alertSuccees =
+        <>
+            <div className="p-2">
+                <div class="alert alert-success" role="alert">
+                    Lisäys onnistui. Voit poistua näkymästä.
                 </div>
-                <div>
-                    <input placeholder="Malli" value={model} onChange={e => setModel(e.target.value)}/>
+            </div>
+        </>;
+
+
+    const alertFailed =
+        <>
+            <div className="p-2">
+                <div class="alert alert-danger" role="alert">
+                    Lisäys epäonnistui.
                 </div>
-                <div>
-                    <input placeholder="Tyyppi" value={type} onChange={e => setType(e.target.value)}/>
+            </div>
+        </>;
+
+
+    const content = 
+        <>
+            <div className="modalBackground">
+                <div className="modalContainer">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" onClick={()=>{setOpenNewTiresModel(false);}}>
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="d-flex flex-row">
+                        <div className="p-2">
+                        <h3>Lisää renkaat</h3>
+                        
+                    </div>
+                    { showSuccess && (alertSuccees)}
+                    { showFailed && (alertFailed)}
+                    </div>
+                    <hr/>
+                    <div>
+                        <form className="row" onSubmit={SaveTires}>
+                            <div className='col-md-3'>
+                                {/* <div>
+                                    <label>Rengaspaikka</label>
+                                    <input type="text" className="form-control" placeholder='1-3-55' disabled value={slot} onChange={e => setSlot(e.target.value)}/>
+                                </div> */}
+                                <div>
+                                    <label>Rengasmerkki</label>
+                                    <input type="text" className="form-control" placeholder='Continental' value={brand} onChange={e => setBrand(e.target.value)}/>
+                                </div>
+                                <div>
+                                    <label>Malli</label>
+                                    <input type="text" className="form-control" placeholder='' value={model} onChange={e => setModel(e.target.value)}/>
+                                </div>
+                                <div className='mt-1'>
+                                    <label>Vannetyyppi</label>
+                                    <input type="text" className="form-control" placeholder='Alumiini/Teräs' value={rims} onChange={e => setRims(e.target.value)}/>
+                                </div>
+                                <div className='mt-1'>
+                                    <label>Rengastyyppi</label>
+                                    <input type="text" className="form-control" placeholder='Kesä/Nasta/Kitka' value={type} onChange={e => setType(e.target.value)}/>
+                                </div>
+                                <div className='mt-1'>
+                                    <label>Pölykapselit</label>
+                                    <input type="text" className="form-control" placeholder='Kyllä/Ei' value={hubcups} onChange={e => setHubcups(e.target.value)}/>
+                                </div>
+                            </div>
+
+                            <div className='col-md-2'>
+                                {/* <div>
+                                    <label>Säilytyskausi</label>
+                                    <input type="text" className="form-control" placeholder='Kesä/Talvi' value={} onChange={e => set(e.target.value)}/>
+                                </div> */}
+                                <div className='mt-1'>
+                                    <label>Koko</label>
+                                    <input type="text" className="form-control" placeholder='Esim, 16' value={tiresize} onChange={e => setTiresize(e.target.value)}/>
+                                </div>
+                                {/* <div className='mt-1'>
+                                    <label>Korkeus</label>
+                                    <input type="text" className="form-control" placeholder='Esim. 55' value={} onChange={e => set(e.target.value)}/>
+                                </div>
+                                <div className='mt-1'>
+                                    <label>Leveys</label>
+                                    <input type="text" className="form-control" placeholder='Esim. 205' value={} onChange={e => set(e.target.value)}/>
+                                </div> */}
+                                <div className='mt-1'>
+                                    <label>Pultit</label>
+                                    <input type="text" className="form-control" placeholder='Määrä/rengas?' value={tirebolt} onChange={e => setTirebolt(e.target.value)}/>
+                                </div>
+
+                            </div>
+                            <div className='col-md-1'>
+                                <div className='mt-1'>
+                                    <label>EV</label>
+                                    <input type="text" className="form-control" placeholder='3' value={grooveFL} onChange={e => setGrooveFL(e.target.value)}/>
+                                </div>
+                                <div className='mt-5'>
+                                    <label>TV</label>
+                                    <input type="text" className="form-control" placeholder='3' value={grooveBL} onChange={e => setGrooveBL(e.target.value)}/>
+                                </div>
+                            </div>
+
+                            <div className='col-md-2 text-center'>
+                                <label className='mb-3'>Urasyvyydet</label>
+                                <div className='d-flex justify-content-center'>
+                                <   img className='car' src={Car} alt='car' />
+                                </div>
+                            </div>
+
+                            <div className='col-md-1'>
+                                <div className='mt-1'>
+                                    <label>OE</label>
+                                    <input type="text" className="form-control" placeholder='3' value={grooveFR} onChange={e => setGrooveFR(e.target.value)}/>
+                                </div>
+                                <div className='mt-5'>
+                                    <label>OT</label>
+                                    <input type="text" className="form-control" placeholder='3' value={grooveBR} onChange={e => setGrooveBR(e.target.value)}/>
+                                </div>
+                            </div>
+
+                            <div className='col-md-3'>
+                                <label>Havaittu poikkeama</label>
+                                <textarea className='form-control' rows="10" placeholder='Lisätietoja' value={text} onChange={e => setText(e.target.value)}/>
+                                <div className='d-flex justify-content-end mt-3'>
+                                    <button className='btn btn-primary' style={buttonStyle}>Tallenna</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div>
-                    <input placeholder="Pölykapselit" value={hubcups} onChange={e => setHubcups(e.target.value)}/>
-                </div>
-                <div>
-                    <input placeholder="VE" value={grooveFL} onChange={e => setGrooveFL(e.target.value)}/>
-                </div>
-                <div>
-                    <input placeholder="OE" value={grooveFR} onChange={e => setGrooveFR(e.target.value)}/>
-                </div>
-                <div>
-                    <input placeholder="VT" value={grooveBL} onChange={e => setGrooveBL(e.target.value)}/>
-                </div>
-                <div>
-                    <input placeholder="VT" value={grooveBR} onChange={e => setGrooveBR(e.target.value)}/>
-                </div>
-                <div>
-                    <input placeholder="Rengaskoko" value={tiresize} onChange={e => setTiresize(e.target.value)}/>
-                </div>
-                <div>
-                    <input placeholder="Renkaiden leveys" value={tirebolt} onChange={e => setTirebolt(e.target.value)}/>
-                </div>
-                <div>
-                    <input placeholder="" value={rims} onChange={e => setRims(e.target.value)}/>
-                </div>
-                <div>
-                    <input placeholder="Lisätietoja" value={info} onChange={e => setInfo(e.target.value)}/>
-                </div>
-                <div>
-                    <button className='btn btn-primary' style={buttonStyle}>Tallenna</button>
-                </div>
-            </form>
-        </div>
-    )
+            </div>
+        </>;
+
+  return (
+      <>
+      <div>
+        <button className="btn"  style={buttonStyle} onClick={()=>{
+          setOpenNewTiresModel(true);
+        }}>Lisää renkaat</button>
+        { openNewTiresModel && (content)}
+      </div>
+      </>
+    
+  );
 }
-
-
-
-
