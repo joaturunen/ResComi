@@ -16,7 +16,6 @@ import Print from './printable/Print';
 import ShelfSlots from './pages/shelfSlots';
 import Orders from './pages/completedOrders';
 import Tires from './pages/tires';
-import { GiConsoleController } from 'react-icons/gi';
 
 
 function App() {
@@ -40,7 +39,7 @@ function App() {
 
   // lisää palvelu ostoskoriin
   function addToCart(service) {
-    console.log(service.service)
+
     if(cart.length === 0){
       const newCart = [...cart, service];
       setCart(newCart);
@@ -59,17 +58,11 @@ function App() {
         localStorage.setItem('cart',JSON.stringify(newCart));
       }
 
+    } else if(!cart.includes(service)){
+      const newCart = [...cart, service];
+      setCart(newCart);
+      localStorage.setItem('cart',JSON.stringify(newCart));
     }
-    // } else if(){
-
-    // } else{
-
-    // }
-
-      // const newCart = [...cart, service];
-      // setCart([newCart]); // tässä pitäisi olla vain yksi 
-      // localStorage.setItem('cart',JSON.stringify(newCart));
-    
   }
 
   // poista palvelu ostoskorista

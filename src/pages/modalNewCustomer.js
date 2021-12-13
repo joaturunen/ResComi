@@ -61,7 +61,7 @@ export default function ModalNewCustomer({url, setCustomerData}) {
               setCustomerData([]);
               setCustomerData([res]);
               setShowSuccess(true);
-              console.log("Nyt asiakas tallenutui.");
+              console.log("Nyt asiakas tallentui.");
           } else {
               alert(res.error);
               setShowFailed(true);
