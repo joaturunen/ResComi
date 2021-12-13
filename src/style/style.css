@@ -339,3 +339,9 @@ li {
 .radioStyle{
   margin: 0.5rem
 }
+
+@media print {
+  #printButton {
+    display: none;
+  }
+}

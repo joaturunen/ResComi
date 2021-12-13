@@ -45,10 +45,12 @@ export default function Home() {
 
 
         <div className='row'>
-          <Link to="../printable/Print" className='col-3 button'>
+          {
+          /*<Link to="../printable/Print" className='col-3 button'>
             <GiTireIron size={40} />
             <p>Printtisivutesti</p>
-          </Link>
+           </Link>*/
+           }
 
           <Link to="./onecustomer" className='col-3 button'>
           <MdPersonAdd size={40} /> 
