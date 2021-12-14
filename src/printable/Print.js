@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import '../style/style.css';
 import logo3 from '../images/logo3.svg';
 import { buttonStyle } from '../style/colors';
-import { MdAddToDrive } from 'react-icons/md';
 
 export default function Print({ url, orders_id, customerCars, setCustomerCars, customerTires, setCustomerTires}) {
 

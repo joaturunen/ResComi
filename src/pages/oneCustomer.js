@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { MdEmojiObjects } from 'react-icons/md';
+import React from 'react';
 import Tab from '../components/tab/Tab';
 import CustomerInfo from './customerInfo';
 import Car from './car';
 import _ from 'lodash';
-import Tires from './tires';
 import { buttonStyle } from '../style/colors';
 
 
@@ -13,9 +11,9 @@ import { buttonStyle } from '../style/colors';
 export default function Customer({url, customer_id, customerCars, setCustomerCars, car_id, customerTires, setCustomerTires}) {
 
   
-  const MAX_GROOVE = 10.1;
+ /*  const MAX_GROOVE = 10.1;
   const MAX_TIRE_SIZE = 26;
-  const MAX_BOLT_SIZE = 21;
+  const MAX_BOLT_SIZE = 21; */
 
   
 
@@ -44,16 +42,7 @@ export default function Customer({url, customer_id, customerCars, setCustomerCar
           customer_id={customer_id}/>
       </div>,
     },
-    // {
-    //   title: "Renkaat",
-    //   content: 
-    //   <div className="row">
-    //     <Tires customerTires={customerTires} 
-    //       setCustomerTires={setCustomerTires} 
-    //       car_id={car_id} 
-    //       />
-    //   </div>,
-    // },
+ 
     {
       title: "Raportit",
       content: 

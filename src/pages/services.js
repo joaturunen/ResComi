@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react';
-import { boxColorLayot, buttonStyle} from '../style/colors';
+import { boxColorLayot} from '../style/colors';
 
 export default function Services({ url, addToCart }) {
     const [services, setServices] = useState([]);

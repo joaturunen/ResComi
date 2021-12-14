@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { buttonStyle } from '../style/colors';
-import Car from './car';
-import Tires from './tires';
 
 
 // tämä avautuu hakutuloksesta, ei näy navissa
@@ -109,12 +107,7 @@ export default function CustomerInfo({ url, customer_id, customerCars, setCustom
                 
 
             </div>
-            {/* <div>
-                <Car url={url} customerCars={customerCars} setCustomerCars={setCustomerCars} customer_id={customer_id}/>
-            </div>
-            <div>
-                <Tires customerTires={customerTires} setCustomerTires={setCustomerTires} car_id={car_id} />
-            </div> */}
+            
         </>
     );
 }

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import NewTires from "./newTires";
-import Warehouse from "./warehouse";
 import Car from '../images/3121893.png';
 import { buttonStyle } from "../style/colors";
-import { FaTrash, FaEdit } from 'react-icons/fa';
+import { FaTrash} from 'react-icons/fa';
 import UpdateTires from "./updateTires";
 
 export default function Tires({car_id, car_register}) {

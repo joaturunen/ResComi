@@ -11,8 +11,8 @@ export default function Warehouse({ url, setCurrentShelfID}) {
   const [warehouseTaken, setWarehouseTaken] = useState(0);
   const [warehouseFree, setWarehouseFree] = useState(0);
   const [degree, setDegree] = useState(0);
-  const [colorTaken, setColorTaken] = useState(pieChartTaken);
-  const [colorFree, setColorFree] = useState(pieChartFree);
+  const [colorTaken/*, setColorTaken */] = useState(pieChartTaken);
+  const [colorFree/* , setColorFree */] = useState(pieChartFree);
   const [shelfs, setShelfs] = useState([]);
   const [showShelfSite, setShowShelfSite] = useState(false);
   const [isLoading, setIsloading] = useState(true);

@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchCar from './searchCar';
 import SearchCustomer from './searchCustomer';
-import { boxColorLayot, boxShadowStyle, buttonStyle } from '../style/colors';
+import { boxColorLayot } from '../style/colors';
 
 export default function SearchPage({url, setCustomer_id, customer_id, setOrders_id, orders_id}) {
     return (

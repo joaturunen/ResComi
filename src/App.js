@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import react, {useState, useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import {BrowserRouter as Router, Routes, Route, useLocation} from 'react-router-dom';
 import SideMenu from "./components/SideMenu";
 import Header from './components/header';
@@ -19,13 +19,13 @@ import Tires from './pages/tires';
 
 
 function App() {
-  const [user, setUser] = useState('');
-  const [employee_id, setEmployee_id] = useState('');
+  //const [user, setUser] = useState('');
+  const [employee_id/* , setEmployee_id */] = useState('');
   const [customer_id, setCustomer_id] = useState('');
-  const [car_id, setCar_id] = useState('');
+  const [car_id/* , setCar_id */] = useState('');
   const [cart, setCart] = useState([]);
   const [inactive, setInactive] = useState(false);
-  const [headerInactive, setHeaderInactive] = useState(false);
+  const [/* headerInactive, */ setHeaderInactive] = useState(false);
   const [customerCars, setCustomerCars] = useState([]);
   const [customerTires, setCustomerTires] = useState([]);
   const [currentShelfID, setCurrentShelfID] = useState(0);

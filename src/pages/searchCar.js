@@ -1,12 +1,11 @@
-import React, { useState /*, useEffect*/ } from 'react';
+import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import { boxShadowStyle, buttonStyle, boxColorLayot } from '../style/colors';
-import Car from './car';
+import { buttonStyle, boxColorLayot } from '../style/colors';
 
 export default function SearchCar({ url, setCustomer_id }) {
   const [searchRegister, setSearchRegister] = useState('');
   const [result, setResult] = useState([]);
-  const [showCarSite, setShowCarSite] = useState(false);
+  //const [showCarSite, setShowCarSite] = useState(false);
   const [showCustomerSite, setShowCustomerSite] = useState(false);
 
   function findRegister(e) {
@@ -39,17 +38,7 @@ export default function SearchCar({ url, setCustomer_id }) {
       );
   }
 
-  // function openCarSite(car) {
-  //     setCar(car);
-  //     setShowCarSite(true);
-  // }
-
-  // if (showCarSite === true) {
-  //     return (
-  //         <Navigate to="/car" />
-
-  //     );
-  // }
+ 
 
   function openCustomerSite(car) {
     setCustomer_id(car.customer_id);

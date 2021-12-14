@@ -1,8 +1,7 @@
-import {Link} from 'react-router-dom';
 import React, {useState, useEffect} from 'react';
 import MenuItem from "./MenuItem";
 
-import {MdPersonAdd, MdPerson, MdArrowForward, MdReorder } from 'react-icons/md';
+import {MdPersonAdd } from 'react-icons/md';
 import {FaMinus, FaPlus, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react-icons/fa';
 
 /**
@@ -21,25 +20,13 @@ import {FaMinus, FaPlus, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react
      
   },
   {
-    name: 'Etsi',
+    name: 'Haku',
     exact: true,
     to: '/searchPage',
     icon: <FaSearch />,
     
   },
     
-    // { name: "Palvelut",
-    // exact: true, 
-    // to: `/services`,
-    //  icon: <MdPersonAdd /> },
-     /**
-         * Tarvittaessa submenua varten
-         */
-
-     /*  subMenus: [
-        { name: "", to: "//" },
-        { name: "", to: "//" },
-      ], */
   {
     name: 'Uusi tilaus',
     exact: true,
@@ -71,17 +58,7 @@ import {FaMinus, FaPlus, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react
     to: '/warehouse',
     icon: <FaWarehouse />,
   
-  },
-  
-  {
-    name: 'Kirjaudu ulos',
-    exact: true,
-    to: '/empty',
-    
-    icon: <FaQuestion className='nav-icon' />,
-      
-  },
-    
+  }
    
   ];
   
@@ -150,7 +127,6 @@ import {FaMinus, FaPlus, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react
                 />
               ))} 
             
-              {/* <div class="fixed-bottom">&copy; ResComi</div> */}
             </ul>
           </div>
         </div>

@@ -1,12 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Services from './services';
-import NewCustomer from './newCustomer';
-import NewCar from './newCar';
 import SearchCustomer from './searchCustomer';
 import { boxColorLayot } from '../style/colors';
 import { FaTrash, FaTimes } from 'react-icons/fa';
 import { buttonStyle } from '../style/colors';
-import Customer from './oneCustomer';
 import ModalNewCustomer from './modalNewCustomer';
 import ComponentCustomer from './componentCustomer';
 import ComponentOrderCar from './componentOrderCar';
@@ -31,9 +28,9 @@ export default function Order({
     setCustomerData,
     customerData }) {
 
-    const [finished, setFinished] = useState(false);
-    const [cus_id, setCus_id] = useState('');
-    const [employ_id, setEmploy_id] = useState(3);
+    //const [finished, setFinished] = useState(false);
+    //const [cus_id, setCus_id] = useState('');
+    const [employ_id] = useState(3);
 
     function SaveOrder(e) {
         e.preventDefault();
@@ -91,8 +88,6 @@ export default function Order({
       </table>
     </>
 
-
-    // if (finished === false) {
         return (
             <>
             <h3>Uusi tilaus</h3>
