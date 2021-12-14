@@ -44,16 +44,16 @@ export default function Customer({url, customer_id, customerCars, setCustomerCar
           customer_id={customer_id}/>
       </div>,
     },
-    {
-      title: "Renkaat",
-      content: 
-      <div className="row">
-        <Tires customerTires={customerTires} 
-          setCustomerTires={setCustomerTires} 
-          car_id={car_id} 
-          />
-      </div>,
-    },
+    // {
+    //   title: "Renkaat",
+    //   content: 
+    //   <div className="row">
+    //     <Tires customerTires={customerTires} 
+    //       setCustomerTires={setCustomerTires} 
+    //       car_id={car_id} 
+    //       />
+    //   </div>,
+    // },
     {
       title: "Raportit",
       content: 
@@ -88,7 +88,7 @@ export default function Customer({url, customer_id, customerCars, setCustomerCar
 
   return (
     <div>
-      <div className="row">       
+      <div >       
         <Tab active={0}>
           {tabContent.map((tab, index) => (
             <Tab.TabPane key={'Tab-${index}'} tab={tab.title}>{tab.content}</Tab.TabPane>

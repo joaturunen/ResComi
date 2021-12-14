@@ -17,7 +17,6 @@ export default function CustomerInfo({ url, customer_id, customerCars, setCustom
     const [zipcode, setZipcode] = useState("");
     const [city, setCity] = useState("");
     const [customersaved, setCustomersaved] = useState("");
-    const [cus_id, setCus_id] = useState(customer_id);
     
 
     useEffect(() => {
@@ -30,7 +29,7 @@ export default function CustomerInfo({ url, customer_id, customerCars, setCustom
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                cus_id: cus_id
+                cus_id: customer_id
             })
         })
             .then(res => {
@@ -50,7 +49,7 @@ export default function CustomerInfo({ url, customer_id, customerCars, setCustom
                         setCustomersaved(res.customer.customersaved);
 
                         setCustomerCars(res.cars);
-                        setCustomerTires(res.tires);
+                        //setCustomerTires(res.tires);
                     } else {
                         alert(res.error);
                     }
