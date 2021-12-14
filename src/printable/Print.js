@@ -112,7 +112,7 @@ export default function Print({ url, orders_id, customerCars, setCustomerCars, c
   return (
     <>
       <form className="ml-5">
-        <div className="printable">
+        <div>
           <div className='header' >
             <div className='row'>
               <img className='img logo' src={logo3} alt="Printtilogo" />
