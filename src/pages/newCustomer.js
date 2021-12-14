@@ -57,23 +57,23 @@ export default function NewCustomer({url}) {
               <div className='col-md-3'>
               <div>
               <label>Etunimi</label>
-                  <input type="text" className="form-control" value={firstname} onChange={e => setFirstname(e.target.value)}/>
+                  <input type="text" maxLength={25} className="form-control" value={firstname} onChange={e => setFirstname(e.target.value)}/>
               </div>
               <div>
               <label>Sukunimi</label>
-                  <input type="text" className="form-control"value={lastname} onChange={e => setLastname(e.target.value)}/>
+                  <input type="text" maxLength={25} className="form-control"value={lastname} onChange={e => setLastname(e.target.value)}/>
               </div>
               <div>
               <label>Puhelinumero</label>
-                  <input type="text" className="form-control" value={phone} onChange={e => setPhone(e.target.value)}/>
+                  <input type="text" maxLength={25} className="form-control" value={phone} onChange={e => setPhone(e.target.value)}/>
               </div>
               <div>
               <label>Sähköposti</label>
-                  <input type="text" className="form-control" value={email} onChange={e => setEmail(e.target.value)}/>
+                  <input type="text" maxLength={50} className="form-control" value={email} onChange={e => setEmail(e.target.value)}/>
               </div>
               <div>
               <label>Lähiosoite</label>
-                  <input type="text" className="form-control" value={address} onChange={e => setAddress(e.target.value)}/>
+                  <input type="text" maxLength={50} className="form-control" value={address} onChange={e => setAddress(e.target.value)}/>
               </div>
               </div>
               
@@ -81,11 +81,11 @@ export default function NewCustomer({url}) {
               <div className='col-md-3'>
                 <div>
                 <label>Postinumero</label>
-                    <input type="text" className="form-control" value={zipcode} onChange={e => setZipcode(e.target.value)}/>
+                    <input type="text" maxLength={5} className="form-control" value={zipcode} onChange={e => setZipcode(e.target.value)}/>
                 </div>
                 <div>
                 <label>Postitoimipaikka</label>
-                    <input type="text" className="form-control" value={city} onChange={e => setCity(e.target.value)}/>
+                    <input type="text" maxLength={25} className="form-control" value={city} onChange={e => setCity(e.target.value)}/>
                 </div>
               </div>
 
