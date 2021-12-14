@@ -6,7 +6,7 @@ import Car from '../images/3121893.png';
 
 // uusien renkaiden tallennus: voiko valita slotin vai tuleeko automaattisesti seuraava vapaa?
 
-export default function NewTires({setCustomerTires, car_id}) {
+export default function NewTires({setCustomerTires, car_id, car_register}) {
     const [brand, setBrand] = useState('');
     const [model, setModel] = useState('');
     const [type, setType] = useState('');
@@ -146,10 +146,10 @@ export default function NewTires({setCustomerTires, car_id}) {
                             </div>
 
                             <div className='col-md-3'>
-                                {/* <div className='mt-1'>
+                                <div className='mt-1'>
                                     <label>Auton rekisteri</label>
                                     <input type="text" className="form-control" value={car_register} />
-                                </div> */}
+                                </div>
                                 <div className='mt-1'>
                                     <label>Vannetyyppi</label>
                                     <input type="text" className="form-control" placeholder='Alumiini/Teräs' value={rims} onChange={e => setRims(e.target.value)}/>

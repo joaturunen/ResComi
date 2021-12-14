@@ -6,7 +6,7 @@ import { buttonStyle } from "../style/colors";
 import { FaTrash, FaEdit } from 'react-icons/fa';
 import UpdateTires from "./updateTires";
 
-export default function Tires({car_id}) {
+export default function Tires({car_id, car_register}) {
     const [carTires, setCarTires] = useState([]);
 
     useEffect(() => {
@@ -174,7 +174,7 @@ export default function Tires({car_id}) {
                 </div>
             ))}
 
-            <NewTires setCustomerTires={setCarTires} car_id={car_id} />
+            <NewTires setCustomerTires={setCarTires} car_id={car_id} car_register={car_register} />
         
         </div>
     )

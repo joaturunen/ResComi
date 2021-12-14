@@ -8,6 +8,7 @@ import { FaTrash, FaEdit } from 'react-icons/fa';
 
 export default function Car({ customerCars, setCustomerCars, customer_id, customerTires, setCustomerTires }) {
     const [car_id, setCar_id] = useState('');
+    const [car_register, setCar_register] = useState('');
     const [showTires, setShowTires] = useState(false);
 
     function deleteCar(id) {
@@ -45,11 +46,11 @@ export default function Car({ customerCars, setCustomerCars, customer_id, custom
 
     }
 
-    function openTires(id) {
-        console.log(id);
+    function openTires(car) {
+        setCar_id(car.id);
+        setCar_register(car.register);
         console.log(car_id);
-        setCar_id(id);
-        console.log(car_id);
+        console.log(car_register);
         setShowTires(true);
         console.log(showTires);
     }
@@ -68,7 +69,7 @@ export default function Car({ customerCars, setCustomerCars, customer_id, custom
                                 <td>
                                     {/* <button className="btn" style={buttonStyle} onClick={() => editCar(car.id)}><FaEdit/></button> */}
                                     <button className="btn" style={buttonStyle} onClick={() => deleteCar(car.id)}><FaTrash/></button>
-                                    <button className="btn" style={buttonStyle} onClick={() => openTires(car.id)}>Renkaat</button>
+                                    <button className="btn" style={buttonStyle} onClick={() => openTires(car)}>Renkaat</button>
                                 </td>
                             </tr>
                         ))}
@@ -76,7 +77,7 @@ export default function Car({ customerCars, setCustomerCars, customer_id, custom
                 </table>
             </div>
             <div className="col-6">
-                {(showTires) ? (<Tires car_id={car_id}/>) : (<div></div>)}
+                {(showTires) ? (<Tires car_id={car_id} car_register={car_register}/>) : (<div></div>)}
                     
             </div>
             <div>
