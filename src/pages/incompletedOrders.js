@@ -25,7 +25,7 @@ export default function Orders({openReport}) {
 
     return (
         <>
-          <h3>Valmiit tilaukset</h3>
+          <h3>Työjono</h3>
           <table className="table px-3 table-striped">
             <tbody>
               {orders.map(order => (

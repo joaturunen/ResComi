@@ -135,29 +135,8 @@ li {
   margin-top: 30px;
 }
 
-.side-menu .search-controller .search-btn {
-  width: 40px;
-  height: 35px;
-  position: absolute;
-  background: transparent;
-  border: 0;
-  font-size: 20px;
-  color: #666;
-}
 
-.side-menu .search-controller input[type="text"] {
-  border: 0;
-  outline: none;
-  height: 35px;
-  background: #f4f7fc;
-  border-radius: 5px;
-  display: block;
-  margin: 20px 0;
-  width: 100%;
-  box-sizing: border-box;
-  padding-left: 40px;
-  color: #666;
-}
+
 
 .main-menu {
   margin-top: 30px;
@@ -202,34 +181,7 @@ li {
   overflow: hidden;
 }
 
-.side-menu .main-menu .sub-menu {
-  color: #c23a00;
-  margin-left: 20px;
-  border-left: 1px solid #666;
-  box-sizing: border-box;
-  padding-left: 30px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-in;
-}
 
-.side-menu .main-menu .sub-menu a {
-  display: block;
-  margin: 5px 0;
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  color: #333;
-  box-sizing: border-box;
-  padding: 5px;
-}
-
-.side-menu .main-menu .sub-menu a.active {
-  background: #222;
-  display: block;
-  border-radius: 5px;
-  color: #f4f7fc;
-}
 
 .side-menu-footer {
   /* padding: 20px; */
