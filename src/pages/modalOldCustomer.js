@@ -2,6 +2,7 @@ import React,{useState, useEffect} from 'react';
 import {buttonStyle, boxColorLayot, Choice, ChoiceRemove } from '../style/colors';
 import '../style/modal.css';
 import {URL} from '../back/Config';
+import Loading from '../components/loading';
 
 
 
@@ -29,6 +30,8 @@ export default function ModalOldCustomer({setCustomerData, showModal = false, se
   const [model, setModel] = useState('');
   const [showSuccess, setShowSuccess] = useState(false);
   const [showFailed, setShowFailed] = useState(false);
+
+  const [loadingDone, setLoadingDone] = useState(false);
 
   useEffect(() => {
     setShowFailed(false);
@@ -68,6 +71,7 @@ export default function ModalOldCustomer({setCustomerData, showModal = false, se
 
               setCars(res.cars);
               setTires(res.tires);
+              setLoadingDone(true);
             } else {
             alert(res.error);
             }
@@ -76,6 +80,7 @@ export default function ModalOldCustomer({setCustomerData, showModal = false, se
         }
     );};
     if(showModal){
+      setLoadingDone(false);
       getData();
     }
 }, [showModal]);
@@ -104,7 +109,6 @@ const alertFailed =
 const addCar =
 <div className='col-md-3'>
 <div>
-
   <label>Auton rekisterinumero</label>
       <input className="form-control" value={register} onChange={e => setRegister(e.target.value)}/>
   </div>
@@ -118,6 +122,40 @@ const addCar =
   </div>
   </div>
 ;
+
+
+const tiresCar =
+  <table class="table table-striped table-hover">
+    <tbody>
+      {tires.map((tiresCar) => {
+                if(car === tiresCar.car_id){
+                  if(car.order_season !== null){
+                    return (
+                      <tr key={tiresCar.id} onClick={() => {setTiresFromWarehouse(tiresCar.id); setSlot(tiresCar.slot_id)}} style={Choice}>
+                        <td>{tiresCar.id}.</td>
+                        <td>{tiresCar.brand}</td>
+                        <td>{tiresCar.type}</td>
+                        <td>{tiresCar.order_season}</td>
+                      </tr>
+                    )
+                  } else if(car !== 0){
+                    return (
+                      <tr key={tiresCar.id} onClick={() => setTiresToWarehouse(tiresCar.id)}>
+                        <td>{tiresCar.id}.</td>
+                        <td>{tiresCar.brand}</td>
+                        <td>{tiresCar.type}</td>
+                        <td></td>
+                      </tr>
+                    )
+                  } else{
+                    return(
+                      <></>
+                    )
+                  }
+                }
+      })}
+    </tbody>
+  </table>;
 
 
   const content = <>
@@ -200,35 +238,7 @@ const addCar =
             </div>
           <div className="col" >
             <h6>Renkaat</h6>
-            <table class="table table-striped table-hover">
-              <tbody>
-              {tires.map((tiresCar) => {
-                if(car === tiresCar.car_id){
-                  if(car.order_season !== null){
-                    return (
-                      <tr key={tiresCar.id} onClick={() => {setTiresFromWarehouse(tiresCar.id); setSlot(tiresCar.slot_id)}} style={Choice}>
-                        <td>{tiresCar.id}.</td>
-                        <td>{tiresCar.brand}</td>
-                        <td>{tiresCar.type}</td>
-                        <td>{tiresCar.order_season}</td>
-                      </tr>
-                    )
-                  } else{
-                    return (
-                      <tr key={tiresCar.id} onClick={() => setTiresToWarehouse(tiresCar.id)}>
-                        <td>{tiresCar.id}.</td>
-                        <td>{tiresCar.brand}</td>
-                        <td>{tiresCar.type}</td>
-                        <td></td>
-                      </tr>
-                    )
-                  }
-                }
-                })}
-              </tbody>
-              </table>
-
-              
+            {(car !== 0) ? (tiresCar) : (<p>Valitse auto</p>)}
           </div>
           <p>Poista renkaat <span style={ChoiceRemove}>NRO  {tiresFromWarehouse} </span> varastosta Paikkanumero: {slot}</p>
           <p>Lisää renkaat <span style={ChoiceRemove}> NRO {tiresToWarehouse} </span> varastoon paikalle </p>
@@ -246,13 +256,15 @@ const addCar =
   </div>
   </>;
 
+  const loadingShow = 
+  <>
+  {(loadingDone) ? (content) : (<Loading/>)}
+  </>
+
   return (
       <>
       <div>
-        {/* <button className="btn"  style={buttonStyle} onClick={()=>{
-          setOpenModel(true);
-        }}>Valittu asiakas</button> */}
-        { showModal && (content)}
+        { showModal && (loadingShow)}
       </div>
       </>
     
