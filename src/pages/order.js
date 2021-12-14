@@ -98,7 +98,7 @@ export default function Order({
             <h3>Uusi tilaus</h3>
             <div class="row">
               <div class="col-3">
-              <div className="padding" style={boxColorLayot}>
+                <div className="padding" style={boxColorLayot}>
                   <h4>Lisää asiakas</h4>
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                       <ModalNewCustomer setCustomer_id={setCustomer_id} setCustomerData={setCustomerData}/>
@@ -110,33 +110,32 @@ export default function Order({
                 </div>
               </div>
               <div class="col-4">
-              <Services url={url} addToCart={addToCart} />
+                <Services url={url} addToCart={addToCart} />
               </div>
 
               <div class="col">
-              <div className="padding" style={boxColorLayot}>
-              <h4>Asiakas</h4>
-              <ComponentCustomer customerData={customerData}/>
-              <ComponentOrderCar customerData={customerData}/>
-                <h4>Tilaus</h4>
-                <div>
-                  { (cart[0] == null) ? (
-                  <div class="alert alert-warning" role="alert">
-                    Tilauksia ei ole valittu
-                  </div>) : (<p>{orderShow}</p>)}
-                </div>
-                 <form onSubmit={SaveOrder}>
-
-                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button class='btn' style={buttonStyle}>Tallenna tilaus</button>
+                <div className="padding" style={boxColorLayot}>
+                  <h4>Asiakas</h4>
+                  <ComponentCustomer customerData={customerData}/>
+                  <ComponentOrderCar customerData={customerData}/>
+                  <h4>Tilaus</h4>
+                  <div>
+                    { (cart[0] == null) ? (
+                    <div class="alert alert-warning" role="alert">
+                      Tilauksia ei ole valittu
+                    </div>) : (<p>{orderShow}</p>)}
                   </div>
+                  <form onSubmit={SaveOrder}>
 
-                </form>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                      <button class='btn' style={buttonStyle}>Tallenna tilaus</button>
+                    </div>
+
+                  </form>
                 </div>
               </div>
             </div>
-            
-            </>
+          </>
         )
 
 }

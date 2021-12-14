@@ -7,7 +7,6 @@ export default function NewCar({setCustomerCars, customer_id}) {
   const [register, setRegister] = useState('');
   const [brand, setBrand] = useState('');
   const [model, setModel] = useState('');
-  const [cus_id, setCus_id] = useState(customer_id);
   const [openNewCarModel, setOpenNewCarModel] = useState('');
   const [showSuccess, setShowSuccess] = useState(false);
   const [showFailed, setShowFailed] = useState(false);
@@ -30,7 +29,7 @@ export default function NewCar({setCustomerCars, customer_id}) {
                 register: register,
                 brand: brand,
                 model: model,
-                customer_id: cus_id
+                customer_id: customer_id
             })
         })
         .then(res => {

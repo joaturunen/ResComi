@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { boxColorLayot, buttonStyle } from '../style/colors';
+import { Link, Navigate } from 'react-router-dom';
 
 
 export default function Orders({url, openReport}) {
@@ -33,7 +34,7 @@ export default function Orders({url, openReport}) {
                 <tr key={order.id} >
                   <td>{order.orderdate}</td>
                   <td>{order.customer_firstname} {order.customer_lastname}</td>
-                  <td></td><button className='btn' style={buttonStyle} onClick={() => openReport(order)} >Raportti</button>
+                  <td></td><Link to="/printable/Print" target="_blank" className='btn' style={buttonStyle} onClick={() => openReport(order)} >Raportti</Link>
                 </tr>
               ))}
             </tbody>

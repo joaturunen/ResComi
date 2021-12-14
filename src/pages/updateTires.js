@@ -2,56 +2,58 @@ import React, {useState, useEffect} from 'react';
 import {buttonStyle} from '../style/colors';
 import '../style/modal.css';
 import Car from '../images/3121893.png';
+import {FaEdit } from 'react-icons/fa';
 
 
 // uusien renkaiden tallennus: voiko valita slotin vai tuleeko automaattisesti seuraava vapaa?
 
-export default function NewTires({setCustomerTires, car_id}) {
-    const [brand, setBrand] = useState('');
-    const [model, setModel] = useState('');
-    const [type, setType] = useState('');
-    const [hubcups, setHubcups] = useState('');
-    const [grooveFL, setGrooveFL] = useState('');
-    const [grooveFR, setGrooveFR] = useState('');
-    const [grooveBL, setGrooveBL] = useState('');
-    const [grooveBR, setGrooveBR] = useState('');
-    const [tiresize, setTiresize] = useState('');
-    const [tirebolt, setTirebolt] = useState('');
-    const [text, setText] = useState('');
-    const [rims, setRims] = useState('');
+export default function UpdateTires({tires_id, brand, model, type, hubcups, grooveFL, grooveFR, grooveBL, grooveBR, tiresize, tirebolt, text, rims}) {
+    const [newBrand, setNewBrand] = useState(brand);
+    const [newModel, setNewModel] = useState(model);
+    const [newType, setNewType] = useState(type);
+    const [newHubcups, setNewHubcups] = useState(hubcups);
+    const [newGrooveFL, setNewGrooveFL] = useState(grooveFL);
+    const [newGrooveFR, setNewGrooveFR] = useState(grooveFR);
+    const [newGrooveBL, setNewGrooveBL] = useState(grooveBL);
+    const [newGrooveBR, setNewGrooveBR] = useState(grooveBR);
+    const [newTiresize, setNewTiresize] = useState(tiresize);
+    const [newTirebolt, setNewTirebolt] = useState(tirebolt);
+    const [newText, setNewText] = useState(text);
+    const [newRims, setNewRims] = useState(rims);
     
-    const [openNewTiresModel, setOpenNewTiresModel] = useState('');
+    const [openUpdateTiresModel, setOpenUpdateTiresModel] = useState('');
     const [showSuccess, setShowSuccess] = useState(false);
     const [showFailed, setShowFailed] = useState(false);
 
     useEffect(() => {
         setShowFailed(false);
         setShowSuccess(false);
-    }, [openNewTiresModel]);
+    }, [openUpdateTiresModel]);
 
-    function SaveTires(e) {
+    function UpdateTires(e) {
+        console.log(tires_id);
         e.preventDefault();
         let status = 0;
-        fetch('http://localhost/rengasvarasto-back/API/tires/tires_create.php', {
+        fetch('http://localhost/rengasvarasto-back/API/tires/tires_update.php', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                car_id: car_id,
-                brand: brand,
-                model: model,
-                type: type,
-                //hubcups: hubcups,
-                groovefl: grooveFL,
-                groovefr: grooveFR,
-                groovebl: grooveBL,
-                groovebr: grooveBR,
-                tiresize: tiresize,
-                tirebolt: tirebolt,
-                text: text,
-                rims: rims
+                id: tires_id,
+                brand: newBrand,
+                model: newModel,
+                type: newType,
+                //hubcups: newHubcups,
+                groovefl: newGrooveFL,
+                groovefr: newGrooveFR,
+                groovebl: newGrooveBL,
+                groovebr: newGrooveBR,
+                tiresize: newTiresize,
+                tirebolt: newTirebolt,
+                text: newText,
+                rims: newRims,
                 //employee_id: employee_id
             })
         })
@@ -62,19 +64,6 @@ export default function NewTires({setCustomerTires, car_id}) {
         .then(
             (res) => {
                 if (status === 200) {
-                    setCustomerTires(customerTires => [...customerTires, res]);
-                    setBrand('');
-                    setModel('');
-                    setType('');
-                    //setHubcups('');
-                    setGrooveFL('');
-                    setGrooveFR('');
-                    setGrooveBL('');
-                    setGrooveBR('');
-                    setTiresize('');
-                    setTirebolt('');
-                    setText('');
-                    setRims('');
                     setShowSuccess(true);
                 } else {
                     alert(res.error);
@@ -91,7 +80,7 @@ export default function NewTires({setCustomerTires, car_id}) {
         <>
             <div className="p-2">
                 <div class="alert alert-success" role="alert">
-                    Lisäys onnistui. Voit poistua näkymästä.
+                    Tallennus onnistui. Voit poistua näkymästä.
                 </div>
             </div>
         </>;
@@ -101,7 +90,7 @@ export default function NewTires({setCustomerTires, car_id}) {
         <>
             <div className="p-2">
                 <div class="alert alert-danger" role="alert">
-                    Lisäys epäonnistui.
+                    Tallennus epäonnistui.
                 </div>
             </div>
         </>;
@@ -111,12 +100,12 @@ export default function NewTires({setCustomerTires, car_id}) {
         <>
             <div className="modalBackground">
                 <div className="modalContainer">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" onClick={()=>{setOpenNewTiresModel(false);}}>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" onClick={()=>{setOpenUpdateTiresModel(false);}}>
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <div class="d-flex flex-row">
                         <div className="p-2">
-                        <h3>Lisää renkaat</h3>
+                        <h3>Muokkaa</h3>
                         
                     </div>
                     { showSuccess && (alertSuccees)}
@@ -124,23 +113,23 @@ export default function NewTires({setCustomerTires, car_id}) {
                     </div>
                     <hr/>
                     <div>
-                        <form className="row" onSubmit={SaveTires}>
-                            <div className='col-md-3'>
+                        <form className="row" onSubmit={UpdateTires}>
+                        <div className='col-md-3'>
                                 <div>
                                     <label>Rengasmerkki</label>
-                                    <input type="text" className="form-control" placeholder='Continental' value={brand} onChange={e => setBrand(e.target.value)}/>
+                                    <input type="text" className="form-control" placeholder='Continental' value={newBrand} onChange={e => setNewBrand(e.target.value)}/>
                                 </div>
                                 <div>
                                     <label>Malli</label>
-                                    <input type="text" className="form-control" placeholder='' value={model} onChange={e => setModel(e.target.value)}/>
+                                    <input type="text" className="form-control" placeholder='' value={newModel} onChange={e => setNewModel(e.target.value)}/>
                                 </div>
                                 <div className='mt-1'>
                                     <label>Rengastyyppi</label>
-                                    <input type="text" className="form-control" placeholder='Kesä/Nasta/Kitka' value={type} onChange={e => setType(e.target.value)}/>
+                                    <input type="text" className="form-control" placeholder='Kesä/Nasta/Kitka' value={newType} onChange={e => setNewType(e.target.value)}/>
                                 </div>
                                 <div className='mt-1'>
                                     <label>Koko</label>
-                                    <input type="text" className="form-control" placeholder='Esim, 16' value={tiresize} onChange={e => setTiresize(e.target.value)}/>
+                                    <input type="text" className="form-control" placeholder='Esim, 16' value={newTiresize} onChange={e => setNewTiresize(e.target.value)}/>
                                 </div>
                                 
                             </div>
@@ -152,26 +141,26 @@ export default function NewTires({setCustomerTires, car_id}) {
                                 </div> */}
                                 <div className='mt-1'>
                                     <label>Vannetyyppi</label>
-                                    <input type="text" className="form-control" placeholder='Alumiini/Teräs' value={rims} onChange={e => setRims(e.target.value)}/>
+                                    <input type="text" className="form-control" placeholder='Alumiini/Teräs' value={newRims} onChange={e => setNewRims(e.target.value)}/>
                                 </div>
                                 <div className='mt-1'>
                                     <label>Pölykapselit</label>
-                                    <input type="text" className="form-control" placeholder='Kyllä/Ei' value={hubcups} onChange={e => setHubcups(e.target.value)}/>
+                                    <input type="text" className="form-control" placeholder='Kyllä/Ei' value={newHubcups} onChange={e => setNewHubcups(e.target.value)}/>
                                 </div>
                                 <div className='mt-1'>
                                     <label>Pultit</label>
-                                    <input type="text" className="form-control" placeholder='Määrä/rengas?' value={tirebolt} onChange={e => setTirebolt(e.target.value)}/>
+                                    <input type="text" className="form-control" placeholder='Määrä/rengas?' value={newTirebolt} onChange={e => setNewTirebolt(e.target.value)}/>
                                 </div>
 
                             </div>
                             <div className='col-md-2'>
                                 <div className='mt-1'>
                                     <label>EV</label>
-                                    <input type="text" className="form-control" placeholder='3' value={grooveFL} onChange={e => setGrooveFL(e.target.value)}/>
+                                    <input type="text" className="form-control" placeholder='3' value={newGrooveFL} onChange={e => setNewGrooveFL(e.target.value)}/>
                                 </div>
                                 <div className='mt-5'>
                                     <label>TV</label>
-                                    <input type="text" className="form-control" placeholder='3' value={grooveBL} onChange={e => setGrooveBL(e.target.value)}/>
+                                    <input type="text" className="form-control" placeholder='3' value={newGrooveBL} onChange={e => setNewGrooveBL(e.target.value)}/>
                                 </div>
                             </div>
 
@@ -185,17 +174,17 @@ export default function NewTires({setCustomerTires, car_id}) {
                             <div className='col-md-2'>
                                 <div className='mt-1'>
                                     <label>OE</label>
-                                    <input type="text" className="form-control" placeholder='3' value={grooveFR} onChange={e => setGrooveFR(e.target.value)}/>
+                                    <input type="text" className="form-control" placeholder='3' value={newGrooveFR} onChange={e => setNewGrooveFR(e.target.value)}/>
                                 </div>
                                 <div className='mt-5'>
                                     <label>OT</label>
-                                    <input type="text" className="form-control" placeholder='3' value={grooveBR} onChange={e => setGrooveBR(e.target.value)}/>
+                                    <input type="text" className="form-control" placeholder='3' value={newGrooveBR} onChange={e => setNewGrooveBR(e.target.value)}/>
                                 </div>
                             </div>
 
                             <div className='col-md-10'>
                                 <label>Kuvaus</label>
-                                <textarea className='form-control' rows="2" placeholder='Lisätietoja' value={text} onChange={e => setText(e.target.value)}/>
+                                <textarea className='form-control' rows="2" placeholder='Lisätietoja' value={newText} onChange={e => setNewText(e.target.value)}/>
                             </div>
                             <div className='col-md-2 mt-5'>
                                     <button className='btn btn-primary' style={buttonStyle}>Tallenna</button>
@@ -210,9 +199,9 @@ export default function NewTires({setCustomerTires, car_id}) {
       <>
       <div>
         <button className="btn"  style={buttonStyle} onClick={()=>{
-          setOpenNewTiresModel(true);
-        }}>Lisää renkaat</button>
-        { openNewTiresModel && (content)}
+          setOpenUpdateTiresModel(true);
+        }}><FaEdit/></button>
+        { openUpdateTiresModel && (content)}
       </div>
       </>
     

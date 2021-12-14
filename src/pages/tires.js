@@ -1,14 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NewTires from "./newTires";
 import Warehouse from "./warehouse";
 import Car from '../images/3121893.png';
 import { buttonStyle } from "../style/colors";
-import { FaTrash } from 'react-icons/fa';
+import { FaTrash, FaEdit } from 'react-icons/fa';
+import UpdateTires from "./updateTires";
 
-export default function Tires({ customerTires, setCustomerTires, car_id }) {
+export default function Tires({car_id}) {
+    const [carTires, setCarTires] = useState([]);
+
+    useEffect(() => {
+        console.log(car_id);
+        let status = 0;
+        fetch('http://localhost/rengasvarasto-back/API/tires/tires_read_by_car.php', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                car_id: car_id
+            })
+        })
+        .then(res => {
+            status = parseInt(res.status);
+            return res.json();
+        })
+        .then(
+            (res) => {
+                if (status === 200) {
+                    setCarTires(res.tires);
+                    console.log(carTires);
+                  } else {
+                    alert(res.error);
+                  }
+            }, (error) => {
+                alert(error);
+            }
+        );
+            
+    }, [car_id]);
 
     function deleteTires(id) {
-        console.log(car_id);
         let status = 0;
         fetch('http://localhost/rengasvarasto-back/API/tires/tires_delete.php', {
             method: 'POST',
@@ -27,8 +60,8 @@ export default function Tires({ customerTires, setCustomerTires, car_id }) {
         .then(
             (res) => {
                 if (status === 200) {
-                    const newListWithoutRemoved = customerTires.filter((tires) => tires.id !== id);
-                    setCustomerTires(newListWithoutRemoved);
+                    const newListWithoutRemoved = carTires.filter((tires) => tires.id !== id);
+                    setCarTires(newListWithoutRemoved);
                   } else {
                     alert(res.error);
                   }
@@ -40,38 +73,109 @@ export default function Tires({ customerTires, setCustomerTires, car_id }) {
 
     return (
         <div>
-            <div className='row'>
-                <table  className="table px-3 table-striped">
-                    <tbody>
-                        {customerTires.map(tires => (
-                            <tr key={tires.id} >
-                                <td>{tires.id}</td>
-                                <td>{tires.car_register}</td>
-                                <td>{tires.car_id}</td>
-                                <td>{tires.brand}</td>
-                                <td>{tires.model}</td>
-                                <td>{tires.type}</td>
-                                <td>{tires.hubcups}</td>
-                                <td>{tires.groovefl}</td>
-                                <td>{tires.groovefr}</td>
-                                <td>{tires.groovebl}</td>
-                                <td>{tires.groovebr}</td>
-                                <td>{tires.tiresize}</td>
-                                <td>{tires.tirebolt}</td>
-                                <td>{tires.text}</td>
-                                <td>{tires.rims}</td>
-                                <td>{tires.info}</td>
-                                <td>{tires.slot_id}-{tires.shelf_id}-{tires.warehouse_id}</td>
-                                <td><FaTrash onClick={() => deleteTires(tires.id)}/></td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
-            <div>
-                <NewTires setCustomerTires={setCustomerTires} car_id={car_id} />
-            </div>
+            {carTires.map(tire => (
+                <div key={tire.id} className="row">
+                    
+                    <div className='col-md-3'>
+                        <div>
+                            <label>Rengaspaikka</label>
+                            <p>{tire.slot_id}-{tire.shelf_id}-{tire.warehouse_id}</p>
+                        </div>
+                        <div>
+                            <label>Rengasmerkki</label>
+                            <input type="text" className="form-control" value={tire.brand} />
+                        </div>
+                        <div>
+                            <label>Malli</label>
+                            <input type="text" className="form-control" value={tire.model} />
+                        </div>
+                        <div className='mt-1'>
+                            <label>Rengastyyppi</label>
+                            <input type="text" className="form-control" value={tire.type} />
+                        </div>
+                        <div className='mt-1'>
+                            <label>Koko</label>
+                            <input type="text" className="form-control" value={tire.tiresize} />
+                        </div>
+                        
+                    </div>
 
+                    <div className='col-md-3'>
+                        <div className='mt-1'>
+                            <label>Auton rekisteri</label>
+                            <input type="text" className="form-control" value={tire.car_register} />
+                        </div>
+                        <div className='mt-1'>
+                            <label>Vannetyyppi</label>
+                            <input type="text" className="form-control" value={tire.rims} />
+                        </div>
+                        
+                        <div className='mt-1'>
+                            <label>Pölykapselit</label>
+                            <input type="text" className="form-control" value={tire.hubcups} />
+                        </div>
+                        <div className='mt-1'>
+                            <label>Pultit</label>
+                            <input type="text" className="form-control" value={tire.tirebolt}/>
+                        </div>
+
+                    </div>
+                        <div className='col-md-2'>
+                            <div className='mt-1'>
+                                <label>EV</label>
+                                <input type="text" className="form-control" value={tire.groovefl} />
+                            </div>
+                            <div className='mt-5'>
+                                <label>TV</label>
+                                <input type="text" className="form-control" value={tire.groovebl} />
+                            </div>
+                        </div>
+
+                        <div className='col-md-2 text-center'>
+                            <label className='mb-3'>Urasyvyydet</label>
+                            <div className='d-flex justify-content-center'>
+                            <   img className='car' src={Car} alt='car' />
+                            </div>
+                        </div>
+
+                        <div className='col-md-2'>
+                            <div className='mt-1'>
+                                <label>OE</label>
+                                <input type="text" className="form-control" value={tire.groovefr} />
+                            </div>
+                            <div className='mt-5'>
+                                <label>OT</label>
+                                <input type="text" className="form-control" value={tire.groovebr} />
+                            </div>
+                        </div>
+
+                    <div className='col-md-10'>
+                        <label>Kuvaus</label>
+                        <textarea className='form-control' rows="2" placeholder='Lisätietoja' value={tire.text} />
+                    </div>
+                    <div className='col-md-2 mt-2'>
+                        <UpdateTires 
+                            tires_id={tire.id} 
+                            brand={tire.brand}
+                            model={tire.model}
+                            type={tire.type}
+                            hubcups={tire.hubcups}
+                            grooveFL={tire.groovefl}
+                            grooveFR={tire.groovefr}
+                            grooveBL={tire.groovebl}
+                            grooveBR={tire.groovebr}
+                            tiresize={tire.tiresize}
+                            tirebolt={tire.tirebolt}
+                            text={tire.text}
+                            rims={tire.rims}
+                        />
+                        <button className="btn" style={buttonStyle} onClick={() => deleteTires(tire.id)}><FaTrash/></button>
+                    </div>
+                </div>
+            ))}
+
+            <NewTires setCustomerTires={setCarTires} car_id={car_id} />
+        
         </div>
     )
 

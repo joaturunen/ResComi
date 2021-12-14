@@ -51,14 +51,14 @@ export default function Login({setUser}) {
 
               <div className='mb-3'>
                 <input type='text' 
-                className="form-control" name='employee'
+                className="form-control" maxLength={25} name='employee'
                 value= {employee} placeholder='Käyttäjätunnus' 
                 onChange={e => setEmployee(e.target.value)}/>
               </div>
 
               <div class='mb-3'>
-                <input type='password' class="form-control input" name='password' placeholder='Salasana' 
-                value={password} onChange={e => setPassword(e.target.value)}/>
+                <input type='password' className="form-control input" maxLength={25} name='password' 
+                placeholder='Salasana' value={password} onChange={e => setPassword(e.target.value)}/>
               </div>
               
               <button class='btn btn-primary button' style={buttonStyle}>Kirjaudu sisään</button>

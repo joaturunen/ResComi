@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import NewCar from './newCar';
+import Tires from './tires';
 import { buttonStyle } from '../style/colors';
 import { FaTrash, FaEdit } from 'react-icons/fa';
 
 // tulostaa yhdelle asiakkaalle kuuluvat autot 
 
-export default function Car({ customerCars, setCustomerCars, customer_id }) {
-
+export default function Car({ customerCars, setCustomerCars, customer_id, customerTires, setCustomerTires }) {
+    const [car_id, setCar_id] = useState('');
+    const [showTires, setShowTires] = useState(false);
 
     function deleteCar(id) {
         let status = 0;
@@ -43,9 +45,18 @@ export default function Car({ customerCars, setCustomerCars, customer_id }) {
 
     }
 
+    function openTires(id) {
+        console.log(id);
+        console.log(car_id);
+        setCar_id(id);
+        console.log(car_id);
+        setShowTires(true);
+        console.log(showTires);
+    }
+
     return (
         <>
-            <div className='row'>
+            <div className="col-6">
                 <table className="table px-3 table-striped">
                     <tbody>
                         {customerCars.map(car => (
@@ -54,12 +65,19 @@ export default function Car({ customerCars, setCustomerCars, customer_id }) {
                                 <td>{car.register}</td>
                                 <td>{car.brand}</td>
                                 <td>{car.model} </td>
-                                <td><FaEdit onClick={() => editCar(car.id)}/></td>
-                                <td><FaTrash onClick={() => deleteCar(car.id)}/></td>
+                                <td>
+                                    <button className="btn" style={buttonStyle} onClick={() => editCar(car.id)}><FaEdit/></button>
+                                    <button className="btn" style={buttonStyle} onClick={() => deleteCar(car.id)}><FaTrash/></button>
+                                    <button className="btn" style={buttonStyle} onClick={() => openTires(car.id)}>Renkaat</button>
+                                </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
+            </div>
+            <div className="col-6">
+                {(showTires) ? (<Tires car_id={car_id}/>) : (<div></div>)}
+                    
             </div>
             <div>
                 <NewCar setCustomerCars={setCustomerCars} customer_id={customer_id} />

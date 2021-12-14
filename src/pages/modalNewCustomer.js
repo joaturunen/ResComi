@@ -110,34 +110,34 @@ const alertFailed =
               <div className='col-md-3'>
               <div>
               <label>Etunimi</label>
-                  <input type="text" className="form-control" value={firstname} onChange={e => setFirstname(e.target.value)}/>
+                  <input type="text" maxLength={25} className="form-control" value={firstname} onChange={e => setFirstname(e.target.value)}/>
               </div>
               <div>
               <label>Sukunimi</label>
-                  <input type="text" className="form-control"value={lastname} onChange={e => setLastname(e.target.value)}/>
+                  <input type="text" maxLength={25} className="form-control"value={lastname} onChange={e => setLastname(e.target.value)}/>
               </div>
               <div>
               <label>Puhelinumero</label>
-                  <input type="text" className="form-control" value={phone} onChange={e => setPhone(e.target.value)}/>
+                  <input type="text" maxLength={25} className="form-control" value={phone} onChange={e => setPhone(e.target.value)}/>
               </div>
               <div>
               <label>Sähköposti</label>
-                  <input type="text" className="form-control" value={email} onChange={e => setEmail(e.target.value)}/>
+                  <input type="text" maxLength={50} className="form-control" value={email} onChange={e => setEmail(e.target.value)}/>
               </div>
               <div>
               <label>Lähiosoite</label>
-                  <input type="text" className="form-control" value={address} onChange={e => setAddress(e.target.value)}/>
+                  <input type="text" maxLength={50} className="form-control" value={address} onChange={e => setAddress(e.target.value)}/>
               </div>
               </div>
               
               <div className='col-md-3'>
                 <div>
                 <label>Postinumero</label>
-                    <input type="number" step="1" className="form-control" value={zipcode} onChange={e => setZipcode(e.target.value)} maxLength="5"/>
+                    <input type="number" maxLength={5} step="1" className="form-control" value={zipcode} onChange={e => setZipcode(e.target.value)} maxLength="5"/>
                 </div>
                 <div>
                 <label>Postitoimipaikka</label>
-                    <input type="text" className="form-control" value={city} onChange={e => setCity(e.target.value)}/>
+                    <input type="text" maxLength={25} className="form-control" value={city} onChange={e => setCity(e.target.value)}/>
                 </div>
               </div>
 
@@ -145,15 +145,15 @@ const alertFailed =
                 <div>
                   <div>
                   <label>Auton rekisterinumero</label>
-                      <input className="form-control" value={register} onChange={e => setRegister(e.target.value)}/>
+                      <input className="form-control" maxLength={25} value={register} onChange={e => setRegister(e.target.value)}/>
                   </div>
                   <div>
                   <label>Merkki</label>
-                      <input className="form-control" value={brand} onChange={e => setBrand(e.target.value)}/>
+                      <input className="form-control" maxLength={25} value={brand} onChange={e => setBrand(e.target.value)}/>
                   </div>
                   <div>
                   <label>Malli</label>
-                      <input className="form-control" value={model} onChange={e => setModel(e.target.value)}/>
+                      <input className="form-control" maxLength={25} value={model} onChange={e => setModel(e.target.value)}/>
                   </div>
                 </div>
                 
