@@ -85,8 +85,14 @@ export const Customerdata = {
 };
 
 export const Choice = {
-  'background': headColor, 
-  'color': textLight
+  'border': 'solid 2px' + headColor
+};
+
+export const ChoiceRemove = {
+  'background': shockColor,
+  'color': textLight,
+  'padding': '0.3rem',
+  'borderRadius': '0.2rem'
 };
 
 // Not sure why this must be

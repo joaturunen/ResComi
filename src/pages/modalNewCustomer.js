@@ -1,10 +1,10 @@
 import React,{useState, useEffect} from 'react';
-import { Link, Navigate } from 'react-router-dom';
-import {boxShadowStyle, buttonStyle, boxColorLayot} from '../style/colors';
+import {buttonStyle} from '../style/colors';
 import '../style/modal.css';
+import {URL} from '../back/Config';
 
 
-export default function ModalNewCustomer({url, setCustomerData}) {
+export default function ModalNewCustomer({setCustomerData}) {
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
   const [phone, setPhone] = useState('');
@@ -30,7 +30,7 @@ export default function ModalNewCustomer({url, setCustomerData}) {
     setShowFailed(false);
     e.preventDefault();
     let status = 0;
-      fetch( url + 'customer/customer_createModal.php', { 
+      fetch( URL + 'customer/customer_createModal.php', { 
         method: 'POST',
         header: {
             'Accept': 'application/json',
@@ -61,7 +61,7 @@ export default function ModalNewCustomer({url, setCustomerData}) {
               setCustomerData([]);
               setCustomerData([res]);
               setShowSuccess(true);
-              console.log("Nyt asiakas tallenutui.");
+              console.log("Nyt asiakas tallentui.");
           } else {
               alert(res.error);
               setShowFailed(true);

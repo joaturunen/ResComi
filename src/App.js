@@ -39,12 +39,32 @@ function App() {
   }, []);
 
 
-  // lisää palvelu ostoskoriin nyt on pakotettu vain yksi tuote koriin-
+  // lisää palvelu ostoskoriin
   function addToCart(service) {
-      const newCart = [...cart,service];
-      setCart([service]); // tässä pitäisi olla vain yksi 
+
+    if(cart.length === 0){
+      const newCart = [...cart, service];
+      setCart(newCart);
       localStorage.setItem('cart',JSON.stringify(newCart));
-    
+    } else if(service.category_id === 1){
+      let remove = null;
+      for (let i = 0; i < cart.length; i++){
+        if(cart[i].category_id === 1){
+          remove = i;
+        }
+      }
+      if(remove !== null){
+        cart.splice(remove, 1);
+        const newCart = [...cart, service];
+        setCart(newCart);
+        localStorage.setItem('cart',JSON.stringify(newCart));
+      }
+
+    } else if(!cart.includes(service)){
+      const newCart = [...cart, service];
+      setCart(newCart);
+      localStorage.setItem('cart',JSON.stringify(newCart));
+    }
   }
 
   // poista palvelu ostoskorista

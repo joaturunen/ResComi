@@ -1,13 +1,18 @@
 import React, { useState /*, useEffect*/ } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import {boxShadowStyle, buttonStyle, boxColorLayot} from '../style/colors';
+import ModalOldCustomer from './modalOldCustomer';
 
-export default function SearchCustomer({ url, setCustomer_id, customer_id }) {
+export default function SearchCustomer({ url, setCustomer_id, customer_id, hightWay = 0,setCustomerData }) {
   const [searchPhone, setSearchPhone] = useState('');
   const [result, setResult] = useState([]);
   const [showCustomerSite, setShowCustomerSite] = useState(false);
+  const [showCustomerData, setShowCustomerData] = useState(false);
+  const [showModalOldCustomer, setShowModalOldCustomer ] = useState(false);
+  const [id, setId] = useState(0);
 
   function findPhone(e) {
+    setResult([]);
     e.preventDefault();
     let status = 0;
     fetch(url + 'customer/customer_search.php/', {
@@ -38,14 +43,20 @@ export default function SearchCustomer({ url, setCustomer_id, customer_id }) {
   }
 
   function openCustomerSite(customer) {
-    setCustomer_id(customer.id);
-    setShowCustomerSite(true);
+
+    if(hightWay === 'order'){
+      setId(customer.id);
+      setShowModalOldCustomer(true)
+    } else{
+      setCustomer_id(customer.id);
+      //setShowCustomerData(true); // tällä ei saa näkymään orderissa
+      setShowCustomerSite(true);
+    }
   }
 
   if (showCustomerSite === true) {
     return (
       <Navigate to="/oneCustomer" />
-
     );
   }
 
@@ -71,11 +82,12 @@ export default function SearchCustomer({ url, setCustomer_id, customer_id }) {
               <tr key={customer.id}>
                 <td>{customer.firstname}</td>
                 <td>{customer.lastname}</td>
-                <button className='btn' style={buttonStyle} onClick={() => openCustomerSite(customer)}>Avaa</button>
+                <button className='btn' style={buttonStyle} onClick={() => openCustomerSite(customer)}>Valitse</button>
               </tr>
             ))}
           </tbody>
         </table>
+        <ModalOldCustomer setCustomerData={setCustomerData} showModal={showModalOldCustomer} setShowModalOldCustomer={setShowModalOldCustomer} customer_id={id}/>
       </div>
     </>
     

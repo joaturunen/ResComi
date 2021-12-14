@@ -10,6 +10,7 @@ import Customer from './oneCustomer';
 import ModalNewCustomer from './modalNewCustomer';
 import ComponentCustomer from './componentCustomer';
 import ComponentOrderCar from './componentOrderCar';
+import ModalOldCustomer from './modalOldCustomer';
 
 
 // kuinka tallennetaan myös auton tiedot samalla?
@@ -73,11 +74,10 @@ export default function Order({
         <tbody>
            {cart.map((service, id) => {
             sum+=parseFloat(service.price);
-            let price =  (parseFloat(service.price).toFixed(2));
               return (
                 <tr key={id}>
                 <td width="70%">{service.service}</td>
-                <td className="text-right">{price} €</td>
+                <td className="text-right">{service.price} €</td>
                 <td className="text-right"><FaTimes onClick={() => removeFromCart(service)}/></td>
                 </tr>
               )
@@ -101,11 +101,12 @@ export default function Order({
                 <div className="padding" style={boxColorLayot}>
                   <h4>Lisää asiakas</h4>
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <ModalNewCustomer url={url} setCustomer_id={setCustomer_id} setCustomerData={setCustomerData} customerData={customerData}/>
-                    </div>
-                </div>
+                      <ModalNewCustomer setCustomer_id={setCustomer_id} setCustomerData={setCustomerData}/>
+                      </div>
+                  </div>
                 <div>
-                  <SearchCustomer url={url} setCustomer_id={setCustomer_id}/>
+                  <SearchCustomer url={url} setCustomer_id={setCustomer_id} hightWay="order" setCustomerData={setCustomerData}/>
+                  <ModalOldCustomer setCustomer_id={setCustomer_id} setCustomerData={setCustomerData}/>
                 </div>
               </div>
               <div class="col-4">

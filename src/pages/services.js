@@ -26,22 +26,38 @@ export default function Services({ url, addToCart }) {
     return (
         <>
           <div className="padding" style={boxColorLayot}>
-          <h5>Säilytyskausi</h5>
-          <p>Valitse palvelu</p>
+          <h5>Palvelut</h5>
+          <p><strong>Valitse säilytyskausi</strong></p>
           <table class="table table-striped table-hover">
-            <thead>
-              <tr>
-                <th scope="col"></th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
+
             <tbody>
-              {services.map(service => (
-                <tr key={service.id} onClick={() => addToCart(service)}>
-                  <td>{service.service}</td>
-                  <td>{service.price} €</td>
-                </tr>
-              ))}
+              {services.map(service =>{
+
+                if(service.category_id === 1){
+                  return(
+                    <tr key={service.id} onClick={() => addToCart(service)}>
+                      <td>{service.service}</td>
+                      <td className="text-right">{service.price} €</td>
+                    </tr>
+                  )
+
+                }
+              })}
+            </tbody>
+          </table>
+          <p><strong>Valitse huolto</strong></p>
+          <table class="table table-striped table-hover">
+            <tbody>
+            {services.map(service =>{
+              if(service.category_id === 2){
+                return(
+                  <tr key={service.id} onClick={() => addToCart(service)}>
+                    <td>{service.service}</td>
+                    <td className="text-right">{service.price} €</td>
+                  </tr>
+                )
+              }
+              })}
             </tbody>
           </table>
           </div>
