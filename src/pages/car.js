@@ -66,7 +66,7 @@ export default function Car({ customerCars, setCustomerCars, customer_id, custom
                                 <td>{car.brand}</td>
                                 <td>{car.model} </td>
                                 <td>
-                                    <button className="btn" style={buttonStyle} onClick={() => editCar(car.id)}><FaEdit/></button>
+                                    {/* <button className="btn" style={buttonStyle} onClick={() => editCar(car.id)}><FaEdit/></button> */}
                                     <button className="btn" style={buttonStyle} onClick={() => deleteCar(car.id)}><FaTrash/></button>
                                     <button className="btn" style={buttonStyle} onClick={() => openTires(car.id)}>Renkaat</button>
                                 </td>
