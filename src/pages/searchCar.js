@@ -8,7 +8,11 @@ export default function SearchCar({ url, setCustomer_id }) {
   //const [showCarSite, setShowCarSite] = useState(false);
   const [showCustomerSite, setShowCustomerSite] = useState(false);
 
+  const [resultNro, setResultNro] = useState(0);
+
   function findRegister(e) {
+    setResult([]);
+    setResultNro(1);
     e.preventDefault();
     let status = 0;
     fetch(url + 'car/car_search.php/', {
@@ -28,7 +32,13 @@ export default function SearchCar({ url, setCustomer_id }) {
       .then(
         (res) => {
           if (status === 200) {
-            setResult(result => [...result, res]);
+            setResult([res]);
+            setResultNro(0);
+            if(res){
+              setResult([res]);
+            } else{
+              setResultNro(2);
+            }
           } else {
             alert(res.error);
           }
@@ -52,6 +62,22 @@ export default function SearchCar({ url, setCustomer_id }) {
     );
   }
 
+  const resultContent =
+  <table className="table px-3 table-striped" >
+  <tbody>
+    {result.map(car => (
+      <tr key={car.id} className="wholeW">
+        <td>{car.register}</td>
+        <td>{car.brand}</td>
+        <td>{car.model}</td>
+        <td>{car.customer_id}</td>
+
+        <td className="text-right"><p className='btn' style={buttonStyle} onClick={() => openCustomerSite(car)}>Avaa</p></td>
+      </tr>
+    ))}
+  </tbody>
+</table>;
+
   return (
 
     <>
@@ -64,24 +90,14 @@ export default function SearchCar({ url, setCustomer_id }) {
             value={searchRegister} placeholder='ABC-123' maxLength="7"
             onChange={e => setSearchRegister(e.target.value)} />
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button className='btn button' style={buttonStyle}>Etsi ajoneuvo</button>
+            <button className='btn' style={buttonStyle}>Etsi ajoneuvo</button>
           </div>
         </form>
 
         <h4>Hakutulokset</h4>
-        <table className="table px-3 table-striped">
-          <tbody>
-            {result.map(car => (
-              <tr key={car.id}>
-                <td>{car.register}</td>
-                <td>{car.brand}</td>
-                <td>{car.model}</td>
-                <td>{car.customer_id}</td>
-                <button style={buttonStyle} onClick={() => openCustomerSite(car)}>Avaa</button>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        { (resultNro === 2) && (<p>Tuloksia ei löytynyt.</p>)}
+        { (resultNro === 1) && (<p>Haetaan tuloksia...</p>)}
+        { (resultNro === 0) && (resultContent)}
       </div>
     </>
 

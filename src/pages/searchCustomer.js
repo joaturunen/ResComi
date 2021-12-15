@@ -75,7 +75,7 @@ export default function SearchCustomer({ url, setCustomer_id, hightWay = 0, setC
       <tr key={customer.id}>
         <td>{customer.firstname}</td>
         <td>{customer.lastname}</td>
-        <button className='btn' style={buttonStyle} onClick={() => openCustomerSite(customer)}>Valitse</button>
+        <td className="text-right"><p className='btn' style={buttonStyle} onClick={() => openCustomerSite(customer)}>Valitse</p></td>
       </tr>
     ))}
   </tbody>
@@ -94,8 +94,6 @@ export default function SearchCustomer({ url, setCustomer_id, hightWay = 0, setC
                 <button class="btn button" style={buttonStyle}>Etsi asiakas</button>
               </div>
           </form>
-      </div>
-      <div>
         <h4>Hakutulokset</h4>
         { (resultNro === 2) && (<p>Tuloksia ei löytynyt.</p>)}
         { (resultNro === 1) && (<p>Haetaan tuloksia...</p>)}
