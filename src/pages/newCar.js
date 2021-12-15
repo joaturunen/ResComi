@@ -17,6 +17,7 @@ export default function NewCar({setCustomerCars, customer_id}) {
   }, [openNewCarModel]);
 
   function SaveCar(e) {
+        console.log(customer_id);
         e.preventDefault();
         let status = 0;
         fetch('http://localhost/rengasvarasto-back/API/car/car_create.php', {
@@ -26,10 +27,10 @@ export default function NewCar({setCustomerCars, customer_id}) {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
+                customer_id: customer_id,
                 register: register,
                 brand: brand,
-                model: model,
-                customer_id: customer_id
+                model: model
             })
         })
         .then(res => {
