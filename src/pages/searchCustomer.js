@@ -3,16 +3,18 @@ import { Navigate } from 'react-router-dom';
 import {buttonStyle, boxColorLayot} from '../style/colors';
 import ModalOldCustomer from './modalOldCustomer';
 
-export default function SearchCustomer({ url, setCustomer_id, hightWay = 0,setCustomerData }) {
+export default function SearchCustomer({ url, setCustomer_id, hightWay = 0, setCustomerData }) {
   const [searchPhone, setSearchPhone] = useState('');
   const [result, setResult] = useState([]);
   const [showCustomerSite, setShowCustomerSite] = useState(false);
  // const [showCustomerData, setShowCustomerData] = useState(false);
   const [showModalOldCustomer, setShowModalOldCustomer ] = useState(false);
   const [id, setId] = useState(0);
+  const [resultNro, setResultNro] = useState(0);
 
   function findPhone(e) {
     setResult([]);
+    setResultNro(1);
     e.preventDefault();
     let status = 0;
     fetch(url + 'customer/customer_search.php/', {
@@ -32,7 +34,13 @@ export default function SearchCustomer({ url, setCustomer_id, hightWay = 0,setCu
       .then(
         (res) => {
           if (status === 200) {
-            setResult(result => [...result, res]);
+            setResult([res]);
+            setResultNro(0);
+            if(res){
+              setResult([res]);
+            } else{
+              setResultNro(2);
+            }
           } else {
             alert(res.error);
           }
@@ -60,6 +68,19 @@ export default function SearchCustomer({ url, setCustomer_id, hightWay = 0,setCu
     );
   }
 
+  const resultContent =
+  <table className="table px-3 table-striped">
+  <tbody>
+    {result.map(customer => (
+      <tr key={customer.id}>
+        <td>{customer.firstname}</td>
+        <td>{customer.lastname}</td>
+        <td className="text-right"><p className='btn' style={buttonStyle} onClick={() => openCustomerSite(customer)}>Valitse</p></td>
+      </tr>
+    ))}
+  </tbody>
+</table>;
+
   return (
     <>
       <div className="padding" style={boxColorLayot}>
@@ -73,20 +94,10 @@ export default function SearchCustomer({ url, setCustomer_id, hightWay = 0,setCu
                 <button class="btn button" style={buttonStyle}>Etsi asiakas</button>
               </div>
           </form>
-      </div>
-      <div>
         <h4>Hakutulokset</h4>
-        <table className="table px-3 table-striped">
-          <tbody>
-            {result.map(customer => (
-              <tr key={customer.id}>
-                <td>{customer.firstname}</td>
-                <td>{customer.lastname}</td>
-                <button className='btn' style={buttonStyle} onClick={() => openCustomerSite(customer)}>Valitse</button>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        { (resultNro === 2) && (<p>Tuloksia ei löytynyt.</p>)}
+        { (resultNro === 1) && (<p>Haetaan tuloksia...</p>)}
+        { (resultNro === 0) && (resultContent)}
         <ModalOldCustomer setCustomerData={setCustomerData} showModal={showModalOldCustomer} setShowModalOldCustomer={setShowModalOldCustomer} customer_id={id}/>
       </div>
     </>
