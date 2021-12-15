@@ -209,7 +209,7 @@ const addToWarehouse =
 <button type="button" class="close" data-dismiss="alert" aria-label="Close" onClick={()=>{setTiresToWarehouse(0);}}>
   <span aria-hidden="true">&times;</span>
   </button>
-  <p><span style={ChoiceToWarehouse}>Lisätään</span>  renkaat <span style={ChoiceToWarehouse}> NRO {tiresToWarehouse} </span> varastosta paikkanumero: {slot} </p>
+  <p><span style={ChoiceToWarehouse}>Lisätään</span>  renkaat <span style={ChoiceToWarehouse}> NRO {tiresToWarehouse} </span> varastoon paikkanumero: {slot} </p>
 </div>
 
 const addToWarehouseNewPlace =

@@ -76,7 +76,7 @@ export default function Tires({car_id, car_register}) {
                     <div className='col-md-3'>
                         <div>
                             <label>Rengaspaikka</label>
-                            <p>{tire.slot_id}-{tire.shelf_id}-{tire.warehouse_id}</p>
+                            <p>{tire.warehouse_id}-{tire.shelf_id}-{tire.slot_id}</p>
                         </div>
                         <div>
                             <label>Rengasmerkki</label>
