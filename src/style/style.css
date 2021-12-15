@@ -294,3 +294,9 @@ li {
     display: none;
   }
 }
+
+.pButtonOldOrder{
+  background-color: white;
+  padding: 0.4rem;
+  margin: 0.4rem;
+}

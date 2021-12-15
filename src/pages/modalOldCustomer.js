@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react';
-import {buttonStyle, boxColorLayot, Choice, ChoiceRemove } from '../style/colors';
+import {buttonStyle, boxColorLayot, Choice, ChoiceRemove, ChoiceRemoveBorder, ChoiceToWarehouseBorder, ChoiceToWarehouse,ChoiceWarehouse } from '../style/colors';
 import '../style/modal.css';
 import {URL} from '../back/Config';
 import Loading from '../components/loading';
@@ -40,7 +40,6 @@ export default function ModalOldCustomer({setCustomerData, showModal = false, se
 
   useEffect(() => {
     function getData(){
-    console.log("Haetaan dataa " +  customer_id);
     let status = 0;
     let address = URL + 'customer/customer_read_cus_cars_tires.php';
     fetch(address, {
@@ -86,25 +85,33 @@ export default function ModalOldCustomer({setCustomerData, showModal = false, se
 }, [showModal]);
 
 
+function saveCustomerData(){
+
+  const createCustomer = {
+    "customer_id": customerId,
+    "firstname": firstname,
+    "lastname": lastname,
+    "address": address,
+    "zipcode": zipcode,
+    "city": city,
+    "phone": phone,
+    "email": email,
+    "car_id": car.id,
+    "car_register": car.register,
+    "tires_id": tiresToWarehouse,
+    "slot_id": slot,
+    "oldTires_id": tiresFromWarehouse
+  };
+  setCustomerData([]);
+  setCustomerData([createCustomer]);
+  setShowModalOldCustomer(false);
+}
+
+
 function upDateCustomerData(){
   console.log("Tallentaa toivottavasti tulevaisuudessa");
 }
 
-
-const alertSuccees =
-  <div className="p-2">
-  <div class="alert alert-success" role="alert">
-    Valinta onnistui. Voit poistua näkymästä
-  </div>
-</div>;
-
-
-const alertFailed =
-  <div className="p-2">
-  <div class="alert alert-danger" role="alert">
-    Valinta epäonnistui. :D
-  </div>
-</div>;
 
 const addCar =
 <div className='col-md-3'>
@@ -123,39 +130,95 @@ const addCar =
   </div>
 ;
 
+const forcedUpdate = 
+<tbody>
+      {tires.map((tiresCar) => {
+        if(car.id === tiresCar.car_id){
+          if(tiresCar.order_season !== null){
+            return (
+              <tr key={tiresCar.id} onClick={() => {setTiresFromWarehouse(tiresCar.id); setSlot(tiresCar.slot_id)}} style={ChoiceRemoveBorder}>
+                <td className="text-center" style={ChoiceRemove}>{tiresCar.id}.</td>
+                <td>{tiresCar.brand}</td>
+                <td>{tiresCar.type}</td>
+                <td>{tiresCar.order_season}</td>
+              </tr>
+            )
+          } else {
+            return (
+              <tr key={tiresCar.id} onClick={() => setTiresToWarehouse(tiresCar.id)}>
+                <td className="text-center" >{tiresCar.id}.</td>
+                <td>{tiresCar.brand}</td>
+                <td>{tiresCar.type}</td>
+                <td> - </td>
+              </tr>
+            )
+          }
+        }
+      })}
+    </tbody>
 
 const tiresCar =
   <table class="table table-striped table-hover">
+      <thead>
+    <tr>
+      <th scope="col">NRO</th>
+      <th scope="col">Merkki</th>
+      <th scope="col">Kausi</th>
+      <th scope="col">Varasto</th>
+    </tr>
+  </thead>
     <tbody>
       {tires.map((tiresCar) => {
-                if(car === tiresCar.car_id){
-                  if(car.order_season !== null){
-                    return (
-                      <tr key={tiresCar.id} onClick={() => {setTiresFromWarehouse(tiresCar.id); setSlot(tiresCar.slot_id)}} style={Choice}>
-                        <td>{tiresCar.id}.</td>
-                        <td>{tiresCar.brand}</td>
-                        <td>{tiresCar.type}</td>
-                        <td>{tiresCar.order_season}</td>
-                      </tr>
-                    )
-                  } else if(car !== 0){
-                    return (
-                      <tr key={tiresCar.id} onClick={() => setTiresToWarehouse(tiresCar.id)}>
-                        <td>{tiresCar.id}.</td>
-                        <td>{tiresCar.brand}</td>
-                        <td>{tiresCar.type}</td>
-                        <td></td>
-                      </tr>
-                    )
-                  } else{
-                    return(
-                      <></>
-                    )
-                  }
-                }
+        if(car.id === tiresCar.car_id){
+          if(tiresCar.order_season !== null){
+            return (
+              <tr key={tiresCar.id} onClick={() => {setTiresFromWarehouse(tiresCar.id); setSlot(tiresCar.slot_id)}} style={ChoiceRemoveBorder}>
+                <td className="text-center" style={ChoiceRemove}>{tiresCar.id}.</td>
+                <td>{tiresCar.brand}</td>
+                <td>{tiresCar.type}</td>
+                <td>{tiresCar.order_season}</td>
+              </tr>
+            )
+          } else {
+            return (
+              <tr key={tiresCar.id} onClick={() => setTiresToWarehouse(tiresCar.id)}>
+                <td className="text-center" >{tiresCar.id}.</td>
+                <td>{tiresCar.brand}</td>
+                <td>{tiresCar.type}</td>
+                <td> - </td>
+              </tr>
+            )
+          }
+        }
       })}
     </tbody>
   </table>;
+
+
+
+const removeFromWarehouse =
+<div className="pButtonOldOrder p-2">
+<button type="button" class="close" data-dismiss="alert" aria-label="Close" onClick={()=>{setTiresFromWarehouse(0);setSlot(0)}}>
+  <span aria-hidden="true">&times;</span>
+  </button>
+<p><span style={ChoiceRemove}>Poista</span>  renkaat <span style={ChoiceRemove}>NRO  {tiresFromWarehouse} </span> varastosta paikkanumero: {slot}</p>
+</div>
+
+const addToWarehouse =
+<div className="pButtonOldOrder p-2">
+<button type="button" class="close" data-dismiss="alert" aria-label="Close" onClick={()=>{setTiresToWarehouse(0);}}>
+  <span aria-hidden="true">&times;</span>
+  </button>
+  <p><span style={ChoiceToWarehouse}>Lisätään</span>  renkaat <span style={ChoiceToWarehouse}> NRO {tiresToWarehouse} </span> varastosta paikkanumero: {slot} </p>
+</div>
+
+const addToWarehouseNewPlace =
+<div className="pButtonOldOrder p-2">
+<button type="button" class="close" data-dismiss="alert" aria-label="Close" onClick={()=>{setTiresToWarehouse(0);}}>
+  <span aria-hidden="true">&times;</span>
+  </button>
+  <p><span style={ChoiceToWarehouse}>Lisätään</span>  renkaat <span style={ChoiceToWarehouse}> NRO {tiresToWarehouse} </span> varastoon uudelle paikalle </p>
+</div>
 
 
   const content = <>
@@ -167,10 +230,7 @@ const tiresCar =
       <div class="d-flex flex-row">
         <div className="p-2">
           <h4>Tarkista ja valitse asiakas, auto ja renkaat</h4>
-          
       </div>
-      { showSuccess && (alertSuccees)}
-      { showFailed && (alertFailed)}
       </div>
 
       <hr/>
@@ -227,9 +287,8 @@ const tiresCar =
                   <tbody>
                     {cars.map((car) => {
                         return (
-                          <tr key={car.id} onClick={() => setCar(car.id)}>
+                          <tr key={car.id} onClick={() => {setCar(car)}}>
                           <td>{car.register}</td>
-                          <td>{car.model}</td>
                           </tr>
                         )
                     })}
@@ -237,18 +296,20 @@ const tiresCar =
                   </table>
             </div>
           <div className="col" >
-            <h6>Renkaat</h6>
+            <h6>Renkaat <span style={Choice}>Varastossa</span> <span style={ChoiceWarehouse}>Lisätään</span></h6>
             {(car !== 0) ? (tiresCar) : (<p>Valitse auto</p>)}
           </div>
-          <p>Poista renkaat <span style={ChoiceRemove}>NRO  {tiresFromWarehouse} </span> varastosta Paikkanumero: {slot}</p>
-          <p>Lisää renkaat <span style={ChoiceRemove}> NRO {tiresToWarehouse} </span> varastoon paikalle </p>
-        </div>
+          <div class="d-flex flex-row">
+          { (tiresFromWarehouse !== 0)  && (removeFromWarehouse)}
+          { (tiresToWarehouse !== 0 && tiresFromWarehouse !== 0) && (addToWarehouse)}
+          { (tiresToWarehouse !== 0 && tiresFromWarehouse === 0) && (addToWarehouseNewPlace)}
           </div>
-
+          </div>
+          </div>
           <div className='row'>
                 <div className='col-12 d-flex justify-content-end '>
                 <button className='btn' style={buttonStyle} onClick={()=>{setShowModalOldCustomer(false);}}>Peruuta</button>
-                <button className='btn' style={buttonStyle}>Valitse valitut</button>
+                <button className='btn' style={buttonStyle} onClick={()=>{saveCustomerData()}}>Valitse valitut</button>
             </div>
             </div>
       </div>

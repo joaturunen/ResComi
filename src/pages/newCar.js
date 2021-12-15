@@ -11,13 +11,13 @@ export default function NewCar({setCustomerCars, customer_id}) {
   const [showSuccess, setShowSuccess] = useState(false);
   const [showFailed, setShowFailed] = useState(false);
 
+
   useEffect(() => {
     setShowFailed(false);
     setShowSuccess(false);
   }, [openNewCarModel]);
 
   function SaveCar(e) {
-        console.log(customer_id);
         e.preventDefault();
         let status = 0;
         fetch('http://localhost/rengasvarasto-back/API/car/car_create.php', {
@@ -36,7 +36,6 @@ export default function NewCar({setCustomerCars, customer_id}) {
         .then(res => {
             status = parseInt(res.status);
             return res.json();
-            
         })
         .then(
             (res) => {
@@ -108,8 +107,7 @@ export default function NewCar({setCustomerCars, customer_id}) {
                                 <label>Malli</label>
                                 <input type="text" className="form-control" value={model} onChange={e => setModel(e.target.value)}/>
                             </div>
-                            
-                            <button className='btn btn-primary' style={buttonStyle}>Tallenna</button>
+                            <button className='btn' style={buttonStyle}>Tallenna</button>
                         </form>
                     </div>
                 </div>

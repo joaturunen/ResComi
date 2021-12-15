@@ -77,6 +77,7 @@ function App() {
   // tyhjennä koko ostoskori
   function emptyCart() {
     setCart([]);
+    setCustomerData([]);
     localStorage.removeItem('cart');
   }
 

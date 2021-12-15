@@ -21,6 +21,9 @@ const homeShadow = '#333';
 //Shock color
 const shockColor = "#C23A00";
 
+//Shock color
+const successColor = "#4C7609";
+
 //Text color light
 const textLight ='#F4F7FC';
 
@@ -85,7 +88,10 @@ export const Customerdata = {
 };
 
 export const Choice = {
-  'border': 'solid 2px' + headColor
+  'background': shockColor,
+  'color': textLight,
+  'padding': '0.3rem',
+  'borderRadius': '0.2rem'
 };
 
 export const ChoiceRemove = {
@@ -94,6 +100,29 @@ export const ChoiceRemove = {
   'padding': '0.3rem',
   'borderRadius': '0.2rem'
 };
+export const ChoiceRemoveBorder = {
+  'border': 'solid' + shockColor,
+  'borderWidth': 4,
+};
+
+export const ChoiceWarehouse = {
+  'background': successColor,
+  'color': textLight,
+  'padding': '0.3rem',
+  'borderRadius': '0.2rem'
+};
+
+export const ChoiceToWarehouse = {
+  'background': successColor,
+  'color': textLight,
+  'padding': '0.3rem',
+  'borderRadius': '0.2rem'
+};
+export const ChoiceToWarehouseBorder = {
+  'border': 'solid' + successColor,
+  'borderWidth': 4,
+};
+
 
 // Not sure why this must be
 const Colors = () =>{
