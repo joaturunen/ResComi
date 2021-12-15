@@ -36,9 +36,9 @@ import {FaMinus, FaPlus, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react
   },
 
   {
-    name: 'Uusi asiakas',
+    name: 'Työjono',
     exact: true,
-    to: '/newCustomer',
+    to: '/incompletedOrders',
     
     icon: <MdPersonAdd className='nav-icon' />,
     
