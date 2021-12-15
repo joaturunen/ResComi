@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react';
-import { boxColorLayot} from '../style/colors';
+import { boxColorLayot, Choice} from '../style/colors';
 
 export default function Services({ url, addToCart }) {
     const [services, setServices] = useState([]);
@@ -38,6 +38,7 @@ export default function Services({ url, addToCart }) {
                     <tr key={service.id} onClick={() => addToCart(service)}>
                       <td>{service.service}</td>
                       <td className="text-right">{service.price} €</td>
+                      {/* <td className="text-right" style={Choice}>Valitse</td> */}
                     </tr>
                   )
 

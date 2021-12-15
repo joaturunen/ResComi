@@ -118,7 +118,7 @@ export default function Print({ url, orders_id, customerCars, setCustomerCars, c
             </div>
           </div>
           <div className="col-sm-6">
-                <button className="btn btn-primary" id="printButton" style={buttonStyle} onClick={() => window.print()}>Tulosta</button>
+                <button className="btn" id="printButton" style={buttonStyle} onClick={() => window.print()}>Tulosta</button>
               </div>
 {/*
           <div className="input-group container-fluid">
