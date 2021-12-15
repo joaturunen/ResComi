@@ -50,10 +50,10 @@ export default function Home() {
            </Link>*/
            }
 
-          <Link to="./onecustomer" className='col-3 button'>
+          {/* <Link to="./onecustomer" className='col-3 button'>
           <MdPersonAdd size={40} /> 
             <p>oneCustomer</p>
-          </Link>    
+          </Link>     */}
         </div>
       </div>
     </>
