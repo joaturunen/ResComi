@@ -4,33 +4,30 @@ import CustomerInfo from './customerInfo';
 import Car from './car';
 import _ from 'lodash';
 import { buttonStyle } from '../style/colors';
+import CustomerOrders from './customerOrders';
 
 
 // tämä avautuu hakutuloksesta, ei näy navissa
 
-export default function Customer({url, customer_id, customerCars, setCustomerCars, car_id, customerTires, setCustomerTires}) {
-
-  
- /*  const MAX_GROOVE = 10.1;
-  const MAX_TIRE_SIZE = 26;
-  const MAX_BOLT_SIZE = 21; */
-
-  
+export default function Customer({
+  url, 
+  customer_id, 
+  customerCars, 
+  setCustomerCars, 
+  customerOrders, 
+  setCustomerOrders, 
+  openReport}) {
 
   const tabContent = [
     {
       title: "Perustiedot",
       content:
-        <div className="row">
-          
-          <CustomerInfo url={url} 
-            customer_id={customer_id}
-            customerCars={customerCars}
-            setCustomerCars={setCustomerCars}
-            customerTires={customerTires}
-            setCustomerTires={setCustomerTires} />
-            
-        </div>,
+      <div className="row">
+        <CustomerInfo url={url} 
+          customer_id={customer_id}
+          setCustomerCars={setCustomerCars}
+          setCustomerOrders={setCustomerOrders}/>
+      </div>,
     },
     {
       title: "Ajoneuvo",
@@ -42,36 +39,41 @@ export default function Customer({url, customer_id, customerCars, setCustomerCar
           customer_id={customer_id}/>
       </div>,
     },
- 
     {
       title: "Raportit",
       content: 
+      <div className="row">
+        <CustomerOrders 
+          openReport={openReport}
+          customer_id={customer_id}
+          CustomerOrders={customerOrders} />
+      </div>
       
-      <div className="row col-sm-6">
-        <table className="table text-center table-striped">
-        <thead>
-          <tr>
-                <th scope="col">Tilausnumero</th>
-                <th scope="col">PVM</th>
-                <th scope="col">Rekisteri</th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-        <tbody>
+      // <div className="row col-sm-6">
+      //   <table className="table text-center table-striped">
+      //   <thead>
+      //     <tr>
+      //           <th scope="col">Tilausnumero</th>
+      //           <th scope="col">PVM</th>
+      //           <th scope="col">Rekisteri</th>
+      //           <th scope="col"></th>
+      //         </tr>
+      //       </thead>
+      //   <tbody>
               
-                <tr >
-                  <td>Tähän tulee tilausnumero</td>
-                  <td>Tähän tulee päivämäärä</td>
-                  <td>Tähän tulee rekisteri</td>
-                  <td>
-                  <button className='btn' style={buttonStyle} >Raportti</button>
-                  </td>
-                </tr>
+      //           <tr >
+      //             <td>Tähän tulee tilausnumero</td>
+      //             <td>Tähän tulee päivämäärä</td>
+      //             <td>Tähän tulee rekisteri</td>
+      //             <td>
+      //             <button className='btn' style={buttonStyle} >Raportti</button>
+      //             </td>
+      //           </tr>
              
-            </tbody>
-      </table>
+      //       </tbody>
+      // </table>
      
-      </div>,
+      // </div>,
     },
   ];
 

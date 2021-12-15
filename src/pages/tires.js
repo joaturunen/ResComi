@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import NewTires from "./newTires";
 import Car from '../images/3121893.png';
 import { buttonStyle } from "../style/colors";
-import { FaTrash} from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
 import UpdateTires from "./updateTires";
 
 export default function Tires({car_id, car_register}) {
     const [carTires, setCarTires] = useState([]);
 
     useEffect(() => {
-        console.log(car_id);
         let status = 0;
         fetch('http://localhost/rengasvarasto-back/API/tires/tires_read_by_car.php', {
             method: 'POST',
@@ -29,7 +28,6 @@ export default function Tires({car_id, car_register}) {
             (res) => {
                 if (status === 200) {
                     setCarTires(res.tires);
-                    console.log(carTires);
                   } else {
                     alert(res.error);
                   }
@@ -173,7 +171,7 @@ export default function Tires({car_id, car_register}) {
                 </div>
             ))}
 
-            <NewTires setCustomerTires={setCarTires} car_id={car_id} car_register={car_register} />
+            <NewTires setCarTires={setCarTires} car_id={car_id} car_register={car_register} />
         
         </div>
     )

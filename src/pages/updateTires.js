@@ -5,8 +5,6 @@ import Car from '../images/3121893.png';
 import {FaEdit } from 'react-icons/fa';
 
 
-// uusien renkaiden tallennus: voiko valita slotin vai tuleeko automaattisesti seuraava vapaa?
-
 export default function UpdateTires({tires_id, brand, model, type, hubcups, grooveFL, grooveFR, grooveBL, grooveBR, tiresize, tirebolt, text, rims}) {
     const [newBrand, setNewBrand] = useState(brand);
     const [newModel, setNewModel] = useState(model);
@@ -65,6 +63,18 @@ export default function UpdateTires({tires_id, brand, model, type, hubcups, groo
             (res) => {
                 if (status === 200) {
                     setShowSuccess(true);
+                    setNewBrand(res.brand);
+                    setNewModel(res.model);
+                    setNewType(res.type);
+                    setNewHubcups(res.hubcups);
+                    setNewGrooveFL(res.groovefl);
+                    setNewGrooveFR(res.groovefr);
+                    setNewGrooveBL(res.groovebl);
+                    setNewGrooveBR(res.groovebr);
+                    setNewTiresize(res.tiresize);
+                    setNewTirebolt(res.tirebolt);
+                    setNewText(res.text);
+                    setNewRims(res.rims);
                 } else {
                     alert(res.error);
                     setShowFailed(true);

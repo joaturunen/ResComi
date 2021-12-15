@@ -152,7 +152,7 @@ export default function Print({ url, orders_id, customerCars, setCustomerCars, c
               <div className="col-sm-6">
                 <ul className="list-group">
                   <li className="list-group-item">Asiakas:</li>
-                  <li className="list-group-item">Nimi: {firstName}, {lastName}</li>
+                  <li className="list-group-item">Nimi: {firstName} {lastName}</li>
                   <li className="list-group-item">Puhelinnumero: {phone}</li>
                   <li className="list-group-item">Sähköposti: {email}</li>
                   <li className="list-group-item">Katuosoite: {address}</li>

@@ -23,12 +23,11 @@ function App() {
   //const [user, setUser] = useState('');
   const [employee_id/* , setEmployee_id */] = useState('');
   const [customer_id, setCustomer_id] = useState('');
-  const [car_id/* , setCar_id */] = useState('');
   const [cart, setCart] = useState([]);
   const [inactive, setInactive] = useState(false);
   const [/* headerInactive, */ setHeaderInactive] = useState(false);
   const [customerCars, setCustomerCars] = useState([]);
-  const [customerTires, setCustomerTires] = useState([]);
+  const [customerOrders, setCustomerOrders] = useState([]);
   const [currentShelfID, setCurrentShelfID] = useState(0);
   const [customerData, setCustomerData] = useState([]);
   const { pathname } = useLocation();
@@ -121,9 +120,6 @@ function App() {
                   <Route path="/newCustomer" 
                     element={<NewCustomer/>
                   }/>
-                  <Route path="/tires" 
-                    element={<Tires/>
-                  }/>
                   <Route path="/warehouse"
                     element={<Warehouse
                       url={URL}
@@ -156,9 +152,8 @@ function App() {
                       customer_id={customer_id}
                       customerCars={customerCars}
                       setCustomerCars={setCustomerCars}
-                      car_id={car_id}
-                      customerTires={customerTires}
-                      setCustomerTires={setCustomerTires}/>
+                      customerOrders={customerOrders}
+                      setCustomerOrders={setCustomerOrders}/>
                   }/>
                   <Route path="/" element={<Home/> }>
                     {/* {user ? <Users /> : <Navigate to="/login" />} */}
