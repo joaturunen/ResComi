@@ -34,6 +34,9 @@ export default function Order({
 
     function SaveOrder(e) {
         e.preventDefault();
+        console.log("Asiakas id" + customerData[0].customer_id);
+        console.log("Uudet tires id" + customerData[0].tires_id);
+        console.log("old tires id" + customerData[0].oldTires_id);
         let status = 0;
         fetch(url + 'order/order_create.php', { 
             method: 'POST',
@@ -45,6 +48,8 @@ export default function Order({
                 customer_id: customerData[0].customer_id,
                 car_id: customerData[0].car_id,
                 tires_id: customerData[0].tires_id,
+                oldTires_id: customerData[0].oldTires_id,
+                slot_id: customerData[0].slot_id,
                 employee_id: employ_id,
                 cart: cart
             })
@@ -56,8 +61,8 @@ export default function Order({
         .then (
             (res) => {
                 console.log(res);
-                // empty();
-                // setFinished(true);
+                empty();
+                //setFinished(true);
             }, (error) => {
                 alert(error);
             }
@@ -87,7 +92,6 @@ export default function Order({
         </tbody>
       </table>
     </>
-
         return (
             <>
             <h3>Uusi tilaus</h3>
@@ -101,7 +105,7 @@ export default function Order({
                   </div>
                 <div>
                   <SearchCustomer url={url} setCustomer_id={setCustomer_id} hightWay="order" setCustomerData={setCustomerData}/>
-                  <ModalOldCustomer setCustomer_id={setCustomer_id} setCustomerData={setCustomerData}/>
+                  <ModalOldCustomer setCustomer_id={setCustomer_id} setCustomerData={setCustomerData} />
                 </div>
               </div>
               <div class="col-4">

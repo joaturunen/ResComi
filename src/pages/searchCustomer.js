@@ -75,7 +75,7 @@ export default function SearchCustomer({ url, setCustomer_id, hightWay = 0, setC
       <tr key={customer.id}>
         <td>{customer.firstname}</td>
         <td>{customer.lastname}</td>
-        <td className="text-right"><p className='btn' style={buttonStyle} onClick={() => openCustomerSite(customer)}>Valitse</p></td>
+        <td className="text-right"><p className='btn' style={buttonStyle} onClick={() => {openCustomerSite(customer)}}>Valitse</p></td>
       </tr>
     ))}
   </tbody>
