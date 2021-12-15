@@ -32,7 +32,7 @@ export default function Orders({openReport}) {
                 <tr key={order.id} >
                   <td>{order.orderdate}</td>
                   <td>{order.customer_firstname} {order.customer_lastname}</td>
-                  <td></td><Link to="/printable/Print" target="_blank" className='btn' style={buttonStyle} onClick={() => openReport(order)} >Raportti</Link>
+                  <td><Link to="/printable/Print" target="_blank" className='btn' style={buttonStyle} onClick={() => openReport(order)} >Raportti</Link></td>
                 </tr>
               ))}
             </tbody>

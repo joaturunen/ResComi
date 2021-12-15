@@ -6,7 +6,7 @@ import Car from '../images/3121893.png';
 
 // uusien renkaiden tallennus: voiko valita slotin vai tuleeko automaattisesti seuraava vapaa?
 
-export default function NewTires({setCustomerTires, car_id, car_register}) {
+export default function NewTires({setCarTires, car_id, car_register}) {
     const [brand, setBrand] = useState('');
     const [model, setModel] = useState('');
     const [type, setType] = useState('');
@@ -62,7 +62,7 @@ export default function NewTires({setCustomerTires, car_id, car_register}) {
         .then(
             (res) => {
                 if (status === 200) {
-                    setCustomerTires(customerTires => [...customerTires, res]);
+                    setCarTires(carTires => [...carTires, res]);
                     setBrand('');
                     setModel('');
                     setType('');

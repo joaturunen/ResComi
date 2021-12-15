@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { buttonStyle } from '../style/colors';
-import Car from './car';
-import Tires from './tires';
 
 
 // tämä avautuu hakutuloksesta, ei näy navissa
 
-export default function CustomerInfo({ url, customer_id, customerCars, setCustomerCars, customerTires, setCustomerTires }) {
-    //const [customerCars, setCustomerCars] = useState([]);
-    //const [customerTires, setCustomerTires] = useState([]);
+export default function CustomerInfo({customer_id, setCustomerCars, setCustomerOrders}) {
     const [firstname, setFirstname] = useState("");
     const [lastname, setLastname] = useState("");
     const [phone, setPhone] = useState("");
@@ -20,7 +16,6 @@ export default function CustomerInfo({ url, customer_id, customerCars, setCustom
     
 
     useEffect(() => {
-        //let address = url + 'customer/customer_read_cus_cars_tires.php';
         let status = 0;
         fetch('http://localhost/rengasvarasto-back/API/customer/customer_read_cus_cars_tires.php', {
             method: 'POST',
@@ -47,9 +42,8 @@ export default function CustomerInfo({ url, customer_id, customerCars, setCustom
                         setZipcode(res.customer.zipcode);
                         setCity(res.customer.city);
                         setCustomersaved(res.customer.customersaved);
-
                         setCustomerCars(res.cars);
-                        //setCustomerTires(res.tires);
+                        setCustomerOrders(res.orders);
                     } else {
                         alert(res.error);
                     }
@@ -109,12 +103,7 @@ export default function CustomerInfo({ url, customer_id, customerCars, setCustom
                 
 
             </div>
-            {/* <div>
-                <Car url={url} customerCars={customerCars} setCustomerCars={setCustomerCars} customer_id={customer_id}/>
-            </div>
-            <div>
-                <Tires customerTires={customerTires} setCustomerTires={setCustomerTires} car_id={car_id} />
-            </div> */}
+            
         </>
     );
 }

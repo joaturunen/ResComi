@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import NewCar from './newCar';
 import Tires from './tires';
 import { buttonStyle } from '../style/colors';
@@ -6,7 +6,7 @@ import { FaTrash, FaEdit } from 'react-icons/fa';
 
 // tulostaa yhdelle asiakkaalle kuuluvat autot 
 
-export default function Car({ customerCars, setCustomerCars, customer_id, customerTires, setCustomerTires }) {
+export default function Car({ customerCars, setCustomerCars, customer_id}) {
     const [car_id, setCar_id] = useState('');
     const [car_register, setCar_register] = useState('');
     const [showTires, setShowTires] = useState(false);
@@ -49,10 +49,7 @@ export default function Car({ customerCars, setCustomerCars, customer_id, custom
     function openTires(car) {
         setCar_id(car.id);
         setCar_register(car.register);
-        console.log(car_id);
-        console.log(car_register);
         setShowTires(true);
-        console.log(showTires);
     }
 
     return (
@@ -67,7 +64,7 @@ export default function Car({ customerCars, setCustomerCars, customer_id, custom
                                 <td>{car.brand}</td>
                                 <td>{car.model} </td>
                                 <td>
-                                    {/* <button className="btn" style={buttonStyle} onClick={() => editCar(car.id)}><FaEdit/></button> */}
+                                    <button className="btn" style={buttonStyle} onClick={() => editCar(car.id)}><FaEdit/></button>
                                     <button className="btn" style={buttonStyle} onClick={() => deleteCar(car.id)}><FaTrash/></button>
                                     <button className="btn" style={buttonStyle} onClick={() => openTires(car)}>Renkaat</button>
                                 </td>
