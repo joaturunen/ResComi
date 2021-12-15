@@ -46,7 +46,7 @@ export default function Customer({
         <CustomerOrders 
           openReport={openReport}
           customer_id={customer_id}
-          CustomerOrders={customerOrders} />
+          CustomerOrders={CustomerOrders} />
       </div>
       
       // <div className="row col-sm-6">
