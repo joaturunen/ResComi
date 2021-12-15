@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import NewCar from './newCar';
 import Tires from './tires';
 import { buttonStyle } from '../style/colors';
-import { FaTrash, FaEdit } from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
 
 // tulostaa yhdelle asiakkaalle kuuluvat autot 
 

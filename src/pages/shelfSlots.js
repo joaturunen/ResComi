@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FaSquareFull, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import { boxColorLayot, pieChartTaken, pieChartFree, buttonStyle } from '../style/colors';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { buttonStyle } from '../style/colors';
 import { Navigate } from 'react-router-dom';
 import Loading from '../components/loading';
 

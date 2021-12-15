@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaWarehouse, FaSearch, FaList } from 'react-icons/fa';
 import { MdPersonAdd } from 'react-icons/md';
 import { GiTireIron } from 'react-icons/gi';
 import { LinkStyle } from '../style/colors';
-import NewCar from './newCar';
-import ModalNewCustomer from './modalNewCustomer';
 
 
 export default function Home() {
@@ -20,7 +18,7 @@ export default function Home() {
         
         <Link to="./searchPage" className='col-4 button link shadow' style={LinkStyle}>
             <FaSearch size={35} className= 'mt-4'/>
-            <p class='hometext pt-2'>HAE</p>
+            <p class='hometext pt-2'>HAKU</p>
           </Link>
 
           <Link to="./warehouse" className='col-3 link shadow button' style={LinkStyle}>
@@ -52,10 +50,10 @@ export default function Home() {
            </Link>*/
            }
 
-          <Link to="./onecustomer" className='col-3 button'>
+          {/* <Link to="./onecustomer" className='col-3 button'>
           <MdPersonAdd size={40} /> 
             <p>oneCustomer</p>
-          </Link>    
+          </Link>     */}
         </div>
       </div>
     </>

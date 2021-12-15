@@ -1,4 +1,4 @@
-/* Värit voisi määrittää tänne ylös, jotta helppo päivittää 
+/* 
     primary: #0088c2
     inbox background: #E9EAEB
     white text: #F4F7FC
@@ -35,11 +35,6 @@ li {
   color: #333;
 }
 
-.header {
-  padding: 40px;
-  height: 150px;
-}
-
 /* home page */
 
 .link:hover {
@@ -74,6 +69,8 @@ li {
 .logo {
   /* Logo in the header */
   height: 80px;
+  padding-top: 20px;
+  padding-left:10px;
 }
 
 /* Search pages styling */

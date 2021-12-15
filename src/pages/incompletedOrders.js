@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { boxColorLayot, buttonStyle } from '../style/colors';
+import { buttonStyle } from '../style/colors';
 import { Link} from 'react-router-dom';
 import {URL} from '../back/Config';
 
@@ -32,7 +32,7 @@ export default function Orders({openReport}) {
                 <tr key={order.id} >
                   <td>{order.orderdate}</td>
                   <td>{order.customer_firstname} {order.customer_lastname}</td>
-                  <td><Link to="/printable/Print" target="_blank" className='btn' style={buttonStyle} onClick={() => openReport(order)} >Raportti</Link></td>
+                  <td></td>
                 </tr>
               ))}
             </tbody>

@@ -1,13 +1,13 @@
-import React, { useState /*, useEffect*/ } from 'react';
-import { Link, Navigate } from 'react-router-dom';
-import {boxShadowStyle, buttonStyle, boxColorLayot} from '../style/colors';
+import React, { useState } from 'react';
+import { Navigate } from 'react-router-dom';
+import {buttonStyle, boxColorLayot} from '../style/colors';
 import ModalOldCustomer from './modalOldCustomer';
 
-export default function SearchCustomer({ url, setCustomer_id, customer_id, hightWay = 0,setCustomerData }) {
+export default function SearchCustomer({ url, setCustomer_id, hightWay = 0,setCustomerData }) {
   const [searchPhone, setSearchPhone] = useState('');
   const [result, setResult] = useState([]);
   const [showCustomerSite, setShowCustomerSite] = useState(false);
-  const [showCustomerData, setShowCustomerData] = useState(false);
+ // const [showCustomerData, setShowCustomerData] = useState(false);
   const [showModalOldCustomer, setShowModalOldCustomer ] = useState(false);
   const [id, setId] = useState(0);
 

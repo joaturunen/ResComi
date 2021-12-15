@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { MdEmojiObjects } from 'react-icons/md';
+import React from 'react';
 import Tab from '../components/tab/Tab';
 import CustomerInfo from './customerInfo';
 import Car from './car';
 import _ from 'lodash';
-import Tires from './tires';
 import { buttonStyle } from '../style/colors';
 import CustomerOrders from './customerOrders';
 
