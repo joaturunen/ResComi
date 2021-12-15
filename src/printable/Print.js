@@ -47,65 +47,65 @@ export default function Print({ url, orders_id, customerCars, setCustomerCars, c
 
   
 
-  useEffect(() => {
-    let status = 0;
-    fetch('http://localhost/rengasvarasto-back/API/orders/orders_print.php', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        orders_id: orders_id
-      })
-    })
-    .then(res => {
-      status = parseInt(res.status);
-      return res.json();
-    })
-    .then(
-      (res) => {
-        if (status === 200) {
-          setCompanyName(res.office.name);
-          setCompanyPhone(res.office.phone);
-          setCompanyEmail(res.office.email);
-          setCompanyAddress(res.office.address);
-          setCompanyZip(res.office.zip);
-          setCompanyCity(res.office.city);
-          setFirstName(res.customer.firstname);
-          setLastName(res.customer.lastname);
-          setPhone(res.customer.phone);
-          setEmail(res.customer.email);
-          setAddress(res.customer.address);
-          setZip(res.customer.zipcode);
-          setCity(res.customer.city);
-          setCarRegister(res.car.register);
-          setCarBrand(res.car.brand);
-          setCarModel(res.car.model);
-          setTireModel(res.tires.model);
-          setTireSize(res.tires.size);
-          setTireType(res.tires.type);
-          setHubcups(res.tires.hubcups);
-          setTirebolt(res.tires.tirebolt);
-          setGrooveFl(res.tires.groovefl);
-          setGrooveFr(res.tires.groovefr);
-          setGrooveBl(res.tires.groovebl);
-          setGrooveBr(res.tires.groovebr);
-          setTireInfo(res.tires.tireInfo);
-          setAdditionalInfo(res.tires.additionalInfo);
-          setServices(res.services.services);
-          setWarehouse(res.warehouse.name);
-          setShelf(res.shelf.id);
-          setSlot(res.slot.id);
-        } else {
-          alert(res.error);
-        }
-      }, (error) => {
-        alert(error);
-      }
-    );
+  // useEffect(() => {
+  //   let status = 0;
+  //   fetch('http://localhost/rengasvarasto-back/API/orders/orders_print.php', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Accept': 'application/json',
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //       orders_id: orders_id
+  //     })
+  //   })
+  //   .then(res => {
+  //     status = parseInt(res.status);
+  //     return res.json();
+  //   })
+  //   .then(
+  //     (res) => {
+  //       if (status === 200) {
+  //         setCompanyName(res.office.name);
+  //         setCompanyPhone(res.office.phone);
+  //         setCompanyEmail(res.office.email);
+  //         setCompanyAddress(res.office.address);
+  //         setCompanyZip(res.office.zip);
+  //         setCompanyCity(res.office.city);
+  //         setFirstName(res.customer.firstname);
+  //         setLastName(res.customer.lastname);
+  //         setPhone(res.customer.phone);
+  //         setEmail(res.customer.email);
+  //         setAddress(res.customer.address);
+  //         setZip(res.customer.zipcode);
+  //         setCity(res.customer.city);
+  //         setCarRegister(res.car.register);
+  //         setCarBrand(res.car.brand);
+  //         setCarModel(res.car.model);
+  //         setTireModel(res.tires.model);
+  //         setTireSize(res.tires.size);
+  //         setTireType(res.tires.type);
+  //         setHubcups(res.tires.hubcups);
+  //         setTirebolt(res.tires.tirebolt);
+  //         setGrooveFl(res.tires.groovefl);
+  //         setGrooveFr(res.tires.groovefr);
+  //         setGrooveBl(res.tires.groovebl);
+  //         setGrooveBr(res.tires.groovebr);
+  //         setTireInfo(res.tires.tireInfo);
+  //         setAdditionalInfo(res.tires.additionalInfo);
+  //         setServices(res.services.services);
+  //         setWarehouse(res.warehouse.name);
+  //         setShelf(res.shelf.id);
+  //         setSlot(res.slot.id);
+  //       } else {
+  //         alert(res.error);
+  //       }
+  //     }, (error) => {
+  //       alert(error);
+  //     }
+  //   );
 
-  }, [orders_id]);
+  // }, [orders_id]);
 
 
   return (

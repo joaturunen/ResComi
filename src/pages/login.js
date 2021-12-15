@@ -2,19 +2,16 @@ import React, {useState} from 'react';
 import '../style/style.css';
 import {boxShadowStyle, buttonStyle} from '../style/colors';
 
-//const URL = 'php-kansio'; // tämä haetaan app.js
-
-// tämä pitää vaihtaa englanniksi!
 
 export default function Login({setUser}) {
-  const [employee, setEmployee] = useState('');
-  const [password, setPassword] = useState('');
+  const [employee, setEmployee] = useState('Toimari');
+  const [password, setPassword] = useState('salasana');
 
   async function login(e) {
     e.preventDefaul();
     const formData = new FormData();
 
-    formData.append('employee', employee);
+    formData.append('login', employee);
     formData.append('password', password);
 
     const config = {
@@ -24,17 +21,19 @@ export default function Login({setUser}) {
         'Accept' : 'application/json',
       },
       body: formData
-    }
-
-    const response = await fetch(URL, config); // URL kuntoon
+    };
+    const url = 'http://localhost/rengasvarasto-back/API/login/login.php';
+    const response = await fetch(url, config); 
     const json = await response.json();
 
     if (response.ok) {
-
-      setUser(json);
+      alert('Kirjatuminen onnistui');
+      // setUser(json);
       // avaa koti-sivun
     } else { // tänne voi laittaa if-rakenteen erilaisille erroreille
-      alert("Kirjautuminen epäonnistui");
+      if (response.status === 401) {
+        alert("Kirjautuminen epäonnistui");
+      }
     }
 
   }
