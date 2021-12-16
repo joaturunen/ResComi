@@ -4,20 +4,20 @@ import '../style/modal.css';
 
 export default function NewCar({setCustomerCars, customer_id}) {
 
-  const [register, setRegister] = useState('');
-  const [brand, setBrand] = useState('');
-  const [model, setModel] = useState('');
-  const [openNewCarModel, setOpenNewCarModel] = useState('');
-  const [showSuccess, setShowSuccess] = useState(false);
-  const [showFailed, setShowFailed] = useState(false);
+    const [register, setRegister] = useState('');
+    const [brand, setBrand] = useState('');
+    const [model, setModel] = useState('');
+    const [openNewCarModel, setOpenNewCarModel] = useState('');
+    const [showSuccess, setShowSuccess] = useState(false);
+    const [showFailed, setShowFailed] = useState(false);
 
 
-  useEffect(() => {
-    setShowFailed(false);
-    setShowSuccess(false);
-  }, [openNewCarModel]);
+    useEffect(() => {
+        setShowFailed(false);
+        setShowSuccess(false);
+    }, [openNewCarModel]);
 
-  function SaveCar(e) {
+    function SaveCar(e) {
         e.preventDefault();
         let status = 0;
         fetch('http://localhost/rengasvarasto-back/API/car/car_create.php', {
@@ -114,15 +114,15 @@ export default function NewCar({setCustomerCars, customer_id}) {
             </div>
         </>;
 
-  return (
-      <>
-      <div>
-        <button className="btn"  style={buttonStyle} onClick={()=>{
-          setOpenNewCarModel(true);
-        }}>Lisää uusi auto</button>
-        { openNewCarModel && (content)}
-      </div>
-      </>
-    
-  );
+    return (
+        <>
+            <div>
+                <button className="btn"  style={buttonStyle} onClick={()=>{
+                    setOpenNewCarModel(true);
+                    }}>Lisää uusi auto</button>
+                { openNewCarModel && (content)}
+            </div>
+        </>
+        
+    );
 }
