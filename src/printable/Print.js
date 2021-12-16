@@ -3,7 +3,7 @@ import '../style/style.css';
 import logo3 from '../images/logo3.svg';
 import { buttonStyle } from '../style/colors';
 
-export default function Print({ url, orders_id, customerCars, setCustomerCars, customerTires, setCustomerTires}) {
+export default function Print({ url, order_id}) {
 
   // Customer info
   const [firstName, setFirstName] = useState('');
@@ -18,24 +18,27 @@ export default function Print({ url, orders_id, customerCars, setCustomerCars, c
   const [carRegister, setCarRegister] = useState('');
   const [carBrand, setCarBrand] = useState('');
   const [carModel, setCarModel] = useState('');
+  const [tireBrand, setTireBrand] = useState('');
   const [tireModel, setTireModel] = useState('');
-  const [tireSize, setTireSize] = useState(0);
+  const [tireSize, setTireSize] = useState('');
   const [tireType, setTireType] = useState('');
   const [hubcups, setHubcups] = useState('');
+  const [rims, setRims] = useState('');
   const [tirebolt, setTirebolt] = useState('');
-  const [groovefl, setGrooveFl] = useState(0);
-  const [groovefr, setGrooveFr] = useState(0);
-  const [groovebl, setGrooveBl] = useState(0);
-  const [groovebr, setGrooveBr] = useState(0);
+  const [groovefl, setGrooveFl] = useState('');
+  const [groovefr, setGrooveFr] = useState('');
+  const [groovebl, setGrooveBl] = useState('');
+  const [groovebr, setGrooveBr] = useState('');
   const [tireInfo, setTireInfo] = useState('');
   const [additionalInfo, setAdditionalInfo] = useState('');
 
   // Order info
-  const [orderNumber, setOrderNumber] = useState(0);
-  const [services, setServices] = useState('');
+  const [orderNumber, setOrderNumber] = useState('');
+  const [orderdate, setOrderdate] = useState('');
+  const [services, setServices] = useState([]);
   const [warehouse, setWarehouse] = useState('');
-  const [shelf, setShelf] = useState(0);
-  const [slot, setSlot] = useState(0);
+  const [shelf, setShelf] = useState('');
+  const [slot, setSlot] = useState('');
 
   // Tirehotel info
   const [companyName, setCompanyName] = useState('');
@@ -49,14 +52,14 @@ export default function Print({ url, orders_id, customerCars, setCustomerCars, c
 
   useEffect(() => {
     let status = 0;
-    fetch('http://localhost/rengasvarasto-back/API/orders/orders_print.php', {
+    fetch(url + 'order/order_print.php', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        orders_id: orders_id
+        order_id: order_id
       })
     })
     .then(res => {
@@ -82,10 +85,12 @@ export default function Print({ url, orders_id, customerCars, setCustomerCars, c
           setCarRegister(res.car.register);
           setCarBrand(res.car.brand);
           setCarModel(res.car.model);
+          setTireBrand(res.tire_brand);
           setTireModel(res.tires.model);
           setTireSize(res.tires.size);
           setTireType(res.tires.type);
           setHubcups(res.tires.hubcups);
+          setRims(res.tires.rims);
           setTirebolt(res.tires.tirebolt);
           setGrooveFl(res.tires.groovefl);
           setGrooveFr(res.tires.groovefr);
@@ -93,6 +98,7 @@ export default function Print({ url, orders_id, customerCars, setCustomerCars, c
           setGrooveBr(res.tires.groovebr);
           setTireInfo(res.tires.tireInfo);
           setAdditionalInfo(res.tires.additionalInfo);
+          setOrderdate(res.order.orderdate);
           setServices(res.services.services);
           setWarehouse(res.warehouse.name);
           setShelf(res.shelf.id);
@@ -105,175 +111,119 @@ export default function Print({ url, orders_id, customerCars, setCustomerCars, c
       }
     );
 
-  }, [orders_id]);
+  }, [order_id]);
 
 
   return (
     <>
       <form className="ml-5">
-        <div>
           <div className='header' >
             <div className='row'>
               <img className='img logo' src={logo3} alt="Printtilogo" />
             </div>
           </div>
           <div className="col-sm-6">
-                <button className="btn" id="printButton" style={buttonStyle} onClick={() => window.print()}>Tulosta</button>
-              </div>
-{/*
-          <div className="input-group container-fluid">
-            <div className="input-group-prepend">
-              <span className="input-group-text">Tilausnumero:</span>
-            </div>
-            <div className="row">
-              <div className="col-sm-6">
-                <input type="text" className="form-control" />
-              </div>
-              <div className="col-sm-6">
-                <button className="btn btn-primary" style={buttonStyle}>Hae</button>
-              </div>
-            </div>
-          </div>
-*/}
+            <button className="btn" id="printButton" style={buttonStyle} onClick={() => window.print()}>Tulosta</button>
+          </div> 
 
-          <div className='container-fluid'>
-            <div className='row'>
-              <div className="col-sm-6">
-                <ul className="list-group">
-                  <li className="list-group-item">Yritys:</li>
-                  <li className="list-group-item">Konttori: {companyName}</li>
-                  <li className="list-group-item">Puhelinnumero: {companyPhone}</li>
-                  <li className="list-group-item">Sähköposti: {companyEmail}</li>
-                  <li className="list-group-item">Katuosoite: {companyAddress}</li>
-                  <li className="list-group-item">Postinumero: {companyZip}</li>
-                  <li className="list-group-item">Postitoimipaikka: {companyCity}</li>
-                </ul>
-              </div>
-              <div className="col-sm-6">
-                <ul className="list-group">
-                  <li className="list-group-item">Asiakas:</li>
-                  <li className="list-group-item">Nimi: {firstName} {lastName}</li>
-                  <li className="list-group-item">Puhelinnumero: {phone}</li>
-                  <li className="list-group-item">Sähköposti: {email}</li>
-                  <li className="list-group-item">Katuosoite: {address}</li>
-                  <li className="list-group-item">Postinumero: {zip}</li>
-                  <li className="list-group-item">Postitoimipaikka: {city}</li>
-                </ul>
-              </div>
+          {/** yrityksen ja asiakkaan tiedot */}
+          <div className='container-fluid row'>
+            <div className="col-sm-6">
+              <h5 className='m-2'>Asiakastiedot</h5>
+              <ul className="list-group">
+                <li className="list-group-item">Nimi: {firstName} {lastName}</li>
+                <li className="list-group-item">Puhelinnumero: {phone}</li>
+                <li className="list-group-item">Sähköposti: {email}</li>
+                <li className="list-group-item">Katuosoite: {address}</li>
+                <li className="list-group-item">Postinumero: {zip}</li>
+                <li className="list-group-item">Postitoimipaikka: {city}</li>
+              </ul>
+            </div>
+            <div className="col-sm-6">
+              <h5 className='m-2'>Rengashotelli Horros</h5>
+              <ul className="list-group">
+                <li className="list-group-item">Konttori: {companyName}</li>
+                <li className="list-group-item">Puhelinnumero: {companyPhone}</li>
+                <li className="list-group-item">Sähköposti: {companyEmail}</li>
+                <li className="list-group-item">Katuosoite: {companyAddress}</li>
+                <li className="list-group-item">Postinumero: {companyZip}</li>
+                <li className="list-group-item">Postitoimipaikka: {companyCity}</li>
+              </ul>
             </div>
           </div>
-          <div className='row'>
-            <h2 className="text-center">Säilytyspaikka</h2>
-          </div>
-          <div className='container-fluid'>
-            <div className='row'>
-              <div className="col-sm-4">
-                <ul className="list-group">
-                  <li className="list-group-item">Varasto: {warehouse}</li>
-                </ul>
-              </div>
-              <div className="col-sm-4">
-                <ul className="list-group">
-                  <li className="list-group-item">Hylly: {shelf}</li>
-                </ul>
-              </div>
-              <div className="col-sm-4">
-                <ul className="list-group">
-                  <li className="list-group-item">Paikka: {slot}</li>
-                </ul>
-              </div>
+
+          {/** auto ja säilytyspaikka */}
+          <div className='row container-fluid'>
+            <div className="col-sm-6">
+              <h5 className='m-2'>Auton tiedot</h5>
+              <ul className="list-group" >
+                <li className="list-group-item">Rekisterinumero: {carRegister}</li>
+                <li className="list-group-item">Merkki: {carBrand}</li>
+                <li className="list-group-item">Malli: {carModel}</li>
+              </ul>
+            </div>
+            <div className="col-sm-6">
+              <h5 className='m-2'>Säilytyspaikka</h5>
+              <ul className="list-group">
+                <li className="list-group-item">Varasto: {warehouse}</li>
+                <li className="list-group-item">Hylly: {shelf}</li>
+                <li className="list-group-item">Paikka: {slot}</li>
+              </ul>
             </div>
           </div>
-          <div className='row'>
-            <h2 className="text-center">Auton Info</h2>
-          </div>
-          <div className='container-fluid'>
-            <div className='row'>
-              <div className="col-sm-4">
-                <ul className="list-group" >
-                  <li className="list-group-item">Rekisterinumero: {carRegister}</li>
-                </ul>
-              </div>
-              <div className="col-sm-4">
-                <ul className="list-group" >
-                  <li className="list-group-item">Merkki: {carBrand}</li>
-                </ul>
-              </div>
-              <div className="col-sm-4">
-                <ul className="list-group" >
-                  <li className="list-group-item">Malli: {carModel}</li>
-                </ul>
-              </div>
-              <div className='row'>
-            <h2 className="text-center">Renkaiden Info</h2>
-          </div>
-              <div className="col-sm-6">
-                <ul className="list-group" >
-                  <li className="list-group-item">Renkaat: {tireModel}</li>
-                </ul>
-              </div>
-              <div className="col-sm-6">
-                <ul className="list-group" >
-                  <li className="list-group-item">Rengastyyppi: {tireType}</li>
-                </ul>
-              </div>
-              <div className="col-sm-4">
-                <ul className="list-group" >
-                  <li className="list-group-item">Renkaiden koko: {tireSize}</li>
-                </ul>
-              </div>       
-              <div className="col-sm-4">
-                <ul className="list-group" >
-                  <li className="list-group-item">Vanteet: {hubcups}</li>
-                </ul>
-              </div>
-              <div className="col-sm-4">
-                <ul className="list-group" >
-                  <li className="list-group-item">Rengaspultti: {tirebolt}</li>
-                </ul>
-              </div>
-              <div className="col-sm-3">
-                <ul className="list-group" >
-                  <li className="list-group-item">Etu-vasen: {groovefl}</li>
-                </ul>
-              </div>
-              <div className="col-sm-3">
-                <ul className="list-group" >
-                  <li className="list-group-item">Taka-vasen: {groovebl}</li>
-                </ul>
-              </div>
-              <div className="col-sm-3">
-                <ul className="list-group" >
-                  <li className="list-group-item">Taka-oikea: {groovebr}</li>
-                </ul>
-              </div>
-              <div className="col-sm-3">
-                <ul className="list-group" >
-                  <li className="list-group-item">Etu-oikea: {groovefr}</li>
-                </ul>
-              </div>
-              <div className="col-sm-12">
-                <ul className="list-group" >
-                  <li className="list-group-item">Ostetut palvelut: {services}</li>
-                </ul>
-              </div>
-              <div className="col-sm-12">
-                <ul className="list-group" >
-                  <li className="list-group-item">Rengasinfo: {tireInfo}</li>
-                </ul>
-              </div>
-              <div>
-                <textarea className="col-sm-12" rows="3" placeholder="Lisätietoa:">{additionalInfo}</textarea>
-              </div>
-              <div className="col-sm-6">
-                <textarea className="col-sm-12" rows="3" placeholder="Noutajan allekirjoitus ja päiväys:" />
-              </div>
-              <div className="col-sm-6">
-                <textarea className="col-sm-12" rows="3" placeholder="Työntekijän allekirjoitus:" />
-              </div>
+
+          {/** renkaat */}
+          <div className='row container-fluid'>
+            <h5 className='m-2'>Renkaiden tiedot</h5>
+            <div className="col-sm-6">
+              <ul className="list-group" >
+                <li className="list-group-item">Renkaat: {tireBrand} {tireModel}</li>
+                <li className="list-group-item">Rengastyyppi: {tireType}</li>
+                <li className="list-group-item">Renkaiden koko: {tireSize}</li>
+                <li className="list-group-item">Vanteet: {rims}</li>
+                <li className="list-group-item">Pölykapselit: {hubcups}</li>
+                <li className="list-group-item">Pultit: {tirebolt}</li>
+              </ul>
+            </div>
+            <div className="col-sm-6">
+              <ul className="list-group" >
+                <li className="list-group-item">  Urasyvyydet:
+                  <ul>
+                    <li>Etu-vasen: {groovefl}</li>
+                    <li>Taka-vasen: {groovebl}</li>
+                    <li>Taka-oikea: {groovebr}</li>
+                    <li>Etu-oikea: {groovefr}</li>
+                  </ul>
+                </li>
+                <li className="list-group-item">Kuntoarvio: {tireInfo}</li>
+              </ul>
             </div>
           </div>
-        </div>
+          <div className='row container-fluid'>
+            <h5 className='m-2'>Tilauksen tiedot</h5>
+            <div className="col-sm-6">
+              <ul className="list-group" > 
+                <li>Ostetut palvelut:</li>
+                {services.map(service => (
+                  <li className="list-group-item" key={service.id} >{service.service}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="col-sm-6">
+              <ul className="list-group" >
+                <li>Tilauspäivä: {orderdate} </li>
+                <li>Yhteensä: XX €</li>
+              </ul>
+            </div>
+          </div>
+          <div className='row container-fluid'>
+            <div className="col-sm-6">
+              <textarea className="col-sm-12" rows="3" placeholder="Asiakkaan allekirjoitus ja päiväys:" />
+            </div>
+            <div className="col-sm-6">
+              <textarea className="col-sm-12" rows="3" placeholder="Työntekijän allekirjoitus:" />
+            </div>
+          </div>
       </form>
     </>
   )
