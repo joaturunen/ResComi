@@ -4,22 +4,10 @@ import '../style/modal.css';
 import {URL} from '../back/Config';
 
 
-export default function ModalOrderDone() {
-  const [firstname, setFirstname] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const [address, setAddress] = useState('');
-  const [zipcode, setZipcode] = useState('');
-  const [city, setCity] = useState('');
-  const [employeeId, setEmployeeId] = useState(3);
-  const [openModel, setOpenModel] = useState(false);
-  const [register, setRegister] = useState('');
-  const [brand, setBrand] = useState('');
-  const [model, setModel] = useState('');
+export default function ModalOrderDone({showModal = false }) {
+  const [openModel, setOpenModel] = useState(showModal);
   const [showSuccess, setShowSuccess] = useState(false);
   const [showFailed, setShowFailed] = useState(false);
-
   
 const alertSuccees =
   <div className="p-2">

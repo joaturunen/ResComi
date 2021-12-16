@@ -8,6 +8,7 @@ import ModalNewCustomer from './modalNewCustomer';
 import ComponentCustomer from './componentCustomer';
 import ComponentOrderCar from './componentOrderCar';
 import ModalOldCustomer from './modalOldCustomer';
+import ModalOrderDone from './modalOrderDone';
 
 
 // kuinka tallennetaan myös auton tiedot samalla?
@@ -29,12 +30,11 @@ export default function Order({
     customerData,
     emptyAllData }) {
 
-    //const [finished, setFinished] = useState(false);
     //const [cus_id, setCus_id] = useState('');
     const [employ_id] = useState(3);
+    const [showModalOrderDone, setShowModalOrderDone] = useState(false);
 
-    function SaveOrder(e) {
-        e.preventDefault();
+    function SaveOrder() {
         console.log("Asiakas id" + customerData[0].customer_id);
         console.log("Uudet tires id" + customerData[0].tires_id);
         console.log("old tires id" + customerData[0].oldTires_id);
@@ -63,7 +63,7 @@ export default function Order({
             (res) => {
                 console.log(res);
                 // emptyAllData();
-                //setFinished(true);
+                //setShowModalOrderDone(true);
             }, (error) => {
                 alert(error);
             }
@@ -125,13 +125,11 @@ export default function Order({
                       Tilauksia ei ole valittu
                     </div>) : (<p>{orderShow}</p>)}
                   </div>
-                  <form onSubmit={SaveOrder}>
-
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                      <button class='btn' style={buttonStyle}>Tallenna tilaus</button>
+                    <button class='btn' style={buttonStyle} onClick={() => emptyAllData()}>Tyhjennä kentät</button>
+                      <button class='btn' style={buttonStyle} onClick={() => SaveOrder()}>Tallenna tilaus</button>
+                      <ModalOrderDone showModal={showModalOrderDone}/>
                     </div>
-
-                  </form>
                 </div>
               </div>
             </div>
