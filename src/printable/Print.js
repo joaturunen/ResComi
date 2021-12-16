@@ -130,7 +130,7 @@ export default function Print({ url, orders_id, customerCars, setCustomerCars, c
                 <input type="text" className="form-control" />
               </div>
               <div className="col-sm-6">
-                <button className="btn btn-primary" style={buttonStyle}>Hae</button>
+                <button className="btn" style={buttonStyle}>Hae</button>
               </div>
             </div>
           </div>

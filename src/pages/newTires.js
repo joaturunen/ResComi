@@ -200,7 +200,7 @@ export default function NewTires({setCarTires, car_id, car_register}) {
                                 <textarea className='form-control' rows="2" placeholder='Lisätietoja' value={text} onChange={e => setText(e.target.value)}/>
                             </div>
                             <div className='col-md-2 mt-5'>
-                                    <button className='btn btn-primary' style={buttonStyle}>Tallenna</button>
+                                    <button className='btn' style={buttonStyle}>Tallenna</button>
                             </div>
                         </form>
                     </div>

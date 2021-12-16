@@ -30,7 +30,6 @@ function App() {
   const [customerOrders, setCustomerOrders] = useState([]);
   const [currentShelfID, setCurrentShelfID] = useState(0);
   const [customerData, setCustomerData] = useState([]);
-  const [seasonToOrder, setSeasonToOrder] = useState(0);
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -47,7 +46,6 @@ function App() {
       const newCart = [...cart, service];
       setCart(newCart);
       localStorage.setItem('cart',JSON.stringify(newCart));
-      setSeasonToOrder(service.season_id);
     } else if(service.category_id === 1){
       let remove = null;
       for (let i = 0; i < cart.length; i++){
@@ -61,8 +59,7 @@ function App() {
         setCart(newCart);
         localStorage.setItem('cart',JSON.stringify(newCart));
       }
-      setSeasonToOrder(service.season_id);
-      console.log(seasonToOrder);
+
 
     } else if(!cart.includes(service)){
       const newCart = [...cart, service];
