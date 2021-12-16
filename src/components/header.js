@@ -6,12 +6,9 @@ import {FaSignOutAlt } from 'react-icons/fa';
 export default function Header() {
   return (
     <div className='row' style={headerColor}>
-      
         <a href='/'> <img className='logo' src={logo3} alt='rescomi'/> </a>
         
-        
         <p style={userStyle}>Kirjautunut käyttäjä, Toimipiste <FaSignOutAlt /></p>
-        
     </div>
   )
 }

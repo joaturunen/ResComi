@@ -3,7 +3,6 @@ import Tab from '../components/tab/Tab';
 import CustomerInfo from './customerInfo';
 import Car from './car';
 import _ from 'lodash';
-import { buttonStyle } from '../style/colors';
 import CustomerOrders from './customerOrders';
 
 
