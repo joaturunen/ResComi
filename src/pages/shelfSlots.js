@@ -89,7 +89,7 @@ const shelfPage =
               <td>{(slot.tires_id !== null) ? (<p>{slot.tires_brand}</p>) : (<p>-</p>)}</td>
               <td>{(slot.tires_id !== null) ? (<p>{slot.tires_brand}</p>) : (<p>-</p>)}</td>
               <td>{(slot.tires_id !== null) ? (<p>{slot.tires_text}</p>) : (<p>-</p>)}</td>
-              <td class="text-end">{(slot.tires_id !== null) ? (<button className='btn' style={buttonStyle} onClick={() => ""}>Näytä enemmän</button>) : (<p></p>)}</td>
+              <td class="text-end">{(slot.tires_id !== null) ? (<button className='btn' style={buttonStyle} onClick={() => ""}>Näytä tilaustiedot</button>) : (<p></p>)}</td>
 
             </tr>
           ))}
