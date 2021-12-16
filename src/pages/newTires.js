@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {buttonStyle} from '../style/colors';
 import '../style/modal.css';
 import Car from '../images/3121893.png';
+import {URL} from '../back/Config';
 
 
 // uusien renkaiden tallennus: voiko valita slotin vai tuleeko automaattisesti seuraava vapaa?
@@ -33,7 +34,7 @@ export default function NewTires({setCarTires, car_id, car_register}) {
         console.log(car_id);
         e.preventDefault();
         let status = 0;
-        fetch('http://localhost/rengasvarasto-back/API/tires/tires_create.php', {
+        fetch(URL + 'tires/tires_create.php', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

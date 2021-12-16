@@ -1,8 +1,5 @@
 //Main URL to backend API
-export const URL = 'http://localhost/rengasvarasto-back/API/';
-
-// Reads customer single object
-export const CUSTOMER_READ_SINGLE = 'customer/customer_read_single.php';
+export const URL = 'http://localhost/rengasvarasto-back/landing/';
 
 
 // Not sure why this must be

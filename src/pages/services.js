@@ -1,14 +1,15 @@
 import React,{useState, useEffect} from 'react';
-import { boxColorLayot, Choice} from '../style/colors';
+import { boxColorLayot, Choice, buttonStyle} from '../style/colors';
+import {URL} from '../back/Config';
 
-export default function Services({ url, addToCart }) {
+export default function Services({addToCart }) {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
         async function getServices() {
-            console.log(url);
+            console.log(URL);
             try {
-                const response = await fetch(url + 'services/services_read_all.php');
+                const response = await fetch(URL + 'services/services_read_all.php');
                 const json = await response.json();
                 if (response) {
                     setServices(json);
@@ -38,7 +39,6 @@ export default function Services({ url, addToCart }) {
                     <tr key={service.id} onClick={() => addToCart(service)}>
                       <td>{service.service}</td>
                       <td className="text-right">{service.price} €</td>
-                      {/* <td className="text-right" style={Choice}>Valitse</td> */}
                     </tr>
                   )
 

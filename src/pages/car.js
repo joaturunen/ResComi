@@ -3,6 +3,7 @@ import NewCar from './newCar';
 import Tires from './tires';
 import { buttonStyle } from '../style/colors';
 import { FaTrash, FaEdit } from 'react-icons/fa';
+import {URL} from '../back/Config';
 
 // tulostaa yhdelle asiakkaalle kuuluvat autot 
 
@@ -14,7 +15,7 @@ export default function Car({ customerCars, setCustomerCars, customer_id}) {
     function deleteCar(id) {
         let status = 0;
         console.log(id);
-        fetch('http://localhost/rengasvarasto-back/API/car/car_delete.php', {
+        fetch(URL + 'car/car_delete.php', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

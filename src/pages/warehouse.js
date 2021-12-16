@@ -3,10 +3,11 @@ import { FaSquareFull } from 'react-icons/fa';
 import { boxColorLayot, pieChartTaken, pieChartFree, buttonStyle } from '../style/colors';
 import { Navigate } from 'react-router-dom';
 import Loading from '../components/loading';
+import {URL} from '../back/Config';
 
 // tänne lista kaikista varastopaikoista lajiteltuna varastoittain
 
-export default function Warehouse({ url, setCurrentShelfID}) {
+export default function Warehouse({setCurrentShelfID}) {
   const [warehouseAll, setWarehouseAll] = useState(0);
   const [warehouseTaken, setWarehouseTaken] = useState(0);
   const [warehouseFree, setWarehouseFree] = useState(0);
@@ -20,7 +21,7 @@ export default function Warehouse({ url, setCurrentShelfID}) {
   useEffect(() => {
     async function getWarehouseData() {
       try {
-        const response = await fetch(url + 'warehouse/warehouse_amounts.php');
+        const response = await fetch(URL + 'warehouse/warehouse_amounts.php');
         const json = await response.json();
         if (response) {
           setWarehouseAll(parseInt(json.all));
@@ -36,7 +37,7 @@ export default function Warehouse({ url, setCurrentShelfID}) {
     }
     async function getWarehouseShelfsData() {
       try {
-        const response = await fetch(url + 'warehouse/shelfs/warehouseShelf_read_all_data.php');
+        const response = await fetch(URL + 'warehouse/shelfs/warehouseShelf_read_all_data.php');
         const json = await response.json();
         if (response) {
           setShelfs(Array.from(json));

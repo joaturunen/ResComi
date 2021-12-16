@@ -30,6 +30,7 @@ function App() {
   const [customerOrders, setCustomerOrders] = useState([]);
   const [currentShelfID, setCurrentShelfID] = useState(0);
   const [customerData, setCustomerData] = useState([]);
+  const [seasonToOrder, setSeasonToOrder] = useState(0);
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -46,6 +47,7 @@ function App() {
       const newCart = [...cart, service];
       setCart(newCart);
       localStorage.setItem('cart',JSON.stringify(newCart));
+      setSeasonToOrder(service.season_id);
     } else if(service.category_id === 1){
       let remove = null;
       for (let i = 0; i < cart.length; i++){
@@ -59,6 +61,8 @@ function App() {
         setCart(newCart);
         localStorage.setItem('cart',JSON.stringify(newCart));
       }
+      setSeasonToOrder(service.season_id);
+      console.log(seasonToOrder);
 
     } else if(!cart.includes(service)){
       const newCart = [...cart, service];
@@ -76,6 +80,11 @@ function App() {
 
   // tyhjennä koko ostoskori
   function emptyCart() {
+    setCart([]);
+    localStorage.removeItem('cart');
+  }
+
+  function emptyAllData() {
     setCart([]);
     setCustomerData([]);
     localStorage.removeItem('cart');
@@ -111,12 +120,13 @@ function App() {
                       url={URL} 
                       cart={cart} 
                       addToCart={addToCart} 
-                      empty={emptyCart} 
+                      emptyCart={emptyCart} 
                       removeFromCart={removeFromCart}
                       setCustomer_id={setCustomer_id}
                       employee_id={employee_id}
                       setCustomerData={setCustomerData}
-                      customerData={customerData}/>
+                      customerData={customerData}
+                      emptyAllData={emptyAllData}/>
                     }/>
                   <Route path="/newCustomer" 
                     element={<NewCustomer/>

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { buttonStyle, boxColorLayot } from '../style/colors';
+import {URL} from '../back/Config';
 
-export default function SearchCar({ url, setCustomer_id }) {
+export default function SearchCar({setCustomer_id }) {
   const [searchRegister, setSearchRegister] = useState('');
   const [result, setResult] = useState([]);
   //const [showCarSite, setShowCarSite] = useState(false);
@@ -15,7 +16,7 @@ export default function SearchCar({ url, setCustomer_id }) {
     setResultNro(1);
     e.preventDefault();
     let status = 0;
-    fetch(url + 'car/car_search.php/', {
+    fetch(URL + 'car/car_search.php/', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
