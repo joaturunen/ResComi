@@ -165,9 +165,9 @@ function App() {
                   <Route path="/" element={<Home/> }>
                     {/* {user ? <Users /> : <Navigate to="/login" />} */}
                   </Route>
-                  {/* <Route path="/login" 
-                    element={<Login onLogin={login}/>
-                  }/> */}
+                  <Route path="/login" 
+                    element={<Login />
+                  }/>
                   <Route path="*" element={<Empty />} />
                   <Route path="/printable/Print" element={<Print />} />
                 </Routes>

@@ -5,7 +5,7 @@ import Car from '../images/3121893.png';
 import {FaEdit } from 'react-icons/fa';
 
 
-export default function UpdateTires({tires_id, brand, model, type, hubcups, grooveFL, grooveFR, grooveBL, grooveBR, tiresize, tirebolt, text, rims}) {
+export default function UpdateTires({tires_id, car_register, brand, model, type, hubcups, grooveFL, grooveFR, grooveBL, grooveBR, tiresize, tirebolt, text, rims}) {
     const [newBrand, setNewBrand] = useState(brand);
     const [newModel, setNewModel] = useState(model);
     const [newType, setNewType] = useState(type);
@@ -145,10 +145,10 @@ export default function UpdateTires({tires_id, brand, model, type, hubcups, groo
                             </div>
 
                             <div className='col-md-3'>
-                                {/* <div className='mt-1'>
+                                <div className='mt-1'>
                                     <label>Auton rekisteri</label>
                                     <input type="text" className="form-control" value={car_register} />
-                                </div> */}
+                                </div>
                                 <div className='mt-1'>
                                     <label>Vannetyyppi</label>
                                     <input type="text" className="form-control" placeholder='Alumiini/Teräs' value={newRims} onChange={e => setNewRims(e.target.value)}/>

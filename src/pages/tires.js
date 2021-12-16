@@ -153,6 +153,7 @@ export default function Tires({car_id, car_register}) {
                     <div className='col-md-2 mt-2'>
                         <UpdateTires 
                             tires_id={tire.id} 
+                            car_register={tire.car_register}
                             brand={tire.brand}
                             model={tire.model}
                             type={tire.type}

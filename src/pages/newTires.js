@@ -31,6 +31,7 @@ export default function NewTires({setCarTires, car_id, car_register}) {
     }, [openNewTiresModel]);
 
     function SaveTires(e) {
+        console.log(car_id);
         e.preventDefault();
         let status = 0;
         fetch(URL + 'tires/tires_create.php', {
