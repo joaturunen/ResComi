@@ -77,6 +77,11 @@ function App() {
   // tyhjennä koko ostoskori
   function emptyCart() {
     setCart([]);
+    localStorage.removeItem('cart');
+  }
+
+  function emptyAllData() {
+    setCart([]);
     setCustomerData([]);
     localStorage.removeItem('cart');
   }
@@ -111,12 +116,13 @@ function App() {
                       url={URL} 
                       cart={cart} 
                       addToCart={addToCart} 
-                      empty={emptyCart} 
+                      emptyCart={emptyCart} 
                       removeFromCart={removeFromCart}
                       setCustomer_id={setCustomer_id}
                       employee_id={employee_id}
                       setCustomerData={setCustomerData}
-                      customerData={customerData}/>
+                      customerData={customerData}
+                      emptyAllData={emptyAllData}/>
                     }/>
                   <Route path="/newCustomer" 
                     element={<NewCustomer/>

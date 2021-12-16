@@ -15,7 +15,7 @@ import ModalOldCustomer from './modalOldCustomer';
 export default function Order({
     url,
     cart,
-    empty,
+    emptyCart,
     addToCart,
     removeFromCart,
     setCustomer_id,
@@ -26,7 +26,8 @@ export default function Order({
     setCustomerTires,
     employee_id,
     setCustomerData,
-    customerData }) {
+    customerData,
+    emptyAllData }) {
 
     //const [finished, setFinished] = useState(false);
     //const [cus_id, setCus_id] = useState('');
@@ -61,7 +62,7 @@ export default function Order({
         .then (
             (res) => {
                 console.log(res);
-                empty();
+                // emptyAllData();
                 //setFinished(true);
             }, (error) => {
                 alert(error);
@@ -87,7 +88,7 @@ export default function Order({
           <tr>
             <td></td>
             <td className="text-right">{sum.toFixed(2)} €</td>
-            <td className="text-right"><FaTrash onClick={() => empty()}/></td>
+            <td className="text-right"><FaTrash onClick={() => emptyCart()}/></td>
           </tr>
         </tbody>
       </table>
