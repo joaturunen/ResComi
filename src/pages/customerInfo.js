@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { buttonStyle } from '../style/colors';
-
-
+import {URL} from '../back/Config';
 // tämä avautuu hakutuloksesta, ei näy navissa
 
 export default function CustomerInfo({customer_id, setCustomerCars, setCustomerOrders}) {
@@ -17,7 +16,7 @@ export default function CustomerInfo({customer_id, setCustomerCars, setCustomerO
 
     useEffect(() => {
         let status = 0;
-        fetch('http://localhost/rengasvarasto-back/API/customer/customer_read_cus_cars_tires.php', {
+        fetch(URL + 'customer/customer_read_cus_cars_tires.php', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {buttonStyle} from '../style/colors';
 import '../style/modal.css';
+import {URL} from '../back/Config';
 
 export default function NewCar({setCustomerCars, customer_id}) {
 
@@ -20,7 +21,7 @@ export default function NewCar({setCustomerCars, customer_id}) {
   function SaveCar(e) {
         e.preventDefault();
         let status = 0;
-        fetch('http://localhost/rengasvarasto-back/API/car/car_create.php', {
+        fetch(URL + 'car/car_create.php', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

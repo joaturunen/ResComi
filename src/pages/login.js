@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import '../style/style.css';
 import {boxShadowStyle, buttonStyle} from '../style/colors';
 
-//const URL = 'php-kansio'; // tämä haetaan app.js
 
 // tämä pitää vaihtaa englanniksi!
 

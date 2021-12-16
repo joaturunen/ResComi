@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import {buttonStyle, boxColorLayot} from '../style/colors';
 import ModalOldCustomer from './modalOldCustomer';
+import {URL} from '../back/Config';
 
-export default function SearchCustomer({ url, setCustomer_id, hightWay = 0, setCustomerData }) {
+export default function SearchCustomer({setCustomer_id, hightWay = 0, setCustomerData }) {
   const [searchPhone, setSearchPhone] = useState('');
   const [result, setResult] = useState([]);
   const [showCustomerSite, setShowCustomerSite] = useState(false);
@@ -17,7 +18,7 @@ export default function SearchCustomer({ url, setCustomer_id, hightWay = 0, setC
     setResultNro(1);
     e.preventDefault();
     let status = 0;
-    fetch(url + 'customer/customer_search.php/', {
+    fetch(URL + 'customer/customer_search.php/', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

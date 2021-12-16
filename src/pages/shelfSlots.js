@@ -3,10 +3,11 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { buttonStyle } from '../style/colors';
 import { Navigate } from 'react-router-dom';
 import Loading from '../components/loading';
+import {URL} from '../back/Config';
 
 // tänne lista kaikista varastopaikoista lajiteltuna varastoittain
 
-export default function ShelfSlots({ url, currentShelfID = 1}) {
+export default function ShelfSlots({ currentShelfID = 1}) {
   const [slots, setSlots] = useState([]);
   const [currentShelf, setCurrentShelf] = useState([currentShelfID]);
   const [previosShelf, setPreviousShelf] = useState(0);
@@ -17,7 +18,7 @@ export default function ShelfSlots({ url, currentShelfID = 1}) {
 
   useEffect(() => {
     let status = 0;
-    let address = url + 'warehouse/shelfs/warehouseShelf_read_shelfs_slots.php';
+    let address = URL + 'warehouse/shelfs/warehouseShelf_read_shelfs_slots.php';
     fetch(address, {
         method: 'POST',
         headers: {

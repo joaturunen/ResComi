@@ -1,14 +1,15 @@
 import React,{useState, useEffect} from 'react';
 import { boxColorLayot, Choice, buttonStyle} from '../style/colors';
+import {URL} from '../back/Config';
 
-export default function Services({ url, addToCart }) {
+export default function Services({addToCart }) {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
         async function getServices() {
             console.log(url);
             try {
-                const response = await fetch(url + 'services/services_read_all.php');
+                const response = await fetch(URL + 'services/services_read_all.php');
                 const json = await response.json();
                 if (response) {
                     setServices(json);
