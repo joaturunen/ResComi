@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import React, {useState, useEffect} from "react";
-import {BrowserRouter as Router, Routes, Route, useLocation} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, useLocation, Navigate} from 'react-router-dom';
 import SideMenu from "./components/SideMenu";
 import Header from './components/header';
 import Login from './pages/login';
@@ -31,6 +31,8 @@ function App() {
   const [currentShelfID, setCurrentShelfID] = useState(0);
   const [customerData, setCustomerData] = useState([]);
   const { pathname } = useLocation();
+  const [order_id, setOrder_id] = useState('');
+  const [showReport, setShowReport] = useState(false);
 
   useEffect(() => {
     if ('cart' in localStorage) {
@@ -89,7 +91,15 @@ function App() {
 
   // avaa raportin tulostusikkunaan
   function openReport(order) {
-
+      setOrder_id(order.id);
+      setShowReport(true);
+  
+    if (showReport === true) {
+      return (
+        <Navigate to="/printable/print" />
+  
+      );
+    }
   }
 
   return (
