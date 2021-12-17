@@ -41,7 +41,7 @@ export default function ModalOldCustomer({setCustomerData, showModal = false, se
   useEffect(() => {
     function getData(){
     let status = 0;
-    let address = URL + 'customer/customer_read_cus_cars_tires.php';
+    let address = URL + 'customer/customer_readToOldCustomerModal.php';
     fetch(address, {
         method: 'POST',
         headers: {
@@ -67,9 +67,13 @@ export default function ModalOldCustomer({setCustomerData, showModal = false, se
               setAddress(res.customer.address);
               setZipcode(res.customer.zipcode);
               setCity(res.customer.city);
+              console.log(res.tires);
+              console.log(tires);
 
               setCars(res.cars);
               setTires(res.tires);
+              console.log(res.tires);
+              console.log(tires);
               setLoadingDone(true);
             } else {
             alert(res.error);

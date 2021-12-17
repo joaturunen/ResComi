@@ -55,7 +55,7 @@ export default function SearchCustomer({setCustomer_id, hightWay = 0, setCustome
 
     if(hightWay === 'order'){
       setId(customer.id);
-      setShowModalOldCustomer(true)
+      setShowModalOldCustomer(true);
     } else{
       setCustomer_id(customer.id);
       //setShowCustomerData(true); // tällä ei saa näkymään orderissa

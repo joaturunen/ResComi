@@ -33,8 +33,10 @@ export default function Order({
     //const [cus_id, setCus_id] = useState('');
     const [employ_id] = useState(3);
     const [showModalOrderDone, setShowModalOrderDone] = useState(false);
+    const [info, setInfo] = useState([]);
 
     function SaveOrder() {
+      setShowModalOrderDone(true);
         let status = 0;
         fetch(url + 'order/order_create.php', { 
             method: 'POST',
@@ -59,8 +61,9 @@ export default function Order({
         .then (
             (res) => {
                 console.log(res);
-                // emptyAllData();
-                //setShowModalOrderDone(true);
+                emptyAllData();
+                setShowModalOrderDone(true);
+                setInfo(res);
             }, (error) => {
                 alert(error);
             }
@@ -125,7 +128,7 @@ export default function Order({
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class='btn' style={buttonStyle} onClick={() => emptyAllData()}>Tyhjennä kentät</button>
                       <button class='btn' style={buttonStyle} onClick={() => SaveOrder()}>Tallenna tilaus</button>
-                      <ModalOrderDone showModal={showModalOrderDone}/>
+                      <ModalOrderDone showModal={showModalOrderDone} closeModal={setShowModalOrderDone} info={info}/>
                     </div>
                 </div>
               </div>
