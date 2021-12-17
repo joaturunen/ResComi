@@ -23,21 +23,31 @@ export default function Orders({openReport}) {
       getOrders();
   }, []);
 
-  return (
-    <>
-      <h3>Valmiit tilaukset</h3>
-      <table className="table px-3 table-striped">
-        <tbody>
-          {orders.map(order => (
-            <tr key={order.id} >
-              <td>{order.orderdate}</td>
-              <td>{order.customer_firstname} {order.customer_lastname}</td>
-              <td>{order.car_register}</td>
-              <td><Link to="/printable/Print" target="_blank" className='btn' style={buttonStyle} onClick={() => openReport(order.id)} >Raportti</Link></td>
+    return (
+        <>
+          <h3>Valmiit tilaukset</h3>
+          <table className="table px-3 table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Päivämäärä</th>
+              <th scope="col">Tilaus-NRO</th>
+              <th scope="col">Asiakas</th>
+              <th scope="col">Auton REK</th>
+              <th scope="col"></th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </>
-  );
+          </thead>
+            <tbody>
+              {orders.map(order => (
+                <tr key={order.id} >
+                  <td>{order.orderdate}</td>
+                  <td>{order.id}</td>
+                  <td>{order.customer_firstname} {order.customer_lastname}</td>
+                  <td>{order.car_register}</td>
+                  <td className="text-right"><Link to="/printable/Print" target="_blank" className='btn' style={buttonStyle} onClick={() => openReport(order)} >Raportti</Link></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </>
+    );
 }

@@ -76,6 +76,7 @@ const shelfPage =
               <th scope="col">Rengaspaikka</th>
               <th scope="col">Tila</th>
               <th scope="col">Varattu kausi</th>
+              <th scope="col">Rengas ID</th>
               <th scope="col">Rengas tyyppi</th>
               <th scope="col">Merkki</th>
               <th scope="col">Huollon kirjoituksia</th>
@@ -88,6 +89,7 @@ const shelfPage =
               <td>{slot.warehouse_id}-{slot.shelf_id}-<strong>{slot.slot_id}</strong></td>
               <td>{(slot.tires_id !== null) ? (<p class='full'>Varattu</p>) : (<p class='free'>Vapaa</p>)}</td>
               <td>{(slot.tires_id !== null) ? (<p>{slot.season_order}</p>) : (<p>-</p>)}</td>
+              <td>{(slot.tires_id !== null) ? (<p>{slot.tires_id}</p>) : (<p>-</p>)}</td>
               <td>{(slot.tires_id !== null) ? (<p>{slot.tires_type}</p>) : (<p>-</p>)}</td>
               <td>{(slot.tires_id !== null) ? (<p>{slot.tires_brand}</p>) : (<p>-</p>)}</td>
               <td>{(slot.tires_id !== null) ? (<p>{slot.tires_text}</p>) : (<p>-</p>)}</td>

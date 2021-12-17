@@ -35,9 +35,6 @@ export default function Order({
     const [showModalOrderDone, setShowModalOrderDone] = useState(false);
 
     function SaveOrder() {
-        console.log("Asiakas id" + customerData[0].customer_id);
-        console.log("Uudet tires id" + customerData[0].tires_id);
-        console.log("old tires id" + customerData[0].oldTires_id);
         let status = 0;
         fetch(url + 'order/order_create.php', { 
             method: 'POST',
