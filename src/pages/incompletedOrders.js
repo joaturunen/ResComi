@@ -12,6 +12,7 @@ export default function Orders({openReport}) {
                 const response = await fetch(URL + 'order/order_read_all_workList.php');
                 const json = await response.json();
                 if (response) {
+                  console.log(response);
                     setOrders(json);
                 } else {
                     alert(json.error);
@@ -31,6 +32,7 @@ export default function Orders({openReport}) {
             <tr>
               <th scope="col">Päivämäärä</th>
               <th scope="col">Tilaus-NRO</th>
+              <th scope="col">Auton REK</th>
               <th scope="col">Tietoja</th>
               <th scope="col"></th>
             </tr>
@@ -40,6 +42,7 @@ export default function Orders({openReport}) {
                 <tr key={order.id} >
                   <td>{order.orderdate}</td>
                   <td>{order.id}</td>
+                  <td>{order.car_register} </td>
                   <td>{order.info} </td>
                   <td className="text-right"><p className='btn' style={buttonStyle} onClick={() => ""}>Näytä tilaus</p></td>
                 </tr>
