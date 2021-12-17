@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import '../style/style.css';
 import {boxShadowStyle, buttonStyle} from '../style/colors';
-
+import {URL} from '../back/Config';
 
 export default function Login({setUser}) {
   const [employee, setEmployee] = useState('Toimari');
@@ -22,7 +22,7 @@ export default function Login({setUser}) {
       },
       body: formData
     };
-    const url = 'http://localhost/rengasvarasto-back/API/login/login.php';
+    const url = URL + 'login/login.php';
     const response = await fetch(url, config); 
     const json = await response.json();
 
