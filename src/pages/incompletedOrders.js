@@ -9,7 +9,7 @@ export default function Orders({openReport}) {
     useEffect(() => {
         async function getOrders() {
             try {
-                const response = await fetch(URL + 'order/order_read_all.php');
+                const response = await fetch(URL + 'order/order_read_all_workList.php');
                 const json = await response.json();
                 if (response) {
                     setOrders(json);
@@ -27,12 +27,21 @@ export default function Orders({openReport}) {
         <>
           <h3>Työjono</h3>
           <table className="table px-3 table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Päivämäärä</th>
+              <th scope="col">Tilaus-NRO</th>
+              <th scope="col">Tietoja</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
             <tbody>
               {orders.map(order => (
                 <tr key={order.id} >
                   <td>{order.orderdate}</td>
-                  <td>{order.customer_firstname} {order.customer_lastname}</td>
-                  <td></td>
+                  <td>{order.id}</td>
+                  <td>{order.info} </td>
+                  <td className="text-right"><p className='btn' style={buttonStyle} onClick={() => ""}>Näytä tilaus</p></td>
                 </tr>
               ))}
             </tbody>
