@@ -67,13 +67,9 @@ export default function ModalOldCustomer({setCustomerData, showModal = false, se
               setAddress(res.customer.address);
               setZipcode(res.customer.zipcode);
               setCity(res.customer.city);
-              console.log(res.tires);
-              console.log(tires);
 
               setCars(res.cars);
               setTires(res.tires);
-              console.log(res.tires);
-              console.log(tires);
               setLoadingDone(true);
             } else {
             alert(res.error);
@@ -147,7 +143,7 @@ const tiresCar =
     <tbody>
       {tires.map((tiresCar) => {
         if(car.id === tiresCar.car_id){
-          if(tiresCar.slot_id > 0){
+          if(tiresCar.slot_id !== null){
             return (
               <tr key={tiresCar.id} onClick={() => {setTiresFromWarehouse(tiresCar.id); setSlot(tiresCar.slot_id)}} style={ChoiceRemoveBorder}>
                 <td className="text-center" style={ChoiceRemove}>{tiresCar.id}.</td>

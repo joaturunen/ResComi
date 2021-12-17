@@ -95,7 +95,7 @@ export default function Order({
     </>
         return (
             <>
-            <h3>Uusi tilaus</h3>
+            <h3>Uusi tilaus <button class='btn' style={buttonStyle} onClick={() => emptyAllData()}>Tyhjennä kentät</button></h3>
             <div class="row">
               <div class="col-3">
                 <div className="padding" style={boxColorLayot}>
@@ -126,7 +126,6 @@ export default function Order({
                     </div>) : (<p>{orderShow}</p>)}
                   </div>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button class='btn' style={buttonStyle} onClick={() => emptyAllData()}>Tyhjennä kentät</button>
                       <button class='btn' style={buttonStyle} onClick={() => SaveOrder()}>Tallenna tilaus</button>
                       <ModalOrderDone showModal={showModalOrderDone} closeModal={setShowModalOrderDone} info={info}/>
                     </div>
