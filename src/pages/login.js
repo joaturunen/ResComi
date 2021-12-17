@@ -60,7 +60,7 @@ export default function Login({setUser}) {
                 placeholder='Salasana' value={password} onChange={e => setPassword(e.target.value)}/>
               </div>
               
-              <button class='btn btn-primary button' style={buttonStyle}>Kirjaudu sisään</button>
+              <button class='btn button' style={buttonStyle}>Kirjaudu sisään</button>
             </form>
         </div>
       </div>

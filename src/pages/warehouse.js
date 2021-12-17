@@ -93,7 +93,7 @@ export default function Warehouse({setCurrentShelfID}) {
                 <tr key={shelf.id} >
                   <td>{shelf.id}</td>
                   <td>{shelf.amount}</td>
-                  <td>{(shelf.free == 0) ? (<p class='full'>Täynnä</p>) : (<p class='free'>Vapaita paikkoja {shelf.free}</p>)}</td>
+                  <td>{(shelf.free === 0) ? (<p class='full'>Täynnä</p>) : (<p class='free'>Vapaita paikkoja {shelf.free}</p>)}</td>
                   <td>
                   <button className='btn' style={buttonStyle} onClick={() => openShelfSite(shelf)}>Näytä hylly {shelf.id}</button>
                   </td>

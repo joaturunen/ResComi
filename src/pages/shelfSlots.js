@@ -65,9 +65,9 @@ const shelfPage =
 <>
 <h3>Hylly {currentShelf}</h3>
 <div class="d-flex justify-content-between">
-  <div class="p-2">{(previosShelf == 0) ? (<button className='forceW forceD' disabled>  </button>) : (<button className='btn forceW' style={buttonStyle} onClick={() => openShelfSite(previosShelf)}> <FaArrowLeft /> Edellinen hylly {previosShelf}</button>)}</div>
+  <div class="p-2">{(previosShelf === 0) ? (<button className='forceW forceD' disabled>  </button>) : (<button className='btn forceW' style={buttonStyle} onClick={() => openShelfSite(previosShelf)}> <FaArrowLeft /> Edellinen hylly {previosShelf}</button>)}</div>
   <div class="p-2"><button className='btn' style={buttonStyle} onClick={() => setShowWarehouse(true)}>Näytä koko varasto</button></div>
-  <div class="p-2">{(nextShelf == 0) ? (<button className='forceW forceD' disabled>  </button>) : (<button className='btn forceW' style={buttonStyle} onClick={() => openShelfSite(nextShelf)}>Seuraava hylly {nextShelf} <FaArrowRight />  </button>)}</div>
+  <div class="p-2">{(nextShelf === 0) ? (<button className='forceW forceD' disabled>  </button>) : (<button className='btn forceW' style={buttonStyle} onClick={() => openShelfSite(nextShelf)}>Seuraava hylly {nextShelf} <FaArrowRight />  </button>)}</div>
 </div>
 
       <table className="table px-3 table-striped">

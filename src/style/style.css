@@ -94,7 +94,7 @@ li {
 .side-menu {
   background: #e9eaeb;
   width: 250px;
-  height: calc(100vh - 150px);
+  height: calc(104vh - 150px);
   min-height: 400px;
   padding: 30px 20px;
 }

@@ -23,7 +23,6 @@ export default function Services({addToCart }) {
         getServices();
     }, []);
 
-
     return (
         <>
           <div className="padding" style={boxColorLayot}>

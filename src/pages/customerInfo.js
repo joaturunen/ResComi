@@ -97,7 +97,7 @@ export default function CustomerInfo({customer_id, setCustomerCars, setCustomerO
                 </div>
 
                 <div className=" d-flex justify-content-end">
-                    <button className="btn btn-primary" style={buttonStyle}>Tallenna</button>
+                    <button className="btn" style={buttonStyle}>Tallenna</button>
                 </div>
                 
 
