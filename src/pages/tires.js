@@ -4,13 +4,15 @@ import Car from '../images/3121893.png';
 import { buttonStyle } from "../style/colors";
 import { FaTrash } from 'react-icons/fa';
 import UpdateTires from "./updateTires";
+import {URL} from '../back/Config';
+
 
 export default function Tires({car_id, car_register}) {
     const [carTires, setCarTires] = useState([]);
 
     useEffect(() => {
         let status = 0;
-        fetch('http://localhost/rengasvarasto-back/API/tires/tires_read_by_car.php', {
+        fetch(URL +'tires/tires_read_by_car.php', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -40,7 +42,7 @@ export default function Tires({car_id, car_register}) {
 
     function deleteTires(id) {
         let status = 0;
-        fetch('http://localhost/rengasvarasto-back/API/tires/tires_delete.php', {
+        fetch( URL +'tires/tires_delete.php', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
