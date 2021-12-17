@@ -4,24 +4,24 @@ import { Link} from 'react-router-dom';
 import {URL} from '../back/Config';
 
 export default function Orders({openReport}) {
-    const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState([]);
 
-    useEffect(() => {
-        async function getOrders() {
-            try {
-                const response = await fetch(URL + 'order/order_read_all.php');
-                const json = await response.json();
-                if (response) {
-                    setOrders(json);
-                } else {
-                    alert(json.error);
-                }
-            } catch (error) {
-                alert(error);
-            }
-        }
-        getOrders();
-    }, []);
+  useEffect(() => {
+      async function getOrders() {
+          try {
+              const response = await fetch(URL + 'order/order_read_all.php');
+              const json = await response.json();
+              if (response) {
+                  setOrders(json);
+              } else {
+                  alert(json.error);
+              }
+          } catch (error) {
+              alert(error);
+          }
+      }
+      getOrders();
+  }, []);
 
     return (
         <>

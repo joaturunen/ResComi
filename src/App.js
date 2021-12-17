@@ -170,7 +170,7 @@ function App() {
                     element={<Login />
                   }/>
                   <Route path="*" element={<Empty />} />
-                  <Route path="/printable/Print" element={<Print />} />
+                  <Route path="/printable/Print" element={<Print url={URL}/>} />
                 </Routes>
               </div>
             </div>
