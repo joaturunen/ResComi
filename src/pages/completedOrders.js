@@ -32,7 +32,7 @@ export default function Orders({openReport}) {
               <th scope="col">Päivämäärä</th>
               <th scope="col">Tilaus-NRO</th>
               <th scope="col">Asiakas</th>
-              <th scope="col">Auto REK</th>
+              <th scope="col">Auton REK</th>
               <th scope="col"></th>
             </tr>
           </thead>
@@ -43,7 +43,7 @@ export default function Orders({openReport}) {
                   <td>{order.id}</td>
                   <td>{order.customer_firstname} {order.customer_lastname}</td>
                   <td>{order.car_register}</td>
-                  <td><Link to="/printable/Print" target="_blank" className='btn' style={buttonStyle} onClick={() => openReport(order)} >Raportti</Link></td>
+                  <td className="text-right"><Link to="/printable/Print" target="_blank" className='btn' style={buttonStyle} onClick={() => openReport(order)} >Raportti</Link></td>
                 </tr>
               ))}
             </tbody>
