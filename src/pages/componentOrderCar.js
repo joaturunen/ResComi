@@ -10,7 +10,6 @@ export default function ComponentOrderCar({customerData}) {
   const [slotId, setSlotId] = useState('');
 
   useEffect(() => {
-    console.log("Data on täällä nyt: " + customerData);
     if(customerData[0]){
       setRegister(customerData[0].car_register);
       setTiresId(customerData[0].tires_id);

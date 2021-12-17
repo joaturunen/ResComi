@@ -67,7 +67,6 @@ export default function Warehouse({setCurrentShelfID}) {
 
   function openShelfSite(shelf) {
     setCurrentShelfID(shelf.id);
-    console.log("Asetetaan haettava hylly: " + shelf.id);
     setShowShelfSite(true);
   }
   

@@ -89,7 +89,6 @@ import {FaMinus, FaPlus, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react
           removeActiveClassFromSubMenu();
           menuItems.forEach((el) => el.classList.remove("active"));
           el.classList.toggle("active");
-          console.log(next);
           if (next !== null) {
             next.classList.toggle("active");
           }

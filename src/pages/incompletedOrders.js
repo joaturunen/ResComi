@@ -12,7 +12,6 @@ export default function Orders({openReport}) {
                 const response = await fetch(URL + 'order/order_read_all_workList.php');
                 const json = await response.json();
                 if (response) {
-                  console.log(response);
                     setOrders(json);
                 } else {
                     alert(json.error);

@@ -14,7 +14,6 @@ export default function Car({ customerCars, setCustomerCars, customer_id}) {
 
     function deleteCar(id) {
         let status = 0;
-        console.log(id);
         fetch(URL + 'car/car_delete.php', {
             method: 'POST',
             headers: {
