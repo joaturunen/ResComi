@@ -48,7 +48,6 @@ export default function Print({ url, order_id}) {
   const [companyZip, setCompanyZip] = useState('');
   const [companyCity, setCompanyCity] = useState('');
 
-  
 
   useEffect(() => {
     let status = 0;

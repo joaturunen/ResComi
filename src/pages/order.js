@@ -61,7 +61,7 @@ export default function Order({
         .then (
             (res) => {
                 console.log(res);
-                emptyAllData();
+                //emptyAllData();
                 setShowModalOrderDone(true);
                 setInfo(res);
             }, (error) => {
