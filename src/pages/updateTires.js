@@ -3,6 +3,7 @@ import {buttonStyle} from '../style/colors';
 import '../style/modal.css';
 import Car from '../images/3121893.png';
 import {FaEdit } from 'react-icons/fa';
+import {URL} from '../back/Config';
 
 
 export default function UpdateTires({tires_id, car_register, brand, model, type, hubcups, grooveFL, grooveFR, grooveBL, grooveBR, tiresize, tirebolt, text, rims}) {
@@ -32,7 +33,7 @@ export default function UpdateTires({tires_id, car_register, brand, model, type,
         console.log(tires_id);
         e.preventDefault();
         let status = 0;
-        fetch('http://localhost/rengasvarasto-back/API/tires/tires_update.php', {
+        fetch(URL + 'tires/tires_update.php', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
