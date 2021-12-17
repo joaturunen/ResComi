@@ -3,7 +3,7 @@ import {buttonStyle, boxColorLayot, Choice, ChoiceRemove, ChoiceRemoveBorder, Ch
 import '../style/modal.css';
 import {URL} from '../back/Config';
 import Loading from '../components/loading';
-
+import {FaPlusCircle} from 'react-icons/fa'; 
 
 
 export default function ModalOldCustomer({setCustomerData, showModal = false, setShowModalOldCustomer, customer_id}) {
@@ -130,33 +130,6 @@ const addCar =
   </div>
 ;
 
-const forcedUpdate = 
-<tbody>
-      {tires.map((tiresCar) => {
-        if(car.id === tiresCar.car_id){
-          if(tiresCar.order_season !== null){
-            return (
-              <tr key={tiresCar.id} onClick={() => {setTiresFromWarehouse(tiresCar.id); setSlot(tiresCar.slot_id)}} style={ChoiceRemoveBorder}>
-                <td className="text-center" style={ChoiceRemove}>{tiresCar.id}.</td>
-                <td>{tiresCar.brand}</td>
-                <td>{tiresCar.type}</td>
-                <td>{tiresCar.order_season}</td>
-              </tr>
-            )
-          } else {
-            return (
-              <tr key={tiresCar.id} onClick={() => setTiresToWarehouse(tiresCar.id)}>
-                <td className="text-center" >{tiresCar.id}.</td>
-                <td>{tiresCar.brand}</td>
-                <td>{tiresCar.type}</td>
-                <td> - </td>
-              </tr>
-            )
-          }
-        }
-      })}
-    </tbody>
-
 const tiresCar =
   <table class="table table-striped table-hover">
       <thead>
@@ -170,7 +143,7 @@ const tiresCar =
     <tbody>
       {tires.map((tiresCar) => {
         if(car.id === tiresCar.car_id){
-          if(tiresCar.order_season !== null){
+          if(tiresCar.slot_id > 0){
             return (
               <tr key={tiresCar.id} onClick={() => {setTiresFromWarehouse(tiresCar.id); setSlot(tiresCar.slot_id)}} style={ChoiceRemoveBorder}>
                 <td className="text-center" style={ChoiceRemove}>{tiresCar.id}.</td>
@@ -288,7 +261,7 @@ const addToWarehouseNewPlace =
                     {cars.map((car) => {
                         return (
                           <tr key={car.id} onClick={() => {setCar(car)}}>
-                          <td>{car.register}</td>
+                          <td><FaPlusCircle /> {car.register}</td>
                           </tr>
                         )
                     })}
