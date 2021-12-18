@@ -65,6 +65,15 @@ export default function SearchCar({setCustomer_id }) {
 
   const resultContent =
   <table className="table px-3 table-striped" >
+    <thead>
+          <tr>
+              <th scope="col">Rekisteri</th>
+              <th scope="col">Merkki</th>
+              <th scope="col">Malli</th>
+              <th scope="col">Asiakas ID</th>
+              <th scope="col"></th>
+          </tr>
+      </thead>
   <tbody>
     {result.map(car => (
       <tr key={car.id} className="wholeW">

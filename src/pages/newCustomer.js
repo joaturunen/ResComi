@@ -56,20 +56,20 @@ export default function NewCustomer({url}) {
           <form className='row' onSubmit={addCustomer}>
               <div className='col-md-3'>
               <div>
-              <label>Etunimi</label>
-                  <input type="text" maxLength={25} className="form-control" value={firstname} onChange={e => setFirstname(e.target.value)}/>
+              <label>Etunimi*</label>
+                  <input type="text" maxLength={25} className="form-control" required value={firstname} onChange={e => setFirstname(e.target.value)}/>
               </div>
               <div>
-              <label>Sukunimi</label>
-                  <input type="text" maxLength={25} className="form-control"value={lastname} onChange={e => setLastname(e.target.value)}/>
+              <label>Sukunimi*</label>
+                  <input type="text" maxLength={25} className="form-control" required value={lastname} onChange={e => setLastname(e.target.value)}/>
               </div>
               <div>
-              <label>Puhelinumero</label>
-                  <input type="text" maxLength={25} className="form-control" value={phone} onChange={e => setPhone(e.target.value)}/>
+              <label>Puhelinumero*</label>
+                  <input type="text" maxLength={25} className="form-control" required value={phone} onChange={e => setPhone(e.target.value)}/>
               </div>
               <div>
-              <label>Sähköposti</label>
-                  <input type="text" maxLength={50} className="form-control" value={email} onChange={e => setEmail(e.target.value)}/>
+              <label>Sähköposti*</label>
+                  <input type="text" maxLength={50} className="form-control" required value={email} onChange={e => setEmail(e.target.value)}/>
               </div>
               <div>
               <label>Lähiosoite</label>
