@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { buttonStyle } from '../style/colors';
-import { Link} from 'react-router-dom';
+
 import {URL} from '../back/Config';
 
 export default function Orders({openReport}) {

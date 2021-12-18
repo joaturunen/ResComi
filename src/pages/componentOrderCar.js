@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import { buttonStyle, Customerdata } from '../style/colors';
 import '../style/modal.css';
+import {URL} from '../back/Config';
 
 export default function ComponentOrderCar({customerData}) {
   const [register, setRegister] = useState('');

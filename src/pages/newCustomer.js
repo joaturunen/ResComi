@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {boxColorLayot, buttonStyle} from '../style/colors';
+import {URL} from '../back/Config';
 
 export default function NewCustomer({url}) {
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../style/style.css';
 import logo3 from '../images/logo3.svg';
 import { buttonStyle } from '../style/colors';
+import {URL} from '../back/Config';
 
 export default function Print({ url, order_id}) {
 
