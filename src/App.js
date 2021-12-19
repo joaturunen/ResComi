@@ -15,7 +15,6 @@ import {URL} from './back/Config';
 import Print from './printable/Print';
 import ShelfSlots from './pages/shelfSlots';
 import Orders from './pages/completedOrders';
-import Tires from './pages/tires';
 import IncompletedOrders from './pages/incompletedOrders';
 
 

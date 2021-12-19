@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from 'react';
-import { boxColorLayot, Choice, buttonStyle} from '../style/colors';
+import { boxColorLayot,  buttonStyle, Choice} from '../style/colors';
 import {URL} from '../back/Config';
+import {FaPlus} from 'react-icons/fa';
 
 export default function Services({addToCart }) {
     const [services, setServices] = useState([]);
@@ -27,16 +28,17 @@ export default function Services({addToCart }) {
           <div className="padding" style={boxColorLayot}>
           <h5>Palvelut</h5>
           <p><strong>Valitse säilytyskausi</strong></p>
-          <table class="table table-striped table-hover">
+          <table class="table table-striped">
 
             <tbody>
               {services.map(service =>{
 
                 if(service.category_id === 1){
                   return(
-                    <tr key={service.id} onClick={() => addToCart(service)}>
+                    <tr key={service.id}>
                       <td>{service.service}</td>
-                      <td className="text-right">{service.price} €</td>
+                      <td className="text-right">{service.price}€</td>
+                      <td className="text-right"><p className='btn' style={Choice}><FaPlus onClick={() => addToCart(service)}/></p></td>
                     </tr>
                   )
 
@@ -45,14 +47,15 @@ export default function Services({addToCart }) {
             </tbody>
           </table>
           <p><strong>Valitse huolto</strong></p>
-          <table class="table table-striped table-hover">
+          <table class="table table-striped">
             <tbody>
             {services.map(service =>{
               if(service.category_id === 2){
                 return(
-                  <tr key={service.id} onClick={() => addToCart(service)}>
+                  <tr key={service.id}>
                     <td>{service.service}</td>
-                    <td className="text-right">{service.price} €</td>
+                    <td className="text-right">{service.price}€</td>
+                    <td className="text-right"><p className='btn' style={Choice}><FaPlus onClick={() => addToCart(service)}/></p></td>
                   </tr>
                 )
               }

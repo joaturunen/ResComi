@@ -88,10 +88,11 @@ export const Customerdata = {
 };
 
 export const Choice = {
-  'background': shockColor,
+  'background': headColor,
   'color': textLight,
   'padding': '0.3rem',
-  'borderRadius': '0.2rem'
+  'borderRadius': '0.2rem',
+  'padding-top':'0'
 };
 
 export const ChoiceRemove = {
