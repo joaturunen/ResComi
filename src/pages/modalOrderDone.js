@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import {buttonStyle} from '../style/colors';
 import '../style/modal.css';
+import {URL} from '../back/Config';
 
 
 export default function ModalOrderDone({showModal, closeModal, info}) {

@@ -16,6 +16,7 @@ export default function CustomerInfo({customer_id, setCustomerCars, setCustomerO
 
     useEffect(() => {
         let status = 0;
+        
         fetch(URL + 'customer/customer_read_cus_cars_tires.php', {
             method: 'POST',
             headers: {
@@ -33,6 +34,7 @@ export default function CustomerInfo({customer_id, setCustomerCars, setCustomerO
             .then(
                 (res) => {
                     if (status === 200) {
+                        
                         setFirstname(res.customer.firstname);
                         setLastname(res.customer.lastname);
                         setPhone(res.customer.phone);
@@ -59,12 +61,12 @@ export default function CustomerInfo({customer_id, setCustomerCars, setCustomerO
                 <h5>Asiakkaan tiedot</h5>
                 <div className='col-md-4'>
                     <div>
-                        <label>Etunimi</label>
-                        <input type="text" className="form-control" value={firstname} />
+                        <label>Etunimi*</label>
+                        <input type="text" className="form-control" value={firstname} required/>
                     </div>
                     <div>
-                        <label>Sukunimi</label>
-                        <input type="text" className="form-control" value={lastname} />
+                        <label>Sukunimi*</label>
+                        <input type="text" className="form-control" value={lastname} required/>
                     </div>
                     <div>
                         <label>Lähiosoite</label>
@@ -82,12 +84,12 @@ export default function CustomerInfo({customer_id, setCustomerCars, setCustomerO
 
                 <div className='col-md-4'>
                     <div>
-                        <label>Puhelinumero</label>
-                        <input type="text" className="form-control" value={phone} />
+                        <label>Puhelinumero*</label>
+                        <input type="text" className="form-control" value={phone} required />
                     </div>
                     <div>
-                        <label>Sähköposti</label>
-                        <input type="text" className="form-control" value={email} />
+                        <label>Sähköposti*</label>
+                        <input type="text" className="form-control" value={email} required />
                     </div>
                 </div>
 

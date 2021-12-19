@@ -56,6 +56,15 @@ export default function Car({ customerCars, setCustomerCars, customer_id}) {
         <>
             <div className="col-6">
                 <table className="table px-3 table-striped">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Rekisteri</th>
+                            <th scope="col">Merkki</th>
+                            <th scope="col">Malli</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
                     <tbody>
                         {customerCars.map(car => (
                             <tr key={car.id} >

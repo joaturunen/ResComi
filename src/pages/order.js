@@ -9,7 +9,7 @@ import ComponentCustomer from './componentCustomer';
 import ComponentOrderCar from './componentOrderCar';
 import ModalOldCustomer from './modalOldCustomer';
 import ModalOrderDone from './modalOrderDone';
-
+import {URL} from '../back/Config';
 
 // kuinka tallennetaan myös auton tiedot samalla?
 
@@ -61,7 +61,7 @@ export default function Order({
         .then (
             (res) => {
                 console.log(res);
-                emptyAllData();
+                //emptyAllData();
                 setShowModalOrderDone(true);
                 setInfo(res);
             }, (error) => {

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaWarehouse, FaSearch, FaList } from 'react-icons/fa';
-import { MdPersonAdd } from 'react-icons/md';
 import { GiTireIron } from 'react-icons/gi';
 import { LinkStyle } from '../style/colors';
+import {URL} from '../back/Config';
 
 
 export default function Home() {

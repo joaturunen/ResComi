@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { buttonStyle } from '../style/colors';
 import { Link} from 'react-router-dom';
+import {URL} from '../back/Config';
 
 export default function CustomerOrders({openReport, customerOrders}) {
     
@@ -9,6 +10,13 @@ export default function CustomerOrders({openReport, customerOrders}) {
         <>
             <div>
                 <table className="table px-3 table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Päiväys</th>
+                            <th scope="col">Rekisteri</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
                     <tbody>
                         {customerOrders.map(order => (
                             <tr key={order.id} >

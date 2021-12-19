@@ -108,20 +108,20 @@ const alertFailed =
           <form className='row' onSubmit={addCustomer}>
               <div className='col-md-3'>
               <div>
-              <label>Etunimi</label>
-                  <input type="text" maxLength={25} className="form-control" value={firstname} onChange={e => setFirstname(e.target.value)}/>
+              <label>Etunimi*</label>
+                  <input type="text" maxLength={25} required className="form-control" value={firstname} onChange={e => setFirstname(e.target.value)}/>
               </div>
               <div>
-              <label>Sukunimi</label>
-                  <input type="text" maxLength={25} className="form-control"value={lastname} onChange={e => setLastname(e.target.value)}/>
+              <label>Sukunimi*</label>
+                  <input type="text" maxLength={25} required className="form-control"value={lastname} onChange={e => setLastname(e.target.value)}/>
               </div>
               <div>
-              <label>Puhelinumero</label>
-                  <input type="text" maxLength={25} className="form-control" value={phone} onChange={e => setPhone(e.target.value)}/>
+              <label>Puhelinumero*</label>
+                  <input type="text" maxLength={25} required className="form-control" value={phone} onChange={e => setPhone(e.target.value)}/>
               </div>
               <div>
-              <label>Sähköposti</label>
-                  <input type="text" maxLength={50} className="form-control" value={email} onChange={e => setEmail(e.target.value)}/>
+              <label>Sähköposti*</label>
+                  <input type="text" maxLength={50} required className="form-control" value={email} onChange={e => setEmail(e.target.value)}/>
               </div>
               <div>
               <label>Lähiosoite</label>
@@ -143,12 +143,12 @@ const alertFailed =
               <div className='col-md-3'>
                 <div>
                   <div>
-                  <label>Auton rekisterinumero</label>
-                      <input className="form-control" maxLength={25} value={register} onChange={e => setRegister(e.target.value)}/>
+                  <label>Auton rekisterinumero*</label>
+                      <input className="form-control" required maxLength={25} value={register} onChange={e => setRegister(e.target.value)}/>
                   </div>
                   <div>
-                  <label>Merkki</label>
-                      <input className="form-control" maxLength={25} value={brand} onChange={e => setBrand(e.target.value)}/>
+                  <label>Merkki*</label>
+                      <input className="form-control" required maxLength={25} value={brand} onChange={e => setBrand(e.target.value)}/>
                   </div>
                   <div>
                   <label>Malli</label>

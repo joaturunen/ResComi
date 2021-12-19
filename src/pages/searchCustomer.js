@@ -71,6 +71,14 @@ export default function SearchCustomer({setCustomer_id, hightWay = 0, setCustome
 
   const resultContent =
   <table className="table px-3 table-striped">
+    <thead>
+        <tr>
+            
+            <th scope="col">Etunimi</th>
+            <th scope="col">Sukunimi</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
   <tbody>
     {result.map(customer => (
       <tr key={customer.id}>

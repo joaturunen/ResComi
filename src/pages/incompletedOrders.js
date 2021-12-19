@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { buttonStyle } from '../style/colors';
-import { Link} from 'react-router-dom';
+
 import {URL} from '../back/Config';
 
 export default function Orders({openReport}) {
@@ -32,17 +32,15 @@ export default function Orders({openReport}) {
               <th scope="col">Päivämäärä</th>
               <th scope="col">Tilaus-NRO</th>
               <th scope="col">Auton REK</th>
-              <th scope="col">Tietoja</th>
               <th scope="col"></th>
             </tr>
           </thead>
             <tbody>
               {orders.map(order => (
-                <tr key={order.id} >
+                <tr key={order.orders_id} >
                   <td>{order.orderdate}</td>
-                  <td>{order.id}</td>
+                  <td>{order.orders_id}</td>
                   <td>{order.car_register} </td>
-                  <td>{order.info} </td>
                   <td className="text-right"><p className='btn' style={buttonStyle} onClick={() => ""}>Näytä tilaus</p></td>
                 </tr>
               ))}

@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 import '../style/style.css';
 import logo3 from '../images/logo3.svg';
 import { buttonStyle } from '../style/colors';
+<<<<<<< HEAD
 import '../style/modal.css';
+=======
+>>>>>>> d71d09607138e3181268e23a5ec15f175f9a4c7e
 import {URL} from '../back/Config';
 
 export default function Print({ order_id}) {
@@ -53,7 +56,6 @@ export default function Print({ order_id}) {
   const [companyZip, setCompanyZip] = useState('');
   const [companyCity, setCompanyCity] = useState('');
 
-  
 
   // useEffect(() => {
   //   let status = 0;
