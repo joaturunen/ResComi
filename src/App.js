@@ -31,8 +31,8 @@ function App() {
   const [currentShelfID, setCurrentShelfID] = useState(0);
   const [customerData, setCustomerData] = useState([]);
   const { pathname } = useLocation();
-  const [order_id, setOrder_id] = useState('');
-  const [showReport, setShowReport] = useState(false);
+  // const [order_id, setOrder_id] = useState('');
+  // const [showReport, setShowReport] = useState(false);
 
   useEffect(() => {
     if ('cart' in localStorage) {
@@ -90,17 +90,10 @@ function App() {
   }
 
   // avaa raportin tulostusikkunaan
-  function openReport(order) {
-      setOrder_id(order.id);
-      setShowReport(true);
-  
-    if (showReport === true) {
-      return (
-        <Navigate to="/printable/print" />
-  
-      );
-    }
-  }
+  // function openReport(order) {
+  //     setOrder_id(order.id);
+  //     setShowReport(true);
+  // }
 
   return (
     <>
@@ -151,13 +144,11 @@ function App() {
                   }/>
                   <Route path="/incompletedOrders"
                     element={<IncompletedOrders
-                      url={URL} 
-                      openReport={openReport}/>
+                      url={URL} />
                   }/>
                   <Route path="/completedOrders"
                     element={<Orders
-                      url={URL} 
-                      openReport={openReport}/>
+                      url={URL} />
                   }/>
                   <Route path="/searchPage" 
                     element={<SearchPage 
