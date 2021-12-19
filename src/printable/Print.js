@@ -2,10 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../style/style.css';
 import logo3 from '../images/logo3.svg';
 import { buttonStyle } from '../style/colors';
-<<<<<<< HEAD
 import '../style/modal.css';
-=======
->>>>>>> d71d09607138e3181268e23a5ec15f175f9a4c7e
 import {URL} from '../back/Config';
 
 export default function Print({ order_id}) {
@@ -43,7 +40,7 @@ export default function Print({ order_id}) {
   // Order info
   const [orderNumber, setOrderNumber] = useState('');
   const [orderdate, setOrderdate] = useState('');
-  const [services, setServices] = useState([]);
+  const [service_name, setService_name] = useState('');
   const [warehouse, setWarehouse] = useState('');
   const [shelf, setShelf] = useState('');
   const [slot, setSlot] = useState('');
@@ -57,68 +54,68 @@ export default function Print({ order_id}) {
   const [companyCity, setCompanyCity] = useState('');
 
 
-  // useEffect(() => {
-  //   let status = 0;
-  //   fetch(URL + 'order/order_print.php', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Accept': 'application/json',
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       order_id: order_id
-  //     })
-  //   })
-  //   .then(res => {
-  //     status = parseInt(res.status);
-  //     return res.json();
-  //   })
-  //   .then(
-  //     (res) => {
-  //       if (status === 200) {
-  //         setCompanyName(res.office.name);
-  //         setCompanyPhone(res.office.phone);
-  //         setCompanyEmail(res.office.email);
-  //         setCompanyAddress(res.office.address);
-  //         setCompanyZip(res.office.zip);
-  //         setCompanyCity(res.office.city);
-  //         setFirstName(res.customer.firstname);
-  //         setLastName(res.customer.lastname);
-  //         setPhone(res.customer.phone);
-  //         setEmail(res.customer.email);
-  //         setAddress(res.customer.address);
-  //         setZip(res.customer.zipcode);
-  //         setCity(res.customer.city);
-  //         setCarRegister(res.car.register);
-  //         setCarBrand(res.car.brand);
-  //         setCarModel(res.car.model);
-  //         setTireBrand(res.tire_brand);
-  //         setTireModel(res.tires.model);
-  //         setTireSize(res.tires.size);
-  //         setTireType(res.tires.type);
-  //         setHubcups(res.tires.hubcups);
-  //         setRims(res.tires.rims);
-  //         setTirebolt(res.tires.tirebolt);
-  //         setGrooveFl(res.tires.groovefl);
-  //         setGrooveFr(res.tires.groovefr);
-  //         setGrooveBl(res.tires.groovebl);
-  //         setGrooveBr(res.tires.groovebr);
-  //         setTireInfo(res.tires.tireInfo);
-  //         setAdditionalInfo(res.tires.additionalInfo);
-  //         setOrderdate(res.order.orderdate);
-  //         setServices(res.services.services);
-  //         setWarehouse(res.warehouse.name);
-  //         setShelf(res.shelf.id);
-  //         setSlot(res.slot.id);
-  //       } else {
-  //         alert(res.error);
-  //       }
-  //     }, (error) => {
-  //       alert(error);
-  //     }
-  //   );
+  useEffect(() => {
+    let status = 0;
+    fetch(URL + 'order/order_print.php', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        order_id: order_id
+      })
+    })
+    .then(res => {
+      status = parseInt(res.status);
+      return res.json();
+    })
+    .then(
+      (res) => {
+        if (status === 200) {
+          setCompanyName(res.office.name);
+          setCompanyPhone(res.office.phone);
+          setCompanyEmail(res.office.email);
+          setCompanyAddress(res.office.address);
+          setCompanyZip(res.office.zipcode);
+          setCompanyCity(res.office.city);
+          setFirstName(res.orderdata.customer_firstname);
+          setLastName(res.orderdata.customer_lastname);
+          setPhone(res.orderdata.customer_phone);
+          setEmail(res.orderdata.customer_email);
+          setAddress(res.orderdata.customer_address);
+          setZip(res.orderdata.customer_zipcode);
+          setCity(res.orderdata.customer_city);
+          setCarRegister(res.orderdata.car_register);
+          setCarBrand(res.orderdata.car_brand);
+          setCarModel(res.orderdata.car_model);
+          setTireBrand(res.orderdata.tire_brand);
+          setTireModel(res.orderdata.tire_model);
+          setTireSize(res.orderdata.tire_size);
+          setTireType(res.orderdata.tire_type);
+          setHubcups(res.orderdata.tire_hubcups);
+          setRims(res.orderdata.tire_rims);
+          setTirebolt(res.orderdata.tire_tirebolt);
+          setGrooveFl(res.orderdata.tire_groovefl);
+          setGrooveFr(res.orderdata.tire_groovefr);
+          setGrooveBl(res.orderdata.tire_groovebl);
+          setGrooveBr(res.orderdata.tire_groovebr);
+          //setTireInfo(res.orderdata.tireInfo);
+          //setAdditionalInfo(res.orderdata.additionalInfo);
+          setOrderdate(res.orderdata.order_date);
+          setService_name(res.orderdata.service_title);
+          setWarehouse(res.orderdata.warehouse_id);
+          setShelf(res.orderdata.shelf_id);
+          setSlot(res.orderdata.slot_id);
+        } else {
+          alert(res.error);
+        }
+      }, (error) => {
+        alert(error);
+      }
+    );
 
-  // }, [order_id]);
+  }, [order_id]);
 
 
   const content =
@@ -216,9 +213,10 @@ export default function Print({ order_id}) {
                 <div className="col-sm-6">
                   <ul className="list-group" > 
                     <li>Ostetut palvelut:</li>
-                    {services.map(service => (
+                    {/* {services.map(service => (
                       <li className="list-group-item" key={service.id} >{service.service}</li>
-                    ))}
+                    ))} */}
+                    <li className="list-group-item" >{service_name}</li>
                   </ul>
                 </div>
                 <div className="col-sm-6">

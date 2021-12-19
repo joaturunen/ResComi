@@ -61,7 +61,7 @@ export default function Orders({}) {
               <td>{order.customer_firstname} {order.customer_lastname}</td>
               <td>{order.car_register}</td>
               {/* <td><Print order_id={order.id}/></td> */}
-              {/* <td><Link to="/printable/Print" params={order.id} target="_blank" className='btn' style={buttonStyle}>Raportti</Link></td> */}
+              <td><Link to="/printable/Print" params={order.id} target="_blank" className='btn' style={buttonStyle}>Raportti</Link></td>
               {/* <td className="text-right"><button className='btn' style={buttonStyle} onClick={() => openReport(order)}> Raportti</button></td> */}
             </tr>
           ))}
