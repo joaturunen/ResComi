@@ -97,7 +97,7 @@ export default function SearchCar({setCustomer_id }) {
         <form onSubmit={findRegister}>
           <label className="form-label">Etsi asiakas ajoneuvon rekisterinumerolla.</label>
           <input type='text' className="form-control"
-            value={searchRegister} placeholder='ABC-123' maxLength="7"
+            value={searchRegister.toUpperCase()} placeholder='ABC-123' maxLength="7"
             onChange={e => setSearchRegister(e.target.value)} />
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <button className='btn' style={buttonStyle}>Etsi ajoneuvo</button>
