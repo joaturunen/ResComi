@@ -33,7 +33,7 @@ export default function SearchCar({setCustomer_id }) {
         (res) => {
           if (status === 200) {
             setResult([res]);
-            setResultNro(0);
+            setResultNro(3);
             if(res){
               setResult([res]);
             } else{
@@ -96,7 +96,7 @@ export default function SearchCar({setCustomer_id }) {
         <form onSubmit={findRegister}>
           <label className="form-label">Etsi asiakas ajoneuvon rekisterinumerolla.</label>
           <input type='text' className="form-control"
-            value={searchRegister} placeholder='ABC-123' maxLength="7"
+            value={searchRegister.toUpperCase()} placeholder='ABC-123' maxLength="7"
             onChange={e => setSearchRegister(e.target.value)} />
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <button className='btn' style={buttonStyle}>Etsi ajoneuvo</button>
@@ -104,9 +104,11 @@ export default function SearchCar({setCustomer_id }) {
         </form>
 
         <h4>Hakutulokset</h4>
+        { (resultNro === 3) && (resultContent)}
         { (resultNro === 2) && (<p>Tuloksia ei löytynyt.</p>)}
         { (resultNro === 1) && (<p>Haetaan tuloksia...</p>)}
-        { (resultNro === 0) && (resultContent)}
+        { (resultNro === 0) && (<></>)}
+        
       </div>
     </>
 
