@@ -2,9 +2,9 @@ import React from 'react';
 import SearchCar from './searchCar';
 import SearchCustomer from './searchCustomer';
 import { boxColorLayot } from '../style/colors';
-import {URL} from '../back/Config';
 
-export default function SearchPage({setCustomer_id, customer_id, setOrders_id, orders_id}) {
+// search page
+export default function SearchPage({setCustomer_id, customer_id}) {
     return (
         <div>
           <h3>Haku</h3>

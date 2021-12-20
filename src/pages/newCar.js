@@ -3,6 +3,8 @@ import {buttonStyle} from '../style/colors';
 import '../style/modal.css';
 import {URL} from '../back/Config';
 
+// add new car to customer (modal)
+
 export default function NewCar({setCustomerCars, customer_id}) {
 
     const [register, setRegister] = useState('');
@@ -18,6 +20,7 @@ export default function NewCar({setCustomerCars, customer_id}) {
         setShowSuccess(false);
     }, [openNewCarModel]);
 
+    // save new car
     function SaveCar(e) {
         e.preventDefault();
         let status = 0;

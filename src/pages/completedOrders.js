@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { buttonStyle } from '../style/colors';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {URL} from '../back/Config';
-import Print from "../printable/Print";
 
-export default function Orders({}) {
+// shows orders that are ready
+
+export default function Orders() {
   const [orders, setOrders] = useState([]);
-  const [order_id, setOrder_id] = useState('');
-  const [showReport, setShowReport] = useState(false);
 
+  // retrieve all orders and info
   useEffect(() => {
       async function getOrders() {
           try {
@@ -26,19 +26,7 @@ export default function Orders({}) {
       getOrders();
   }, []);
 
-  function openReport(order) {
-    setOrder_id(order.orders_id);
-    setShowReport(true);
-    
-  }
 
-  if (showReport === true) {
-    return (
-      
-      <Navigate to="/printable/print" />
-
-    );
-  }
 
   return (
     <>
@@ -60,9 +48,7 @@ export default function Orders({}) {
               <td>{order.orders_id}</td>
               <td>{order.customer_firstname} {order.customer_lastname}</td>
               <td>{order.car_register}</td>
-              {/* <td><Print order_id={order.orders_id}/></td> */}
-              <td><Link to="/printable/Print" params={order.orders_id} target="_blank" className='btn' style={buttonStyle}>Raportti</Link></td>
-              <td className="text-right"><button className='btn' style={buttonStyle} onClick={() => openReport(order)}> Raportti</button></td>
+              <td><Link to={`/printable/Print/${order.orders_id}`} key={order.orders_id} target="_blank" className='btn' style={buttonStyle} >Raportti</Link></td>
             </tr>
           ))}
         </tbody>

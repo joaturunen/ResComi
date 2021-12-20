@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { buttonStyle } from '../style/colors';
-
 import {URL} from '../back/Config';
+
+// shows orders that are not ready
 
 export default function Orders({openReport}) {
     const [orders, setOrders] = useState([]);
@@ -41,7 +43,7 @@ export default function Orders({openReport}) {
                   <td>{order.orderdate}</td>
                   <td>{order.orders_id}</td>
                   <td>{order.car_register}</td>
-                  <td className="text-right"><p className='btn' style={buttonStyle} onClick={() => ""}>Näytä tilaus</p></td>
+                  <td><Link to={`/printable/Print/${order.orders_id}`} key={order.orders_id} target="_blank" className='btn' style={buttonStyle} >Näytä tilaus</Link></td>
                 </tr>
               ))}
             </tbody>

@@ -4,6 +4,8 @@ import {buttonStyle, boxColorLayot} from '../style/colors';
 import ModalOldCustomer from './modalOldCustomer';
 import {URL} from '../back/Config';
 
+
+// search-component to customers
 export default function SearchCustomer({setCustomer_id, hightWay = 0, setCustomerData }) {
   const [searchPhone, setSearchPhone] = useState('');
   const [result, setResult] = useState([]);
@@ -12,6 +14,7 @@ export default function SearchCustomer({setCustomer_id, hightWay = 0, setCustome
   const [id, setId] = useState(0);
   const [resultNro, setResultNro] = useState(0);
 
+  // search customer by phone
   function findPhone(e) {
     setResult([]);
     setResultNro(1);
@@ -50,6 +53,7 @@ export default function SearchCustomer({setCustomer_id, hightWay = 0, setCustome
       );
   }
 
+  // open customer info page
   function openCustomerSite(customer) {
 
     if(hightWay === 'order'){

@@ -1,25 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { buttonStyle } from '../style/colors';
 import { Link} from 'react-router-dom';
-import {URL} from '../back/Config';
-import Print from "../printable/Print";
 
-export default function CustomerOrders({openReport, customerOrders}) {
+// show all orders by one customer
 
-    const [order_id, setOrder_id] = useState('');
-    
-    // function openReport(order) {
-    //     setOrder_id(order.id);
-    //     console.log(order.id);
-    //     localStorage.setItem('order_id',JSON.stringify(order_id));
-    //     console.log(localStorage);
+export default function CustomerOrders({customerOrders}) {
 
-    //     return (
-    //         <Link to="/printable/Print" target="_blank" />
-    //     );
-    // }
-
-    
 
     return (
         <>
@@ -37,8 +23,7 @@ export default function CustomerOrders({openReport, customerOrders}) {
                             <tr key={order.id} >
                                 <td>{order.orderdate}</td>
                                 <td>{order.car_register}</td>
-                                {/* <td><button className='btn' style={buttonStyle} onClick={() => openReport(order)}><Link to="/printable/Print" target="_blank" >Raportti</Link></button></td> */}
-                                <td><Link to={`/printable/Print/${order.id}`} key={order.id} target="_blank" >Raportti</Link></td>
+                                <td><Link to={`/printable/Print/${order.id}`} key={order.id} target="_blank" className='btn' style={buttonStyle} >Raportti</Link></td>
                             </tr>
                         ))}
                     </tbody>

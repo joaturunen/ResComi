@@ -5,7 +5,7 @@ import {URL} from '../back/Config';
 import Loading from '../components/loading';
 import {FaPlus} from 'react-icons/fa'; 
 
-
+// show old customer data in order page
 export default function ModalOldCustomer({setCustomerData, showModal = false, setShowModalOldCustomer, customer_id}) {
   const [customerId, setCustomerId] = useState(0);
   const [firstname, setFirstname] = useState('');

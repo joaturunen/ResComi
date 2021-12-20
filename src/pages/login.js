@@ -3,7 +3,9 @@ import '../style/style.css';
 import {boxShadowStyle, buttonStyle} from '../style/colors';
 import {URL} from '../back/Config';
 
-export default function Login({setUser}) {
+// login page, unfinished !
+
+export default function Login({/*setUser*/}) {
   const [employee, setEmployee] = useState('Toimari');
   const [password, setPassword] = useState('salasana');
 
@@ -29,8 +31,7 @@ export default function Login({setUser}) {
     if (response.ok) {
       alert('Kirjatuminen onnistui');
       // setUser(json);
-      // avaa koti-sivun
-    } else { // tänne voi laittaa if-rakenteen erilaisille erroreille
+    } else { 
       if (response.status === 401) {
         alert("Kirjautuminen epäonnistui");
       }

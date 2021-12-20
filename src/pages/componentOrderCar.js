@@ -1,8 +1,8 @@
 import React,{useState, useEffect} from 'react';
 import { buttonStyle, Customerdata } from '../style/colors';
 import '../style/modal.css';
-import {URL} from '../back/Config';
 
+// show car info in orderpage
 export default function ComponentOrderCar({customerData}) {
   const [register, setRegister] = useState('');
   const [tiresId, setTiresId] = useState('');

@@ -1,7 +1,8 @@
 import React,{useState, useEffect} from 'react';
 import { buttonStyle, Customerdata } from '../style/colors';
 import '../style/modal.css';
-import {URL} from '../back/Config';
+
+// show customer info in orderpage
 
 export default function ComponentCustomer({customerData}) {
   const [firstname, setFirstname] = useState('');

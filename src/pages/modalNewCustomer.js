@@ -3,7 +3,7 @@ import {buttonStyle} from '../style/colors';
 import '../style/modal.css';
 import {URL} from '../back/Config';
 
-
+// add new customer (modal)
 export default function ModalNewCustomer({setCustomerData}) {
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
@@ -25,6 +25,7 @@ export default function ModalNewCustomer({setCustomerData}) {
     setShowSuccess(false);
   }, [openModel]);
 
+  // save new customer
   function addCustomer(e) {
     setShowSuccess(false);
     setShowFailed(false);

@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { FaWarehouse, FaSearch, FaList } from 'react-icons/fa';
 import { GiTireIron } from 'react-icons/gi';
 import { LinkStyle } from '../style/colors';
-import {URL} from '../back/Config';
 
+// front page
 
 export default function Home() {
 
@@ -14,9 +14,7 @@ export default function Home() {
       <div className='mt-5'>
 
         <div className='row justify-content-md-center'>
-
-        
-        <Link to="./searchPage" className='col-4 button link shadow' style={LinkStyle}>
+          <Link to="./searchPage" className='col-4 button link shadow' style={LinkStyle}>
             <FaSearch size={35} className= 'mt-4'/>
             <p class='hometext pt-2'>HAKU</p>
           </Link>
@@ -40,21 +38,6 @@ export default function Home() {
           </Link>
         </div>
 
-
-
-        <div className='row'>
-          {
-          /*<Link to="../printable/Print" className='col-3 button'>
-            <GiTireIron size={40} />
-            <p>Printtisivutesti</p>
-           </Link>*/
-           }
-
-          {/* <Link to="./onecustomer" className='col-3 button'>
-          <MdPersonAdd size={40} /> 
-            <p>oneCustomer</p>
-          </Link>     */}
-        </div>
       </div>
     </>
   );

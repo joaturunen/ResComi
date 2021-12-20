@@ -3,6 +3,8 @@ import { Navigate } from 'react-router-dom';
 import { buttonStyle, boxColorLayot } from '../style/colors';
 import {URL} from '../back/Config';
 
+// search-component to cars
+
 export default function SearchCar({setCustomer_id }) {
   const [searchRegister, setSearchRegister] = useState('');
   const [result, setResult] = useState([]);
@@ -10,6 +12,7 @@ export default function SearchCar({setCustomer_id }) {
 
   const [resultNro, setResultNro] = useState(0);
 
+  // search by car register
   function findRegister(e) {
     setResult([]);
     setResultNro(1);
@@ -48,8 +51,7 @@ export default function SearchCar({setCustomer_id }) {
       );
   }
 
- 
-
+  // open customer info page
   function openCustomerSite(car) {
     setCustomer_id(car.customer_id);
     setShowCustomerSite(true);

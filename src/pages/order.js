@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Services from './services';
 import SearchCustomer from './searchCustomer';
 import { boxColorLayot } from '../style/colors';
@@ -11,34 +11,79 @@ import ModalOldCustomer from './modalOldCustomer';
 import ModalOrderDone from './modalOrderDone';
 import {URL} from '../back/Config';
 
-// kuinka tallennetaan myös auton tiedot samalla?
+// order page
+export default function Order({setCustomer_id, setCustomerData, customerData}) {
 
-export default function Order({
-    url,
-    cart,
-    emptyCart,
-    addToCart,
-    removeFromCart,
-    setCustomer_id,
-    customer_id,
-    customerCars,
-    setCustomerCars,
-    customerTires,
-    setCustomerTires,
-    employee_id,
-    setCustomerData,
-    customerData,
-    emptyAllData }) {
-
-    //const [cus_id, setCus_id] = useState('');
+  
+    const [cart, setCart] = useState([]);
     const [employ_id] = useState(3);
     const [showModalOrderDone, setShowModalOrderDone] = useState(false);
     const [info, setInfo] = useState([]);
 
+
+    // check the cart
+    useEffect(() => {
+      if ('cart' in localStorage) {
+        setCart(JSON.parse(localStorage.getItem('cart')));
+      }
+    }, []);
+  
+  
+    // add service to cart
+    function addToCart(service) {
+  
+      if(cart.length === 0){
+        const newCart = [...cart, service];
+        setCart(newCart);
+        localStorage.setItem('cart',JSON.stringify(newCart));
+      } else if(service.category_id === 1){
+        let remove = null;
+        for (let i = 0; i < cart.length; i++){
+          if(cart[i].category_id === 1){
+            remove = i;
+          }
+        }
+        if(remove !== null){
+          cart.splice(remove, 1);
+          const newCart = [...cart, service];
+          setCart(newCart);
+          localStorage.setItem('cart',JSON.stringify(newCart));
+        }
+  
+  
+      } else if(!cart.includes(service)){
+        const newCart = [...cart, service];
+        setCart(newCart);
+        localStorage.setItem('cart',JSON.stringify(newCart));
+      }
+    }
+  
+    // remove service from cart
+    function removeFromCart(service) {
+      const itemsWithoutRemoved = cart.filter(item => item.id !== service.id);
+      setCart(itemsWithoutRemoved);
+      localStorage.setItem('cart',JSON.stringify(itemsWithoutRemoved));
+    }
+  
+    // empty cart
+    function emptyCart() {
+      setCart([]);
+      localStorage.removeItem('cart');
+    }
+
+    // empty all order and cart data  
+    function emptyAllData() {
+      setCart([]);
+      setCustomerData([]);
+      localStorage.removeItem('cart');
+    }
+
+
+    // save new order
     function SaveOrder() {
       setShowModalOrderDone(true);
         let status = 0;
-        fetch(url + 'order/order_create.php', { 
+        fetch(URL + 'order/order_create.php', { 
             method: 'POST',
             header: {
                 'Accept': 'application/json',
@@ -75,13 +120,13 @@ export default function Order({
     const orderShow = <>
       <table className="table px-3 table-striped">
         <tbody>
-           {cart.map((service, id) => {
+          {cart.map((service, id) => {
             sum+=parseFloat(service.price);
               return (
                 <tr key={id}>
-                <td width="70%">{service.service}</td>
-                <td className="text-right">{service.price} €</td>
-                <td className="text-right"><FaTimes onClick={() => removeFromCart(service)}/></td>
+                  <td width="70%">{service.service}</td>
+                  <td className="text-right">{service.price} €</td>
+                  <td className="text-right"><FaTimes onClick={() => removeFromCart(service)}/></td>
                 </tr>
               )
           })}
@@ -105,12 +150,12 @@ export default function Order({
                       </div>
                   </div>
                 <div>
-                  <SearchCustomer url={url} setCustomer_id={setCustomer_id} hightWay="order" setCustomerData={setCustomerData}/>
+                  <SearchCustomer setCustomer_id={setCustomer_id} hightWay="order" setCustomerData={setCustomerData}/>
                   <ModalOldCustomer setCustomer_id={setCustomer_id} setCustomerData={setCustomerData} />
                 </div>
               </div>
               <div class="col-4">
-                <Services url={url} addToCart={addToCart} />
+                <Services addToCart={addToCart} />
               </div>
 
               <div class="col">

@@ -3,9 +3,11 @@ import { boxColorLayot, Choice} from '../style/colors';
 import {URL} from '../back/Config';
 import {FaPlus} from 'react-icons/fa';
 
+// services-component to order-page
 export default function Services({addToCart }) {
     const [services, setServices] = useState([]);
 
+    // retrieves services 
     useEffect(() => {
         async function getServices() {
             try {

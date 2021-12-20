@@ -5,13 +5,14 @@ import { buttonStyle } from '../style/colors';
 import { FaTrash, FaEdit } from 'react-icons/fa';
 import {URL} from '../back/Config';
 
-// tulostaa yhdelle asiakkaalle kuuluvat autot 
+// print single customer cars
 
 export default function Car({ customerCars, setCustomerCars, customer_id}) {
     const [car_id, setCar_id] = useState('');
     const [car_register, setCar_register] = useState('');
     const [showTires, setShowTires] = useState(false);
 
+    // remove car and its tires
     function deleteCar(id) {
         let status = 0;
         fetch(URL + 'car/car_delete.php', {
@@ -42,10 +43,12 @@ export default function Car({ customerCars, setCustomerCars, customer_id}) {
         );
     }
 
+    // edit car info
     function editCar(id) {
 
     }
 
+    // open car tires
     function openTires(car) {
         setCar_id(car.id);
         setCar_register(car.register);

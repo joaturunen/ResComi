@@ -4,9 +4,8 @@ import CustomerInfo from './customerInfo';
 import Car from './car';
 import _ from 'lodash';
 import CustomerOrders from './customerOrders';
-import {URL} from '../back/Config';
 
-// tämä avautuu hakutuloksesta, ei näy navissa
+// customer info page
 
 export default function Customer({
   customer_id, 

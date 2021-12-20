@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { buttonStyle } from '../style/colors';
 import {URL} from '../back/Config';
-// tämä avautuu hakutuloksesta, ei näy navissa
+
+// retrieve and show customerdata
 
 export default function CustomerInfo({customer_id, setCustomerCars, setCustomerOrders}) {
     const [firstname, setFirstname] = useState("");
@@ -13,7 +14,7 @@ export default function CustomerInfo({customer_id, setCustomerCars, setCustomerO
     const [city, setCity] = useState("");
     const [customersaved, setCustomersaved] = useState("");
     
-
+    // retrieve one customer and its cars, tires and orders
     useEffect(() => {
         let status = 0;
         
