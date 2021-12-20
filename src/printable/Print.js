@@ -73,6 +73,7 @@ export default function Print({ order_id}) {
     .then(
       (res) => {
         if (status === 200) {
+          console.loge(res);
           setCompanyName(res.office.name);
           setCompanyPhone(res.office.phone);
           setCompanyEmail(res.office.email);
