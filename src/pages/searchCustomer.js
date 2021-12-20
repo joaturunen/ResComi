@@ -8,7 +8,6 @@ export default function SearchCustomer({setCustomer_id, hightWay = 0, setCustome
   const [searchPhone, setSearchPhone] = useState('');
   const [result, setResult] = useState([]);
   const [showCustomerSite, setShowCustomerSite] = useState(false);
- // const [showCustomerData, setShowCustomerData] = useState(false);
   const [showModalOldCustomer, setShowModalOldCustomer ] = useState(false);
   const [id, setId] = useState(0);
   const [resultNro, setResultNro] = useState(0);
@@ -36,7 +35,7 @@ export default function SearchCustomer({setCustomer_id, hightWay = 0, setCustome
         (res) => {
           if (status === 200) {
             setResult([res]);
-            setResultNro(0);
+            setResultNro(3);
             if(res){
               setResult([res]);
             } else{
@@ -58,7 +57,6 @@ export default function SearchCustomer({setCustomer_id, hightWay = 0, setCustome
       setShowModalOldCustomer(true);
     } else{
       setCustomer_id(customer.id);
-      //setShowCustomerData(true); // tällä ei saa näkymään orderissa
       setShowCustomerSite(true);
     }
   }
@@ -73,7 +71,6 @@ export default function SearchCustomer({setCustomer_id, hightWay = 0, setCustome
   <table className="table px-3 table-striped">
     <thead>
         <tr>
-            
             <th scope="col">Etunimi</th>
             <th scope="col">Sukunimi</th>
             <th scope="col"></th>
@@ -104,9 +101,10 @@ export default function SearchCustomer({setCustomer_id, hightWay = 0, setCustome
               </div>
           </form>
         <h4>Hakutulokset</h4>
+        { (resultNro === 3) && (resultContent)}
         { (resultNro === 2) && (<p>Tuloksia ei löytynyt.</p>)}
         { (resultNro === 1) && (<p>Haetaan tuloksia...</p>)}
-        { (resultNro === 0) && (resultContent)}
+        { (resultNro === 0) && (<></>)}
         <ModalOldCustomer setCustomerData={setCustomerData} showModal={showModalOldCustomer} setShowModalOldCustomer={setShowModalOldCustomer} customer_id={id}/>
       </div>
     </>

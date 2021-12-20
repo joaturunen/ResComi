@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { buttonStyle } from '../style/colors';
-import { Link} from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import {URL} from '../back/Config';
+import Print from "../printable/Print";
 
-export default function Orders({openReport}) {
+export default function Orders({}) {
   const [orders, setOrders] = useState([]);
+  const [order_id, setOrder_id] = useState('');
+  const [showReport, setShowReport] = useState(false);
 
   useEffect(() => {
       async function getOrders() {
@@ -23,31 +26,47 @@ export default function Orders({openReport}) {
       getOrders();
   }, []);
 
+  function openReport(order) {
+    setOrder_id(order.orders_id);
+    setShowReport(true);
+    
+  }
+
+  if (showReport === true) {
     return (
-        <>
-          <h3>Valmiit tilaukset</h3>
-          <table className="table px-3 table-striped">
-          <thead>
-            <tr>
-              <th scope="col">Päivämäärä</th>
-              <th scope="col">Tilaus-NRO</th>
-              <th scope="col">Asiakas</th>
-              <th scope="col">Auton REK</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-            <tbody>
-              {orders.map(order => (
-                <tr key={order.orders_id} >
-                  <td>{order.orderdate}</td>
-                  <td>{order.orders_id}</td>
-                  <td>{order.customer_firstname} {order.customer_lastname}</td>
-                  <td>{order.car_register}</td>
-                  <td className="text-right"><Link to="/printable/Print" target="_blank" className='btn' style={buttonStyle} onClick={() => openReport(order)} >Raportti</Link></td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </>
+      
+      <Navigate to="/printable/print" />
+
     );
+  }
+
+  return (
+    <>
+      <h3>Valmiit tilaukset</h3>
+      <table className="table px-3 table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Päivämäärä</th>
+            <th scope="col">Tilausnumero</th>
+            <th scope="col">Asiakas</th>
+            <th scope="col">Auto</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {orders.map(order => (
+            <tr key={order.orders_id} >
+              <td>{order.orderdate}</td>
+              <td>{order.orders_id}</td>
+              <td>{order.customer_firstname} {order.customer_lastname}</td>
+              <td>{order.car_register}</td>
+              {/* <td><Print order_id={order.orders_id}/></td> */}
+              <td><Link to="/printable/Print" params={order.orders_id} target="_blank" className='btn' style={buttonStyle}>Raportti</Link></td>
+              <td className="text-right"><button className='btn' style={buttonStyle} onClick={() => openReport(order)}> Raportti</button></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
+  );
 }

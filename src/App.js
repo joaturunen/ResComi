@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import React, {useState, useEffect} from "react";
-import {BrowserRouter as Router, Routes, Route, useLocation} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, useLocation, Navigate} from 'react-router-dom';
 import SideMenu from "./components/SideMenu";
 import Header from './components/header';
 import Login from './pages/login';
@@ -16,6 +16,7 @@ import Print from './printable/Print';
 import ShelfSlots from './pages/shelfSlots';
 import Orders from './pages/completedOrders';
 import IncompletedOrders from './pages/incompletedOrders';
+import { GiRoyalLove } from 'react-icons/gi';
 
 
 function App() {
@@ -30,6 +31,8 @@ function App() {
   const [currentShelfID, setCurrentShelfID] = useState(0);
   const [customerData, setCustomerData] = useState([]);
   const { pathname } = useLocation();
+  // const [order_id, setOrder_id] = useState('');
+  // const [showReport, setShowReport] = useState(false);
 
   useEffect(() => {
     if ('cart' in localStorage) {
@@ -87,9 +90,10 @@ function App() {
   }
 
   // avaa raportin tulostusikkunaan
-  function openReport(order) {
-
-  }
+  // function openReport(order) {
+  //     setOrder_id(order.id);
+  //     setShowReport(true);
+  // }
 
   return (
     <>
@@ -136,17 +140,16 @@ function App() {
                     element={<ShelfSlots 
                       url={URL}
                       setCurrentShelfID={setCurrentShelfID}
-                      currentShelfID={currentShelfID}/>
+                      currentShelfID={currentShelfID}
+                      setCustomer_id={setCustomer_id}/>
                   }/>
                   <Route path="/incompletedOrders"
                     element={<IncompletedOrders
-                      url={URL} 
-                      openReport={openReport}/>
+                      url={URL} />
                   }/>
                   <Route path="/completedOrders"
                     element={<Orders
-                      url={URL} 
-                      openReport={openReport}/>
+                      url={URL} />
                   }/>
                   <Route path="/searchPage" 
                     element={<SearchPage 
@@ -169,7 +172,8 @@ function App() {
                     element={<Login />
                   }/>
                   <Route path="*" element={<Empty />} />
-                  <Route path="/printable/Print" element={<Print url={URL}/>} />
+                  <Route path="/printable/Print/:order_id" element={<Print />}>
+                  </Route>
                 </Routes>
               </div>
             </div>
