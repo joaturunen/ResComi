@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 import '../style/style.css';
 import logo3 from '../images/logo3.svg';
 import { buttonStyle } from '../style/colors';
 import '../style/modal.css';
 import {URL} from '../back/Config';
 
-export default function Print({ order_id}) {
+export default function Print(/*{ order_id}*/) {
 
-  
+  let params = useParams();
+
+  //const [order_id, setOrder_id] = useState(params.order_id);
   const [openReport, setOpenReport] = useState(false);
 
   // Customer info
@@ -52,78 +55,145 @@ export default function Print({ order_id}) {
   const [companyAddress, setCompanyAddress] = useState('');
   const [companyZip, setCompanyZip] = useState('');
   const [companyCity, setCompanyCity] = useState('');
+  const [office, setOffice] = useState([]);
 
 
   useEffect(() => {
-    let status = 0;
-    fetch(URL + 'order/order_print.php', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        order_id: order_id
-      })
-    })
-    .then(res => {
-      status = parseInt(res.status);
-      return res.json();
-    })
-    .then(
-      (res) => {
-        if (status === 200) {
-          console.loge(res);
-          setCompanyName(res.office.name);
-          setCompanyPhone(res.office.phone);
-          setCompanyEmail(res.office.email);
-          setCompanyAddress(res.office.address);
-          setCompanyZip(res.office.zipcode);
-          setCompanyCity(res.office.city);
-          setFirstName(res.orderdata.customer_firstname);
-          setLastName(res.orderdata.customer_lastname);
-          setPhone(res.orderdata.customer_phone);
-          setEmail(res.orderdata.customer_email);
-          setAddress(res.orderdata.customer_address);
-          setZip(res.orderdata.customer_zipcode);
-          setCity(res.orderdata.customer_city);
-          setCarRegister(res.orderdata.car_register);
-          setCarBrand(res.orderdata.car_brand);
-          setCarModel(res.orderdata.car_model);
-          setTireBrand(res.orderdata.tire_brand);
-          setTireModel(res.orderdata.tire_model);
-          setTireSize(res.orderdata.tire_size);
-          setTireType(res.orderdata.tire_type);
-          setHubcups(res.orderdata.tire_hubcups);
-          setRims(res.orderdata.tire_rims);
-          setTirebolt(res.orderdata.tire_tirebolt);
-          setGrooveFl(res.orderdata.tire_groovefl);
-          setGrooveFr(res.orderdata.tire_groovefr);
-          setGrooveBl(res.orderdata.tire_groovebl);
-          setGrooveBr(res.orderdata.tire_groovebr);
-          //setTireInfo(res.orderdata.tireInfo);
-          //setAdditionalInfo(res.orderdata.additionalInfo);
-          setOrderdate(res.orderdata.order_date);
-          setService_name(res.orderdata.service_title);
-          setWarehouse(res.orderdata.warehouse_id);
-          setShelf(res.orderdata.shelf_id);
-          setSlot(res.orderdata.slot_id);
+
+    // if ('order_id' in localStorage) {
+    //   setOrder_id(JSON.parse(localStorage.getItem('order_id')));
+    // }
+
+    // console.log(order_id);
+    
+    // let status = 0;
+    // fetch(URL + 'order/order_print.php', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({
+    //     order_id: order_id
+    //   })
+    // })
+    // .then(res => {
+    //   status = parseInt(res.status);
+    //   return res.json();
+    // })
+    // .then(
+    //   (res) => {
+    //     if (status === 200) {
+    //       setCompanyName(res.office.name);
+    //       setCompanyPhone(res.office.phone);
+    //       setCompanyEmail(res.office.email);
+    //       setCompanyAddress(res.office.address);
+    //       setCompanyZip(res.office.zipcode);
+    //       setCompanyCity(res.office.city);
+    //       setFirstName(res.orderdata.customer_firstname);
+    //       setLastName(res.orderdata.customer_lastname);
+    //       setPhone(res.orderdata.customer_phone);
+    //       setEmail(res.orderdata.customer_email);
+    //       setAddress(res.orderdata.customer_address);
+    //       setZip(res.orderdata.customer_zipcode);
+    //       setCity(res.orderdata.customer_city);
+    //       setCarRegister(res.orderdata.car_register);
+    //       setCarBrand(res.orderdata.car_brand);
+    //       setCarModel(res.orderdata.car_model);
+    //       setTireBrand(res.orderdata.tire_brand);
+    //       setTireModel(res.orderdata.tire_model);
+    //       setTireSize(res.orderdata.tire_size);
+    //       setTireType(res.orderdata.tire_type);
+    //       setHubcups(res.orderdata.tire_hubcups);
+    //       setRims(res.orderdata.tire_rims);
+    //       setTirebolt(res.orderdata.tire_tirebolt);
+    //       setGrooveFl(res.orderdata.tire_groovefl);
+    //       setGrooveFr(res.orderdata.tire_groovefr);
+    //       setGrooveBl(res.orderdata.tire_groovebl);
+    //       setGrooveBr(res.orderdata.tire_groovebr);
+    //       setTireInfo(res.orderdata.tire_info);
+    //       setOrderdate(res.orderdata.order_date);
+    //       setService_name(res.orderdata.service_title);
+    //       setWarehouse(res.orderdata.warehouse_id);
+    //       setShelf(res.orderdata.shelf_id);
+    //       setSlot(res.orderdata.slot_id);
+    //     } else {
+    //       alert(res.error);
+    //     }
+    //   }, (error) => {
+    //     alert(error);
+    //   }
+    // );
+
+    async function getOrderData() {
+      let address = URL + 'order/order_print.php/' + params.order_id;
+      try {
+        const response = await fetch(address);
+        const json = await response.json();
+        if (response.ok) {
+          console.log(json);
+          // setCompanyName(json.office.name);
+          // setCompanyPhone(json.office.phone);
+          // setCompanyEmail(json.office.email);
+          // setCompanyAddress(json.office.address);
+          // setCompanyZip(json.office.zipcode);
+          // setCompanyCity(json.office.city);
+          setOffice(json.office);
+          setFirstName(json.orderdata.customer_firstname);
+          setLastName(json.orderdata.customer_lastname);
+          setPhone(json.orderdata.customer_phone);
+          setEmail(json.orderdata.customer_email);
+          setAddress(json.orderdata.customer_address);
+          setZip(json.orderdata.customer_zipcode);
+          setCity(json.orderdata.customer_city);
+          setCarRegister(json.orderdata.car_register);
+          setCarBrand(json.orderdata.car_brand);
+          setCarModel(json.orderdata.car_model);
+          setTireBrand(json.orderdata.tire_brand);
+          setTireModel(json.orderdata.tire_model);
+          setTireSize(json.orderdata.tire_size);
+          setTireType(json.orderdata.tire_type);
+          setHubcups(json.orderdata.tire_hubcups);
+          setRims(json.orderdata.tire_rims);
+          setTirebolt(json.orderdata.tire_tirebolt);
+          setGrooveFl(json.orderdata.tire_groovefl);
+          setGrooveFr(json.orderdata.tire_groovefr);
+          setGrooveBl(json.orderdata.tire_groovebl);
+          setGrooveBr(json.orderdata.tire_groovebr);
+          setTireInfo(json.orderdata.tire_info);
+          setOrderdate(json.orderdata.order_date);
+          setService_name(json.orderdata.service_title);
+          setWarehouse(json.orderdata.warehouse_id);
+          setShelf(json.orderdata.shelf_id);
+          setSlot(json.orderdata.slot_id);
         } else {
-          alert(res.error);
+          alert(json.error);
         }
-      }, (error) => {
+
+      } catch (error) {
         alert(error);
       }
-    );
+    }
+    getOrderData();
 
-  }, [order_id]);
+  }, [params.order_id]);
+
+  // function print() {
+    
+
+  //   return (
+  //     window.print()
+  //   );
+  // }
 
 
-  const content =
+  // const content =
+
+  return (
     <>
     {/* <div className="modalBackground">
-      <div className="modalContainer">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close" onClick={()=>{setOpenReport(false);}}>
+      <div className="modalContainer"> */}
+        {/* <button type="button" class="close" data-dismiss="alert" aria-label="Close" onClick={()=>{setOpenReport(false);}}>
             <span aria-hidden="true">&times;</span>
         </button> */}
           <form className="ml-5">
@@ -134,7 +204,7 @@ export default function Print({ order_id}) {
               </div>
               <div className="col-sm-6">
                 <button className="btn" id="printButton" style={buttonStyle} onClick={() => window.print()}>Tulosta</button>
-              </div> 
+              </div>
 
               {/** yrityksen ja asiakkaan tiedot */}
               <div className='container-fluid row'>
@@ -239,16 +309,16 @@ export default function Print({ order_id}) {
         {/* </div>
       </div> */}
     </>
-
-  return (
-    <>
-        <div>
-            <button className="btn"  style={buttonStyle} onClick={()=>{
-                setOpenReport(true);
-                }}>Raportti</button>
-            { openReport && (content)}
-        </div>
-    </>
+  );
+//   return (
+//     <>
+//         <div>
+//             <button className="btn"  style={buttonStyle} onClick={()=>{
+//                 setOpenReport(true);
+//                 }}>Raportti</button>
+//             { openReport && content}
+//         </div>
+//     </>
     
-);
+// );
 }

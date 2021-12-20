@@ -7,13 +7,14 @@ import {URL} from '../back/Config';
 
 // tänne lista kaikista varastopaikoista lajiteltuna varastoittain
 
-export default function ShelfSlots({ currentShelfID = 1}) {
+export default function ShelfSlots({ currentShelfID = 1, setCustomer_id}) {
   const [slots, setSlots] = useState([]);
   const [currentShelf, setCurrentShelf] = useState([currentShelfID]);
   const [previosShelf, setPreviousShelf] = useState(0);
   const [nextShelf, setNextShelf] = useState(0);
   const [isLoading, setIsloading] = useState(false);
   const [showWarehouse, setShowWarehouse] = useState(false);
+  const [showCustomerSite, setShowCustomerSite] = useState(false);
 
 
   useEffect(() => {
@@ -61,6 +62,18 @@ if (showWarehouse === true) {
   );
 }
 
+function openCustomerSite(slot) {
+  setCustomer_id(slot.customer_id);
+  setShowCustomerSite(true);
+}
+
+if (showCustomerSite === true) {
+  return (
+    <Navigate to="/oneCustomer" />
+
+  );
+}
+
 const shelfPage =
 <>
 <h3>Hylly {currentShelf}</h3>
@@ -93,7 +106,7 @@ const shelfPage =
               <td>{(slot.tires_id !== null) ? (<p>{slot.tires_type}</p>) : (<p>-</p>)}</td>
               <td>{(slot.tires_id !== null) ? (<p>{slot.tires_brand}</p>) : (<p>-</p>)}</td>
               <td>{(slot.tires_id !== null) ? (<p>{slot.tires_text}</p>) : (<p>-</p>)}</td>
-              <td class="text-end">{(slot.tires_id !== null) ? (<button className='btn' style={buttonStyle} onClick={() => ""}>Näytä lisää</button>) : (<p></p>)}</td>
+              <td class="text-end">{(slot.tires_id !== null) ? (<button className='btn' style={buttonStyle} onClick={() => openCustomerSite(slot)}>Näytä lisää</button>) : (<p></p>)}</td>
 
             </tr>
           ))}

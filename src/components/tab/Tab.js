@@ -23,7 +23,7 @@ useEffect(() => {
            <ul className="nav nav-tabs">
                {
                 tabsData.map(({tab}, index) => (
-                    <li className={`nav-item ${index === activeTab ? "active" : ""}`}>
+                    <li className={`nav-item ${index === activeTab ? "activeTab" : ""}`}>
                         <a className="nav-link"
                            href="#" onClick={() => setActiveTab(index)}
                            >

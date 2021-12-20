@@ -98,15 +98,15 @@ export default function NewCar({setCustomerCars, customer_id}) {
                         <form onSubmit={SaveCar} className='col-4'>
                             <div>
                                 <label>Rekisteri*</label>
-                                <input type="text" className="form-control" required value={register} onChange={e => setRegister(e.target.value)}/>
+                                <input type="text" maxLength={25} className="form-control" required value={register} onChange={e => setRegister(e.target.value)}/>
                             </div>
                             <div>
                                 <label>Merkki*</label>
-                                <input type="text" className="form-control" required value={brand} onChange={e => setBrand(e.target.value)}/>
+                                <input type="text" maxLength={25} className="form-control" required value={brand} onChange={e => setBrand(e.target.value)}/>
                             </div>
                             <div>
                                 <label>Malli</label>
-                                <input type="text" className="form-control" value={model} onChange={e => setModel(e.target.value)}/>
+                                <input type="text" maxLength={25} className="form-control" value={model} onChange={e => setModel(e.target.value)}/>
                             </div>
                             <button className='btn' style={buttonStyle}>Tallenna</button>
                         </form>

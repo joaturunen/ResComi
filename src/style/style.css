@@ -241,8 +241,14 @@ li {
   border-top: none;
 }
 
+.nav-tabs a {
+  color: #000;
+}
+
 .activeTab {
-  background-color: green;
+  background-color: lightblue;
+  border: 1px solid #dcdcdc;
+  border-bottom: none;
 }
 
 .scrollingRoute {
