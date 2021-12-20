@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 import Loading from '../components/loading';
 import {URL} from '../back/Config';
 
-// tänne lista kaikista varastopaikoista lajiteltuna varastoittain
+// list of all shelfs sorted by warehouse
 
 export default function Warehouse({setCurrentShelfID}) {
   const [warehouseAll, setWarehouseAll] = useState(0);

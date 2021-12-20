@@ -4,8 +4,7 @@ import '../style/modal.css';
 import Car from '../images/3121893.png';
 import {URL} from '../back/Config';
 
-
-// uusien renkaiden tallennus: voiko valita slotin vai tuleeko automaattisesti seuraava vapaa?
+// add new tires to car (modal)
 
 export default function NewTires({setCarTires, car_id, car_register}) {
     const [brand, setBrand] = useState('');
@@ -30,6 +29,7 @@ export default function NewTires({setCarTires, car_id, car_register}) {
         setShowSuccess(false);
     }, [openNewTiresModel]);
 
+    // save new tires
     function SaveTires(e) {
         console.log(car_id);
         e.preventDefault();

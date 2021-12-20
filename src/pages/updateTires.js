@@ -5,7 +5,7 @@ import Car from '../images/3121893.png';
 import {FaEdit } from 'react-icons/fa';
 import {URL} from '../back/Config';
 
-
+// update tires data (modal)
 export default function UpdateTires({tires_id, car_register, brand, model, type, hubcups, grooveFL, grooveFR, grooveBL, grooveBR, tiresize, tirebolt, text, rims}) {
     const [newBrand, setNewBrand] = useState(brand);
     const [newModel, setNewModel] = useState(model);
@@ -29,6 +29,7 @@ export default function UpdateTires({tires_id, car_register, brand, model, type,
         setShowSuccess(false);
     }, [openUpdateTiresModel]);
 
+    // save update tires 
     function UpdateTires(e) {
         console.log(tires_id);
         e.preventDefault();

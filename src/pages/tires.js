@@ -6,10 +6,12 @@ import { FaTrash } from 'react-icons/fa';
 import UpdateTires from "./updateTires";
 import {URL} from '../back/Config';
 
+// print single car tires
 
 export default function Tires({car_id, car_register}) {
     const [carTires, setCarTires] = useState([]);
 
+    // retrieve tires by car
     useEffect(() => {
         let status = 0;
         fetch(URL +'tires/tires_read_by_car.php', {
@@ -40,6 +42,7 @@ export default function Tires({car_id, car_register}) {
             
     }, [car_id]);
 
+    // remove tires
     function deleteTires(id) {
         let status = 0;
         fetch( URL +'tires/tires_delete.php', {

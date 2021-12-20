@@ -1,8 +1,8 @@
-import React,{useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {buttonStyle} from '../style/colors';
 import '../style/modal.css';
-import {URL} from '../back/Config';
 
+// shows order complete
 
 export default function ModalOrderDone({showModal, closeModal, info}) {
   const [showSuccess, setShowSuccess] = useState(false);

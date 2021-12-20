@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { buttonStyle } from '../style/colors';
-
 import {URL} from '../back/Config';
+
+// shows orders that are not ready
 
 export default function Orders({openReport}) {
     const [orders, setOrders] = useState([]);

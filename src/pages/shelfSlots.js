@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 import Loading from '../components/loading';
 import {URL} from '../back/Config';
 
-// tänne lista kaikista varastopaikoista lajiteltuna varastoittain
+// list of all slots sorted by shelf
 
 export default function ShelfSlots({ currentShelfID = 1, setCustomer_id}) {
   const [slots, setSlots] = useState([]);
@@ -17,6 +17,7 @@ export default function ShelfSlots({ currentShelfID = 1, setCustomer_id}) {
   const [showCustomerSite, setShowCustomerSite] = useState(false);
 
 
+  // retrieves all shelfs and slots
   useEffect(() => {
     let status = 0;
     let address = URL + 'warehouse/shelfs/warehouseShelf_read_shelfs_slots.php';
@@ -48,7 +49,7 @@ export default function ShelfSlots({ currentShelfID = 1, setCustomer_id}) {
     );
 }, [currentShelf]);
 
-
+// open shelf page
 function openShelfSite(shelf) {
   const newShelf = shelf;
   // setIsloading(true);
@@ -62,6 +63,7 @@ if (showWarehouse === true) {
   );
 }
 
+// open customer info page
 function openCustomerSite(slot) {
   setCustomer_id(slot.customer_id);
   setShowCustomerSite(true);

@@ -1,25 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { buttonStyle } from '../style/colors';
 import { Link} from 'react-router-dom';
-import {URL} from '../back/Config';
-import Print from "../printable/Print";
 
-export default function CustomerOrders({openReport, customerOrders}) {
+// show all orders by one customer
 
-    const [order_id, setOrder_id] = useState('');
-    
-    // function openReport(order) {
-    //     setOrder_id(order.id);
-    //     console.log(order.id);
-    //     localStorage.setItem('order_id',JSON.stringify(order_id));
-    //     console.log(localStorage);
+export default function CustomerOrders({customerOrders}) {
 
-    //     return (
-    //         <Link to="/printable/Print" target="_blank" />
-    //     );
-    // }
-
-    
 
     return (
         <>

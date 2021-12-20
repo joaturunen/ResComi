@@ -6,6 +6,8 @@ import { buttonStyle } from '../style/colors';
 import '../style/modal.css';
 import {URL} from '../back/Config';
 
+// order printable report form
+
 export default function Print() {
 
   let params = useParams();
@@ -37,12 +39,8 @@ export default function Print() {
   const [tireInfo, setTireInfo] = useState('');
 
   // Order info
-  const [orderNumber, setOrderNumber] = useState('');
   const [orderdate, setOrderdate] = useState('');
   const [service_name, setService_name] = useState('');
-  const [warehouse, setWarehouse] = useState('');
-  const [shelf, setShelf] = useState('');
-  const [slot, setSlot] = useState('');
 
   // Tirehotel info
   const [companyName, setCompanyName] = useState('');
@@ -54,6 +52,8 @@ export default function Print() {
 
 
   useEffect(() => {
+
+    // retrieves single order data
 
     async function getOrderData() {
       let address = URL + 'order/order_print.php/' + params.order_id;
@@ -92,9 +92,6 @@ export default function Print() {
           setTireInfo(json.orderdata[0].tire_info);
           setOrderdate(json.orderdata[0].order_date);
           setService_name(json.orderdata[0].service_title);
-          setWarehouse(json.orderdata[0].warehouse_id);
-          setShelf(json.orderdata[0].shelf_id);
-          setSlot(json.orderdata[0].slot_id);
         } else {
           alert(json.error);
         }
@@ -120,7 +117,7 @@ export default function Print() {
                 <button className="btn" id="printButton" style={buttonStyle} onClick={() => window.print()}>Tulosta</button>
               </div>
 
-              {/** yrityksen ja asiakkaan tiedot */}
+              {/** office and customer info */}
               <div className='container-fluid row'>
                 <div className="col-sm-6">
                   <h5 className='m-2'>Asiakastiedot</h5>
@@ -146,7 +143,7 @@ export default function Print() {
                 </div>
               </div>
 
-              {/** auto ja säilytyspaikka */}
+              {/** car info */}
               <div className='row container-fluid'>
                 <div className="col-sm-6">
                   <h5 className='m-2'>Auton tiedot</h5>
@@ -157,16 +154,11 @@ export default function Print() {
                   </ul>
                 </div>
                 <div className="col-sm-6">
-                  <h5 className='m-2'>Säilytyspaikka</h5>
-                  <ul className="list-group">
-                    <li className="list-group-item">Varasto: {warehouse}</li>
-                    <li className="list-group-item">Hylly: {shelf}</li>
-                    <li className="list-group-item">Paikka: {slot}</li>
-                  </ul>
+                  
                 </div>
               </div>
 
-              {/** renkaat */}
+              {/** tires info */}
               <div className='row container-fluid'>
                 <h5 className='m-2'>Renkaiden tiedot</h5>
                 <div className="col-sm-6">
@@ -193,6 +185,8 @@ export default function Print() {
                   </ul>
                 </div>
               </div>
+
+              {/** order info */}
               <div className='row container-fluid'>
                 <h5 className='m-2'>Tilauksen tiedot</h5>
                 <div className="col-sm-6">
@@ -208,6 +202,8 @@ export default function Print() {
                   </ul>
                 </div>
               </div>
+
+              {/** signatures */}
               <div className='row container-fluid'>
                 <div className="col-sm-6">
                   <textarea className="col-sm-12" rows="3" placeholder="Asiakkaan allekirjoitus ja päiväys:" />
