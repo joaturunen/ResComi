@@ -242,7 +242,8 @@ li {
 }
 
 .activeTab {
-  background-color: green;
+  background-color: lightblue;
+  
 }
 
 .scrollingRoute {
@@ -261,6 +262,7 @@ li {
 .free {
   color: rgb(35, 204, 35);
   font-weight: bold;
+  background-color: #c23a00;
 }
 
 
@@ -303,4 +305,8 @@ li {
   background-color: white;
   padding: 0.4rem;
   margin: 0.4rem;
+}
+
+.active{
+  background-color: #dcdcdc;
 }
