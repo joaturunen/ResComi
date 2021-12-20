@@ -182,6 +182,12 @@ export default function Print() {
                       </ul>
                     </li>
                     <li className="list-group-item">Kuntoarvio: {tireInfo}</li>
+                    <li>
+                      Kesärenkaiden osalta tieliikennelaki määrittää minimiurasyvyydeksi 1.6 mm. 
+                      Rengasturvallisuusliitto suosittaa kuitenkin kesärenkaiden minimiurasyvyydeksi 3 mm.
+                      Talvirenkaiden osalta tieliikennelaki määrittää minimiurasyvyydeksi 3 mm. 
+                      Rengasturvallisuusliitto suosittaa kuitenkin talvirenkaiden minimiurasyvyydeksi 5 mm.
+                    </li>
                   </ul>
                 </div>
               </div>
