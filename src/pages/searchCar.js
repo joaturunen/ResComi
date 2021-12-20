@@ -107,7 +107,7 @@ export default function SearchCar({setCustomer_id }) {
         <h4>Hakutulokset</h4>
         { (resultNro === 2) && (<p>Tuloksia ei löytynyt.</p>)}
         { (resultNro === 1) && (<p>Haetaan tuloksia...</p>)}
-        { (resultNro === 0) && (resultContent)}
+        {(resultNro === 0) ? (<></>) : (resultContent)}
       </div>
     </>
 

@@ -73,7 +73,6 @@ export default function SearchCustomer({setCustomer_id, hightWay = 0, setCustome
   <table className="table px-3 table-striped">
     <thead>
         <tr>
-            
             <th scope="col">Etunimi</th>
             <th scope="col">Sukunimi</th>
             <th scope="col"></th>
@@ -106,7 +105,8 @@ export default function SearchCustomer({setCustomer_id, hightWay = 0, setCustome
         <h4>Hakutulokset</h4>
         { (resultNro === 2) && (<p>Tuloksia ei löytynyt.</p>)}
         { (resultNro === 1) && (<p>Haetaan tuloksia...</p>)}
-        { (resultNro === 0) && (resultContent)}
+        {(resultNro === 0) ? (<></>) : (resultContent)}
+
         <ModalOldCustomer setCustomerData={setCustomerData} showModal={showModalOldCustomer} setShowModalOldCustomer={setShowModalOldCustomer} customer_id={id}/>
       </div>
     </>
