@@ -214,7 +214,7 @@ const addToWarehouseNewPlace =
             </div>
           
           <div className='d-flex flex-row'>
-              <div className='p-2'>
+              <div className='pb-5'>
               <div>
               <label>Etunimi</label>
                   <input type="text" className="form-control" value={firstname} onChange={e => setFirstname(e.target.value)}/>
@@ -237,7 +237,7 @@ const addToWarehouseNewPlace =
               </div>
               </div>
               
-              <div className='p-2'>
+              <div className='pb-5 ml-3'>
                 <div>
                 <label>Postinumero</label>
                     <input type="number" step="1" className="form-control" value={zipcode} onChange={e => setZipcode(e.target.value)} maxLength="5"/>
