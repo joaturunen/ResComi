@@ -8,7 +8,6 @@ export default function SearchCustomer({setCustomer_id, hightWay = 0, setCustome
   const [searchPhone, setSearchPhone] = useState('');
   const [result, setResult] = useState([]);
   const [showCustomerSite, setShowCustomerSite] = useState(false);
- // const [showCustomerData, setShowCustomerData] = useState(false);
   const [showModalOldCustomer, setShowModalOldCustomer ] = useState(false);
   const [id, setId] = useState(0);
   const [resultNro, setResultNro] = useState(0);
@@ -58,7 +57,6 @@ export default function SearchCustomer({setCustomer_id, hightWay = 0, setCustome
       setShowModalOldCustomer(true);
     } else{
       setCustomer_id(customer.id);
-      //setShowCustomerData(true); // tällä ei saa näkymään orderissa
       setShowCustomerSite(true);
     }
   }

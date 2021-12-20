@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { buttonStyle } from '../style/colors';
 import { Link, Navigate } from 'react-router-dom';
 import {URL} from '../back/Config';
-//import Print from "../printable/Print";
+import Print from "../printable/Print";
 
 export default function Orders({}) {
   const [orders, setOrders] = useState([]);
-  //const [order_id, setOrder_id] = useState('');
-  //const [showReport, setShowReport] = useState(false);
+  const [order_id, setOrder_id] = useState('');
+  const [showReport, setShowReport] = useState(false);
 
   useEffect(() => {
       async function getOrders() {
@@ -26,19 +26,19 @@ export default function Orders({}) {
       getOrders();
   }, []);
 
-  // function openReport(order) {
-  //   setOrder_id(order.id);
-  //   //setShowReport(true);
+  function openReport(order) {
+    setOrder_id(order.orders_id);
+    setShowReport(true);
     
-  // }
+  }
 
-  // if (showReport === true) {
-  //   return (
+  if (showReport === true) {
+    return (
       
-  //     <Navigate to="/printable/print" />
+      <Navigate to="/printable/print" />
 
-  //   );
-  // }
+    );
+  }
 
   return (
     <>
@@ -60,9 +60,9 @@ export default function Orders({}) {
               <td>{order.orders_id}</td>
               <td>{order.customer_firstname} {order.customer_lastname}</td>
               <td>{order.car_register}</td>
-              {/* <td><Print order_id={order.id}/></td> */}
-              <td><Link to="/printable/Print" params={order.id} target="_blank" className='btn' style={buttonStyle}>Raportti</Link></td>
-              {/* <td className="text-right"><button className='btn' style={buttonStyle} onClick={() => openReport(order)}> Raportti</button></td> */}
+              {/* <td><Print order_id={order.orders_id}/></td> */}
+              <td><Link to="/printable/Print" params={order.orders_id} target="_blank" className='btn' style={buttonStyle}>Raportti</Link></td>
+              <td className="text-right"><button className='btn' style={buttonStyle} onClick={() => openReport(order)}> Raportti</button></td>
             </tr>
           ))}
         </tbody>
