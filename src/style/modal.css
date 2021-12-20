@@ -50,3 +50,15 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.modalContainer4 {
+  width: 300px;
+  height: 300px;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 25px;
+  position: fixed; /* or absolute */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

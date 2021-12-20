@@ -131,7 +131,7 @@ export default function Order({setCustomer_id, setCustomerData, customerData}) {
               )
           })}
           <tr>
-            <td></td>
+            <td><b>Yhteensä: </b></td>
             <td className="text-right">{sum.toFixed(2)} €</td>
             <td className="text-right"><FaTrash onClick={() => emptyCart()}/></td>
           </tr>

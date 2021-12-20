@@ -1,9 +1,9 @@
 import React,{useState, useEffect} from 'react';
-import {buttonStyle, boxColorLayot, Choice, ChoiceRemove, ChoiceRemoveBorder, ChoiceToWarehouseBorder, ChoiceToWarehouse,ChoiceWarehouse } from '../style/colors';
+import {buttonStyle, boxColorLayot, Choice, ChoiceRemove, ChoiceRemoveBorder, ChoiceToWarehouse,ChoiceWarehouse } from '../style/colors';
 import '../style/modal.css';
 import {URL} from '../back/Config';
 import Loading from '../components/loading';
-import {FaPlusCircle} from 'react-icons/fa'; 
+import {FaPlus} from 'react-icons/fa'; 
 
 // show old customer data in order page
 export default function ModalOldCustomer({setCustomerData, showModal = false, setShowModalOldCustomer, customer_id}) {
@@ -209,9 +209,12 @@ const addToWarehouseNewPlace =
       <hr/>
         <div className='row'>
           <div className='col-5' style={boxColorLayot}>
+          <div className="pt-3">
           <h6>Tarkista yhteystiedot</h6>
+            </div>
+          
           <div className='d-flex flex-row'>
-              <div className='p-2'>
+              <div className='pb-5'>
               <div>
               <label>Etunimi</label>
                   <input type="text" className="form-control" value={firstname} onChange={e => setFirstname(e.target.value)}/>
@@ -234,7 +237,7 @@ const addToWarehouseNewPlace =
               </div>
               </div>
               
-              <div className='p-2'>
+              <div className='pb-5 ml-3'>
                 <div>
                 <label>Postinumero</label>
                     <input type="number" step="1" className="form-control" value={zipcode} onChange={e => setZipcode(e.target.value)} maxLength="5"/>
@@ -252,7 +255,9 @@ const addToWarehouseNewPlace =
           </div>
 
           <div className='col' style={boxColorLayot}>
-          <h6>Valise auto ja renkaat</h6>
+            <div className="pt-3">
+              <h6>Valise auto ja renkaat</h6>
+            </div>
           <div className='row'>
             <div class="col">
               <h6>Autot</h6>
@@ -260,8 +265,9 @@ const addToWarehouseNewPlace =
                   <tbody>
                     {cars.map((car) => {
                         return (
-                          <tr key={car.id} onClick={() => {setCar(car)}}>
-                          <td><FaPlusCircle /> {car.register}</td>
+                          <tr key={car.id}>
+                          <td>{car.register}</td>
+                          <td className="text-right"><p className='btn' onClick={() => {setCar(car)}} style={Choice}>Valitse</p></td>
                           </tr>
                         )
                     })}
