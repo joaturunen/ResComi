@@ -1,9 +1,9 @@
 import React,{useState, useEffect} from 'react';
-import {buttonStyle, boxColorLayot, Choice, ChoiceRemove, ChoiceRemoveBorder, ChoiceToWarehouseBorder, ChoiceToWarehouse,ChoiceWarehouse } from '../style/colors';
+import {buttonStyle, boxColorLayot, Choice, ChoiceRemove, ChoiceRemoveBorder, ChoiceToWarehouse,ChoiceWarehouse } from '../style/colors';
 import '../style/modal.css';
 import {URL} from '../back/Config';
 import Loading from '../components/loading';
-import {FaPlusCircle} from 'react-icons/fa'; 
+import {FaPlus} from 'react-icons/fa'; 
 
 
 export default function ModalOldCustomer({setCustomerData, showModal = false, setShowModalOldCustomer, customer_id}) {
@@ -209,7 +209,10 @@ const addToWarehouseNewPlace =
       <hr/>
         <div className='row'>
           <div className='col-5' style={boxColorLayot}>
+          <div className="pt-3">
           <h6>Tarkista yhteystiedot</h6>
+            </div>
+          
           <div className='d-flex flex-row'>
               <div className='p-2'>
               <div>
@@ -252,7 +255,9 @@ const addToWarehouseNewPlace =
           </div>
 
           <div className='col' style={boxColorLayot}>
-          <h6>Valise auto ja renkaat</h6>
+            <div className="pt-3">
+              <h6>Valise auto ja renkaat</h6>
+            </div>
           <div className='row'>
             <div class="col">
               <h6>Autot</h6>
@@ -260,8 +265,9 @@ const addToWarehouseNewPlace =
                   <tbody>
                     {cars.map((car) => {
                         return (
-                          <tr key={car.id} onClick={() => {setCar(car)}}>
-                          <td><FaPlusCircle /> {car.register}</td>
+                          <tr key={car.id}>
+                          <td>{car.register}</td>
+                          <td className="text-right"><p className='btn' onClick={() => {setCar(car)}} style={Choice}>Valitse</p></td>
                           </tr>
                         )
                     })}

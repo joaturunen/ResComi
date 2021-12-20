@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react';
-import { boxColorLayot,  buttonStyle, Choice} from '../style/colors';
+import { boxColorLayot, Choice} from '../style/colors';
 import {URL} from '../back/Config';
 import {FaPlus} from 'react-icons/fa';
 

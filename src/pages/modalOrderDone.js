@@ -2,6 +2,7 @@ import React,{useState, useEffect} from 'react';
 import {buttonStyle} from '../style/colors';
 import '../style/modal.css';
 import {URL} from '../back/Config';
+import { Link } from 'react-router-dom';
 
 
 export default function ModalOrderDone({showModal, closeModal, info}) {
@@ -26,13 +27,13 @@ const alertFailed =
 
   const content = <>
   <div className="modalBackground">
-    <div className="modalContainer3">
+    <div className="modalContainer4">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close" onClick={()=>{closeModal(false);}}>
         <span aria-hidden="true">&times;</span>
       </button>
       <div class="d-flex flex-row">
         <div className="p-2">
-          <h3>Tilauksen tallentaminen</h3>
+          <h4>Tilauksen tallentuminen</h4>
       </div>
       </div>
       <hr/>
@@ -42,8 +43,9 @@ const alertFailed =
       </div>
         <div>
           <div className='row'>
-            {info.status}
-            {info.orderNRO}
+            <p>Tilaus numerolla {info.orderNRO}</p>
+            <p>{info.status}</p>
+            <Link to="/">Palaa etusivulle</Link>
             <div className='col-12 d-flex justify-content-end '>
               <button className='btn' style={buttonStyle} onClick={()=>{closeModal(false);}}>OK</button>
             </div>
