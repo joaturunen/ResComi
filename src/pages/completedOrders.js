@@ -60,9 +60,7 @@ export default function Orders({}) {
               <td>{order.orders_id}</td>
               <td>{order.customer_firstname} {order.customer_lastname}</td>
               <td>{order.car_register}</td>
-              {/* <td><Print order_id={order.orders_id}/></td> */}
-              <td><Link to="/printable/Print" params={order.orders_id} target="_blank" className='btn' style={buttonStyle}>Raportti</Link></td>
-              <td className="text-right"><button className='btn' style={buttonStyle} onClick={() => openReport(order)}> Raportti</button></td>
+              <td><Link to={`/printable/Print/${order.orders_id}`} key={order.orders_id} target="_blank" className='btn' style={buttonStyle} >Raportti</Link></td>
             </tr>
           ))}
         </tbody>

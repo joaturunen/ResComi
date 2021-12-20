@@ -37,8 +37,7 @@ export default function CustomerOrders({openReport, customerOrders}) {
                             <tr key={order.id} >
                                 <td>{order.orderdate}</td>
                                 <td>{order.car_register}</td>
-                                {/* <td><button className='btn' style={buttonStyle} onClick={() => openReport(order)}><Link to="/printable/Print" target="_blank" >Raportti</Link></button></td> */}
-                                <td><Link to={`/printable/Print/${order.id}`} key={order.id} target="_blank" >Raportti</Link></td>
+                                <td><Link to={`/printable/Print/${order.id}`} key={order.id} target="_blank" className='btn' style={buttonStyle} >Raportti</Link></td>
                             </tr>
                         ))}
                     </tbody>
