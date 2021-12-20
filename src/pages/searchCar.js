@@ -34,7 +34,7 @@ export default function SearchCar({setCustomer_id }) {
         (res) => {
           if (status === 200) {
             setResult([res]);
-            setResultNro(0);
+            setResultNro(3);
             if(res){
               setResult([res]);
             } else{
@@ -105,9 +105,11 @@ export default function SearchCar({setCustomer_id }) {
         </form>
 
         <h4>Hakutulokset</h4>
+        { (resultNro === 3) && (resultContent)}
         { (resultNro === 2) && (<p>Tuloksia ei löytynyt.</p>)}
         { (resultNro === 1) && (<p>Haetaan tuloksia...</p>)}
-        { (resultNro === 0) && (resultContent)}
+        { (resultNro === 0) && (<></>)}
+        
       </div>
     </>
 

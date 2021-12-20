@@ -55,9 +55,9 @@ export default function Orders({}) {
         </thead>
         <tbody>
           {orders.map(order => (
-            <tr key={order.id} >
+            <tr key={order.orders_id} >
               <td>{order.orderdate}</td>
-              <td>{order.id}</td>
+              <td>{order.orders_id}</td>
               <td>{order.customer_firstname} {order.customer_lastname}</td>
               <td>{order.car_register}</td>
               {/* <td><Print order_id={order.id}/></td> */}
