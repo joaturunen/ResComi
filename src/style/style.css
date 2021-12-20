@@ -241,6 +241,10 @@ li {
   border-top: none;
 }
 
+.activeTab {
+  background-color: green;
+}
+
 .scrollingRoute {
   overflow-y: auto !important;
   max-height: calc(100vh - 150px) !important;
