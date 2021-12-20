@@ -6,7 +6,6 @@ import {URL} from '../back/Config';
 export default function SearchCar({setCustomer_id }) {
   const [searchRegister, setSearchRegister] = useState('');
   const [result, setResult] = useState([]);
-  //const [showCarSite, setShowCarSite] = useState(false);
   const [showCustomerSite, setShowCustomerSite] = useState(false);
 
   const [resultNro, setResultNro] = useState(0);

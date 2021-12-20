@@ -45,7 +45,7 @@ export default function NewTires({setCarTires, car_id, car_register}) {
                 brand: brand,
                 model: model,
                 type: type,
-                //hubcups: hubcups,
+                hubcups: hubcups,
                 groovefl: grooveFL,
                 groovefr: grooveFR,
                 groovebl: grooveBL,
@@ -68,7 +68,7 @@ export default function NewTires({setCarTires, car_id, car_register}) {
                     setBrand('');
                     setModel('');
                     setType('');
-                    //setHubcups('');
+                    setHubcups('');
                     setGrooveFL('');
                     setGrooveFR('');
                     setGrooveBL('');

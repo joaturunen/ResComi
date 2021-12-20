@@ -29,10 +29,10 @@ export default function Orders({openReport}) {
           <table className="table px-3 table-striped">
           <thead>
             <tr>
-              <th scope="col">Päivämäärä</th>
-              <th scope="col">Tilaus-NRO</th>
-              <th scope="col">Auton REK</th>
-              <th scope="col"></th>
+            <th scope="col">Päivämäärä</th>
+            <th scope="col">Tilausnumero</th>
+            <th scope="col">Asiakas</th>
+            <th scope="col"></th>
             </tr>
           </thead>
             <tbody>
@@ -40,7 +40,7 @@ export default function Orders({openReport}) {
                 <tr key={order.orders_id} >
                   <td>{order.orderdate}</td>
                   <td>{order.orders_id}</td>
-                  <td>{order.car_register} </td>
+                  <td>{order.car_register}</td>
                   <td className="text-right"><p className='btn' style={buttonStyle} onClick={() => ""}>Näytä tilaus</p></td>
                 </tr>
               ))}
