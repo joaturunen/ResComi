@@ -130,19 +130,19 @@ export default function NewTires({setCarTires, car_id, car_register}) {
                             <div className='col-md-3'>
                                 <div>
                                     <label>Rengasmerkki</label>
-                                    <input type="text" className="form-control" placeholder='Continental' value={brand} onChange={e => setBrand(e.target.value)}/>
+                                    <input type="text" maxLength={25} className="form-control" placeholder='Continental' value={brand} onChange={e => setBrand(e.target.value)}/>
                                 </div>
                                 <div>
                                     <label>Malli</label>
-                                    <input type="text" className="form-control" placeholder='' value={model} onChange={e => setModel(e.target.value)}/>
+                                    <input type="text" maxLength={50} className="form-control" placeholder='' value={model} onChange={e => setModel(e.target.value)}/>
                                 </div>
                                 <div className='mt-1'>
                                     <label>Rengastyyppi</label>
-                                    <input type="text" className="form-control" placeholder='Kesä/Nasta/Kitka' value={type} onChange={e => setType(e.target.value)}/>
+                                    <input type="text" maxLength={25} className="form-control" placeholder='Kesä/Nasta/Kitka' value={type} onChange={e => setType(e.target.value)}/>
                                 </div>
                                 <div className='mt-1'>
                                     <label>Koko</label>
-                                    <input type="text" className="form-control" placeholder='Esim, 16' value={tiresize} onChange={e => setTiresize(e.target.value)}/>
+                                    <input type="text" maxLength={25} className="form-control" placeholder='Esim, 16' value={tiresize} onChange={e => setTiresize(e.target.value)}/>
                                 </div>
                                 
                             </div>
@@ -150,11 +150,11 @@ export default function NewTires({setCarTires, car_id, car_register}) {
                             <div className='col-md-3'>
                                 <div className='mt-1'>
                                     <label>Auton rekisteri</label>
-                                    <input type="text" className="form-control" value={car_register} />
+                                    <input type="text" maxLength={25} className="form-control" value={car_register} />
                                 </div>
                                 <div className='mt-1'>
                                     <label>Vannetyyppi</label>
-                                    <input type="text" className="form-control" placeholder='Alumiini/Teräs' value={rims} onChange={e => setRims(e.target.value)}/>
+                                    <input type="text" maxLength={25} className="form-control" placeholder='Alumiini/Teräs' value={rims} onChange={e => setRims(e.target.value)}/>
                                 </div>
                                 <div className='mt-1'>
                                     <label>Pölykapselit</label>
@@ -162,18 +162,18 @@ export default function NewTires({setCarTires, car_id, car_register}) {
                                 </div>
                                 <div className='mt-1'>
                                     <label>Pultit</label>
-                                    <input type="text" className="form-control" placeholder='Määrä/rengas?' value={tirebolt} onChange={e => setTirebolt(e.target.value)}/>
+                                    <input type="text" maxLength={25} className="form-control" placeholder='Määrä/rengas?' value={tirebolt} onChange={e => setTirebolt(e.target.value)}/>
                                 </div>
 
                             </div>
                             <div className='col-md-2'>
                                 <div className='mt-1'>
                                     <label>EV</label>
-                                    <input type="text" className="form-control" placeholder='3' value={grooveFL} onChange={e => setGrooveFL(e.target.value)}/>
+                                    <input type="text" maxLength={25} className="form-control" placeholder='3' value={grooveFL} onChange={e => setGrooveFL(e.target.value)}/>
                                 </div>
                                 <div className='mt-5'>
                                     <label>TV</label>
-                                    <input type="text" className="form-control" placeholder='3' value={grooveBL} onChange={e => setGrooveBL(e.target.value)}/>
+                                    <input type="text" maxLength={25} className="form-control" placeholder='3' value={grooveBL} onChange={e => setGrooveBL(e.target.value)}/>
                                 </div>
                             </div>
 
@@ -187,11 +187,11 @@ export default function NewTires({setCarTires, car_id, car_register}) {
                             <div className='col-md-2'>
                                 <div className='mt-1'>
                                     <label>OE</label>
-                                    <input type="text" className="form-control" placeholder='3' value={grooveFR} onChange={e => setGrooveFR(e.target.value)}/>
+                                    <input type="text" maxLength={25} className="form-control" placeholder='3' value={grooveFR} onChange={e => setGrooveFR(e.target.value)}/>
                                 </div>
                                 <div className='mt-5'>
                                     <label>OT</label>
-                                    <input type="text" className="form-control" placeholder='3' value={grooveBR} onChange={e => setGrooveBR(e.target.value)}/>
+                                    <input type="text" maxLength={25} className="form-control" placeholder='3' value={grooveBR} onChange={e => setGrooveBR(e.target.value)}/>
                                 </div>
                             </div>
 
