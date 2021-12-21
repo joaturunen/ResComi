@@ -40,7 +40,9 @@ export default function Print() {
 
   // Order info
   const [orderdate, setOrderdate] = useState('');
-  const [service_name, setService_name] = useState('');
+  // const [service_name, setService_name] = useState('');
+  // const [service_price, setService_price] = useState('');
+  const [services, setServices] = useState([]);
 
   // Tirehotel info
   const [companyName, setCompanyName] = useState('');
@@ -91,7 +93,8 @@ export default function Print() {
           setGrooveBr(json.orderdata[0].tire_groovebr);
           setTireInfo(json.orderdata[0].tire_info);
           setOrderdate(json.orderdata[0].order_date);
-          setService_name(json.orderdata[0].service_title);
+          // setService_name(json.services[0].service_title);
+          setServices(json.services);
         } else {
           alert(json.error);
         }
@@ -104,6 +107,7 @@ export default function Print() {
 
   }, [params.order_id]);
 
+  let sum = 0;
 
   return (
     <>
@@ -182,7 +186,7 @@ export default function Print() {
                       </ul>
                     </li>
                     <li className="list-group-item">Kuntoarvio: {tireInfo}</li>
-                    <li>
+                    <li className="list-group-item">
                       Kesärenkaiden osalta tieliikennelaki määrittää minimiurasyvyydeksi 1.6 mm. 
                       Rengasturvallisuusliitto suosittaa kuitenkin kesärenkaiden minimiurasyvyydeksi 3 mm.
                       Talvirenkaiden osalta tieliikennelaki määrittää minimiurasyvyydeksi 3 mm. 
@@ -197,18 +201,29 @@ export default function Print() {
                 <h5 className='m-2'>Tilauksen tiedot</h5>
                 <div className="col-sm-6">
                   <ul className="list-group" > 
-                    <li>Ostetut palvelut:</li>
-                    <li className="list-group-item" >{service_name}</li>
+                    <li className="list-group-item">Ostetut palvelut:</li>
+                    {/* <li className="list-group-item" >{service_name}</li> */}
+                    {services.map((service, id) => {
+                      sum+=parseFloat(service.price);
+                      return (
+                        <li className="list-group-item">{service.service_title}  {service.price}</li>
+                      )
+                    })}
                   </ul>
                 </div>
                 <div className="col-sm-6">
                   <ul className="list-group" >
-                    <li>Tilauspäivä: {orderdate} </li>
-                    <li>Yhteensä: XX €</li>
+                    <li className="list-group-item">Tilauspäivä: {orderdate} </li>
+                    <li className="list-group-item">Yhteensä: {sum.toFixed(2)} €</li>
                   </ul>
                 </div>
               </div>
 
+              <div className='row container-fluid'>
+                <div className="col-sm-12">
+                  <div><p></p></div>
+                </div>
+              </div>
               {/** signatures */}
               <div className='row container-fluid'>
                 <div className="col-sm-6">
