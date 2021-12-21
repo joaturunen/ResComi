@@ -97,7 +97,7 @@ import {FaMinus, FaPlus, FaHome, FaWarehouse, FaSearch, FaQuestion } from 'react
     }, []);
   
     return (
-      <div className={`side-menu nav-color ${inactive ? "inactive" : "col align-self-start no-padding"}`}>
+      <div className={`side-menu nav-color no-printme ${inactive ? "inactive" : "col align-self-start no-padding"}`}>
         <div className="top-section row">
           <div onClick={() => setInactive(!inactive)}>
             {inactive ? (

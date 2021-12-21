@@ -35,12 +35,11 @@ function App() {
     <>
         <div className="max-wid">
           <div className="container-fluid">
-            { pathname !== "/printable/Print" && <Header 
-              onCollapse={(headerInactive) => {
-              setHeaderInactive(headerInactive);
-            }}/>}
+            <div className="no-printme">
+              <Header />
+            </div>
             <div className="row">
-              { (pathname !== "/login") && (pathname !== "/") && (pathname !== "/printable/Print") && <SideMenu 
+              { (pathname !== "/login") && (pathname !== "/") && <SideMenu 
                 onCollapse={(inactive) => {
                 console.log(inactive);
                 setInactive(inactive);
@@ -90,8 +89,7 @@ function App() {
                     element={<Login />
                   }/>
                   <Route path="*" element={<Empty />} />
-                  <Route path="/printable/Print/:order_id" element={<Print />}>
-                  </Route>
+                  <Route path="/printable/Print/:order_id" element={<Print />}/>
                 </Routes>
               </div>
             </div>
