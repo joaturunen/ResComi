@@ -299,11 +299,11 @@ li {
   margin: 0.5rem
 }
 
-@media print {
+/* @media print {
   #printButton {
     display: none;
   }
-}
+} */
 
 .pButtonOldOrder{
   background-color: white;
@@ -313,4 +313,20 @@ li {
 
 .active{
   background-color: #dcdcdc;
+}
+
+.printme {
+	display: none;
+}
+
+@media print {
+  #printButton {
+    display: none;
+  }
+	.no-printme  {
+		display: none;
+	}
+	.printme  {
+		display: block;
+	}
 }

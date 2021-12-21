@@ -3,7 +3,6 @@ import { useParams } from 'react-router';
 import '../style/style.css';
 import logo3 from '../images/logo3.svg';
 import { buttonStyle } from '../style/colors';
-import '../style/modal.css';
 import {URL} from '../back/Config';
 
 // order printable report form
