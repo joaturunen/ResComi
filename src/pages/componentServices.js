@@ -4,7 +4,7 @@ import {URL} from '../back/Config';
 import {FaPlus} from 'react-icons/fa';
 
 // services-component to order-page
-export default function Services({addToCart }) {
+export default function ComponentServices({addToCart }) {
     const [services, setServices] = useState([]);
 
     // retrieves services 
