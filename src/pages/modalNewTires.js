@@ -6,7 +6,7 @@ import {URL} from '../back/Config';
 
 // add new tires to car (modal)
 
-export default function NewTires({setCarTires, car_id, car_register}) {
+export default function ModalNewTires({setCarTires, car_id, car_register}) {
     const [brand, setBrand] = useState('');
     const [model, setModel] = useState('');
     const [type, setType] = useState('');
