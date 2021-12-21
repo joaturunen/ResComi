@@ -50,7 +50,7 @@ export default function Customer({
 
   return (
     <div>
-      <div>       
+      <div className='shadow rounded'>       
         <Tab active={0}>
           {tabContent.map((tab, index) => (
             <Tab.TabPane key={'Tab-${index}'} tab={tab.title}>{tab.content}</Tab.TabPane>

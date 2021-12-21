@@ -237,18 +237,34 @@ li {
 .tab-title,
 .tab-content {
   min-height: 100px;
-  border: 1px solid #dcdcdc;
   border-top: none;
 }
 
 .nav-tabs a {
   color: #000;
+  border-radius: 10px 10px 0 0;
+}
+
+.nav-tabs a:hover {
+  color: #000;
+  background-color: lightblue;
+  border-radius: 10px 10px 0 0;
+  border: solid 1px lightblue;
+}
+
+.nav-tabs a:visited {
+  color: #000;
+  border-radius: 10px 10px 0 0;
 }
 
 .activeTab {
-  background-color: lightblue;
-  border: 1px solid #dcdcdc;
-  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  border: solid 1px #dcdcdca8;
+  background-color: #dcdcdca8;
+}
+.noActiveTab {
+  border-radius: 10px 10px 0 0;
+  border: solid 1px #dcdcdca8;
 }
 
 .scrollingRoute {
@@ -260,15 +276,6 @@ li {
 .warehouse {
   margin-top: 5rem;
 }
-.full {
-  color: crimson;
-  font-weight: bold;
-}
-.free {
-  color: rgb(35, 204, 35);
-  font-weight: bold;
-}
-
 
 .stylingContent {
   margin-left: 1rem !important;
