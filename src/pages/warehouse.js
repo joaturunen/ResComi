@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FaSquareFull } from 'react-icons/fa';
-import { boxColorLayot, pieChartTaken, pieChartFree, buttonStyle } from '../style/colors';
+import { FaSquareFull, FaCircle } from 'react-icons/fa';
+import { boxColorLayot, pieChartTaken, pieChartFree, buttonStyle, free, full } from '../style/colors';
 import { Navigate } from 'react-router-dom';
 import Loading from '../components/loading';
 import {URL} from '../back/Config';
@@ -92,7 +92,7 @@ export default function Warehouse({setCurrentShelfID}) {
                 <tr key={shelf.id} >
                   <td>{shelf.id}</td>
                   <td>{shelf.amount}</td>
-                  <td>{(shelf.free === 0) ? (<p class='full'>Täynnä</p>) : (<p class='free'>Vapaita paikkoja {shelf.free}</p>)}</td>
+                  <td>{(shelf.free === 0) ? (<p><FaCircle style={full}/>Täynnä</p>) : (<p><FaCircle style={free}/><strong>{shelf.free}</strong> vapaata paikkaa</p>)}</td>
                   <td>
                   <button className='btn' style={buttonStyle} onClick={() => openShelfSite(shelf)}>Näytä hylly {shelf.id}</button>
                   </td>

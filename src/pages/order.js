@@ -13,13 +13,10 @@ import {URL} from '../back/Config';
 
 // order page
 export default function Order({setCustomer_id, setCustomerData, customerData}) {
-
-  
     const [cart, setCart] = useState([]);
     const [employ_id] = useState(3);
     const [showModalOrderDone, setShowModalOrderDone] = useState(false);
     const [info, setInfo] = useState([]);
-
 
     // check the cart
     useEffect(() => {
@@ -80,7 +77,6 @@ export default function Order({setCustomer_id, setCustomerData, customerData}) {
 
     // save new order
     function SaveOrder() {
-      setShowModalOrderDone(true);
         let status = 0;
         fetch(URL + 'order/order_create.php', { 
             method: 'POST',
@@ -104,9 +100,13 @@ export default function Order({setCustomer_id, setCustomerData, customerData}) {
         })
         .then (
             (res) => {
+              if (status === 200) {
                 emptyAllData();
-                setShowModalOrderDone(true);
                 setInfo(res);
+                setShowModalOrderDone(true);
+              } else {
+                alert(res.error);
+              }
             }, (error) => {
                 alert(error);
             }
@@ -138,7 +138,7 @@ export default function Order({setCustomer_id, setCustomerData, customerData}) {
     </>
         return (
             <>
-            <h3>Uusi tilaus <button class='btn' style={buttonStyle} onClick={() => emptyAllData()}>Tyhjennä kentät</button></h3>
+            <h3>Uusi tilaus</h3>
             <div class="row">
               <div class="col-3">
                 <div className="padding" style={boxColorLayot}>
@@ -169,6 +169,7 @@ export default function Order({setCustomer_id, setCustomerData, customerData}) {
                     </div>) : (<p>{orderShow}</p>)}
                   </div>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class='btn' style={buttonStyle} onClick={() => emptyAllData()}>Tyhjennä kentät</button>
                       <button class='btn' style={buttonStyle} onClick={() => SaveOrder()}>Tallenna tilaus</button>
                       <ModalOrderDone showModal={showModalOrderDone} closeModal={setShowModalOrderDone} info={info}/>
                     </div>
