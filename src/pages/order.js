@@ -114,7 +114,7 @@ export default function Order({setCustomer_id, setCustomerData, customerData}) {
     }
 
     function NoInfo() {
-      if (customerData == 0) {
+      if (customerData === 0) {
         alert("Lisää asiakkaan tiedot!");
       }
       else if (sum === 0) {
@@ -172,14 +172,14 @@ export default function Order({setCustomer_id, setCustomerData, customerData}) {
                   <ComponentOrderCar customerData={customerData}/>
                   <h4>Tilaus</h4>
                   <div>
-                    { (cart[0] == null) ? (
+                    { (cart[0] === null) ? (
                     <div class="alert alert-warning" role="alert">
                       Tilauksia ei ole valittu
                     </div>) : (<p>{orderShow}</p>)}
                   </div>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class='btn' style={buttonStyle} onClick={() => emptyAllData()}>Tyhjennä kentät</button>
-                      <button class='btn' style={buttonStyle} onClick={customerData == 0 || sum == 0 ? () => NoInfo() : () => SaveOrder()}>Tallenna tilaus</button>
+                      <button class='btn' style={buttonStyle} onClick={customerData === 0 || sum === 0 ? () => NoInfo() : () => SaveOrder()}>Tallenna tilaus</button>
                       <ModalOrderDone showModal={showModalOrderDone} closeModal={setShowModalOrderDone} info={info}/>
                     </div>
                 </div>

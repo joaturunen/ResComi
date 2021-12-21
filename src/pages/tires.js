@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import NewTires from "./modalNewTires";
 import Car from '../images/3121893.png';
-import { buttonStyle } from "../style/colors";
-import { FaTrash } from 'react-icons/fa';
+import { buttonStyle, free, full } from "../style/colors";
+import { FaTrash, FaCircle  } from 'react-icons/fa';
 import UpdateTires from "./updateTires";
 import {URL} from '../back/Config';
 
@@ -76,12 +76,13 @@ export default function Tires({car_id, car_register}) {
     return (
         <div>
             {carTires.map(tire => (
-                <div key={tire.id} className="row">
+                <div key={tire.id} className="row tiresComponent">
                     
                     <div className='col-md-3'>
                         <div>
                             <label>Rengaspaikka</label>
-                            <p>{tire.warehouse_id}-{tire.shelf_id}-{tire.slot_id}</p>
+
+                            {(tire.slot_id === null) ? (<p><FaCircle style={free}/> ei varastossa</p>) : (<p><FaCircle style={full}/>{tire.warehouse_id}-{tire.shelf_id}-{tire.slot_id}</p>)}
                         </div>
                         <div>
                             <label>Rengasmerkki</label>

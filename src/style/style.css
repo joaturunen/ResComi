@@ -247,9 +247,9 @@ li {
 
 .nav-tabs a:hover {
   color: #000;
-  background-color: lightblue;
+  background-color: #dcdcdca8;
   border-radius: 10px 10px 0 0;
-  border: solid 1px lightblue;
+  border: solid 1px #dcdcdca8;
 }
 
 .nav-tabs a:visited {
@@ -336,4 +336,11 @@ li {
 	.printme  {
 		display: block;
 	}
+}
+
+.tiresComponent{
+  background-color: #dcdcdc;
+  border-radius: 20px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
 }
