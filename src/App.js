@@ -14,7 +14,6 @@ import Print from './printable/Print';
 import ShelfSlots from './pages/shelfSlots';
 import Orders from './pages/completedOrders';
 import IncompletedOrders from './pages/incompletedOrders';
-import { GiRoyalLove } from 'react-icons/gi';
 
 
 function App() {

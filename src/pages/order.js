@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import Services from './services';
+import ComponentServices from './componentServices';
 import SearchCustomer from './searchCustomer';
 import { boxColorLayot } from '../style/colors';
 import { FaTrash, FaTimes } from 'react-icons/fa';
@@ -78,7 +78,6 @@ export default function Order({setCustomer_id, setCustomerData, customerData}) {
       localStorage.removeItem('cart');
     }
 
-
     // save new order
     function SaveOrder() {
       setShowModalOrderDone(true);
@@ -105,8 +104,7 @@ export default function Order({setCustomer_id, setCustomerData, customerData}) {
         })
         .then (
             (res) => {
-                console.log(res);
-                //emptyAllData();
+                emptyAllData();
                 setShowModalOrderDone(true);
                 setInfo(res);
             }, (error) => {
@@ -155,7 +153,7 @@ export default function Order({setCustomer_id, setCustomerData, customerData}) {
                 </div>
               </div>
               <div class="col-4">
-                <Services addToCart={addToCart} />
+                <ComponentServices addToCart={addToCart} />
               </div>
 
               <div class="col">

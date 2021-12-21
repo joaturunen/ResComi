@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import NewTires from "./newTires";
+import NewTires from "./modalNewTires";
 import Car from '../images/3121893.png';
 import { buttonStyle } from "../style/colors";
 import { FaTrash } from 'react-icons/fa';

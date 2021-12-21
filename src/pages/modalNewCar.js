@@ -5,7 +5,7 @@ import {URL} from '../back/Config';
 
 // add new car to customer (modal)
 
-export default function NewCar({setCustomerCars, customer_id}) {
+export default function ModalNewCar({setCustomerCars, customer_id}) {
 
     const [register, setRegister] = useState('');
     const [brand, setBrand] = useState('');
