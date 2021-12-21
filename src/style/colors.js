@@ -31,9 +31,9 @@ const backgroundLight = '#F4F7FC'
 
 
 //Pie-Chart taken
-export const pieChartTaken = "#E9897E";
+export const pieChartTaken = "#E52D38";
 //Pie-Chart free
-export const pieChartFree = "#A0DAA9"; 
+export const pieChartFree = "#65B731"; 
 
 //Header color
 export const headerColor = {

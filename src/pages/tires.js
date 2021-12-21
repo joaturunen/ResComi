@@ -80,7 +80,7 @@ export default function Tires({car_id, car_register}) {
                     
                     <div className='col-md-3'>
                         <div>
-                            <label>Rengaspaikka</label>
+                            <label><strong>Rengaspaikka</strong></label>
 
                             {(tire.slot_id === null) ? (<p><FaCircle style={free}/> ei varastossa</p>) : (<p><FaCircle style={full}/>{tire.warehouse_id}-{tire.shelf_id}-{tire.slot_id}</p>)}
                         </div>
