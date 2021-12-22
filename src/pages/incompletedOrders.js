@@ -33,7 +33,7 @@ export default function Orders({openReport}) {
             <tr>
             <th scope="col">Päivämäärä</th>
             <th scope="col">Tilausnumero</th>
-            <th scope="col">Asiakas</th>
+            <th scope="col">Auto Rek</th>
             <th scope="col"></th>
             </tr>
           </thead>
