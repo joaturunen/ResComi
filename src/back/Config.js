@@ -1,4 +1,4 @@
-//Main URL to backend API
+//Main URL to backend 
 export const URL = 'http://localhost/rengasvarasto-back/landing/';
 
 

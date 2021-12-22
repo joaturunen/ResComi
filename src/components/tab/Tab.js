@@ -5,7 +5,7 @@ export default function Tab({ children, active }) {
     const [activeTab, setActiveTab] = useState(active);
     const [tabsData, setTabsData] = useState([]);
 
-useEffect(() => {
+    useEffect(() => {
         let data = [];
         React.Children.forEach(children, element => {
             if(!React.isValidElement(element)) return;
@@ -13,8 +13,8 @@ useEffect(() => {
             const {props: { tab, children }} = element;
             data.push({tab, children});
         })
-    setTabsData(data);
-}, [children])
+        setTabsData(data);
+    }, [children]);
 
 
 

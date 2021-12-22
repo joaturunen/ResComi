@@ -14,7 +14,7 @@ export default function CustomerInfo({customer_id, setCustomerCars, setCustomerO
     const [city, setCity] = useState("");
     const [customersaved, setCustomersaved] = useState("");
     
-    // retrieve one customer and its cars, tires and orders
+    // retrieve single customer and its cars, tires and orders
     useEffect(() => {
         let status = 0;
         
