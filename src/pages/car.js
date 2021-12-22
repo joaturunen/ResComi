@@ -57,6 +57,7 @@ export default function Car({ customerCars, setCustomerCars, customer_id}) {
 
     return (
         <>
+        <h5>Ajoneuvojen tiedot</h5>
             <div className="col-6">
                 <table className="table px-3 table-striped">
                     <thead>
@@ -84,15 +85,14 @@ export default function Car({ customerCars, setCustomerCars, customer_id}) {
                         ))}
                     </tbody>
                 </table>
+                <div>
+                <NewCar setCustomerCars={setCustomerCars} customer_id={customer_id} />
+            </div>
             </div>
             <div className="col-6">
                 {(showTires) ? (<Tires car_id={car_id} car_register={car_register}/>) : (<div></div>)}
                     
             </div>
-            <div>
-                <NewCar setCustomerCars={setCustomerCars} customer_id={customer_id} />
-            </div>
-
 
         </>
     );

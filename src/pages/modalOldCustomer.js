@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react';
-import {buttonStyle, boxColorLayot, Choice, ChoiceRemove, ChoiceRemoveBorder, ChoiceToWarehouse,ChoiceWarehouse } from '../style/colors';
+import {buttonStyle, boxColorLayot, Choice, ChoiceRemove, ChoiceRemoveBorder, ChoiceToWarehouse,ChoiceWarehouse, ChoiceInWarehouse } from '../style/colors';
 import '../style/modal.css';
 import {URL} from '../back/Config';
 import Loading from '../components/loading';
@@ -275,7 +275,7 @@ const addToWarehouseNewPlace =
                   </table>
             </div>
           <div className="col" >
-            <h6>Renkaat <span style={Choice}>Varastossa</span> <span style={ChoiceWarehouse}>Lisätään</span></h6>
+            <h6>Renkaat <span style={ChoiceInWarehouse}>Varastossa</span> <span style={ChoiceWarehouse}>Lisätään</span></h6>
             {(car !== 0) ? (tiresCar) : (<p>Valitse auto</p>)}
           </div>
           <div class="d-flex flex-row">

@@ -43,7 +43,7 @@ const alertFailed =
       </div>
         <div>
           <div className='row'>
-            <p>Tilaus numerolla {info.orderNRO}</p>
+            <p>Tilauksen numero {info.orderNRO}</p>
             <p>{info.status}</p>
             <Link to="/">Palaa etusivulle</Link>
             <div className='col-12 d-flex justify-content-end '>

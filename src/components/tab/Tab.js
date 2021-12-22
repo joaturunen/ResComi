@@ -23,7 +23,7 @@ export default function Tab({ children, active }) {
            <ul className="nav nav-tabs">
                {
                 tabsData.map(({tab}, index) => (
-                    <li className={`nav-item ${index === activeTab ? "activeTab" : ""}`}>
+                    <li className={`nav-item ${index === activeTab ? "activeTab" : "noActiveTab"}`}>
                         <a className="nav-link"
                            href="#" onClick={() => setActiveTab(index)}
                            >

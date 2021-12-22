@@ -31,9 +31,9 @@ const backgroundLight = '#F4F7FC'
 
 
 //Pie-Chart taken
-export const pieChartTaken = "#E9897E";
+export const pieChartTaken = "#E52D38";
 //Pie-Chart free
-export const pieChartFree = "#A0DAA9"; 
+export const pieChartFree = "#65B731"; 
 
 //Header color
 export const headerColor = {
@@ -95,33 +95,58 @@ export const Choice = {
   'padding-top':'0'
 };
 
+export const ChoiceInWarehouse = {
+  'background': shockColor,
+  'color': textLight,
+  'padding': '0.3rem',
+  'borderRadius': '0.2rem',
+  'padding-top':'0'
+};
+
 export const ChoiceRemove = {
   'background': shockColor,
   'color': textLight,
   'padding': '0.3rem',
-  'borderRadius': '0.2rem'
+  'borderRadius': '0.2rem',
+  'padding-top':'0'
 };
 export const ChoiceRemoveBorder = {
   'border': 'solid' + shockColor,
   'borderWidth': 4,
+  'padding-top':'0'
 };
 
 export const ChoiceWarehouse = {
   'background': successColor,
   'color': textLight,
   'padding': '0.3rem',
-  'borderRadius': '0.2rem'
+  'borderRadius': '0.2rem',
+  'padding-top':'0'
 };
 
 export const ChoiceToWarehouse = {
   'background': successColor,
   'color': textLight,
   'padding': '0.3rem',
-  'borderRadius': '0.2rem'
+  'borderRadius': '0.2rem',
+  'padding-top':'0'
 };
 export const ChoiceToWarehouseBorder = {
   'border': 'solid' + successColor,
   'borderWidth': 4,
+  'padding-top':'0'
+};
+
+export const full = {
+  'color': pieChartTaken,
+  'fontSize': '1.5rem',
+  'marginRight': '0.5rem'
+};
+
+export const free = {
+  'color': pieChartFree,
+  'fontSize': '1.5rem',
+  'marginRight': '0.5rem'
 };
 
 

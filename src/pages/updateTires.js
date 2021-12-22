@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {buttonStyle} from '../style/colors';
 import '../style/modal.css';
-import Car from '../images/3121893.png';
+import Car from '../images/car.png';
 import {FaEdit } from 'react-icons/fa';
 import {URL} from '../back/Config';
 

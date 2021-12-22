@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import { buttonStyle } from '../style/colors';
+import { FaArrowLeft, FaArrowRight,  FaCircle } from 'react-icons/fa';
+import { buttonStyle, free, full } from '../style/colors';
 import { Navigate } from 'react-router-dom';
 import Loading from '../components/loading';
 import {URL} from '../back/Config';
@@ -102,7 +102,7 @@ const shelfPage =
           {slots.map(slot => (
             <tr key={slot.slot_id} >
               <td>{slot.warehouse_id}-{slot.shelf_id}-<strong>{slot.slot_id}</strong></td>
-              <td>{(slot.tires_id !== null) ? (<p class='full'>Varattu</p>) : (<p class='free'>Vapaa</p>)}</td>
+              <td>{(slot.tires_id !== null) ? (<p><FaCircle style={full}/></p>) : (<p><FaCircle style={free}/></p>)}</td>
               <td>{(slot.tires_id !== null) ? (<p>{slot.tires_id}</p>) : (<p>-</p>)}</td>
               <td>{(slot.tires_id !== null) ? (<p>{slot.season}</p>) : (<p>-</p>)}</td>
               <td>{(slot.tires_id !== null) ? (<p>{slot.tires_type}</p>) : (<p>-</p>)}</td>
