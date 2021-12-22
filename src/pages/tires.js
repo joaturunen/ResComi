@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import NewTires from "./modalNewTires";
-import Car from '../images/3121893.png';
+import Car from '../images/car.png';
 import { buttonStyle, free, full } from "../style/colors";
 import { FaTrash, FaCircle  } from 'react-icons/fa';
 import UpdateTires from "./updateTires";
